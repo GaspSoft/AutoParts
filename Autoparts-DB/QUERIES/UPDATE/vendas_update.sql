@@ -1,0 +1,10 @@
+update vendas  set  pecas_id = 1, pecas_fornecedores_id=1, vendedores_id = 1, clientes_id =1 where vendas_id = 1;
+update vendas  set  pecas_id = 2, pecas_fornecedores_id=2, vendedores_id = 2, clientes_id =2 where vendas_id = 2;
+update vendas  set  pecas_id = 3, pecas_fornecedores_id=3, vendedores_id = 3, clientes_id =3 where vendas_id = 3;
+update vendas  set  pecas_id = 4, pecas_fornecedores_id=4, vendedores_id = 4, clientes_id =4 where vendas_id = 4;
+update vendas  set  pecas_id = 5, pecas_fornecedores_id=5, vendedores_id = 5, clientes_id =5 where vendas_id = 5;
+update vendas  set  pecas_id = 6, pecas_fornecedores_id=6, vendedores_id = 6, clientes_id =6 where vendas_id = 6;
+update vendas  set  pecas_id = 7, pecas_fornecedores_id=7, vendedores_id = 7, clientes_id =7 where vendas_id = 7;
+update vendas  set  pecas_id = 8, pecas_fornecedores_id=8, vendedores_id = 8, clientes_id =8 where vendas_id = 8;
+update vendas  set  pecas_id = 9, pecas_fornecedores_id=9, vendedores_id = 9, clientes_id =9 where vendas_id = 9;
+update vendas  set  pecas_id = 10, pecas_fornecedores_id=10, vendedores_id = 10, clientes_id =10 where vendas_id = 10;
