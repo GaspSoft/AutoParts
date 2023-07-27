@@ -7,7 +7,7 @@ USE autoparts_db;
 
 CREATE TABLE IF NOT EXISTS `Enderecos` (
   `Endereco_id` INT auto_increment NOT NULL,
-  `cep` INT NOT NULL,
+  `cep` bigint NOT NULL,
   `estado` VARCHAR(45) NOT NULL,
   `cidade` VARCHAR(45) NOT NULL,
   `bairro` VARCHAR(45) NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `Clientes` (
   `cpf` bigint NOT NULL,
   `nome` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
-  `senha` VARCHAR(20) NOT NULL,
+  `senha` VARCHAR(50) NOT NULL,
   `Enderecos_id` INT NOT NULL,
   PRIMARY KEY (`Cliente_id`, `Enderecos_id`),
   CONSTRAINT `fk_Clientes_Enderecos1` FOREIGN KEY (`Enderecos_id`) REFERENCES `Enderecos` (`Endereco_id`)
