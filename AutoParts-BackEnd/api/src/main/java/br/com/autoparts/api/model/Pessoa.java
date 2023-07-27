@@ -1,5 +1,7 @@
 package br.com.autoparts.api.model;
 
+import java.util.Date;
+
 import org.springframework.stereotype.Component;
 
 import jakarta.persistence.MappedSuperclass;
@@ -16,5 +18,6 @@ public class Pessoa {
     private String nome;
     private String email;
     private String senha;
+    private Integer dataNasc;
     
 }
