@@ -24,10 +24,10 @@ public class Servico {
     private EnderecoRepositorio enderecoRepositorio;
     
     // Método para cadastrar endereços
-    public ResponseEntity<?> cadastrarEndereço(Endereco e){
-        enderecoRepositorio.save(e);
-        return new ResponseEntity<>(enderecoRepositorio.save(e), HttpStatus.CREATED);
-    }
+    // public ResponseEntity<?> cadastrarEndereço(Endereco e){
+    //    enderecoRepositorio.save(e);
+    //    return new ResponseEntity<>(enderecoRepositorio.save(e), HttpStatus.CREATED);
+    //}
 
     public ResponseEntity<?> cadastrarCliente(Cliente cliente){
     // Verifica se o endereço foi fornecido no JSON
