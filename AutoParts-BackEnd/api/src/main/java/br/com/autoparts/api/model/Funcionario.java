@@ -12,15 +12,11 @@ import lombok.Setter;
 @Table(name = "funcionarios")
 @Getter
 @Setter
-public class Funcionario {
+public class Funcionario extends Pessoa{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Funcionario_id;
 
-    private Long cpf;
-    private String nome;
-    private String email;
-    private String senha;
     private Boolean cargo_funcionario;
     
 }
