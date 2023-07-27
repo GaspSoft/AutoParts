@@ -45,7 +45,7 @@ public class FuncionarioServices {
         else {
             
             return new ResponseEntity<>(repoFunc.save(obj), HttpStatus.CREATED);
-         }
+        }
 
 }
 }
