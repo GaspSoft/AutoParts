@@ -1,9 +1,12 @@
 package br.com.autoparts.api.model;
 
+import org.springframework.stereotype.Component;
+
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
 
+@Component
 @MappedSuperclass
 @Getter
 @Setter
