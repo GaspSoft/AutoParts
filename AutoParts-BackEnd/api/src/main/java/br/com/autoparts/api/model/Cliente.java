@@ -15,15 +15,10 @@ import lombok.Setter;
 @Table(name = "clientes")
 @Getter
 @Setter
-public class Cliente {
+public class Cliente extends Pessoa{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Cliente_id;
-
-    private Long cpf;
-    private String nome;
-    private String email;
-    private String senha;
 
     @OneToOne(cascade = CascadeType.ALL) // A opção CascadeType.ALL permite que as operações do cliente também afetem o endereço.
     @JoinColumn(name = "Enderecos_id") // O nome da coluna que é a chave estrangeira para a tabela de endereço.
