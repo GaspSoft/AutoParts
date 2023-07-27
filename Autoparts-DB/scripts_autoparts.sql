@@ -6,8 +6,8 @@ CREATE DATABASE IF NOT EXISTS autoparts_db;
 USE autoparts_db;
 
 CREATE TABLE IF NOT EXISTS `Enderecos` (
-  `Endereco_id` INT NOT NULL,
-  `cep` bigint NOT NULL,
+  `Endereco_id` INT AUTO_INCREMENT NOT NULL,
+  `cep` BIGINT NOT NULL,
   `estado` VARCHAR(45) NOT NULL,
   `cidade` VARCHAR(45) NOT NULL,
   `bairro` VARCHAR(45) NOT NULL,
@@ -17,14 +17,15 @@ CREATE TABLE IF NOT EXISTS `Enderecos` (
   PRIMARY KEY (`Endereco_id`)
 );
 
+
 CREATE TABLE IF NOT EXISTS `Fornecedores` (
-  `Fornecedor_id` INT NOT NULL,
+  `Fornecedor_id` INT AUTO_INCREMENT  NOT NULL,
   `nome` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`Fornecedor_id`)
 );
 
 CREATE TABLE IF NOT EXISTS `Pecas` (
-  `Pecas_id` INT NOT NULL,
+  `Pecas_id` INT  AUTO_INCREMENT NOT NULL,
   `nome` VARCHAR(45) NOT NULL,
   `descricao` VARCHAR(45) NOT NULL,
   `quantidade` INT NOT NULL,
@@ -41,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `Pecas` (
 );
 
 CREATE TABLE IF NOT EXISTS `Clientes` (
-  `Cliente_id` INT NOT NULL,
+  `Cliente_id` INT auto_increment NOT NULL,
   `cpf` bigint NOT NULL,
   `nome` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
@@ -53,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `Clientes` (
 );
 
 CREATE TABLE IF NOT EXISTS `Funcionarios` (
-  `Funcionario_id` INT NOT NULL,
+  `Funcionario_id` INT AUTO_INCREMENT NOT NULL,
   `cpf` bigint NOT NULL,
   `nome` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
@@ -63,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `Funcionarios` (
 );
 
 CREATE TABLE IF NOT EXISTS `Vendas` (
-  `Vendas_id` INT NOT NULL,
+  `Vendas_id` INT AUTO_INCREMENT NOT NULL,
   `Pecas_id` INT NOT NULL,
   `Pecas_Fornecedores_id` INT NOT NULL,
   `Vendedores_id` INT NOT NULL,
