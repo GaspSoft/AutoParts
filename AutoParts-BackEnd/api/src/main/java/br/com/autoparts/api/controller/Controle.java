@@ -25,10 +25,10 @@ public class Controle {
     }
 
     // Cadastrar endereço
-    @PostMapping("/endereco")
-    public ResponseEntity<?> cadastrarEndereco(@RequestBody Endereco e){
-        return servico.cadastrarEndereço(e);
-    }
+    // @PostMapping("/endereco")
+    // public ResponseEntity<?> cadastrarEndereco(@RequestBody Endereco e){
+    //     return servico.cadastrarEndereço(e);
+    // }
 
 
     // Cadastrar cliente pelo serviço
