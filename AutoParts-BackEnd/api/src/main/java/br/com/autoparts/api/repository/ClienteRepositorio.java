@@ -1,12 +1,19 @@
 package br.com.autoparts.api.repository;
 
-import org.springframework.stereotype.Repository;
 
 import br.com.autoparts.api.model.Cliente;
 
-import org.springframework.data.repository.CrudRepository;
+import java.util.List;
 
-@Repository
-public interface ClienteRepositorio extends CrudRepository<Cliente, Integer> {
-    
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+
+
+public interface ClienteRepositorio extends JpaRepository<Cliente, Integer> {
+    @Query("SELECT c FROM Cliente c WHERE c.cliente_id = :id")
+    Cliente findByClienteId(Integer id);
+
+    List<Cliente> findAll();
 }
+
