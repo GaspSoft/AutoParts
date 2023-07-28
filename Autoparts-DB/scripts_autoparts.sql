@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `Pecas` (
 );
 
 CREATE TABLE IF NOT EXISTS `Clientes` (
-  `Cliente_id` INT auto_increment NOT NULL,
+  `cliente_id` INT auto_increment NOT NULL,
   `cpf` bigint NOT NULL,
   `nome` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,

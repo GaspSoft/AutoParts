@@ -25,10 +25,6 @@ public class FuncionarioServices {
             return new ResponseEntity<>(retorno,HttpStatus.BAD_REQUEST);
         }
         ////validação de idade pode ser feita com um date type;
-        if (obj.getDataNasc() < 0) {
-            retorno.setMensagem("Idade Inválida");
-            return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
-        } 
         if (obj.getEmail().equals("")){
             retorno.setMensagem("Email Inválido");
             return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);

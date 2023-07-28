@@ -1,6 +1,7 @@
 package br.com.autoparts.api.model;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,9 +17,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Cliente extends Pessoa{
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Cliente_id;
+    @Id
+    @Column(name = "cliente_id")
+    private Integer cliente_id;
 
     @OneToOne(cascade = CascadeType.ALL) // A opção CascadeType.ALL permite que as operações do cliente também afetem o endereço.
     @JoinColumn(name = "Enderecos_id") // O nome da coluna que é a chave estrangeira para a tabela de endereço.
