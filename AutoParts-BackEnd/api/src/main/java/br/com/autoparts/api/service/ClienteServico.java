@@ -23,12 +23,6 @@ public class ClienteServico {
     @Autowired
     private EnderecoRepositorio enderecoRepositorio;
     
-    // Método para cadastrar endereços
-    // public ResponseEntity<?> cadastrarEndereço(Endereco e){
-    //    enderecoRepositorio.save(e);
-    //    return new ResponseEntity<>(enderecoRepositorio.save(e), HttpStatus.CREATED);
-    //}
-    
     public ResponseEntity<?> cadastrarCliente(Cliente cliente){
     // Verifica se o endereço foi fornecido no JSON
     if (cliente.getEndereco() != null) {
@@ -41,7 +35,12 @@ public class ClienteServico {
         retorno.setMensagem("Nenhum endereço foi associado!");
         return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
     }
-   
+    
+     //public ResponseEntity<?> alterarCliente(Cliente cliente){
+    //     return new ResponseEntity<>(clienteRepositorio.save(cliente)), HttpStatus.OK);
+    // }
+
+    // deletarCliente
 
     
 }
