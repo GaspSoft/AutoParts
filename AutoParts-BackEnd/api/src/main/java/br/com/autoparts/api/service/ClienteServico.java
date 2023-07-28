@@ -12,7 +12,7 @@ import br.com.autoparts.api.repository.ClienteRepositorio;
 import br.com.autoparts.api.repository.EnderecoRepositorio;
 
 @Service
-public class Servico {
+public class ClienteServico {
 
     @Autowired
     private Retorno retorno;
@@ -28,7 +28,7 @@ public class Servico {
     //    enderecoRepositorio.save(e);
     //    return new ResponseEntity<>(enderecoRepositorio.save(e), HttpStatus.CREATED);
     //}
-
+    
     public ResponseEntity<?> cadastrarCliente(Cliente cliente){
     // Verifica se o endereço foi fornecido no JSON
     if (cliente.getEndereco() != null) {
@@ -41,6 +41,7 @@ public class Servico {
         retorno.setMensagem("Nenhum endereço foi associado!");
         return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
     }
+   
 
     
 }
