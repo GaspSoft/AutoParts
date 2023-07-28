@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.autoparts.api.model.Cliente;
 import br.com.autoparts.api.model.Endereco;
 import br.com.autoparts.api.repository.ClienteRepositorio;
-import br.com.autoparts.api.service.Servico;
+import br.com.autoparts.api.service.ClienteServico;
 
 @RestController
 public class Controle {
     @Autowired
-    private Servico servico;
+    private ClienteServico servico;
 
     // Status da API
     @GetMapping("/status")
