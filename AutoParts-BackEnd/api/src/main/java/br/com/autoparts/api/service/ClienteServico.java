@@ -28,16 +28,16 @@ public class ClienteServico {
     
     public ResponseEntity<?> cadastrarCliente(Cliente cliente){
         // Verifica se o endereço foi fornecido no JSON
-        if (cliente.getEndereco() != null) {
+        //if (cliente.getEndereco() != null) {
             // Salva primeiro o endereço no banco de dados
             enderecoRepositorio.save(cliente.getEndereco());
             clienteRepositorio.save(cliente);   
 
             return new ResponseEntity<>(cliente, HttpStatus.CREATED);
-        } else{    
+        /* } else{    
             retorno.setMensagem("Nenhum endereço foi associado!");
             return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
-        } 
+        } */
 
     }
     

@@ -8,6 +8,8 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+
+import br.com.autoparts.api.model.Pessoa;
 @Entity
 @Table(name = "funcionarios")
 @Getter
@@ -16,7 +18,6 @@ public class Funcionario extends Pessoa{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Funcionario_id;
-
     private Boolean cargo_funcionario;
     
 }
