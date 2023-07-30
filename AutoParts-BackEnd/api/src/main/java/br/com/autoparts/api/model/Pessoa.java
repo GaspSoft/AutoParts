@@ -1,5 +1,6 @@
 package br.com.autoparts.api.model;
 
+import java.util.Date;
 
 import org.springframework.stereotype.Component;
 
