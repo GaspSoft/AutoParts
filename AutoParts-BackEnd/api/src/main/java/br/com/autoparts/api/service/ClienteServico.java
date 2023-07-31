@@ -31,6 +31,7 @@ public class ClienteServico {
     public ResponseEntity<?> cadastrarCliente(Cliente cliente){
         // Verifica se o endereço foi fornecido no JSON
         if (cliente.getEndereco() != null) {
+            if(clienteRepositorio.findByEmail(cliente.getEmail()) == null && clienteRepositorio.findByCpf(cliente.getCpf()) == null)
             // Salva primeiro o endereço no banco de dados
             enderecoRepositorio.save(cliente.getEndereco());
             clienteRepositorio.save(cliente);   
