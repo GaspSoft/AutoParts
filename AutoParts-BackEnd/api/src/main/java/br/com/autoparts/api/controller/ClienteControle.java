@@ -56,5 +56,5 @@ public class ClienteControle {
     @PutMapping("/cliente/{cliente_id}")
       public ResponseEntity<?> alterarEndereco(@PathVariable Integer cliente_id, @RequestBody Endereco e){
          return servico.editarEndereco(cliente_id, e);
-     }
+    }
 }

@@ -14,6 +14,9 @@ public interface ClienteRepositorio extends JpaRepository<Cliente, Integer> {
     @Query("SELECT c FROM Cliente c WHERE c.cliente_id = :id")
     Cliente findByClienteId(Integer id);
 
+    List<Cliente> findByEmail(String email);
+    List<Cliente> findBySenha(String senha);
+
     List<Cliente> findAll();
 }
 
