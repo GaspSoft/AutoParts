@@ -16,10 +16,10 @@ public class Vendas {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Vendas_id;
-    private Integer Pecas_id;
-    private Integer Pecas_Fornecedores_id;
-    private Integer Vendedores_id;
-    private Integer Clientes_id;
+    private Integer vendas_id;
+    private Integer pecas_id;
+    private Integer pecas_fornecedores_id;
+    private Integer vendedores_id;
+    private Integer clientes_id;
     
 }
