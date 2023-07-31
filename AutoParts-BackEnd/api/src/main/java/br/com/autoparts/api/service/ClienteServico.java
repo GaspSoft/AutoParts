@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import br.com.autoparts.api.model.Cliente;
 import br.com.autoparts.api.model.Endereco;
@@ -26,6 +27,7 @@ public class ClienteServico {
     @Autowired
     private EnderecoRepositorio enderecoRepositorio;
     
+    // Cadastra Cliente
     public ResponseEntity<?> cadastrarCliente(Cliente cliente){
         // Verifica se o endereço foi fornecido no JSON
         if (cliente.getEndereco() != null) {
@@ -33,7 +35,8 @@ public class ClienteServico {
             enderecoRepositorio.save(cliente.getEndereco());
             clienteRepositorio.save(cliente);   
 
-            return new ResponseEntity<>(cliente, HttpStatus.CREATED);
+            retorno.setMensagem("Cliente cadastrado!");
+            return new ResponseEntity<>(retorno, HttpStatus.CREATED);
         } else{    
             retorno.setMensagem("Nenhum endereço foi associado!");
             return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
@@ -41,6 +44,7 @@ public class ClienteServico {
 
     }
     
+    // Lista todos os clientes
     public List<Cliente> listarTodos(){
         return clienteRepositorio.findAll();
     }
@@ -73,6 +77,54 @@ public class ClienteServico {
         }
     }
 
-    // deletarCliente
+    // Deleta todos os clientes
+    public ResponseEntity<?> deletarCliente(Integer cliente_id){
+        if(clienteRepositorio.existsById(cliente_id)){
+
+            Cliente clienteExistente = clienteRepositorio.findByClienteId(cliente_id);
+            clienteRepositorio.delete(clienteExistente);
+            retorno.setMensagem("Deletado");
+
+            return new ResponseEntity<>(retorno, HttpStatus.OK);
+        } else {
+            retorno.setMensagem("Nenhum cliente encontrado pelo id!");
+            return new ResponseEntity<>(retorno, HttpStatus.NOT_FOUND);
+
+        }
+     
+    }
+
+    // Lista por id o cliente
+    public ResponseEntity<?> selecionarPorID(Integer cliente_id){
+        if(clienteRepositorio.existsById(cliente_id)){
+
+            Cliente clienteExistente = clienteRepositorio.findByClienteId(cliente_id);
+
+            return new ResponseEntity<>(clienteExistente, HttpStatus.OK);
+        } else {
+            retorno.setMensagem("Nenhum cliente encontrado pelo id!");
+            return new ResponseEntity<>(retorno, HttpStatus.NOT_FOUND);
+
+        }
+     
+    }
+
+     // Edita o endereço pelo id do cliente
+    public ResponseEntity<?> editarEndereco(Integer cliente_id, Endereco e){
+
+       if(clienteRepositorio.existsById(cliente_id)){
+
+            Cliente clienteExistente = clienteRepositorio.findByClienteId(cliente_id);
+            clienteExistente.setEndereco(e);
+            clienteRepositorio.save(clienteExistente);
+            
+            return new ResponseEntity<>(clienteExistente, HttpStatus.OK);
+        } else {
+            retorno.setMensagem("Nenhum cliente encontrado pelo id!");
+            return new ResponseEntity<>(retorno, HttpStatus.NOT_FOUND);
+
+        }
+     
+    }
     
 }
