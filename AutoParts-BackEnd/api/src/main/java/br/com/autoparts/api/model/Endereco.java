@@ -15,7 +15,7 @@ import lombok.Setter;
 public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Endereco_id; 
+    private Integer endereco_id; 
 
     private Long cep;
     private String estado;
