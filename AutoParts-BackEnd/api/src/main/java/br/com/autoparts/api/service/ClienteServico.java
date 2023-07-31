@@ -35,8 +35,7 @@ public class ClienteServico {
             enderecoRepositorio.save(cliente.getEndereco());
             clienteRepositorio.save(cliente);   
 
-            retorno.setMensagem("Cliente cadastrado!");
-            return new ResponseEntity<>(retorno, HttpStatus.CREATED);
+            return new ResponseEntity<>(cliente, HttpStatus.CREATED);
         } else{    
             retorno.setMensagem("Nenhum endereço foi associado!");
             return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
@@ -126,5 +125,6 @@ public class ClienteServico {
         }
      
     }
+
     
 }
