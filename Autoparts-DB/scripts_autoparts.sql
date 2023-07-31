@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `vendas` (
   PRIMARY KEY (`vendas_id`, `pecas_id`, `pecas_fornecedores_id`, `vendedores_id`, `clientes_id`),
   CONSTRAINT `fk_pecas_has_vendedores_pecas1` FOREIGN KEY (`pecas_id`, `pecas_fornecedores_id`) REFERENCES `pecas` (`pecas_id`, `fornecedores_id`),
   CONSTRAINT `fk_vendas_vendedores1` FOREIGN KEY (`vendedores_id`) REFERENCES `funcionarios` (`funcionario_id`),
-  CONSTRAINT `fk_vendas_Clientes1` FOREIGN KEY (`clientes_id`) REFERENCES `clientes` (`cliente_id`)
+  CONSTRAINT `fk_vendas_clientes1` FOREIGN KEY (`clientes_id`) REFERENCES `clientes` (`cliente_id`)
   ON DELETE CASCADE
 );
 
