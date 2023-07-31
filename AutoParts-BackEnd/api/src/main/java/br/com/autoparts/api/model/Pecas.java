@@ -15,7 +15,7 @@ import lombok.Setter;
 public class Pecas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Pecas_id;
+    private Integer pecas_id;
     
     private String nome;
     private String descrição;
@@ -25,8 +25,8 @@ public class Pecas {
     private Integer ano;
     private Double preco;
     private String modelo;
-    private Boolean tipoVeiculo;
-    private Integer Fornecedores_id;
+    private Boolean tipo_veiculo;
+    private Integer fornecedores_id;
 
     
 }

@@ -15,7 +15,7 @@ import lombok.Setter;
 public class Funcionario extends Pessoa{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Funcionario_id;
+    private Integer funcionario_id;
 
     private Boolean cargo_funcionario;
     
