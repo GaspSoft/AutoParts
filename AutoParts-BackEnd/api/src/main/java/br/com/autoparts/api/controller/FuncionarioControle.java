@@ -9,6 +9,10 @@ import br.com.autoparts.api.service.FuncionarioServico;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 
 @RestController
@@ -27,6 +31,18 @@ public class FuncionarioControle {
         
         return funcionario.alterarFuncionario(f);
     }
+    @GetMapping("/funcionario")
+    public ResponseEntity<?> listarFuncionarios() {
+        return funcionario.listarFuncionarios();
+    }
+        @GetMapping("/funcionario/{id}")
+    public ResponseEntity<?> selecionarioPorId(@PathVariable Integer id){
 
+        return funcionario.ListarPorId(id);
+    }
+    @DeleteMapping("/deletaFuncionario/{id}")
+    public ResponseEntity<?> deletaPorId(@PathVariable Integer id){
 
+        return funcionario.deletarFuncionario(id);
+    }
 }
