@@ -18,8 +18,11 @@ public interface ClienteRepositorio extends JpaRepository<Cliente, Integer> {
     
     List<Cliente> findBySenha(String senha);
 
-    Optional<Cliente> findByEmail(String email);
-    Optional<Cliente> findByCpf(Long cpfLong);
+    List<Cliente> findByEmail(String email);
+    List<Cliente> findByCpf(Long cpfLong);
+
+    
+    
 
     List<Cliente> findAll();
 }
