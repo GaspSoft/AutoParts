@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.autoparts.api.model.Funcionario;
@@ -21,9 +22,13 @@ public class Controle {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<?> login(Funcionario f){
-        return servico.validaFuncionario(f);
+    @PostMapping("/loginClient")
+    public ResponseEntity<?> login(@RequestBody Pessoa p){
+        return servico.verificarUser(p);
+    }
+    @PostMapping("/loginFuncionario")
+    public ResponseEntity<?> login(@RequestBody Funcionario f){
+        return servico.verificarFuncionario(f);
     }
     
 }
