@@ -2,18 +2,18 @@
 @import '../../../scss/base/rem-calc.scss';
 
 .logo {
-  margin-top: 5px;
-  margin-left: 10px;
-  width: 27px;
-  height: 27px;
+  margin-top: rem-calc(5);
+  margin-left: rem-calc(10);
+  width: rem-calc(27);
+  height: rem-calc(27);
 }
 
 .nav-bar {
   display: flex;
   justify-content: space-between;
   padding: 0.1%;
-  background: #F5F5F5;
-  height: 34px;
+  background: $branco;
+  height: rem-calc(34);
 }
 
 .nav-list {
@@ -28,15 +28,15 @@
 }
 
 .nav-items {
-  margin: 5px;
+  margin: rem-calc(5);
 }
 
 .nav-link {
   text-decoration: none;
-  font-size: 11px;
-  margin-right: 5px;
+  font-size: rem-calc(11);
+  margin-right: rem-calc(5);
   font-weight: 600;
-  color: #6500E4;
+  color: $roxo;
 }
 
 .shape {
@@ -46,16 +46,16 @@
 
 .search {
   text-decoration: none;
-  height: 38px;
-  width: 320px;
-  margin-top: 20px;
-  border-radius: 13px;
-  border-width: 1px;
-  border-color: #ffffff;
+  height: rem-calc(38);
+  width: rem-calc(320);
+  margin-top: rem-calc(20);
+  border-radius: rem-calc(13);
+  border-width: rem-calc(1);
+  border-color: $branco;
   background: transparent;
-  color: #ffffff;
+  color: $branco;
   right: 80%;
-  bottom: 8px;
+  bottom: rem-calc(8);
   position: relative;
   outline: none;
 }
@@ -66,20 +66,24 @@
 
 .search[type="search"] {
   padding-left: 10%;
-  font-size: 16px;
+  font-size: rem-calc(16);
+
+  &::placeholder {
+    color: $branco;
+  }
 }
 
 .search-lupa {
   position: relative;
   right: 71%;
-  height: 18px;
-  bottom: 4px;
+  height: rem-calc(18);
+  bottom: rem-calc(4);
 }
 
 .search-close {
   position: relative;
   right: 89%;
-  bottom: 3px;
+  bottom: rem-calc(3);
   border: none;
   background: transparent;
   outline: none;
@@ -87,12 +91,12 @@
 }
 
 .kart-favorite {
-  background: #ffffff;
-  color: #6500E4;
-  border: #ffffff;
-  height: 50px;
-  width: 130px;
-  border-radius: 8px;
+  background: $branco;
+  color: $roxo;
+  border: $branco;
+  height: rem-calc(50);
+  width: rem-calc(130);
+  border-radius: rem-calc(8);
   position: relative;
   left: 44%;
 }
@@ -121,8 +125,8 @@
   display: flex;
   justify-content: space-between;
   padding: 0.1%;
-  height: 74px;
-  background: linear-gradient(to right, #342A41 0%, #6500e4 100%);
+  height: rem-calc(74);
+  background: $linear;
 }
 
 .sec-nav-list {
@@ -140,15 +144,15 @@
 }
 
 .sec-nav-items {
-  margin: 30px;
+  margin: rem-calc(30);
 }
 
 .sec-nav-link {
-  color: #ffffff;
+  color: $branco;
   text-decoration: none;
-  font-size: 17px;
+  font-size: rem-calc(17);
   font-weight: 400;
-  letter-spacing: 0.9px;
+  letter-spacing: rem-calc(0.9);
 }
 
 .sec-nav-link:hover {
