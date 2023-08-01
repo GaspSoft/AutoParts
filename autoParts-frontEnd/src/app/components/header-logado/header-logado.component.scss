@@ -1,0 +1,158 @@
+@import '../../../scss/base/base.scss';
+@import '../../../scss/base/rem-calc.scss';
+
+.logo {
+  margin-top: 5px;
+  margin-left: 10px;
+  width: 27px;
+  height: 27px;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.1%;
+  background: #F5F5F5;
+  height: 34px;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.nav-items {
+  margin: 5px;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 11px;
+  margin-right: 5px;
+  font-weight: 600;
+  color: #6500E4;
+}
+
+.shape {
+  position: relative;
+  right: 47%;
+}
+
+.search {
+  text-decoration: none;
+  height: 38px;
+  width: 320px;
+  margin-top: 20px;
+  border-radius: 13px;
+  border-width: 1px;
+  border-color: #ffffff;
+  background: transparent;
+  color: #ffffff;
+  right: 80%;
+  bottom: 8px;
+  position: relative;
+  outline: none;
+}
+
+.search::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+.search[type="search"] {
+  padding-left: 10%;
+  font-size: 16px;
+}
+
+.search-lupa {
+  position: relative;
+  right: 71%;
+  height: 18px;
+  bottom: 4px;
+}
+
+.search-close {
+  position: relative;
+  right: 89%;
+  bottom: 3px;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.kart-favorite {
+  background: #ffffff;
+  color: #6500E4;
+  border: #ffffff;
+  height: 50px;
+  width: 130px;
+  border-radius: 8px;
+  position: relative;
+  left: 44%;
+}
+
+.kart {
+  border: none;
+  position: relative;
+  cursor: pointer;
+  background: transparent;
+  top: 28%;
+  left: 18%;
+  outline: none;
+}
+
+.favorite {
+  border: none;
+  position: relative;
+  cursor: pointer;
+  top: 28%;
+  left: 45%;
+  background: transparent;
+  outline: none;
+}
+
+.sec-nav-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.1%;
+  height: 74px;
+  background: linear-gradient(to right, #342A41 0%, #6500e4 100%);
+}
+
+.sec-nav-list {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.sec-nav-list ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.sec-nav-items {
+  margin: 30px;
+}
+
+.sec-nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 0.9px;
+}
+
+.sec-nav-link:hover {
+  display: flex;
+  transition: 400ms;
+  transform: scale(1.2);
+}
