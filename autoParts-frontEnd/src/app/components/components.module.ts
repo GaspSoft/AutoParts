@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderLogadoComponent } from './header-logado/header-logado.component';
 import { HeaderNaoLogadoComponent } from './header-nao-logado/header-nao-logado.component';
 import { FooterComponent } from './footer/footer.component';
+import { InputCadastroClienteComponent } from './input-cadastro-cliente/input-cadastro-cliente.component';
 
 
 
@@ -10,12 +11,14 @@ import { FooterComponent } from './footer/footer.component';
   declarations: [
     HeaderLogadoComponent,
     HeaderNaoLogadoComponent,
-    FooterComponent
+    FooterComponent,
+    InputCadastroClienteComponent
   ],
   exports: [
     HeaderLogadoComponent,
     HeaderNaoLogadoComponent,
-    FooterComponent
+    FooterComponent,
+    InputCadastroClienteComponent
   ],
   imports: [
     CommonModule
