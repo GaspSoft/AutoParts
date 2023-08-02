@@ -6,40 +6,40 @@
   margin: auto;
   text-align: center;
   height: auto;
-  width: 400px;
+  width: rem-calc(400);
 }
 
 .logo-main {
-  margin-top: 65px;
-  width: 70px;
-  height: 70px;
-  margin-bottom: 0px;
+  margin-top: rem-calc(65);
+  width: rem-calc(70);
+  height: rem-calc(70);
+  margin-bottom: rem-calc(0);
 }
 
 .write-bold {
   font-weight: 800;
   color: $preto;
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-size: rem-calc(18);
+  margin-bottom: rem-calc(10);
 }
 
 .write {
-  font-size: 14px;
+  font-size: rem-calc(14);
   font-weight: 400;
   color: $cinza;
-  margin-bottom: 5px;
+  margin-bottom: rem-calc(5);
 }
 
 .text-info {
-  width: 330px;
-  height: 38px;
-  border: 1px;
-  border-radius: 3px;
+  width: rem-calc(330);
+  height: rem-calc(38);
+  border: rem-calc(1);
+  border-radius: rem-calc(3);
   border-style: solid;
   color: $cinza-claro;
-  margin-top: 5px;
-  margin-bottom: 6px;
-  padding-left: 20px;
+  margin-top: rem-calc(5);
+  margin-bottom: rem-calc(6);
+  padding-left: rem-calc(20);
   border-color: currentColor;
   outline: 0;
   box-shadow: none;
@@ -58,15 +58,15 @@
 }
 
 .text-info-met {
-  width: 150px;
-  height: 38px;
-  border: 1px;
-  border-radius: 3px;
+  width: rem-calc(150);
+  height: rem-calc(38);
+  border: rem-calc(1);
+  border-radius: rem-calc(3);
   border-style: solid;
   color: $cinza-claro;
-  margin-top: 5px;
-  margin-bottom: 6px;
-  padding-left: 20px;
+  margin-top: rem-calc(5);
+  margin-bottom: rem-calc(6);
+  padding-left: rem-calc(20);
   border-color: currentColor;
   outline: 0;
   box-shadow: none;
@@ -86,16 +86,16 @@
 }
 
 .btn-dropdown {
-  width: 350px;
-  height: 38px;
-  border: 1px;
-  border-radius: 3px;
+  width: rem-calc(350);
+  height: rem-calc(38);
+  border: rem-calc(1);
+  border-radius: rem-calc(3);
   border-style: solid;
   color: $cinza-claro;
-  margin-top: 5px;
-  margin-bottom: 6px;
+  margin-top: rem-calc(5);
+  margin-bottom: rem-calc(6);
   text-align: left;
-  padding-left: 20px;
+  padding-left: rem-calc(20);
   border-color: currentColor;
   background-color: $branco;
   outline: 0;
