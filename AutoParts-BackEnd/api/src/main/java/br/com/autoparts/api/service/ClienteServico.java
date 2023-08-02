@@ -32,14 +32,16 @@ public class ClienteServico {
         // Verifica se o endereço foi fornecido no JSON
         if (cliente.getEndereco() != null) {
             // Verifica se já existe um cliente com o mesmo e-mail ou CPF
-            Optional<Cliente> clienteExistentePorEmail = clienteRepositorio.findByEmail(cliente.getEmail());
-            Optional<Cliente> clienteExistentePorCpf = clienteRepositorio.findByCpf(cliente.getCpf());
-        
-            if (clienteExistentePorEmail.isPresent() || clienteExistentePorCpf.isPresent()) {
-                // Cliente já existe com o mesmo e-mail ou CPF
+
+            List<Cliente> funcionariosByEmail = clienteRepositorio.findByEmail(cliente.getEmail());
+            List<Cliente> funcionariosBySenha = clienteRepositorio.findByCpf(cliente.getCpf());
+
+
+            if (!funcionariosByEmail.isEmpty() || !funcionariosBySenha.isEmpty()) {
                 retorno.setMensagem("E-mail ou CPF já cadastrados.");
                 return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
             }
+            
         
             // Salva primeiro o endereço no banco de dados
             enderecoRepositorio.save(cliente.getEndereco());
