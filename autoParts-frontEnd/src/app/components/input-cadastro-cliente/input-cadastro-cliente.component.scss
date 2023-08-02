@@ -54,7 +54,7 @@
 .text-info:not(:placeholder-shown) {
   transition: 1.5s;
   color: $cinza;
-  border-color: $cinza;
+  border-color: $roxo;
 }
 
 .text-info-met {
@@ -85,22 +85,7 @@
   border-color: $cinza;
 }
 
-.btn-dropdown {
-  width: rem-calc(350);
-  height: rem-calc(38);
-  border: rem-calc(1);
-  border-radius: rem-calc(3);
-  border-style: solid;
-  color: $cinza-claro;
-  margin-top: rem-calc(5);
-  margin-bottom: rem-calc(6);
-  text-align: left;
-  padding-left: rem-calc(20);
-  border-color: currentColor;
-  background-color: $branco;
-  outline: 0;
-  box-shadow: none;
-}
+
 
 .btn-dropdown a {
   margin-right: rem-calc(275);
@@ -148,7 +133,7 @@ input[type="checkbox"] {
 input[type="checkbox"]:before {
   appearance: none;
   content: "\2713";
-  color: $cinza;
+  color: $roxo;
   position: absolute;
   top: rem-calc(-1);
   left: rem-calc(6);
