@@ -1,0 +1,101 @@
+@import '../../../scss/base/base.scss';
+@import '../../../scss/base/rem-calc.scss';
+
+.text-info {
+    align-items: center;
+    width: 500px;
+    height: 38px;
+    border: 1px;
+    border-radius: 3px;
+    border-style: solid;
+    color: #E5E5E5;
+    margin-top: 5px;
+    margin-bottom: 6px;
+    padding-left: 20px;
+    border-color: currentColor;
+    outline: 0;
+    box-shadow: none;
+}
+
+.text-info:hover:focus {
+    transition: 1.5s;
+    color: #6500E4;
+    border-color: #6500E4;
+}
+
+.text-info:not(:placeholder-shown) {
+    transition: 1.5s;
+    color: #525252;
+    border-color: #525252;
+}
+
+.info {
+    display: flex;
+    column-count: 2;
+    width: 100%;
+    height: 100vh;
+}
+
+.data {
+    margin-top: 5%;
+    width: 50%;
+    text-align: center;
+}
+
+.data-text {
+    display: grid;
+    padding-bottom: 10px;
+    text-align: left;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.address {
+    margin-top: 5%;
+    width: 50%;
+    text-align: center;
+}
+
+.address-text {
+    display: grid;
+    padding-bottom: 10px;
+    text-align: left;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.formatt {
+    display: grid;
+    margin-left: 20%;
+    margin-bottom: 10%;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10%;
+}
+
+.button-text {
+    font-size: 15px;
+    color: #ffffff;
+    font-weight: 300;
+}
+
+button[type="submit"] {
+    height: 38px;
+    width: 350px;
+    margin-top: 5%;
+    border-radius: 4px;
+    border-color: transparent;
+    transition: 500ms;
+    background-image: linear-gradient(to right, #342A41 0%, #6500e4  51%, #342A41  100%);
+    background-size: 200% auto;
+}
+ 
+
+button[type="submit"]:hover {
+    transform: scale(1.1, 1.1);
+    background-position: right center;
+}
