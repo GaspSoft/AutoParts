@@ -8,6 +8,7 @@ import { PerfilComponent } from './perfil/perfil.component';
 
 
 
+
 @NgModule({
   declarations: [
     HeaderLogadoComponent,
@@ -20,10 +21,12 @@ import { PerfilComponent } from './perfil/perfil.component';
     HeaderLogadoComponent,
     HeaderNaoLogadoComponent,
     FooterComponent,
-    InputCadastroClienteComponent
+    InputCadastroClienteComponent,
+    PerfilComponent
   ],
   imports: [
     CommonModule
+    
   ]
 })
 export class ComponentsModule { }
