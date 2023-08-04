@@ -13,8 +13,7 @@ import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { FinalizarCompraComponent } from './finalizar-compra/finalizar-compra.component';
 import { InstitucionalComponent } from './institucional/institucional.component';
 import { AjudaCadastroComponent } from './ajuda-cadastro/ajuda-cadastro.component';
-import { PerfilComponent } from '../perfil/perfil.component';
-import { PerfilModule } from '../perfil/perfil.module';
+import { PerfilPageComponent } from './perfil-page/perfil-page.component';
 
 
 
@@ -27,13 +26,14 @@ import { PerfilModule } from '../perfil/perfil.module';
     FinalizarCompraComponent,
     InstitucionalComponent,
     AjudaCadastroComponent,
-    PerfilComponent
+    PerfilPageComponent,
+  
   ],
   imports: [
     CommonModule,
     RoutingModule,
-    ComponentsModule,
-    PerfilModule
+    ComponentsModule
+
   ]
 })
 export class PagesModule { }
