@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "autoParts-frontEnd": {
+    "autoparts-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/auto-parts-front-end",
+            "outputPath": "dist/autoparts-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -30,12 +30,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
+              "node_modules/jquery/dist/jquery.min.js"
             ]
           },
           "configurations": {
@@ -69,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "autoParts-frontEnd:build:production"
+              "browserTarget": "autoparts-app:build:production"
             },
             "development": {
-              "browserTarget": "autoParts-frontEnd:build:development"
+              "browserTarget": "autoparts-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "autoParts-frontEnd:build"
+            "browserTarget": "autoparts-app:build"
           }
         },
         "test": {
@@ -106,6 +104,6 @@
     }
   },
   "cli": {
-    "analytics": "5125103e-2f27-45e0-8590-56da7d896181"
+    "analytics": "15be61ab-79ff-407d-a9d4-fce7f18ff90e"
   }
 }
