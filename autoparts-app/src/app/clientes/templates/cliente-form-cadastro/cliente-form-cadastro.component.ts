@@ -17,8 +17,8 @@ export class ClienteFormCadastroComponent {
   onSubmit(): void {
     this.service.cadastrar(this.cliente).subscribe(
       response => {
-
-      }
+        console.log(response)
+      },
     );
   }
 }
