@@ -15,7 +15,8 @@ export class ClienteFormCadastroComponent {
 
   }
 
-  onSubmit(): void {
+  cadastrar(): void {
+    alert("CLICADO")
     this.service.cadastrar(this.cliente).subscribe(
       response => {
         this.cliente = response;
