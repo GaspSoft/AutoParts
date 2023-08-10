@@ -10,7 +10,7 @@ export class ClientesService {
 
   constructor(private http: HttpClient) { }
 
-  private url: string = 'http://localhost:8080/api/clientes';
+  private url: string = 'http://localhost:8080/cliente';
 
   cadastrar(cliente: Cliente): Observable<Cliente> {
     return this.http.post<Cliente>(this.url, cliente);

@@ -1,16 +1,30 @@
 <div class="container">
-  <form #clienteForm="ngForm" (ngSubmit)="onSubmit()">
+  <form #clienteForm="ngForm" (ngSubmit)="cadastrar()">
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="alert alert-success" role="alert" *ngIf="sucessoFeedback">
+          Cliente salvo/atualizado com sucesso
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="errorsFeedback">
+          {{ errorsFeedback }}
+        </div>
+      </div>
+    </div>
+
     <h1>Pessoais</h1>
     <div class="row">
       <div class="col">
         <div class="form-floating mb-3">
-          <input type="number" [ngModel]="cliente.cpf" name="cpf" class="form-control" id="floatingInput" placeholder="CPF">
+          <input type="number" [(ngModel)]="cliente.cpf" name="cpf" class="form-control" id="floatingInput"
+            placeholder="CPF">
           <label for="floatingInput">CPF</label>
         </div>
       </div>
       <div class="col">
         <div class="form-floating mb-3">
-          <input type="text" [ngModel]="cliente.nome" name="nome" class="form-control" id="floatingInput" placeholder="Nome">
+          <input type="text" [ngModel]="cliente.nome" name="nome" class="form-control" id="floatingInput"
+            placeholder="Nome">
           <label for="floatingInput">Nome</label>
         </div>
       </div>
@@ -19,13 +33,15 @@
     <div class="row">
       <div class="col">
         <div class="form-floating mb-3">
-          <input type="email" [ngModel]="cliente.email" name="email" class="form-control" id="floatingInput" placeholder="nome@exemplo.com">
+          <input type="email" [(ngModel)]="cliente.email" name="email" class="form-control" id="floatingInput"
+            placeholder="nome@exemplo.com">
           <label for="floatingInput">Email</label>
         </div>
       </div>
       <div class="col">
         <div class="form-floating mb-3">
-          <input type="password" [ngModel]="cliente.senha" name="senha" class="form-control" id="floatingInput" placeholder="Senha">
+          <input type="text" [(ngModel)]="cliente.senha" name="senha" class="form-control" id="floatingInput"
+            placeholder="Senha">
           <label for="floatingInput">Senha</label>
         </div>
       </div>
@@ -35,13 +51,15 @@
     <div class="row">
       <div class="col">
         <div class="form-floating mb-3">
-          <input type="number" [ngModel]="cliente.endereco?.cep" name="cep" class="form-control" id="floatingInput" placeholder="CEP">
+          <input type="number" [(ngModel)]="cliente.endereco.cep" name="cep" class="form-control" id="floatingInput"
+            placeholder="CEP">
           <label for="floatingInput">CEP</label>
         </div>
       </div>
       <div class="col">
         <div class="form-floating mb-3">
-          <input type="text" [ngModel]="cliente.endereco?.estado" name="estado" class="form-control" id="floatingInput" placeholder="Estado">
+          <input type="text" [(ngModel)]="cliente.endereco.estado" name="estado" class="form-control" id="floatingInput"
+            placeholder="Estado">
           <label for="floatingInput">Estado</label>
         </div>
       </div>
@@ -50,13 +68,15 @@
     <div class="row">
       <div class="col">
         <div class="form-floating mb-3">
-          <input type="text" [ngModel]="cliente.endereco?.cidade" name="cidade" class="form-control" id="floatingInput" placeholder="Cidade">
+          <input type="text" [(ngModel)]="cliente.endereco.cidade" name="cidade" class="form-control" id="floatingInput"
+            placeholder="Cidade">
           <label for="floatingInput">Cidade</label>
         </div>
       </div>
       <div class="col">
         <div class="form-floating mb-3">
-          <input type="text" [ngModel]="cliente.endereco?.bairro" name="bairro" class="form-control" id="floatingInput" placeholder="Bairro">
+          <input type="text" [(ngModel)]="cliente.endereco.bairro" name="bairro" class="form-control" id="floatingInput"
+            placeholder="Bairro">
           <label for="floatingInput">Bairro</label>
         </div>
       </div>
@@ -65,25 +85,28 @@
     <div class="row">
       <div class="col">
         <div class="form-floating mb-3">
-          <input type="text" [ngModel]="cliente.endereco?.rua" name="rua" class="form-control" id="floatingInput" placeholder="Rua">
+          <input type="text" [(ngModel)]="cliente.endereco.rua" name="rua" class="form-control" id="floatingInput"
+            placeholder="Rua">
           <label for="floatingInput">Rua</label>
         </div>
       </div>
       <div class="col">
         <div class="form-floating mb-3">
-          <input type="number" [ngModel]="cliente.endereco?.numero" name="numero" class="form-control" id="floatingInput" placeholder="Número">
+          <input type="number" [(ngModel)]="cliente.endereco.numero" name="numero" class="form-control"
+            id="floatingInput" placeholder="Número">
           <label for="floatingInput">Número</label>
         </div>
       </div>
       <div class="col">
         <div class="form-floating mb-3">
-          <input type="text" [ngModel]="cliente.endereco?.complemento" name="complemento" class="form-control" id="floatingInput" placeholder="Complemento">
+          <input type="text" [(ngModel)]="cliente.endereco.complemento" name="complemento" class="form-control"
+            id="floatingInput" placeholder="Complemento">
           <label for="floatingInput">Complemento</label>
         </div>
       </div>
     </div>
     <div class="d-grid gap-2">
-      <button class="btn btn-primary" type="button">Cadastrar</button>
+      <button class="btn btn-primary" type="submit">Cadastrar</button>
     </div>
   </form>
 
