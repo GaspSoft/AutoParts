@@ -9,15 +9,27 @@ import { ClientesService } from 'src/app/services/cliente/clientes.service';
 })
 export class ClienteFormCadastroComponent {
   cliente: Cliente;
+  sucessoFeedback: boolean = false;
+  errorsFeedback?: string = '';
 
   constructor(private service: ClientesService) {
     this.cliente = new Cliente();
+
   }
 
-  onSubmit(): void {
+  cadastrar(): void {
     this.service.cadastrar(this.cliente).subscribe(
       response => {
-
+        this.cliente = response;
+        this.sucessoFeedback = true;
+        setTimeout(() => {
+          this.sucessoFeedback = false;
+        }, 7000);
+        this.errorsFeedback = '';
+        this.cliente = new Cliente();
+      },
+      errorResponse => {
+        this.errorsFeedback = errorResponse.error.mensagem;
       }
     );
   }
