@@ -12,12 +12,13 @@ export class ClienteFormCadastroComponent {
 
   constructor(private service: ClientesService) {
     this.cliente = new Cliente();
+
   }
 
   onSubmit(): void {
     this.service.cadastrar(this.cliente).subscribe(
       response => {
-        console.log(response)
+        this.cliente = response;
       },
     );
   }
