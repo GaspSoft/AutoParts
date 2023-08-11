@@ -5,13 +5,15 @@ import { ClienteFormCadastroComponent } from './templates/cliente-form-cadastro/
 import { ComponentsModule } from '../components/components.module';
 import { FormsModule } from '@angular/forms';
 import { ClientesRoutingModule } from './clientes-routing.module';
+import { ClienteFormPerfilComponent } from './templates/cliente-form-perfil/cliente-form-perfil.component';
 
 
 
 @NgModule({
   declarations: [
     CadastroCLienteComponent,
-    ClienteFormCadastroComponent
+    ClienteFormCadastroComponent,
+    ClienteFormPerfilComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { ClientesRoutingModule } from './clientes-routing.module';
   ],
   exports: [
     CadastroCLienteComponent,
-    ClienteFormCadastroComponent
+    ClienteFormCadastroComponent,
+    ClienteFormPerfilComponent
   ]
 })
 export class ClientesModule { }

@@ -10,9 +10,17 @@ export class ClientesService {
 
   constructor(private http: HttpClient) { }
 
-  private url: string = 'http://localhost:8080/cliente';
+
+  private url: string = 'http://localhost:8080/api/clientes';
+  clientesUnico = 'http://localhost:8080/cliente/1';
+
+ private url: string = 'http://localhost:8080/cliente';
+
 
   cadastrar(cliente: Cliente): Observable<Cliente> {
     return this.http.post<Cliente>(this.url, cliente);
+  }
+  listarUnico(id: number): Observable<any>{
+    return this.http.get<any>(`${this.clientesUnico}/${id}`);
   }
 }

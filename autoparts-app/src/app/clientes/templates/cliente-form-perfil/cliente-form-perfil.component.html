@@ -1,0 +1,100 @@
+<div class="container">
+    <form style="margin-top: 20px;"  *ngIf="cliente">
+        <h1>Pessoais</h1>
+        <div class="row">
+          <div class="col">
+            <div class="form-floating mb-3" >
+              <input type="number" name="cpf" class="form-control" id="floatingInput" placeholder="CPF" disabled value="cliente?.cpf">
+              <label for="floatingInput">CPF</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3">
+              <input type="text" name="nome" class="form-control" id="floatingInput" placeholder="Nome">
+              <label for="floatingInput">Nome</label>
+            </div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col">
+            <div class="form-floating mb-3">
+              <input type="email" name="email" class="form-control" id="floatingInput" placeholder="nome@exemplo.com">
+              <label for="floatingInput">Email</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3">
+              <input type="password"  name="senha" class="form-control" id="floatingInput" placeholder="Senha">
+              <label for="floatingInput">Senha</label>
+            </div>
+          </div>
+        </div>
+        <div class="d-grid gap-2">
+            <button class="btn btn-success" type="button">Alterar dados pessoais</button>
+          </div>
+    </form>
+    <form style="margin-top: 20px;">
+        <h1>Endereço</h1>
+        <div class="row">
+          <div class="col">
+            <div class="form-floating mb-3">
+              <input type="number" name="cep" class="form-control" id="floatingInput" placeholder="CEP">
+              <label for="floatingInput">CEP</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3">
+              <input type="text" name="estado" class="form-control" id="floatingInput" placeholder="Estado">
+              <label for="floatingInput">Estado</label>
+            </div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col">
+            <div class="form-floating mb-3">
+              <input type="text" name="cidade" class="form-control" id="floatingInput" placeholder="Cidade">
+              <label for="floatingInput">Cidade</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3">
+              <input type="text" name="bairro" class="form-control" id="floatingInput" placeholder="Bairro">
+              <label for="floatingInput">Bairro</label>
+            </div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col">
+            <div class="form-floating mb-3">
+              <input type="text" name="rua" class="form-control" id="floatingInput" placeholder="Rua">
+              <label for="floatingInput">Rua</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3">
+              <input type="number"  name="numero" class="form-control" id="floatingInput" placeholder="Número">
+              <label for="floatingInput">Número</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3">
+              <input type="text" name="complemento" class="form-control" id="floatingInput" placeholder="Complemento">
+              <label for="floatingInput">Complemento</label>
+            </div>
+          </div>
+        </div>
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary btn-success" type="button">Alterar endereço</button>
+        </div>
+
+    </form>
+</div>
+<div class="container" style="margin-top: 20px;">
+        <div class="d-grid gap-2 col-6 mx-auto" >
+            <button class="btn btn-danger" type="button">DELETAR CONTA</button>
+    </div>
+</div>
+
