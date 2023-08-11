@@ -1,0 +1,73 @@
+<div class="container">
+  <form #clienteForm="ngForm" (ngSubmit)="cadastrar()">
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="alert alert-success" role="alert" *ngIf="sucessoFeedback">
+          Funcionário salvo/atualizado com sucesso
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="errorsFeedback">
+          {{ errorsFeedback }}
+        </div>
+      </div>
+    </div>
+
+    <h1>Pessoais</h1>
+    <div class="row">
+      <div class="col">
+        <div class="form-floating mb-3">
+          <input type="number" [(ngModel)]="funcionario.cpf" name="cpf" class="form-control" id="floatingInput"
+            placeholder="CPF">
+          <label for="floatingInput">CPF</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-floating mb-3">
+          <input type="text" [ngModel]="funcionario.nome" name="nome" class="form-control" id="floatingInput"
+            placeholder="Nome">
+          <label for="floatingInput">Nome</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="form-floating mb-3">
+          <input type="email" [(ngModel)]="funcionario.email" name="email" class="form-control" id="floatingInput"
+            placeholder="nome@exemplo.com">
+          <label for="floatingInput">Email</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-floating mb-3">
+          <input type="text" [(ngModel)]="funcionario.senha" name="senha" class="form-control" id="floatingInput"
+            placeholder="Senha">
+          <label for="floatingInput">Senha</label>
+        </div>
+      </div>
+
+      <div class="col-2">
+        <div class="form-check">
+          <input class="form-check-input" [(ngModel)]="funcionario.cargoFuncionario" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="true">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Gerente
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" [(ngModel)]="funcionario.cargoFuncionario" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="false">
+          <label class="form-check-label" for="flexRadioDefault2">
+            Funcionário
+          </label>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="d-grid gap-2">
+      <button class="btn btn-primary" type="submit">Cadastrar</button>
+    </div>
+  </form>
+
+  {{ funcionario | json }}
+
+</div>
