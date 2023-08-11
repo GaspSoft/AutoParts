@@ -30,8 +30,7 @@ export class FuncionarioFormCadastroComponent {
         console.log(response)
       },
       errorResponse => {
-        this.errorsFeedback = errorResponse.error.mensagem;
-        console.log(errorResponse)
+        this.errorsFeedback = errorResponse.error.message;
       }
     );
   }
