@@ -12,14 +12,20 @@ export class ClientesService {
 
 
   private url: string = 'http://localhost:8080/cliente';
-  clientesUnico = 'http://localhost:8080/cliente/1';
 
-
-
+  // Cadastra
   cadastrar(cliente: Cliente): Observable<Cliente> {
     return this.http.post<Cliente>(this.url, cliente);
   }
-  listarUnico(id: number): Observable<any>{
-    return this.http.get<any>(`${this.clientesUnico}/${id}`);
+
+  // Listar todos
+  listarClientes(id: number): Observable<any>{
+    return this.http.get<Cliente[]>(this.url);
+  }
+
+  // Lista um cliente
+  listarCliente(id: number): Observable<Cliente> {
+    const url = `${this.url}/${id}`;
+    return this.http.get<Cliente>(url);
   }
 }

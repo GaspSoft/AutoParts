@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Cliente } from 'src/app/model/cliente/cliente';
 import { ClientesService } from 'src/app/services/cliente/clientes.service';
 
 @Component({
@@ -6,16 +7,20 @@ import { ClientesService } from 'src/app/services/cliente/clientes.service';
   templateUrl: './cliente-form-perfil.component.html',
   styleUrls: ['./cliente-form-perfil.component.scss']
 })
-export class ClienteFormPerfilComponent {
-  cliente: any | undefined;
+export class ClienteFormPerfilComponent implements OnInit {
+  cliente = new Cliente();
 
-  constructor(private contatosService: ClientesService ){}
+  constructor(private contatosService: ClientesService) {}
+
   ngOnInit(): void {
-    this.listarCliente(1); // Replace with the desired ID
+    const clientId = 7; // Replace with the desired ID
+    this.contatosService.listarCliente(clientId).subscribe(
+      cliente => {
+        this.cliente = cliente;
+      },
+      error => {
+        console.error('Erro ao carregar o cliente:', error);
+      }
+    );
   }
-
-  listarCliente(id: number) {
-    this.contatosService.listarUnico(id).subscribe(res => this.cliente = res); // Assign the single object
-  }
-
 }
