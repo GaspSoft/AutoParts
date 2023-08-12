@@ -21,12 +21,13 @@ import { ClientesListaComponent } from './templates/clientes-lista/clientes-list
     CommonModule,
     ComponentsModule,
     ClientesRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   exports: [
     CadastroCLienteComponent,
     ClienteFormCadastroComponent,
-    ClienteFormPerfilComponent
+    ClienteFormPerfilComponent,
+    ClientesListaComponent
   ]
 })
 export class ClientesModule { }
