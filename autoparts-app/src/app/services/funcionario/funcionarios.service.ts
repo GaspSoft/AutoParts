@@ -15,4 +15,9 @@ export class FuncionariosService {
   cadastrar(funcionario: Funcionario): Observable<Funcionario> {
     return this.http.post<Funcionario>(this.url, funcionario);
   }
+
+  // Listar todos
+  listarFuncionarios(): Observable<Funcionario[]>{
+    return this.http.get<Funcionario[]>(this.url);
+  }
 }

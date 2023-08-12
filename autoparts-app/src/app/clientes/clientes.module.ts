@@ -6,6 +6,7 @@ import { ComponentsModule } from '../components/components.module';
 import { FormsModule } from '@angular/forms';
 import { ClientesRoutingModule } from './clientes-routing.module';
 import { ClienteFormPerfilComponent } from './templates/cliente-form-perfil/cliente-form-perfil.component';
+import { ClientesListaComponent } from './templates/clientes-lista/clientes-lista.component';
 
 
 
@@ -13,7 +14,8 @@ import { ClienteFormPerfilComponent } from './templates/cliente-form-perfil/clie
   declarations: [
     CadastroCLienteComponent,
     ClienteFormCadastroComponent,
-    ClienteFormPerfilComponent
+    ClienteFormPerfilComponent,
+    ClientesListaComponent
   ],
   imports: [
     CommonModule,
