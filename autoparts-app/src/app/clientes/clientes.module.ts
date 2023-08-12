@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CadastroCLienteComponent } from './pages/cadastro-cliente/cadastro-cliente.component';
 import { ClienteFormCadastroComponent } from './templates/cliente-form-cadastro/cliente-form-cadastro.component';
 import { ComponentsModule } from '../components/components.module';
 import { FormsModule } from '@angular/forms';
@@ -12,7 +11,6 @@ import { ClientesListaComponent } from './templates/clientes-lista/clientes-list
 
 @NgModule({
   declarations: [
-    CadastroCLienteComponent,
     ClienteFormCadastroComponent,
     ClienteFormPerfilComponent,
     ClientesListaComponent
@@ -24,7 +22,6 @@ import { ClientesListaComponent } from './templates/clientes-lista/clientes-list
     FormsModule,
   ],
   exports: [
-    CadastroCLienteComponent,
     ClienteFormCadastroComponent,
     ClienteFormPerfilComponent,
     ClientesListaComponent
