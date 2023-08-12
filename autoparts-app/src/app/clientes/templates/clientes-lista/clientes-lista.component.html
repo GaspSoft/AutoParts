@@ -1,0 +1,31 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-condensed table-hover">
+        <thead>
+          <tr>
+            <td>Id</td>
+            <td>Nome</td>
+            <td>CPF</td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cliente of clientes">
+            <td> {{ cliente.cliente_id}} </td>
+            <td> {{ cliente.nome}} </td>
+            <td> {{ cliente.email}} </td>
+            <td>
+              <button type="button" class="btn btn-primary">
+                <i class="fa-solid fa-circle-info"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+

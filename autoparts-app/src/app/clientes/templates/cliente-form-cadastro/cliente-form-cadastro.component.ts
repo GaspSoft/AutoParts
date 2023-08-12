@@ -18,7 +18,7 @@ export class ClienteFormCadastroComponent {
   }
 
   cadastrar(): void {
-    this.service.cadastrar(this.cliente).subscribe(
+    this.service.cadastrarCliente(this.cliente).subscribe(
       response => {
         this.cliente = response;
         this.sucessoFeedback = true;

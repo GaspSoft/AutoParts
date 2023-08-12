@@ -8,6 +8,8 @@ import { ComponentsModule } from './components/components.module';
 import { ClientesModule } from './clientes/clientes.module';
 import { ClientesService } from './services/cliente/clientes.service';
 import { FuncionariosModule } from './funcionarios/funcionarios.module';
+import { FuncionariosService } from './services/funcionario/funcionarios.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,10 +21,12 @@ import { FuncionariosModule } from './funcionarios/funcionarios.module';
     ComponentsModule,
     HttpClientModule,
     ClientesModule,
-    FuncionariosModule
+    FuncionariosModule,
+    BrowserAnimationsModule
   ],
   providers: [
-    ClientesService
+    ClientesService,
+    FuncionariosService
   ],
   bootstrap: [AppComponent]
 })

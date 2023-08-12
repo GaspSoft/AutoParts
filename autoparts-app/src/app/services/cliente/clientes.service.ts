@@ -14,12 +14,12 @@ export class ClientesService {
   private url: string = 'http://localhost:8080/cliente';
 
   // Cadastra
-  cadastrar(cliente: Cliente): Observable<Cliente> {
+  cadastrarCliente(cliente: Cliente): Observable<Cliente> {
     return this.http.post<Cliente>(this.url, cliente);
   }
 
   // Listar todos
-  listarClientes(id: number): Observable<any>{
+  listarClientes(): Observable<Cliente[]>{
     return this.http.get<Cliente[]>(this.url);
   }
 
