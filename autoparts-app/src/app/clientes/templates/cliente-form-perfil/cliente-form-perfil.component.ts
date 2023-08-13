@@ -9,8 +9,28 @@ import { ClientesService } from 'src/app/services/cliente/clientes.service';
 })
 export class ClienteFormPerfilComponent implements OnInit {
   cliente = new Cliente();
+  
+  sucessoFeedback: boolean = false;
+  errorsFeedback?: string = '';
 
   constructor(private contatosService: ClientesService) {}
+
+  alterar(): void {
+    this.contatosService.alterarCliente(this.cliente).subscribe(
+      response => {
+        this.cliente = response;
+        this.sucessoFeedback = true;
+        setTimeout(() => {
+          this.sucessoFeedback = false;
+        }, 7000);
+        this.errorsFeedback = '';
+
+      },
+      errorResponse => {
+        this.errorsFeedback = errorResponse.error.mensagem;
+      }
+    );
+  }
 
   ngOnInit(): void {
     const clientId = 7; // Replace with the desired ID

@@ -28,4 +28,15 @@ export class ClientesService {
     const url = `${this.url}/${id}`;
     return this.http.get<Cliente>(url);
   }
+
+  // Alterar dados do cliente
+  alterarCliente(cliente: Cliente): Observable<Cliente> {
+    return this.http.put<Cliente>(this.url, cliente);
+  }
+
+   // Alterar dados do endereço
+   alterarEndereco(id: number, cliente: Cliente): Observable<Cliente> {
+    const urlEnd = `${this.url}/${id}`;
+    return this.http.put<Cliente>(urlEnd, cliente);
+  }
 }
