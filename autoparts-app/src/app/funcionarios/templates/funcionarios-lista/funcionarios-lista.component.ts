@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Funcionario } from 'src/app/model/funcionario/funcionario';
 import { FuncionariosService } from 'src/app/services/funcionario/funcionarios.service';
 
@@ -11,7 +12,9 @@ export class FuncionariosListaComponent implements OnInit {
   funcionarios: Funcionario[] = [];
 
   constructor(
-    private service: FuncionariosService) { }
+    private service: FuncionariosService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
     this.service.getFuncionarios().subscribe(
@@ -19,5 +22,9 @@ export class FuncionariosListaComponent implements OnInit {
         this.funcionarios = response;
       }
     )
+  }
+
+  novoCadastroCliente(): void {
+    this.router.navigate(['/funcionario-cadastro'])
   }
 }

@@ -1,6 +1,8 @@
 <div class="container">
   <form #clienteForm="ngForm" (ngSubmit)="onSubmit()">
 
+    
+
     <div class="row">
       <div class="col-md-12">
         <div class="alert alert-success" role="alert" *ngIf="sucessoFeedback">
@@ -48,13 +50,13 @@
 
       <div class="col-2">
         <div class="form-check">
-          <input class="form-check-input" [(ngModel)]="funcionario.cargoFuncionario" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="true">
+          <input class="form-check-input" [(ngModel)]="funcionario.cargoFuncionario" type="radio" name="flexRadioDefault" id="flexRadioDefault1" [value]="true">
           <label class="form-check-label" for="flexRadioDefault1">
             Gerente
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" [(ngModel)]="funcionario.cargoFuncionario" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="false">
+          <input class="form-check-input" [(ngModel)]="funcionario.cargoFuncionario" type="radio" name="flexRadioDefault" id="flexRadioDefault2" [value]="false">
           <label class="form-check-label" for="flexRadioDefault2">
             Funcionário
           </label>

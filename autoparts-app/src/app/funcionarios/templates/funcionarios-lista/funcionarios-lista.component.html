@@ -2,6 +2,14 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-2">
+          <button class="btn btn-primary" (click)="novoCadastroCliente()">
+            <i class="fa fa-plus"></i>
+            Novo
+          </button>
+        </div>
+      </div>
       <table class="table table-condensed table-hover">
         <thead>
           <tr>
@@ -17,7 +25,7 @@
             <td> {{ funcionario.funcionario_id}} </td>
             <td> {{ funcionario.nome}} </td>
             <td> {{ funcionario.email}} </td>
-            <td> {{ funcionario.cargoFuncionario}} </td>
+            <td> {{ funcionario.cargoFuncionario ? 'Gerente' : 'Vendedor'}} </td>
             <td>
               <button type="button" class="btn btn-primary">
                 <i class="fa-solid fa-trash"></i>

@@ -48,7 +48,7 @@ export class FuncionarioFormCadastroComponent implements OnInit {
           this.errorsFeedback = '';
         },
         errorResponse => {
-          this.errorsFeedback = 'Erro ao atualizar o cliente';
+          this.errorsFeedback = 'Erro ao atualizar o funcionário';
         }
       )
     } else {
