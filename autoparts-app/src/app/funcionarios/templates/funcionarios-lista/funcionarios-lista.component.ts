@@ -14,7 +14,7 @@ export class FuncionariosListaComponent implements OnInit {
     private service: FuncionariosService) { }
 
   ngOnInit(): void {
-    this.service.listarFuncionarios().subscribe(
+    this.service.getFuncionarios().subscribe(
       response => {
         this.funcionarios = response;
       }

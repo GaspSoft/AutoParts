@@ -1,5 +1,5 @@
 <div class="container">
-  <form #clienteForm="ngForm" (ngSubmit)="cadastrar()">
+  <form #clienteForm="ngForm" (ngSubmit)="onSubmit()">
 
     <div class="row">
       <div class="col-md-12">
@@ -64,7 +64,18 @@
     </div>
 
     <div class="d-grid gap-2">
-      <button class="btn btn-primary" type="submit">Cadastrar</button>
+      <button class="btn btn-primary" type="submit" *ngIf="!funcionario.funcionario_id">
+        <i class="fa fa-save"></i>
+        Cadastrar
+      </button>
+      <button type="submit" class="btn btn-warning" *ngIf="funcionario.funcionario_id">
+        <i class="fa fa-sync-alt"></i>
+        Atualizar
+      </button>
+      <button type="button" class="btn btn-danger ml-1" (click)="voltarListagem()">
+        <i class="fa fa-arrow-alt-circle-left"></i>
+        Voltar
+      </button>
     </div>
   </form>
 

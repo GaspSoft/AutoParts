@@ -16,8 +16,15 @@ export class FuncionariosService {
     return this.http.post<Funcionario>(this.url, funcionario);
   }
 
-  // Listar todos
-  listarFuncionarios(): Observable<Funcionario[]>{
+  atualizarFuncionario(funcionario: Funcionario): Observable<any> {
+    return this.http.put<Funcionario>(`${this.url}/${funcionario.funcionario_id}`, funcionario);
+  }
+
+  getFuncionarios(): Observable<Funcionario[]>{
     return this.http.get<Funcionario[]>(this.url);
+  }
+
+  getFuncionarioById(id: number): Observable<Funcionario> {
+    return this.http.get<Funcionario>(`${this.url}/${id}`);
   }
 }
