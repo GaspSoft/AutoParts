@@ -6,7 +6,7 @@ import { FuncionarioPageComponent } from './page/funcionario-page/funcionario-pa
 
 const routes: Routes = [
   {
-    path: 'funcionario-page',
+    path: 'funcionario',
     component: FuncionarioPageComponent,
     loadChildren: () => import('./page/funcionario-page/funcionario-page.module').then(m => m.FuncionarioPageModule)
   }

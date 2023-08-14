@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FuncionariosPageRoutingModule } from './funcionarios-page-routing.module';
+import { FuncionarioPageRoutingModule } from './funcionario-page-routing.module';
 import { FuncionariosModule } from '../../funcionarios.module';
 
 
@@ -9,7 +9,7 @@ import { FuncionariosModule } from '../../funcionarios.module';
   declarations: [],
   imports: [
     CommonModule,
-    FuncionariosPageRoutingModule,
+    FuncionarioPageRoutingModule,
     FuncionariosModule
   ]
 })
