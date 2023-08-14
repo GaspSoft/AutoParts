@@ -24,6 +24,11 @@ export class FuncionariosListaComponent implements OnInit {
     )
   }
 
+  editarFuncionario(funcionario_id: number): void {
+    this.service.setFuncionarioId(funcionario_id);
+    this.router.navigate(['/funcionario-cadastro'])
+  }
+
   novoCadastroCliente(): void {
     this.router.navigate(['/funcionario-cadastro'])
   }

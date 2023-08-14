@@ -8,6 +8,8 @@ import { Funcionario } from 'src/app/model/funcionario/funcionario';
 })
 export class FuncionariosService {
 
+  private funcionarioId: number = 0;
+
   constructor(private http: HttpClient) { }
 
   private url: string = 'http://localhost:8080/funcionario';
@@ -17,7 +19,7 @@ export class FuncionariosService {
   }
 
   atualizarFuncionario(funcionario: Funcionario): Observable<any> {
-    return this.http.put<Funcionario>(`${this.url}/${funcionario.funcionario_id}`, funcionario);
+    return this.http.put<Funcionario>(this.url, funcionario);
   }
 
   getFuncionarios(): Observable<Funcionario[]>{
@@ -26,5 +28,13 @@ export class FuncionariosService {
 
   getFuncionarioById(id: number): Observable<Funcionario> {
     return this.http.get<Funcionario>(`${this.url}/${id}`);
+  }
+
+  setFuncionarioId(id: number) {
+    this.funcionarioId = id;
+  }
+
+  getFuncionarioId(): number {
+    return this.funcionarioId;
   }
 }

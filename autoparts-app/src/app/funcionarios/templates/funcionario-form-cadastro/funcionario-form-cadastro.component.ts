@@ -23,9 +23,7 @@ export class FuncionarioFormCadastroComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params => {
-      this.id = params['id'];
-
+    this.id = this.service.getFuncionarioId()
       if (this.id) {
         this.service.getFuncionarioById(this.id).subscribe(
           response => {
@@ -36,7 +34,7 @@ export class FuncionarioFormCadastroComponent implements OnInit {
           }
         );
       }
-    });
+
     console.log()
   }
 
@@ -63,7 +61,7 @@ export class FuncionarioFormCadastroComponent implements OnInit {
           this.funcionario = response;
           setTimeout(() => {
             this.sucessoFeedback = false;
-          }, 7000); 
+          }, 7000);
         },
         errorResponse => {
           this.sucessoFeedback = false;
