@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from 'src/app/model/cliente/cliente';
+import { Endereco } from 'src/app/model/endereco/endereco';
 import { ClientesService } from 'src/app/services/cliente/clientes.service';
 
 @Component({
@@ -9,7 +10,9 @@ import { ClientesService } from 'src/app/services/cliente/clientes.service';
 })
 export class ClienteFormPerfilComponent implements OnInit {
   cliente = new Cliente();
-  
+  endereco = new Endereco(); 
+  clientId : number = 5;
+
   sucessoFeedback: boolean = false;
   errorsFeedback?: string = '';
 
@@ -32,11 +35,43 @@ export class ClienteFormPerfilComponent implements OnInit {
     );
   }
 
+  alterarEndereco(): void {
+    this.contatosService.alterarEndereco(this.clientId, this.endereco).subscribe(
+      response => {
+        this.endereco = this.endereco;
+        this.sucessoFeedback = true;
+        setTimeout(() => {
+          this.sucessoFeedback = false;
+        }, 7000);
+        this.errorsFeedback = '';
+
+      },
+      errorResponse => {
+        this.errorsFeedback = errorResponse.error.mensagem;
+      }
+    );
+  }
+
+
+  excluirCliente(): void {
+
+    if (confirm('Tem certeza que deseja excluir este cliente?')) {
+      this.contatosService.excluirCliente(this.clientId).subscribe(
+        () => {
+          // Lógica para lidar com a exclusão bem-sucedida, se necessário
+        },
+        errorResponse => {
+          console.error('Erro ao excluir cliente:', errorResponse);
+        }
+      );
+    }
+  }
+
   ngOnInit(): void {
-    const clientId = 7; // Replace with the desired ID
-    this.contatosService.listarCliente(clientId).subscribe(
+    this.contatosService.listarCliente(this.clientId).subscribe(
       cliente => {
         this.cliente = cliente;
+        this.endereco = cliente.endereco
       },
       error => {
         console.error('Erro ao carregar o cliente:', error);

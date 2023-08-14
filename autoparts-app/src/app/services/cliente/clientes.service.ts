@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Cliente } from 'src/app/model/cliente/cliente';
+import { Endereco } from 'src/app/model/endereco/endereco';
 
 @Injectable({
   providedIn: 'root'
@@ -35,8 +36,14 @@ export class ClientesService {
   }
 
    // Alterar dados do endereço
-   alterarEndereco(id: number, cliente: Cliente): Observable<Cliente> {
+   alterarEndereco(id: number, endereco: Endereco): Observable<Endereco> {
     const urlEnd = `${this.url}/${id}`;
-    return this.http.put<Cliente>(urlEnd, cliente);
+    return this.http.put<Endereco>(urlEnd, endereco);
+  }
+
+  // Excluir um cliente
+  excluirCliente(id: number): Observable<Cliente> {
+    const url = `${this.url}/${id}`;
+    return this.http.delete<Cliente>(url);
   }
 }
