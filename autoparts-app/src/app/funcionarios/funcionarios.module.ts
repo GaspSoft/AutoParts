@@ -5,6 +5,7 @@ import { ComponentsModule } from '../components/components.module';
 import { FormsModule } from '@angular/forms';
 import { FuncionariosRoutingModule } from './funcionarios-routing.module';
 import { FuncionariosListaComponent } from './templates/funcionarios-lista/funcionarios-lista.component';
+import { FuncionarioPageComponent } from './page/funcionario-page/funcionario-page.component';
 
 
 
@@ -12,6 +13,7 @@ import { FuncionariosListaComponent } from './templates/funcionarios-lista/funci
   declarations: [
     FuncionarioFormCadastroComponent,
     FuncionariosListaComponent,
+    FuncionarioPageComponent,
   ],
   imports: [
     CommonModule,

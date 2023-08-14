@@ -1,5 +1,7 @@
 <div class="container">
-  <form #clienteForm="ngForm" (ngSubmit)="cadastrar()">
+  <form #clienteForm="ngForm" (ngSubmit)="onSubmit()">
+
+    
 
     <div class="row">
       <div class="col-md-12">
@@ -48,13 +50,13 @@
 
       <div class="col-2">
         <div class="form-check">
-          <input class="form-check-input" [(ngModel)]="funcionario.cargoFuncionario" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="true">
+          <input class="form-check-input" [(ngModel)]="funcionario.cargoFuncionario" type="radio" name="flexRadioDefault" id="flexRadioDefault1" [value]="true">
           <label class="form-check-label" for="flexRadioDefault1">
             Gerente
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" [(ngModel)]="funcionario.cargoFuncionario" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="false">
+          <input class="form-check-input" [(ngModel)]="funcionario.cargoFuncionario" type="radio" name="flexRadioDefault" id="flexRadioDefault2" [value]="false">
           <label class="form-check-label" for="flexRadioDefault2">
             Funcionário
           </label>
@@ -64,7 +66,18 @@
     </div>
 
     <div class="d-grid gap-2">
-      <button class="btn btn-primary" type="submit">Cadastrar</button>
+      <button class="btn btn-primary" type="submit" *ngIf="!funcionario.funcionario_id">
+        <i class="fa fa-save"></i>
+        Cadastrar
+      </button>
+      <button type="submit" class="btn btn-warning" *ngIf="funcionario.funcionario_id">
+        <i class="fa fa-sync-alt"></i>
+        Atualizar
+      </button>
+      <button type="button" class="btn btn-danger ml-1" (click)="voltarListagem()">
+        <i class="fa fa-arrow-alt-circle-left"></i>
+        Voltar
+      </button>
     </div>
   </form>
 
