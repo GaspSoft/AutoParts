@@ -39,4 +39,43 @@ public class FornecedorServico {
         return fornecedorRepositorio.findAll();
     }
 
+    public ResponseEntity<?> deletarFornecedor(Integer fornecedor_id){
+        if (fornecedor_id != null) {
+            fornecedorRepositorio.deleteById(fornecedor_id);
+            retorno.setMensagem("Fornecedor deletado com sucesso.");
+            return ResponseEntity.ok(retorno);
+        } else {
+            retorno.setMensagem("O ID do fornecedor é nulo.");
+            return ResponseEntity.badRequest().body(retorno);
+        }
+    }
+
+    public ResponseEntity<?> selecionarPorID(Integer fornecedor_id){
+        if (fornecedor_id != null) {
+            Fornecedor fornecedor = fornecedorRepositorio.findById(fornecedor_id).get();
+            return ResponseEntity.ok(fornecedor);
+        } else {
+            retorno.setMensagem("O ID do fornecedor é nulo.");
+            return ResponseEntity.badRequest().body(retorno);
+        }
+    }
+
+    public ResponseEntity<?> alterarFornecedor(Fornecedor f){
+        if (f.getFornecedor_id() != null) {
+                Fornecedor fornecedor = fornecedorRepositorio.findById(f.getFornecedor_id()).get();
+            if (fornecedor == null) {
+                retorno.setMensagem("Forcedor não encontrado.");
+                return ResponseEntity.badRequest().body(retorno);
+            } else{
+                retorno.setMensagem("Fornecedor alterado com sucesso.");
+                fornecedor.setNome(f.getNome());
+                fornecedorRepositorio.save(fornecedor);
+                 return ResponseEntity.ok(fornecedor);
+        }
+        } else {
+            retorno.setMensagem("O Id do fornecedor é nulo.");
+            return ResponseEntity.badRequest().body(retorno);
+        }
+    }
+
 }
