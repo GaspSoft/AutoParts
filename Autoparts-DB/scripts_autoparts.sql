@@ -21,6 +21,7 @@ CREATE TABLE IF NOT EXISTS `enderecos` (
 CREATE TABLE IF NOT EXISTS `fornecedores` (
   `fornecedor_id` INT AUTO_INCREMENT  NOT NULL,
   `nome` VARCHAR(45) NOT NULL,
+  `cnpj` bigint not null,
   PRIMARY KEY (`fornecedor_id`)
 );
 
