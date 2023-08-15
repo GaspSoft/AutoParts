@@ -1,9 +1,15 @@
 package br.com.autoparts.api.model;
 
+import org.hibernate.annotations.ManyToAny;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,13 +26,18 @@ public class Pecas {
     private String nome;
     private String descrição;
     private Integer quantidade;
-    //foto
+    
+    @Column(name = "foto")
+    private byte[] foto; // Campo para armazenar a imagem em formato de array de bytes
     private String marca;
     private Integer ano;
     private Double preco;
     private String modelo;
-    private Boolean tipo_veiculo;
-    private Integer fornecedores_id;
+    
+    
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fornecedores_id")
+    private Fornecedor fornecedor;
 
     
 }

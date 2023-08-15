@@ -1,7 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ClientePageComponent } from './page/cliente-page/cliente-page.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'cliente',
+    component: ClientePageComponent,
+    loadChildren: () => import('./page/cliente-page/cliente-page.module').then(m => m.ClientePageModule)
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

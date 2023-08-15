@@ -54,13 +54,15 @@ public class FuncionarioServico {
         return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
 
     }
-    public ResponseEntity<?> listarFuncionarios (){
 
-        return  new ResponseEntity<>(repoFunc.findAll(), HttpStatus.OK);
-        
+    public ResponseEntity<?> listarFuncionarios() {
+
+        return new ResponseEntity<>(repoFunc.findAll(), HttpStatus.OK);
+
     }
-    public ResponseEntity<?> deletarFuncionario (Integer obj){
-         if (obj == null) {
+
+    public ResponseEntity<?> deletarFuncionario(Integer obj) {
+        if (obj == null) {
             retorno.setMensagem("ID não informado");
 
             return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
@@ -72,20 +74,18 @@ public class FuncionarioServico {
         retorno.setMensagem("ID não existente");
         return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
     }
-    public ResponseEntity<?> ListarPorId (Integer id){
+
+    public ResponseEntity<?> ListarPorId(Integer id) {
         if (id == null) {
             retorno.setMensagem("ID não informado");
 
             return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
         } else if (repoFunc.existsById(id)) {
-            
-            return new ResponseEntity<>(repoFunc.findByFuncionarioId(id),HttpStatus.OK);
+
+            return new ResponseEntity<>(repoFunc.findByFuncionarioId(id), HttpStatus.OK);
         }
         retorno.setMensagem("ID não existente");
         return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
     }
-
-
-
 
 }

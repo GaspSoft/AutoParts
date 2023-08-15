@@ -21,6 +21,7 @@ CREATE TABLE IF NOT EXISTS `enderecos` (
 CREATE TABLE IF NOT EXISTS `fornecedores` (
   `fornecedor_id` INT AUTO_INCREMENT  NOT NULL,
   `nome` VARCHAR(45) NOT NULL,
+  `cnpj` bigint not null,
   PRIMARY KEY (`fornecedor_id`)
 );
 
@@ -34,7 +35,6 @@ CREATE TABLE IF NOT EXISTS `pecas` (
   `ano` INT NOT NULL,
   `preco` DOUBLE NOT NULL,
   `modelo` VARCHAR(45) NOT NULL,
-  `tipo_veiculo` BIT NOT NULL,
   `fornecedores_id` INT NOT NULL,
   PRIMARY KEY (`pecas_id`, `fornecedores_id`),
   CONSTRAINT `fk_pecas_fornecedores1` FOREIGN KEY (`fornecedores_id`) REFERENCES `fornecedores` (`fornecedor_id`)

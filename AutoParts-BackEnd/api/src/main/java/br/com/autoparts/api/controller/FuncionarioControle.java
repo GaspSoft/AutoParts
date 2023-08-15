@@ -14,35 +14,37 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-
 @CrossOrigin(origins = "*")
 @RestController
 public class FuncionarioControle {
     @Autowired
     FuncionarioServico funcionario;
 
-    @PostMapping("/cadastroFuncionario")
+    @PostMapping("/funcionario")
     public ResponseEntity<?> cadastrarFuncionario(@RequestBody Funcionario f) {
-        
+
         return funcionario.cadastrarFuncionario(f);
     }
-    @PutMapping("/alterarFuncionario")
+
+    @PutMapping("/funcionario")
     public ResponseEntity<?> alterarFuncionario(@RequestBody Funcionario f) {
-    
-        
+
         return funcionario.alterarFuncionario(f);
     }
+
     @GetMapping("/funcionario")
     public ResponseEntity<?> listarFuncionarios() {
         return funcionario.listarFuncionarios();
     }
-        @GetMapping("/funcionario/{id}")
-    public ResponseEntity<?> selecionarioPorId(@PathVariable Integer id){
+
+    @GetMapping("/funcionario/{id}")
+    public ResponseEntity<?> selecionarioPorId(@PathVariable Integer id) {
 
         return funcionario.ListarPorId(id);
     }
-    @DeleteMapping("/deletaFuncionario/{id}")
-    public ResponseEntity<?> deletaPorId(@PathVariable Integer id){
+
+    @DeleteMapping("/funcionario/{id}")
+    public ResponseEntity<?> deletaPorId(@PathVariable Integer id) {
 
         return funcionario.deletarFuncionario(id);
     }
