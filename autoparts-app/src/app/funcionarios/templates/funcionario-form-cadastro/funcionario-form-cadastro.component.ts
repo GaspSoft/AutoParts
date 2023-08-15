@@ -71,6 +71,6 @@ export class FuncionarioFormCadastroComponent implements OnInit {
     }
   }
   voltarListagem(): void {
-    this.router.navigate(['funcionario/lista']);
+    this.router.navigate(['funcionario/listar']);
   }
 }
