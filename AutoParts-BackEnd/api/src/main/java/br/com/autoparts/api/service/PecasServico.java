@@ -17,7 +17,7 @@ public class PecasServico {
     private Retorno retorno;
     @Autowired
     private PecasRepositorio pecasRepositorio;
- /* 
+  
     public ResponseEntity<?> cadastrarPecas(Pecas p){
             // Decodifica a imagem base64 para um array de bytes
             byte[] fotoBytes = Base64.getDecoder().decode(p.getFoto());
@@ -26,5 +26,5 @@ public class PecasServico {
             pecasRepositorio.save(p); // Salva a instância no banco de dados
             return new ResponseEntity<>(p, HttpStatus.CREATED);
     }
-    */
+    
 }

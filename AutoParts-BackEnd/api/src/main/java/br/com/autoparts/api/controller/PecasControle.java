@@ -15,10 +15,10 @@ import br.com.autoparts.api.service.PecasServico;
 public class PecasControle {
     @Autowired
     private PecasServico servico;
- /* 
+ 
     @PostMapping("/pecas")
     public ResponseEntity<?> cadastrarPecas(@RequestBody Pecas p){
         return servico.cadastrarPecas(p);
     }
-    */
+    
 }
