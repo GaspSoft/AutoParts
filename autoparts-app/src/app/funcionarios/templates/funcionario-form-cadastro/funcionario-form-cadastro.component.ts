@@ -54,7 +54,7 @@ export class FuncionarioFormCadastroComponent implements OnInit {
         }
       )
     } else {
-      this.service.cadastrar(this.funcionario).subscribe(
+      this.service.cadastrarFuncionario(this.funcionario).subscribe(
         response => {
           this.sucessoFeedback = true;
           this.errorsFeedback = '';
