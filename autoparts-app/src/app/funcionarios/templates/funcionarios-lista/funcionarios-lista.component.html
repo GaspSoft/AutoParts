@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -27,7 +26,7 @@
             <td> {{ funcionario.email}} </td>
             <td> {{ funcionario.cargoFuncionario ? 'Gerente' : 'Vendedor'}} </td>
             <td>
-              <button type="button" class="btn btn-primary">
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDelecao" (click)="preparaDelecao(funcionario)">
                 <i class="fa-solid fa-trash"></i>
               </button>
               <button type="button" class="btn btn-primary" (click)="editarFuncionario(funcionario.funcionario_id)">
@@ -42,4 +41,22 @@
       </table>
     </div>
   </div>
+
+  <div id="modalDelecao" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4>Confirmação de Deleção</h4>
+        </div>
+        <div class="modal-body" *ngIf="funcionarioSelecionado">
+          Confirmar a deleção de {{ funcionarioSelecionado.nome }}
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-success" (click)="deletarFuncionario()" data-bs-dismiss="modal">Confirmar</button>
+          <button class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
