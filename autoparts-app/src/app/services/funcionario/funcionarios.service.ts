@@ -22,6 +22,10 @@ export class FuncionariosService {
     return this.http.put<Funcionario>(this.url, funcionario);
   }
 
+  deletarFuncionario(funcionario: Funcionario): Observable<any> {
+    return this.http.delete<any>(`${this.url}/${funcionario.funcionario_id}`);
+  }
+
   getFuncionarios(): Observable<Funcionario[]>{
     return this.http.get<Funcionario[]>(this.url);
   }
