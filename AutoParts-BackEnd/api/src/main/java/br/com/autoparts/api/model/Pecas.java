@@ -24,6 +24,7 @@ public class Pecas {
     private String nome;
     private String descrição;
     private Integer quantidade;
+    /* 
     @Column(name = "foto")
     private byte[] foto; // Campo para armazenar a imagem em formato de array de bytes
     private String marca;
@@ -31,10 +32,10 @@ public class Pecas {
     private Double preco;
     private String modelo;
     private Boolean tipo_veiculo;
-
+    
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "fornecedores_id")
     private Integer fornecedores_id;
-
+*/
     
 }
