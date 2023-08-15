@@ -10,9 +10,6 @@ import { FuncionariosService } from 'src/app/services/funcionario/funcionarios.s
 })
 export class FuncionariosListaComponent implements OnInit {
   funcionarios: Funcionario[] = [];
-  funcionarioSelecionado: Funcionario = new Funcionario();
-  feedbackSucesso?:string;
-  feedbackErro?:string;
 
   constructor(
     private service: FuncionariosService,
@@ -29,25 +26,10 @@ export class FuncionariosListaComponent implements OnInit {
 
   editarFuncionario(funcionario_id: number): void {
     this.service.setFuncionarioId(funcionario_id);
-    this.router.navigate(['funcionario/alterar'])
-  }
-
-  novoCadastroCliente(): void {
-    this.service.setFuncionarioId(0);
     this.router.navigate(['funcionario/cadastrar'])
   }
 
-  preparaDelecao(funcionario: Funcionario) {
-    this.funcionarioSelecionado = funcionario;
-  }
-
-  deletarFuncionario() {
-    this.service.deletarFuncionario(this.funcionarioSelecionado).subscribe(
-      response => {
-        this.feedbackSucesso = 'Funcionário deletado com sucesso';
-        this.ngOnInit();
-      },
-      errorResponse => this.feedbackErro = 'Ocorreu um erro ao deletar o funcionário'
-    )
+  novoCadastroCliente(): void {
+    this.router.navigate(['funcionario/cadastrar'])
   }
 }
