@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'funcionario',
+    path: 'fornecedor',
     component: FornecedorPageComponent,
     loadChildren: () => import('./page/fornecedor-page.module').then(m => m.FornecedorPageModule)
   }
