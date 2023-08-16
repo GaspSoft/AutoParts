@@ -10,6 +10,7 @@ import { ClientesService } from './services/cliente/clientes.service';
 import { FuncionariosModule } from './funcionarios/funcionarios.module';
 import { FuncionariosService } from './services/funcionario/funcionarios.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FornecedorService } from './services/fornecedor/fornecedor.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   providers: [
     ClientesService,
-    FuncionariosService
+    FuncionariosService,
+    FornecedorService
   ],
   bootstrap: [AppComponent]
 })

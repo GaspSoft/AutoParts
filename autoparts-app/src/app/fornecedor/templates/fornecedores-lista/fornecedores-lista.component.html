@@ -1,1 +1,60 @@
-<p>fornecedores-lista works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-2">
+          <button class="btn btn-primary" (click)="novoCadastroFornecedor()">
+            <i class="fa fa-plus"></i>
+            Novo
+          </button>
+        </div>
+      </div>
+      <table class="table table-condensed table-hover">
+        <thead>
+          <tr>
+            <td>Id</td>
+            <td>Nome</td>
+            <td>CNPJ</td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let fornecedor of fornecedores">
+            <td> {{ fornecedor.fornecedor_id}} </td>
+            <td> {{ fornecedor.nome}} </td>
+            <td> {{ fornecedor.cnpj}} </td>
+            <td>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDelecao" (click)="preparaDelecao(fornecedor)">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+              <button type="button" class="btn btn-primary" (click)="editarFornecedor(fornecedor.fornecedor_id)">
+                <i class="fa-solid fa-pen"></i>
+              </button>
+              <button type="button" class="btn btn-primary">
+                <i class="fa-solid fa-circle-info"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="modalDelecao" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4>Confirmação de Deleção</h4>
+        </div>
+        <div class="modal-body" *ngIf="fornecedorSelecionado">
+          Confirmar a deleção de {{ fornecedorSelecionado.nome }}
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-success" (click)="deletarFuncionario()" data-bs-dismiss="modal">Confirmar</button>
+          <button class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
