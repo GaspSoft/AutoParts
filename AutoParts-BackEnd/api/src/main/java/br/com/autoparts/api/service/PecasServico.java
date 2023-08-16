@@ -42,6 +42,15 @@ public class PecasServico {
         
         return pecasList;
     }
+
+    public ResponseEntity<?> buscarPeca(Integer id) {
+        try {
+            Pecas peca = pecasRepositorio.findById(id).get();
+            return new ResponseEntity<>(peca, HttpStatus.OK);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Peça não encontrada.");
+        }
+    }
     
     
     

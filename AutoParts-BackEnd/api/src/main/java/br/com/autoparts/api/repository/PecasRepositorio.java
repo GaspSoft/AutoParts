@@ -8,4 +8,5 @@ import br.com.autoparts.api.model.Pecas;
 
 public interface PecasRepositorio extends JpaRepository<Pecas, Integer>{
     List<Pecas> findAll();
+    Pecas findById(int id);
 }
