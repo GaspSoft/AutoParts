@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Pecas } from 'src/app/model/pecas/pecas';
 
 @Component({
   selector: 'app-pecas-cards',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./pecas-cards.component.scss']
 })
 export class PecasCardsComponent {
-
+    pecas = new Pecas();
 }
