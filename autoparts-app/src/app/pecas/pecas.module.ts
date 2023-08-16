@@ -10,6 +10,9 @@ import { PecasCardsComponent } from './template/pecas-cards/pecas-cards.componen
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    PecasCardsComponent
   ]
 })
 export class PecasModule { }
