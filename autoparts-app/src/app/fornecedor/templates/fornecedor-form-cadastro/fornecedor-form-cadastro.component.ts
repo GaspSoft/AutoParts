@@ -1,36 +1,36 @@
-import { FuncionariosService } from './../../../services/funcionario/funcionarios.service';
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Funcionario } from 'src/app/model/funcionario/funcionario';
+import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Fornecedor } from 'src/app/model/fornecedor/fornecedor';
+import { FornecedorService } from 'src/app/services/fornecedor/fornecedor.service';
 
 @Component({
-  selector: 'app-funcionario-form-cadastro',
-  templateUrl: './funcionario-form-cadastro.component.html',
-  styleUrls: ['./funcionario-form-cadastro.component.scss']
+  selector: 'app-fornecedor-form-cadastro',
+  templateUrl: './fornecedor-form-cadastro.component.html',
+  styleUrls: ['./fornecedor-form-cadastro.component.scss']
 })
-export class FuncionarioFormCadastroComponent implements OnInit {
-  funcionario: Funcionario;
+export class FornecedorFormCadastroComponent {
+  fornecedor: Fornecedor;
   sucessoFeedback: boolean = false;
   errorsFeedback?: string = '';
   id?: number;
 
   constructor(
-    private service: FuncionariosService,
+    private service: FornecedorService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
   ) {
-    this.funcionario = new Funcionario();
+    this.fornecedor = new Fornecedor();
 
   }
   ngOnInit(): void {
-    this.id = this.service.getFuncionarioId()
+    this.id = this.service.getFornecedorId()
       if (this.id) {
         this.service.getFuncionarioById(this.id).subscribe(
           response => {
-            this.funcionario = response;
+            this.fornecedor = response;
           },
           errorResponse => {
-            this.funcionario = new Funcionario();
+            this.fornecedor = new Fornecedor();
           }
         );
       }
@@ -40,7 +40,7 @@ export class FuncionarioFormCadastroComponent implements OnInit {
 
   onSubmit(): void {
     if (this.id) {
-      this.service.atualizarFuncionario(this.funcionario).subscribe(
+      this.service.atualizarFornecedor(this.fornecedor).subscribe(
         resposne => {
           this.sucessoFeedback = true;
           this.errorsFeedback = '';
@@ -54,11 +54,11 @@ export class FuncionarioFormCadastroComponent implements OnInit {
         }
       )
     } else {
-      this.service.cadastrarFuncionario(this.funcionario).subscribe(
+      this.service.cadastrarFornecedor(this.fornecedor).subscribe(
         response => {
           this.sucessoFeedback = true;
           this.errorsFeedback = '';
-          this.funcionario = response;
+          this.fornecedor = response;
           setTimeout(() => {
             this.sucessoFeedback = false;
           }, 7000);
@@ -71,6 +71,6 @@ export class FuncionarioFormCadastroComponent implements OnInit {
     }
   }
   voltarListagem(): void {
-    this.router.navigate(['funcionario/listar']);
+    this.router.navigate(['fornecedor/listar']);
   }
 }

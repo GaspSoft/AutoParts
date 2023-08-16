@@ -14,7 +14,7 @@ export class FuncionariosService {
 
   private url: string = 'http://localhost:8080/funcionario';
 
-  cadastrar(funcionario: Funcionario): Observable<Funcionario> {
+  cadastrarFuncionario(funcionario: Funcionario): Observable<Funcionario> {
     return this.http.post<Funcionario>(this.url, funcionario);
   }
 

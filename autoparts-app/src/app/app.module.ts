@@ -10,6 +10,7 @@ import { ClientesService } from './services/cliente/clientes.service';
 import { FuncionariosModule } from './funcionarios/funcionarios.module';
 import { FuncionariosService } from './services/funcionario/funcionarios.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FornecedorService } from './services/fornecedor/fornecedor.service';
 import { PecaService } from './services/pecas/peca.service';
 
 @NgModule({
@@ -28,6 +29,7 @@ import { PecaService } from './services/pecas/peca.service';
   providers: [
     ClientesService,
     FuncionariosService,
+    FornecedorService
     PecaService
   ],
   bootstrap: [AppComponent]
