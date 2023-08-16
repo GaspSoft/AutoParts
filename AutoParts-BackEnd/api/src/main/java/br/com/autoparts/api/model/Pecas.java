@@ -24,7 +24,7 @@ public class Pecas {
     private Integer pecas_id;
     
     private String nome;
-    private String descrição;
+    private String descricao;
     private Integer quantidade;
     
     @Column(name = "foto")

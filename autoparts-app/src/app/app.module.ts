@@ -11,6 +11,7 @@ import { FuncionariosModule } from './funcionarios/funcionarios.module';
 import { FuncionariosService } from './services/funcionario/funcionarios.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FornecedorService } from './services/fornecedor/fornecedor.service';
+import { PecaService } from './services/pecas/peca.service';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { FornecedorService } from './services/fornecedor/fornecedor.service';
     ClientesService,
     FuncionariosService,
     FornecedorService
+    PecaService
   ],
   bootstrap: [AppComponent]
 })
