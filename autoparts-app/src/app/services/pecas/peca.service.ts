@@ -9,7 +9,7 @@ export class PecaService {
 
   constructor(private http: HttpClient) { }
 
-  private pecaId: number = 0;
+  private pecaId: number = 1;
 
   private url: string = 'http://localhost:8080/pecas/'
 
@@ -20,9 +20,9 @@ export class PecaService {
   listarPecas(): Observable<Pecas[]>{
     return this.http.get<Pecas[]>(this.url);
   }
-
+  
   listarPecasPorId(id:number): Observable<Pecas>{
-    return this.http.get<Pecas>(`${this.url}/${id}`);
+    return this.http.get<Pecas>(`${this.url}${id}`);
   }
 
   atualizarPeca(peca: Pecas): Observable<Pecas>{

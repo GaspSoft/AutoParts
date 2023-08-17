@@ -1,12 +1,21 @@
 <div class="container">
-    <form>
-        <h1>Pessoais</h1>
+    <div class="row">
+        <div class="col-md-12">
+          <div class="alert alert-success" role="alert" *ngIf="sucessoFeedback">
+            Cliente salvo/atualizado com sucesso
+          </div>
+          <div class="alert alert-danger" role="alert" *ngIf="errorsFeedback">
+            {{ errorsFeedback }}
+          </div>
+        </div>
+      </div>
+    <form *ngIf="peca"  (ngSubmit)="onSubmit()" #pecasForm="ngForm">
         <div class="card">
-            <img src="data:image/png;base64,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"  class="card-img-top" alt="img card">
+            <!-- <img src="" [(ngModel)]="peca.foto" class="card-img-top" alt="img card" name="foto">  -->
             <div class="card-body">
                 <div class="mb-3">
                   <label for="inputImage" class="form-label">Imagem da Peça</label>
-                  <input type="file" class="form-control" id="inputImage" accept="image/*">
+                  <input type="file" class="form-control" id="inputImage" accept="image/*" [(ngModel)]="peca.foto" name="foto">
                 </div>
               </div>
               
@@ -14,28 +23,28 @@
             <div class="card-body">
                 <h5 class="card-title">Peça</h5>
                     <div class="form-floating mb-3">
-                    <input class="form-control" id="floatingInput" type="text" placeholder="Nome" name="Nome">
+                    <input class="form-control" id="floatingInput" type="text" placeholder="Nome" name="Nome" value="peca.nome" [(ngModel)]="peca.nome"> 
                     <label for="floatingInput" class="form-label">Nome</label>
                  </div>
             </div>
 
             <div class="card-body">
                 <div class="form-floating mb-3">
-                    <input class="form-control" id="floatingInput" type="text" placeholder="Descrição" name="Descrição">
+                    <input class="form-control" id="floatingInput" type="text" placeholder="Descrição" name="Descrição" value="peca.descricao" [(ngModel)]="peca.descricao">
                     <label for="floatingInput" class="form-label">Descrição</label>
                 </div>
             </div>
 
             <div class="card-body">
                 <div class="form-floating mb-3">
-                    <input class="form-control" id="floatingInput" type="number" placeholder="Quantidade" name="Quantidade">
+                    <input class="form-control" id="floatingInput" type="number" placeholder="Quantidade" name="Quantidade" value="peca.quantidade" [(ngModel)]="peca.quantidade">
                     <label for="floatingInput" class="form-label">Quantidade em estoque</label>
                 </div>
             </div>
 
             <div class="card-body">
                 <div class="form-floating mb-3">
-                    <input class="form-control" id="floatingInput" type="text" placeholder="Marca" name="Marca">
+                    <input class="form-control" id="floatingInput" type="text" placeholder="Marca" name="Marca" value="peca.marca" [(ngModel)]="peca.marca">
                     <label for="floatingInput" class="form-label">Marca / Fornececedor</label>
                 </div>
             </div>
@@ -43,7 +52,7 @@
             <div class="card-body">
                 <div class="mb-3">
                     <label for="ano" class="form-label">Ano</label>
-                    <input class="form-control" id="ano" type="number" min="1900" max="2099" step="1" placeholder="Ano" name="Ano">
+                    <input class="form-control" id="ano" type="number" min="1900" max="2099" step="1" placeholder="Ano" name="Ano" value="peca.ano" [(ngModel)]="peca.ano">
                 </div>
             </div>
             
@@ -53,7 +62,7 @@
                     <label for="preco" class="form-label">Preço</label>
                     <div class="input-group">
                         <span class="input-group-text">R$</span>
-                        <input class="form-control" id="preco" type="number" step="0.01" min="0.01" placeholder="0.00" name="Preço">
+                        <input class="form-control" id="preco" type="number" step="0.01" min="0.01" placeholder="0.00" name="Preço" value="peca.preco" [(ngModel)]="peca.preco">
                     </div>
                 </div>
             </div>
@@ -61,10 +70,19 @@
 
             <div class="card-body">
                 <div class="form-floating mb-3">
-                    <input class="form-control" id="floatingInput" type="text" name="Modelo" placeholder="Modelo">
+                    <input class="form-control" id="floatingInput" type="text" name="Modelo" placeholder="Modelo" value="peca.modelo" [(ngModel)]="peca.modelo">
                     <label for="floatingInput" class="form-label">Modelo</label>
                 </div>
             </div>
+
+            <div class="card-body">
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="floatingInput" type="text" name="Fornecedor" placeholder="Fornecedor" value="peca.fornecedor.nome" [(ngModel)]="peca.fornecedor.nome">
+                    <label for="floatingInput" class="form-label">Fornecedor</label>
+                </div>
+            </div>
         </div>
+
+        <button type="submit">Enviar</button>
     </form>
 </div>
