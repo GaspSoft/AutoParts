@@ -21,14 +21,7 @@ public class PecasServico {
   
     public ResponseEntity<?> cadastrarPecas(Pecas p) {
         try {
-            if (p.getFoto() == null || p.getFoto().length == 0) {
-                return ResponseEntity.badRequest().body("A imagem é obrigatória.");
-            }
-            
-            byte[] fotoBytes = Base64.getDecoder().decode(p.getFoto());
-            p.setFoto(fotoBytes);
-            
-            
+                    
             pecasRepositorio.save(p);
             return new ResponseEntity<>(p, HttpStatus.CREATED);
         } catch (Exception e) {

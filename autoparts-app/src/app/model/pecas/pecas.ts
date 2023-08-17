@@ -5,7 +5,7 @@ export class Pecas {
     nome?: string;
     descricao?: string;
     quantidade?: number;
-    foto?: Uint8Array; 
+    foto?: Blob; 
     marca?: string;
     ano?: number;
     preco?: number;

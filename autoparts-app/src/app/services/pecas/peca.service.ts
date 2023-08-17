@@ -13,8 +13,8 @@ export class PecaService {
 
   private url: string = 'http://localhost:8080/pecas/'
 
-  cadastrarPeca(peca: Pecas): Observable<Pecas>{
-    return this.http.post<Pecas>(this.url, peca);
+  cadastrarPeca(formData: FormData): Observable<any>{
+    return this.http.post<FormData>(this.url, formData);
   }
 
   listarPecas(): Observable<Pecas[]>{
