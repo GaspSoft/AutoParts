@@ -1,0 +1,21 @@
+.bg-gradient{
+  width: 100%;
+  height: 250px;
+  color: white;
+  background: linear-gradient(to right, black 0%, purple 100%) !important;
+}
+.flex-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+section{
+  width: 50%;
+  text-align: center;
+}
+
+.img-mec{
+  border-radius: 30px;
+}
