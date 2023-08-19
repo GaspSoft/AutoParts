@@ -18,4 +18,11 @@ public class Fornecedor {
     private Integer fornecedor_id;
     private Long cnpj;
     private String nome;
+   
+    public Fornecedor(Integer fornecedor_id) {
+        this.fornecedor_id = fornecedor_id;
+    }
+    public Fornecedor() {
+    }
+
 }

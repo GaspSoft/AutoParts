@@ -1,12 +1,15 @@
 package br.com.autoparts.api.service;
 
 import java.util.Base64;
+import java.util.HashSet;
 import java.util.List;
 
+import org.hibernate.mapping.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import br.com.autoparts.api.model.Pecas;
 import br.com.autoparts.api.model.Retorno;
@@ -45,6 +48,7 @@ public class PecasServico {
         }
     }
     
+   
     
     
 }
