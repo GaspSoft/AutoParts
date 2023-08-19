@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PecasCardsComponent } from './template/pecas-cards/pecas-cards.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -9,7 +10,8 @@ import { PecasCardsComponent } from './template/pecas-cards/pecas-cards.componen
     PecasCardsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     PecasCardsComponent
