@@ -7,6 +7,7 @@ import { ClientesRoutingModule } from './clientes-routing.module';
 import { ClienteFormPerfilComponent } from './templates/cliente-form-perfil/cliente-form-perfil.component';
 import { ClientesListaComponent } from './templates/clientes-lista/clientes-lista.component';
 import { ClientePageComponent } from './page/cliente-page/cliente-page.component';
+import { ClienteSobreComponent } from './templates/cliente-sobre/cliente-sobre.component';
 
 
 
@@ -15,7 +16,8 @@ import { ClientePageComponent } from './page/cliente-page/cliente-page.component
     ClienteFormCadastroComponent,
     ClienteFormPerfilComponent,
     ClientesListaComponent,
-    ClientePageComponent
+    ClientePageComponent,
+    ClienteSobreComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { ClientePageComponent } from './page/cliente-page/cliente-page.component
   exports: [
     ClienteFormCadastroComponent,
     ClienteFormPerfilComponent,
-    ClientesListaComponent
+    ClientesListaComponent,
+    ClienteSobreComponent
   ]
 })
 export class ClientesModule { }
