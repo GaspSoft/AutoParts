@@ -1,5 +1,7 @@
+@import '../../../assets/scss/variaveis.scss';
+
 nav {
-    background: linear-gradient(to right, #342A41 0%, #6500E4 100%) !important;
+    background: $linear;
     margin-bottom: 1%;
 }
 
@@ -11,7 +13,7 @@ nav {
 }
 
 .navbar-brand {
-    color: white;
+    color: $branco;
 }
 
 .navbar-toggler-icon {
@@ -19,13 +21,13 @@ nav {
 }
 
 .navbar-toggler {
-    border: 1px solid white;
+    border: 1px solid $branco;
 }
 
 .offcanvas  {
     border-top-left-radius: 2%;
     border-bottom-left-radius: 2%;
-    background: #380972 !important;
+    background: $roxo-escuro;
 }
 
 .menu-logo {
@@ -41,14 +43,14 @@ nav {
     display: flex;
     font-size: 22px;
     font-weight: 500;
-    color: white;
+    color: $branco;
     width: 100%;
 }
 
 .nav-link {
     padding-left: 3%;
     font-size: 18px;
-    color: white !important;
+    color: $branco;
     border-radius: 10px;
     transition: 1s;
     height: 35px;
@@ -57,8 +59,8 @@ nav {
 
 .nav-link:hover {
     transition: 0.2s;
-    background: white;
-    color: #380972 !important;
+    background: $branco;
+    color: $roxo-escuro;
     border-radius: 10px;
 }
 
@@ -71,5 +73,5 @@ nav {
 }
 
 .btin-close:hover {
-    color: white !important;
+    color: $branco;
 }
