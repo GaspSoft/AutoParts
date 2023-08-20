@@ -1,15 +1,4 @@
-.container {
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    margin-bottom: 3%;
-}
-
-.alignment {
-    display: flex;
-    justify-content: center;
-}
+@import '../../../../assets/scss/variaveis.scss';
 
 .logo-title {
     height: 120px;
@@ -39,71 +28,7 @@
     font-weight: 500;
 }
 
-.form-control:not(:placeholder-shown) {
-    transition: 2s;
-    border: 1px solid #460a8f;
-    color: #460a8f !important;
-}
-
-.col-2 {
-    display: grid;
-    width: 100%;
-}
-
-.form-check-input {
-    margin-left: 0;
-    margin-bottom: 1.2%;
-    appearance: none;
-    background-color: #ffffff;
-    color: #D2D2D2;
-    width: 20px;
-    height: 20px;
-    border: 1px solid currentColor;
-    border-radius: 4px;
-    transform: translateY(-0.075em);
-}
-
-.form-check-input:before {
-    appearance: none;
-    content: "\2713";
-    color: #460a8f;
-    position: absolute;
-    padding-left: 10%;
-    left: 2px;
-    transform: scale(0);
-    border-radius: 4px;
-    transition: 300ms transform ease-in-out;
-    box-shadow: inset 1px 1px var(--container-color);
-}
-
-.form-check-input:hover {
-    outline: max(2px, 1px) solid currentColor;
-    outline-offset: max(1px, 1px);
-    outline-color: #460a8f;
-}
-
-.form-check-input:checked::before {
-    outline-offset: max(1px, 1px);
-    transform: scale(1.2);
-}
-
-.form-check-input:focus {
-    outline: max(2px, 1px) solid currentColor;
-    outline-offset: max(1px, 1px);
-}
-
-.form-check-label {
-    margin-left: 1%;
-    padding-top: 0.2%;
-}
-
-.d-grid {
-    margin-left: 20%;
-}
-
 .btn {
-    margin-top: 1%;
-    width: 80%;
     transition: 0.3s transform ease-in-out;
 }
 
