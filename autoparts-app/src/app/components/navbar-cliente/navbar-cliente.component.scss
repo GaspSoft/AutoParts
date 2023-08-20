@@ -1,0 +1,65 @@
+nav {
+    background: linear-gradient(to right, #342A41 0%, #6500E4 100%) !important;
+    margin-bottom: 3%;
+}
+
+.navbar-logo {
+    height: 30px;
+    width: 33px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.navbar-brand {
+    color: white;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+.navbar-toggler {
+    border: 1px solid white;
+}
+
+.offcanvas  {
+    border-top-left-radius: 2%;
+    border-bottom-left-radius: 2%;
+    background: #380972 !important;
+}
+
+.menu-logo {
+    height: 30px;
+    width: 35px;
+    margin-top: -1%;
+}
+
+.offcanvas-title {
+    padding-top: 3%;
+    justify-content: center;
+    display: flex;
+    font-size: 22px;
+    font-weight: 500;
+    color: white;
+    width: 100%;
+}
+
+.nav-link {
+    padding-left: 3%;
+    font-size: 18px;
+    color: white !important;
+    border-radius: 10px;
+    transition: 1s;
+    height: 35px;
+    margin-bottom: 3%;
+}
+
+.nav-link:hover {
+    transition: 0.2s;
+    background: white;
+    color: #380972 !important;
+    border-radius: 10px;
+}
+
+.svg {
+    padding-right: 5% !important;
+}
