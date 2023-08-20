@@ -29,35 +29,18 @@ export class PecasCardsComponent {
     this.pecaService.cadastrarPeca(this.peca, this.foto)
       .subscribe(
         response => {
-          console.log('Peça salva com sucesso!', response);
-        },
-        error => {
-          console.error('Erro ao salvar peça:', error);
+          this.sucessoFeedback = true;
+        this.errorsFeedback = '';
+        setTimeout(() => {
+          this.sucessoFeedback = false;
+        }, 7000);
+      },
+      (error) => {
+        this.sucessoFeedback = false;
+        this.errorsFeedback = error.error.message;
         }
       );
   }
 
   
-
-//   onSubmit(): void {
-    
-
-//     this.service.cadastrarPeca(this.peca).subscribe(
-//       (data) => {
-//         this.sucessoFeedback = true;
-//         this.errorsFeedback = '';
-//         setTimeout(() => {
-//           this.sucessoFeedback = false;
-//         }, 7000);
-//       },
-//       (error) => {
-//         this.sucessoFeedback = false;
-//         this.errorsFeedback = error.error.message;
-//       }
-//     );
-    
-    
-
-  
-// }
 }
