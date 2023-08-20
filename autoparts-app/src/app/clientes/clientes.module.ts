@@ -8,6 +8,7 @@ import { ClienteFormPerfilComponent } from './templates/cliente-form-perfil/clie
 import { ClientesListaComponent } from './templates/clientes-lista/clientes-lista.component';
 import { ClientePageComponent } from './page/cliente-page/cliente-page.component';
 import { ClienteSobreComponent } from './templates/cliente-sobre/cliente-sobre.component';
+import { ClienteHomeComponent } from './templates/cliente-home/cliente-home.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ClienteSobreComponent } from './templates/cliente-sobre/cliente-sobre.c
     ClienteFormPerfilComponent,
     ClientesListaComponent,
     ClientePageComponent,
-    ClienteSobreComponent
+    ClienteSobreComponent,
+    ClienteHomeComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { ClienteSobreComponent } from './templates/cliente-sobre/cliente-sobre.c
     ClienteFormCadastroComponent,
     ClienteFormPerfilComponent,
     ClientesListaComponent,
-    ClienteSobreComponent
+    ClienteSobreComponent,
+    ClienteHomeComponent
   ]
 })
 export class ClientesModule { }
