@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import br.com.autoparts.api.model.Pecas;
@@ -30,9 +32,9 @@ public class PecasControle {
     private PecasServico servico;
 
     @PostMapping(value = { "/pecas" }, consumes = { "multipart/form-data" })
-    public ResponseEntity<String> salvar(@RequestPart("peca") String pecaJson,
-                                     @RequestPart("foto") MultipartFile foto) {
-    try {
+    public ResponseEntity<?> salvar(@RequestPart("peca") String pecaJson,
+                                     @RequestPart("foto") MultipartFile foto) throws IOException {
+    
         // Converter o JSON da peça para um objeto Pecas
         ObjectMapper objectMapper = new ObjectMapper();
         Pecas peca = objectMapper.readValue(pecaJson, Pecas.class);
@@ -41,15 +43,9 @@ public class PecasControle {
         peca.setFoto(foto.getBytes());
 
         // Salvar o objeto Pecas no banco de dados usando o serviço
-        servico.cadastrarPecas(peca);
+        return servico.cadastrarPecas(peca);
         
-        return new ResponseEntity<>("Peças salvas com sucesso", HttpStatus.CREATED);
-    } catch (Exception e) {
-        return new ResponseEntity<>("Erro ao salvar peças: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
-}
-
-
 
 
     @GetMapping("/pecas")

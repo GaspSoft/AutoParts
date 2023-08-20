@@ -29,7 +29,7 @@ public class Pecas {
     private String descricao;
     private Integer quantidade;
     
-    @Column(name = "foto")
+    @Column(name = "foto", length = 1000485760) // tamanho 1000MB (em bytes)
     @Lob
     private byte[] foto; // Campo para armazenar a imagem em formato de array de bytes
     private String marca;
@@ -37,28 +37,10 @@ public class Pecas {
     private Double preco;
     private String modelo;
 
-    //construct with all fields
-    public Pecas(Integer pecas_id, String nome, String descricao, Integer quantidade, byte[] foto, String marca,
-            Integer ano, Double preco, String modelo, Fornecedor fornecedor) {
-        this.pecas_id = pecas_id;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.quantidade = quantidade;
-        this.foto = foto;
-        this.marca = marca;
-        this.ano = ano;
-        this.preco = preco;
-        this.modelo = modelo;
-        this.fornecedor = fornecedor;
-    }
-
-    
-    public Pecas() {
-    }
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fornecedores_id")
     private Fornecedor fornecedor;
-
+    // link a forncedor with id
     
 }
