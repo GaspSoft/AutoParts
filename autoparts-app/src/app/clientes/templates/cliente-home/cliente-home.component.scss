@@ -1,0 +1,46 @@
+.start-page {
+    max-width: 100%;
+     height: auto;
+    display: flex;
+}
+
+.bg-pri-sec {
+    background-color: #a5a5a52f;
+}
+
+.img-home1 {
+    justify-content: flex-end;
+    max-width: 100%;
+    height: auto;
+}
+
+.start-page h1 {
+    letter-spacing: 1px;
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.start-page h5 {
+    letter-spacing: 1px;
+    color: #6b6b6b;
+    font-size: 18px;
+}
+
+.btn-get-in {
+    height: 38px;
+    width: 150px;
+    margin-top: 20px;
+    border-radius: 20px;
+    border-color: transparent;
+    transition: 500ms;
+    color: white;
+    background-image: linear-gradient(to right, #342A41 0%, #6500e4  51%, #342A41  100%);
+    background-size: 200% auto;
+    text-align: center;
+}
+ 
+
+.btn-get-in:hover {
+    transform: scale(1.1, 1.1);
+    background-position: right center;
+}
