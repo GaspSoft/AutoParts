@@ -1,0 +1,37 @@
+.container {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.alignment {
+    display: grid;
+    justify-content: center;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.form-control:not(:placeholder-shown) {
+    transition: 2s;
+    border: 1px solid #460a8f;
+    color: #460a8f !important;
+}
+
+.col-2 {
+    display: grid;
+    width: 100%;
+}
+
+.btn {
+    width: 80%;
+    transition: 0.3s transform ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
