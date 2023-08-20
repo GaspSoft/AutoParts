@@ -1,6 +1,6 @@
 <div class="container w-50 mb-5">
   <div class="row d-flex justify-content-center">
-    <img src="/assets/img/LogoSemFundo.png" class="logo-title" alt="">
+    <img src="/assets/img/LogoSemFundo.png" class="w-25 h-25 mb-3" alt="">
     <p class="p-title">TORNE-SE UM <br>CONSUMIDOR AUTOPARTS</p>
     <p class="subtitle">Crie sua conta em nossa Loja e <br>obtenha acesso aos melhores produtos <br>automotivos com qualidade e garantia</p>
   </div>
@@ -58,17 +58,14 @@
     </div>
 
     <div class="row d-flex justify-content-center">
-      <div class="col-6">
+      <div class="col-3">
         <div class="form-floating mb-3">
           <input type="number" [(ngModel)]="cliente.endereco.cep" name="cep" class="form-control" id="floatingInput"
             placeholder="CEP">
           <label for="floatingInput">CEP</label>
         </div>
       </div>
-    </div>
-
-    <div class="row d-flex justify-content-center">
-      <div class="col-6">
+      <div class="col-3">
         <div class="form-floating mb-3">
           <select class="form-control" [ngModelOptions]="{ standalone: true }" [(ngModel)]="cliente.endereco.estado">
             <option value="">Selecione</option>
@@ -133,14 +130,10 @@
 
     <div class="row d-flex justify-content-center">
       <div class="col-6">
-        <button class="btn btn-main w-100" type="submit">
-          <i class="fa fa-save"></i>
-          Cadastrar
+        <button class="btn btn-roxo w-100" type="submit">
+          CRIAR CONTA
         </button>
       </div>
     </div>
   </form>
 </div>
-
-{{ cliente | json }}
-
