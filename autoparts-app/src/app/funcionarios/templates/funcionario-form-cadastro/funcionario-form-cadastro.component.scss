@@ -1,19 +1,14 @@
 .container {
-    height: 100%;
     justify-content: center;
     display: flex;
     flex-direction: column;
-    width: 45%;
+    width: 40%;
     margin-bottom: 3%;
 }
 
 .title {
     font-size: 28px;
     font-weight: 500;
-}
-
-.form-control {
-    width: 80%;
 }
 
 .form-control:not(:placeholder-shown) {
@@ -45,7 +40,8 @@
     content: "\2713";
     color: #460a8f;
     position: absolute;
-    left: 4px;
+    padding-left: 10%;
+    left: 2px;
     transform: scale(0);
     border-radius: 4px;
     transition: 300ms transform ease-in-out;
@@ -54,11 +50,12 @@
 
 .form-check-input:hover {
     outline: max(2px, 1px) solid currentColor;
-    transform: scale(1);
+    outline-offset: max(1px, 1px);
+    outline-color: #460a8f;
 }
 
 .form-check-input:checked::before {
-    border: 1px solid;
+    outline-offset: max(1px, 1px);
     transform: scale(1.2);
 }
 
@@ -70,4 +67,18 @@
 .form-check-label {
     margin-left: 1%;
     padding-top: 0.2%;
+}
+
+.d-grid {
+    margin-left: 20%;
+}
+
+.btn {
+    margin-top: 1%;
+    width: 80%;
+    transition: 0.3s transform ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.05);
 }

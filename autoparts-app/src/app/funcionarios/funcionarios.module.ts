@@ -7,8 +7,6 @@ import { FuncionariosRoutingModule } from './funcionarios-routing.module';
 import { FuncionariosListaComponent } from './templates/funcionarios-lista/funcionarios-lista.component';
 import { FuncionarioPageComponent } from './page/funcionario-page/funcionario-page.component';
 
-
-
 @NgModule({
   declarations: [
     FuncionarioFormCadastroComponent,

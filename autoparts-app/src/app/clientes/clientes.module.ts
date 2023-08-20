@@ -9,8 +9,6 @@ import { ClientesListaComponent } from './templates/clientes-lista/clientes-list
 import { ClientePageComponent } from './page/cliente-page/cliente-page.component';
 import { ClienteSobreComponent } from './templates/cliente-sobre/cliente-sobre.component';
 
-
-
 @NgModule({
   declarations: [
     ClienteFormCadastroComponent,
