@@ -7,39 +7,29 @@ import { PecaService } from 'src/app/services/pecas/peca.service';
   templateUrl: './pecas-cards.component.html',
   styleUrls: ['./pecas-cards.component.scss']
 })
-export class PecasCardsComponent implements OnInit {
-  constructor(private service: PecaService) {
+export class PecasCardsComponent {
+  constructor(private pecaService: PecaService) {
     this.peca = new Pecas();
+    this.foto = new File([], '');
   }
 
   peca: Pecas;
+  foto!: File;
   sucessoFeedback: boolean = false;
   errorsFeedback?: string = '';
   id?: number;
-
-  ngOnInit(): void {
-    this.id = this.service.getPecaId();
-    if (this.id) {
-      this.service.listarPecasPorId(this.id).subscribe(
-        (data) => {
-          this.sucessoFeedback = true;
-          this.errorsFeedback = '';
-          this.peca = data; // Atualizar a peça com os dados recebidos do serviço
-        },
-        (error) => {
-          this.sucessoFeedback = false;
-          this.errorsFeedback = error.error.message;
-        }
-      );
-    }
-  }
   
+  
+  onFileChange(event: any) {
+    this.foto = event.target.files[0];
+  }
 
-  onSubmit(): void {
-    
-    this.service.cadastrarPeca(this.peca).subscribe(
-      (data) => {
-        this.sucessoFeedback = true;
+
+  salvarPeca() {
+    this.pecaService.cadastrarPeca(this.peca, this.foto)
+      .subscribe(
+        response => {
+          this.sucessoFeedback = true;
         this.errorsFeedback = '';
         setTimeout(() => {
           this.sucessoFeedback = false;
@@ -48,11 +38,9 @@ export class PecasCardsComponent implements OnInit {
       (error) => {
         this.sucessoFeedback = false;
         this.errorsFeedback = error.error.message;
-      }
-    );
-    
-    
+        }
+      );
+  }
 
   
-}
 }
