@@ -1,10 +1,10 @@
 export class Endereco {
   endereco_id?: number;
-  cep: number = 0;
+  cep?: number;
   estado: string= '';
   cidade: string = '';
   bairro: string = '';
   rua: string = '';
-  numero: number = 0;
+  numero?: number;
   complemento: string = '';
 }

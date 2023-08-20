@@ -9,12 +9,13 @@ import { ClientesService } from 'src/app/services/cliente/clientes.service';
 })
 export class ClienteFormCadastroComponent {
   cliente: Cliente;
+  estados: any = [];
   sucessoFeedback: boolean = false;
   errorsFeedback?: string = '';
 
   constructor(private service: ClientesService) {
     this.cliente = new Cliente();
-
+    this.estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO']
   }
 
   cadastrar(): void {
