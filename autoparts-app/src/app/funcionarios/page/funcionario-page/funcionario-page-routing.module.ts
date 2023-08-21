@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'lista-cliente', component: ClientesListaComponent },
   { path: 'lista-fornecedor', component: FornecedoresListaComponent },
   { path: 'cadastro-fornecedor', component: FornecedorFormCadastroComponent },
+  { path: 'alterar-fornecedor', component: FornecedorFormCadastroComponent },
   { path: '', redirectTo: '/funcionario/lista-funcionario', pathMatch: 'full'}
 
 ];

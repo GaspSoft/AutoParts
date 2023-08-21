@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container w-50">
   <div class="row d-flex justify-content-center">
     <img src="/assets/img/LogoSemFundo.png" class="w-25 h-25 mb-3" alt="">
     <p class="p-title text-center mb-2">TORNE-SE UM <br>CONSUMIDOR AUTOPARTS</p>
@@ -58,7 +58,7 @@
         <div class="form-check">
           <input class="form-check-input" [(ngModel)]="funcionario.cargoFuncionario" type="radio"
             name="flexRadioDefault" id="flexRadioDefault1" [value]="true">
-          <label class="form-check-label my-1 ms-1" for="flexRadioDefault1">
+          <label class="form-check-label mt-1" for="flexRadioDefault1">
             Gerente
           </label>
         </div>
@@ -67,13 +67,14 @@
         <div class="form-check">
           <input class="form-check-input" [(ngModel)]="funcionario.cargoFuncionario" type="radio"
             name="flexRadioDefault" id="flexRadioDefault2" [value]="false">
-          <label class="form-check-label my-1 ms-1" for="flexRadioDefault2">
+          <label class="form-check-label my-1 ml-1" for="flexRadioDefault2">
             Funcionário
           </label>
         </div>
       </div>
     </div>
-    <div class="row d-flex justify-content-center mt-2">
+
+    <div class="row d-flex justify-content-center mt-3">
       <div class="col-6">
         <button class="btn btn-roxo w-100" type="submit" *ngIf="!funcionario.funcionario_id">
           CADASTRAR
