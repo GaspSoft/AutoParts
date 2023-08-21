@@ -1,11 +1,17 @@
+@import '../../../../assets/scss/variaveis.scss';
+
 .start-page {
     max-width: 100%;
-     height: auto;
+    height: auto;
     display: flex;
 }
 
+.met-page {
+  width: 50%;
+}
+
 .bg-pri-sec {
-    background-color: #a5a5a52f;
+    background-color: $cinza-claro;
 }
 
 .img-home1 {
@@ -34,13 +40,20 @@
     border-color: transparent;
     transition: 500ms;
     color: white;
-    background-image: linear-gradient(to right, #342A41 0%, #6500e4  51%, #342A41  100%);
+    background-image: $linear-corrente;
     background-size: 200% auto;
     text-align: center;
 }
- 
 
 .btn-get-in:hover {
     transform: scale(1.1, 1.1);
     background-position: right center;
+}
+
+.title-experience {
+    font-weight: 600;
+}
+
+.subtitle-experience {
+  font-size: 600;
 }

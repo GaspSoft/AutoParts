@@ -1,10 +1,12 @@
 $roxo-escuro: #380972 !important;
 $roxo-claro: #6500E4 !important;
 $branco: #FFFFFF !important;
-$preto: #222222;
-$cinza-escuro: #525252;
+$preto: #222222 !important;
+$cinza-claro: #dadada !important;
+$cinza-escuro: #525252 !important;
 $linear: linear-gradient(to right, #342A41 0%, #6500E4 100%) !important;
-$linear-corrente: linear-gradient(to right, #342A41 0%, #6500e4  51%, #342A41  100%);
+$linear-corrente: linear-gradient(to right, #342A41 0%, #6500e4  51%, #342A41  100%) !important;
+$linear-corrente-cinza: linear-gradient(to right, #6d6d6d 0%, #cfcfcf  51%, #6d6d6d  100%) !important;
 
 .btn-roxo {
   background-image: $linear-corrente;
@@ -14,6 +16,17 @@ $linear-corrente: linear-gradient(to right, #342A41 0%, #6500e4  51%, #342A41  1
 }
 
 .btn-roxo:hover {
+  background-position: right center;
+}
+
+.btn-cinza {
+  background-image: $linear-corrente-cinza;
+  background-size: 200% auto;
+  transition: 500ms;
+  color: $branco;
+}
+
+.btn-cinza:hover {
   background-position: right center;
 }
 
