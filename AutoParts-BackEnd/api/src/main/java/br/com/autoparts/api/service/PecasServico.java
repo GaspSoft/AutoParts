@@ -41,9 +41,7 @@ public class PecasServico {
     
 
     public List<Pecas> listarTodos() {
-        List<Pecas> pecasList = pecasRepositorio.findAll();
-        
-        return pecasList;
+         return pecasRepositorio.findAll();
     }
 
     public ResponseEntity<?> buscarPeca(Integer id) {
