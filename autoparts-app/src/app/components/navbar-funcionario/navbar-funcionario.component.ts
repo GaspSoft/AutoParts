@@ -12,7 +12,7 @@ export class NavbarFuncionarioComponent {
   }
 
   linkListaFuncionario():void {
-    this.router.navigate(['/funcionario']);
+    this.router.navigate(['/funcionario/lista-funcionario']);
   }
 
   linkListaProduto():void {
@@ -20,10 +20,10 @@ export class NavbarFuncionarioComponent {
   }
 
   linkListaCliente():void {
-    this.router.navigate(['/cliente']);
+    this.router.navigate(['/funcionario/lista-cliente']);
   }
 
   linkListaFornecedor():void {
-    this.router.navigate(['/fornecedor']);
+    this.router.navigate(['/funcionario/lista-fornecedor']);
   }
 }
