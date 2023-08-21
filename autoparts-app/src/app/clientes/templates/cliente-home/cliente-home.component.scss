@@ -55,5 +55,29 @@
 }
 
 .subtitle-experience {
+  margin-top: 80px;
   font-size: 600;
+}
+
+.text-experience {
+  color: $cinza;
+  text-align: justify;
+  width: 40%;
+}
+
+.img-experience {
+  position: relative;
+  z-index: 2;
+}
+
+.img-balls {
+  position: relative;
+  z-index: 1;
+  bottom: 230px;
+  right: 100px;
+}
+
+
+.line {
+  width: 90%;
 }
