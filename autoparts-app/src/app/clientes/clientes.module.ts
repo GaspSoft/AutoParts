@@ -5,7 +5,6 @@ import { ComponentsModule } from '../components/components.module';
 import { FormsModule } from '@angular/forms';
 import { ClientesRoutingModule } from './clientes-routing.module';
 import { ClienteFormPerfilComponent } from './templates/cliente-form-perfil/cliente-form-perfil.component';
-import { ClientesListaComponent } from './templates/clientes-lista/clientes-lista.component';
 import { ClientePageComponent } from './page/cliente-page/cliente-page.component';
 import { ClienteSobreComponent } from './templates/cliente-sobre/cliente-sobre.component';
 import { ClienteHomeComponent } from './templates/cliente-home/cliente-home.component';
@@ -14,7 +13,6 @@ import { ClienteHomeComponent } from './templates/cliente-home/cliente-home.comp
   declarations: [
     ClienteFormCadastroComponent,
     ClienteFormPerfilComponent,
-    ClientesListaComponent,
     ClientePageComponent,
     ClienteSobreComponent,
     ClienteHomeComponent
@@ -28,7 +26,6 @@ import { ClienteHomeComponent } from './templates/cliente-home/cliente-home.comp
   exports: [
     ClienteFormCadastroComponent,
     ClienteFormPerfilComponent,
-    ClientesListaComponent,
     ClienteSobreComponent,
     ClienteHomeComponent
   ]

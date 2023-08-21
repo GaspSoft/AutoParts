@@ -1,4 +1,3 @@
-import { ClientesListaComponent } from './../../templates/clientes-lista/clientes-lista.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ClienteFormCadastroComponent } from '../../templates/cliente-form-cadastro/cliente-form-cadastro.component';
@@ -8,7 +7,6 @@ import { ClienteHomeComponent } from '../../templates/cliente-home/cliente-home.
 
 const routes: Routes = [
   { path: 'cadastrar', component: ClienteFormCadastroComponent },
-  { path: 'lista', component: ClientesListaComponent },
   { path: 'sobre', component: ClienteSobreComponent },
   { path: 'perfil', component: ClienteFormPerfilComponent },
   { path: 'home', component: ClienteHomeComponent },

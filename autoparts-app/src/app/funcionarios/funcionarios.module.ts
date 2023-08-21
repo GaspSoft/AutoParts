@@ -6,12 +6,18 @@ import { FormsModule } from '@angular/forms';
 import { FuncionariosRoutingModule } from './funcionarios-routing.module';
 import { FuncionariosListaComponent } from './templates/funcionarios-lista/funcionarios-lista.component';
 import { FuncionarioPageComponent } from './page/funcionario-page/funcionario-page.component';
+import { ClientesListaComponent } from './templates/clientes-lista/clientes-lista.component';
+import { FornecedorFormCadastroComponent } from './templates/fornecedor-form-cadastro/fornecedor-form-cadastro.component';
+import { FornecedoresListaComponent } from './templates/fornecedores-lista/fornecedores-lista.component';
 
 @NgModule({
   declarations: [
     FuncionarioFormCadastroComponent,
     FuncionariosListaComponent,
     FuncionarioPageComponent,
+    ClientesListaComponent,
+    FornecedorFormCadastroComponent,
+    FornecedoresListaComponent
   ],
   imports: [
     CommonModule,
@@ -22,6 +28,9 @@ import { FuncionarioPageComponent } from './page/funcionario-page/funcionario-pa
   exports: [
     FuncionarioFormCadastroComponent,
     FuncionariosListaComponent,
+    ClientesListaComponent,
+    FornecedorFormCadastroComponent,
+    FornecedoresListaComponent
   ]
 })
 export class FuncionariosModule { }
