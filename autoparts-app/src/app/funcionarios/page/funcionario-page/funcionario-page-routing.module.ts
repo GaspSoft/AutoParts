@@ -2,12 +2,19 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FuncionarioFormCadastroComponent } from '../../templates/funcionario-form-cadastro/funcionario-form-cadastro.component';
 import { FuncionariosListaComponent } from '../../templates/funcionarios-lista/funcionarios-lista.component';
+import { ClientesListaComponent } from '../../templates/clientes-lista/clientes-lista.component';
+import { FornecedorFormCadastroComponent } from '../../templates/fornecedor-form-cadastro/fornecedor-form-cadastro.component';
+import { FornecedoresListaComponent } from '../../templates/fornecedores-lista/fornecedores-lista.component';
 
 const routes: Routes = [
-  { path: 'cadastrar', component: FuncionarioFormCadastroComponent },
-  { path: 'alterar', component: FuncionarioFormCadastroComponent },
-  { path: 'lista', component: FuncionariosListaComponent },
-  { path: '', redirectTo: '/funcionario/lista', pathMatch: 'full'}
+  { path: 'cadastro-funcionario', component: FuncionarioFormCadastroComponent },
+  { path: 'alterar-funcionario', component: FuncionarioFormCadastroComponent },
+  { path: 'lista-funcionario', component: FuncionariosListaComponent },
+  { path: 'lista-cliente', component: ClientesListaComponent },
+  { path: 'lista-fornecedor', component: FornecedoresListaComponent },
+  { path: 'cadastro-fornecedor', component: FornecedorFormCadastroComponent },
+  { path: 'alterar-fornecedor', component: FornecedorFormCadastroComponent },
+  { path: '', redirectTo: '/funcionario/lista-funcionario', pathMatch: 'full'}
 
 ];
 

@@ -29,12 +29,12 @@ export class FornecedoresListaComponent {
 
   editarFornecedor(funcionario_id: number): void {
     this.service.setFornecedorId(funcionario_id);
-    this.router.navigate(['fornecedor/alterar'])
+    this.router.navigate(['funcionario/alterar-fornecedor'])
   }
 
   novoCadastroFornecedor(): void {
     this.service.setFornecedorId(0);
-    this.router.navigate(['fornecedor/cadastrar'])
+    this.router.navigate(['funcionario/cadastro-fornecedor'])
   }
 
   preparaDelecao(fornecedor: Fornecedor) {
