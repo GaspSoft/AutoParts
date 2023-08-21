@@ -36,7 +36,7 @@ public class Pecas {
     private Integer ano;
     private Double preco;
     private String modelo;
-
+    private String base64;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fornecedores_id")

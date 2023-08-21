@@ -18,7 +18,8 @@ import { PecasAlterarComponent } from './template/pecas-alterar/pecas-alterar.co
     FormsModule
   ],
   exports: [
-    PecasCardsComponent
+    PecasCardsComponent,
+    PecasListagemComponent,
   ]
 })
 export class PecasModule { }

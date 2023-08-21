@@ -6,6 +6,7 @@ export class Pecas {
     descricao?: string;
     quantidade?: number;
     foto?: Blob; 
+    base64?: string;
     marca?: string;
     ano?: number;
     preco?: number;
