@@ -2,9 +2,17 @@ $roxo-escuro: #380972 !important;
 $roxo-claro: #6500E4 !important;
 $branco: #FFFFFF !important;
 $preto: #222222;
+$cinza-escuro: #525252;
 $linear: linear-gradient(to right, #342A41 0%, #6500E4 100%) !important;
+$linear-corrente: linear-gradient(to right, #342A41 0%, #6500e4  51%, #342A41  100%);
 
 .btn-roxo {
-  background: $linear;
+  background-image: $linear-corrente;
+  background-size: 200% auto;
+  transition: 500ms;
   color: $branco;
+}
+
+.btn-roxo:hover {
+  background-position: right center;
 }
