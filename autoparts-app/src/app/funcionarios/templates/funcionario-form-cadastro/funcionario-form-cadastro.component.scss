@@ -1,3 +1,5 @@
+@import '../../../../assets/scss/variaveis.scss';
+
 .container {
     justify-content: center;
     display: flex;
@@ -6,10 +8,18 @@
     margin-bottom: 3%;
 }
 
-.title {
-    font-size: 28px;
-    font-weight: 500;
+.p-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: $preto;
 }
+
+.subtitle {
+  font-size: 17px;
+  font-weight: 400;
+  color: $cinza-escuro;
+}
+
 
 .form-control:not(:placeholder-shown) {
     transition: 2s;
@@ -76,9 +86,6 @@
 .btn {
     margin-top: 1%;
     width: 80%;
-    transition: 0.3s transform ease-in-out;
+
 }
 
-.btn:hover {
-    transform: scale(1.05);
-}

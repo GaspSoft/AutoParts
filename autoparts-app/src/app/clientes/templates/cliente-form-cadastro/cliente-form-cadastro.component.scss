@@ -1,38 +1,13 @@
-
 @import '../../../../assets/scss/variaveis.scss';
-
-.logo-title {
-    height: 120px;
-    width: 160px;
-    display: grid;
-    justify-content: center;
-    margin-bottom: 2%;
-}
 
 .p-title {
     font-size: 18px;
     font-weight: 800;
-    text-align: center;
-    margin-bottom: 2%;
+    color: $preto;
 }
 
 .subtitle {
     font-size: 17px;
     font-weight: 400;
-    color: #525252;
-    text-align: center;
-    margin-bottom: 5%;
-}
-
-.title {
-    font-size: 28px;
-    font-weight: 500;
-}
-
-.btn {
-    transition: 0.3s transform ease-in-out;
-}
-
-.btn:hover {
-    transform: scale(1.05);
+    color: $cinza-escuro;
 }
