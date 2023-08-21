@@ -6,11 +6,11 @@ import { ClienteFormPerfilComponent } from '../../templates/cliente-form-perfil/
 import { ClienteHomeComponent } from '../../templates/cliente-home/cliente-home.component';
 
 const routes: Routes = [
-  { path: 'cadastrar', component: ClienteFormCadastroComponent },
-  { path: 'sobre', component: ClienteSobreComponent },
-  { path: 'perfil', component: ClienteFormPerfilComponent },
-  { path: 'home', component: ClienteHomeComponent },
-  { path: '', redirectTo: '/cliente/lista', pathMatch: 'full'}
+  { path: 'cadastrar-cliente', component: ClienteFormCadastroComponent },
+  { path: 'sobre-cliente', component: ClienteSobreComponent },
+  { path: 'perfil-cliente', component: ClienteFormPerfilComponent },
+  { path: 'home-cliente', component: ClienteHomeComponent },
+  { path: '', redirectTo: '/cliente/lista-cliente', pathMatch: 'full'}
 ];
 
 @NgModule({

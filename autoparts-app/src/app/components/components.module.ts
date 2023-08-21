@@ -4,8 +4,6 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarClienteComponent } from './navbar-cliente/navbar-cliente.component';
 import { NavbarFuncionarioComponent } from './navbar-funcionario/navbar-funcionario.component';
 
-
-
 @NgModule({
   declarations: [
     FooterComponent,
