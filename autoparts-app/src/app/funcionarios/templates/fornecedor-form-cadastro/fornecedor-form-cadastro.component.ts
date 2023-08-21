@@ -71,6 +71,6 @@ export class FornecedorFormCadastroComponent {
     }
   }
   voltarListagem(): void {
-    this.router.navigate(['fornecedor/listar']);
+    this.router.navigate(['funcionario/lista-fornecedor']);
   }
 }

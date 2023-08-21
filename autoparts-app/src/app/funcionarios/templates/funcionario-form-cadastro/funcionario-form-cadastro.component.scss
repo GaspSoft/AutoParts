@@ -1,12 +1,5 @@
 @import '../../../../assets/scss/variaveis.scss';
 
-.container {
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-    margin-bottom: 3%;
-}
 
 .p-title {
   font-size: 18px;
@@ -18,18 +11,6 @@
   font-size: 17px;
   font-weight: 400;
   color: $cinza-escuro;
-}
-
-
-.form-control:not(:placeholder-shown) {
-    transition: 2s;
-    border: 1px solid #460a8f;
-    color: #460a8f !important;
-}
-
-.col-2 {
-    display: grid;
-    width: 100%;
 }
 
 .form-check-input {
@@ -68,24 +49,3 @@
     outline-offset: max(1px, 1px);
     transform: scale(1.2);
 }
-
-.form-check-input:focus {
-    outline: max(2px, 1px) solid currentColor;
-    outline-offset: max(1px, 1px);
-}
-
-.form-check-label {
-    margin-left: 1%;
-    padding-top: 0.2%;
-}
-
-.d-grid {
-    margin-left: 20%;
-}
-
-.btn {
-    margin-top: 1%;
-    width: 80%;
-
-}
-

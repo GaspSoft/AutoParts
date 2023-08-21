@@ -1,0 +1,67 @@
+<div class="container w-50">
+  <div class="row d-flex justify-content-center">
+    <img src="/assets/img/LogoSemFundo.png" class="w-25 h-25 mb-3" alt="">
+    <p class="p-title text-center mb-2">TORNE-SE UM <br>CONSUMIDOR AUTOPARTS</p>
+    <p class="subtitle text-center mb-5">Crie sua conta em nossa Loja e <br>obtenha acesso aos melhores produtos
+      <br>automotivos com qualidade e garantia
+    </p>
+  </div>
+  <form #clienteForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="alert alert-success" role="alert" *ngIf="sucessoFeedback">
+          Fornecedor salvo/atualizado com sucesso
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="errorsFeedback">
+          {{ errorsFeedback }}
+        </div>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col-6">
+        <div class="form-floating mb-3">
+          <input type="number" [(ngModel)]="fornecedor.cnpj" name="cpf" class="form-control" id="floatingInput"
+            placeholder="CPF">
+          <label for="floatingInput">CNPJ</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+      <div class="col-6">
+        <div class="form-floating mb-3">
+          <input type="text" [(ngModel)]="fornecedor.nome" name="nome" class="form-control" id="floatingInput"
+            placeholder="Nome">
+          <label for="floatingInput">Nome</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center mt-1">
+      <div class="col-6">
+        <button class="btn btn-roxo w-100" type="submit" *ngIf="!fornecedor.fornecedor_id">
+          <i class="fa fa-save"></i>
+          Cadastrar
+        </button>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center mt-1">
+      <div class="col-6">
+        <button type="submit" class="btn btn-warning w-100" *ngIf="fornecedor.fornecedor_id">
+          <i class="fa fa-sync-alt"></i>
+          Atualizar
+        </button>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center mt-1">
+      <div class="col-6">
+        <button type="button" class="btn btn-danger ml-1 w-100" (click)="voltarListagem()">
+          <i class="fa fa-arrow-alt-circle-left"></i>
+          Voltar
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
