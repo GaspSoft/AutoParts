@@ -2,6 +2,7 @@ package br.com.autoparts.api.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +51,19 @@ public class PecasControle {
 
     @GetMapping("/pecas")
     public List<Pecas> listarTodos() {
-        return servico.listarTodos();
+        List<Pecas> pecasList = servico.listarTodos();
+
+        for (Pecas peca : pecasList) {
+            if (peca.getFoto() != null) {
+                byte[] fotoBytes = peca.getFoto();
+                String base64Foto = Base64.getEncoder().encodeToString(fotoBytes);
+                peca.setBase64("\n"+base64Foto);
+            }
+        }
+        // for (Pecas p : pecasList) {
+        //     System.out.println(p.getBase64());
+        // }
+        return pecasList;
     }
 
     @GetMapping("/pecas/{id}")

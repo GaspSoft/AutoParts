@@ -11,14 +11,14 @@ export class PecaService {
   constructor(private http: HttpClient) { }
 
   private pecaId: number = 1;
-  private url: string = 'http://localhost:8080';
+  private url: string = 'http://localhost:8080/pecas';
 
   cadastrarPeca(peca: Pecas, foto: File): Observable<any> {
     const formData = new FormData();
     formData.append('peca', JSON.stringify(peca));
     formData.append('foto', foto, foto.name);
   
-    return this.http.post(`${this.url}/pecas`, formData);
+    return this.http.post(`${this.url}`, formData);
   }
   
   
