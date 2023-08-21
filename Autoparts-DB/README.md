@@ -8,7 +8,7 @@ Este é um repositório para o banco de dados da loja de autopeças. O banco de 
 O banco de dados possui as seguintes tabelas e campos:
 
 <p align="center">
-  <img src="https://github.com/GaspSoft/Autoparts-DB/assets/95860101/75bf2200-b9e4-481b-b20f-bb98fcaa3a05" alt="Modelagem do Banco de Dados">
+  <img src="https://github.com/RafaelRonchi/AutoParts/assets/95860101/dedc58bf-80aa-4d18-9c9f-906dcc770998" alt="Modelagem do Banco de Dados">
 </p>
 
 ## Como utilizar
