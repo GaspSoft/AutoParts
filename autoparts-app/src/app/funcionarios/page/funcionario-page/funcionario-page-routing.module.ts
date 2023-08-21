@@ -6,7 +6,8 @@ import { FuncionariosListaComponent } from '../../templates/funcionarios-lista/f
 const routes: Routes = [
   { path: 'cadastrar', component: FuncionarioFormCadastroComponent },
   { path: 'alterar', component: FuncionarioFormCadastroComponent },
-  { path: 'listar', component: FuncionariosListaComponent }
+  { path: 'lista', component: FuncionariosListaComponent },
+  { path: '', redirectTo: '/funcionario/lista', pathMatch: 'full'}
 
 ];
 
