@@ -35,22 +35,37 @@ public class PecasServico {
         p.setFornecedor(fornecedorPorCnpj.get(0));
         
             pecasRepositorio.save(p);
-            return new ResponseEntity<>(p, HttpStatus.CREATED);
+            retorno.setMensagem("Peça salva com sucesso.");
+            return new ResponseEntity<>(retorno, HttpStatus.CREATED);
         
     }
+
+    public ResponseEntity<?> alterarPecas(Pecas p) {
+        return cadastrarPecas(p);
+    }
+
+
     
 
     public List<Pecas> listarTodos() {
          return pecasRepositorio.findAll();
     }
 
-    public ResponseEntity<?> buscarPeca(Integer id) {
-        try {
-            Pecas peca = pecasRepositorio.findById(id).get();
-            return new ResponseEntity<>(peca, HttpStatus.OK);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Peça não encontrada.");
-        }
+    public ResponseEntity<?> buscarPeca(Integer pecas_id) {
+       
+            Optional<Pecas> peca = pecasRepositorio.findById(pecas_id);
+            if (peca.isPresent()) return new ResponseEntity<>(peca.get(), HttpStatus.OK);
+            else return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Peça não encontrada.");
+        
+    }
+
+    public ResponseEntity<?> deletarPeca(Integer pecas_id) {
+        Optional<Pecas> peca = pecasRepositorio.findById(pecas_id);
+        if (peca.isPresent()) {
+            pecasRepositorio.deleteById(pecas_id);
+            retorno.setMensagem("Peça salva com sucesso.");
+            return new ResponseEntity<>(retorno, HttpStatus.OK);
+        } else return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Peça não encontrada.");
     }
     
    

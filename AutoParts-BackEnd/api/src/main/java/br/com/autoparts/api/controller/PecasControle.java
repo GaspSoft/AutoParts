@@ -9,9 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -48,6 +50,21 @@ public class PecasControle {
         
     }
 
+    @PutMapping(value = { "/pecas" }, consumes = { "multipart/form-data" })
+    public ResponseEntity<?> alterar(@RequestPart("peca") String pecaJson,
+                                     @RequestPart("foto") MultipartFile foto) throws IOException {
+    
+        // Converter o JSON da peça para um objeto Pecas
+        ObjectMapper objectMapper = new ObjectMapper();
+        Pecas peca = objectMapper.readValue(pecaJson, Pecas.class);
+
+        // Salvar a imagem como array de bytes no objeto Pecas
+        peca.setFoto(foto.getBytes());
+
+        // Salvar o objeto Pecas no banco de dados usando o serviço
+        return servico.alterarPecas(peca);
+        
+    }
 
     @GetMapping("/pecas")
     public List<Pecas> listarTodos() {
@@ -66,9 +83,14 @@ public class PecasControle {
         return pecasList;
     }
 
-    @GetMapping("/pecas/{id}")
-    public ResponseEntity<?> listarPorId(Integer id) {
-        return servico.buscarPeca(id);
+    @GetMapping("/pecas/{pecas_id}")
+    public ResponseEntity<?> listarPorId(@PathVariable Integer pecas_id) {
+        return servico.buscarPeca(pecas_id);
+    }
+
+    @DeleteMapping("/pecas/{pecas_id}")
+    public ResponseEntity<?> deletar(@PathVariable Integer pecas_id) {
+        return servico.deletarPeca(pecas_id);
     }
     
 }
