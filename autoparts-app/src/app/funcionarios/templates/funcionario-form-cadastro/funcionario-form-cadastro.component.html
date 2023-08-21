@@ -1,11 +1,14 @@
 <div class="container">
   <div class="row d-flex justify-content-center">
     <img src="/assets/img/LogoSemFundo.png" class="w-25 h-25 mb-3" alt="">
-    <p class="p-title">TORNE-SE UM <br>CONSUMIDOR AUTOPARTS</p>
-    <p class="subtitle">Crie sua conta em nossa Loja e <br>obtenha acesso aos melhores produtos <br>automotivos com qualidade e garantia</p>
+    <p class="p-title text-center mb-2">TORNE-SE UM <br>CONSUMIDOR AUTOPARTS</p>
+    <p class="subtitle text-center mb-5">Crie sua conta em nossa Loja e <br>obtenha acesso aos melhores produtos
+      <br>automotivos com qualidade e garantia
+    </p>
   </div>
   <form #clienteForm="ngForm" (ngSubmit)="onSubmit()">
-      <div class="col-md-12">
+    <div class="row d-flex justify-content-center">
+      <div class="col-6">
         <div class="alert alert-success" role="alert" *ngIf="sucessoFeedback">
           Funcionário salvo/atualizado com sucesso
         </div>
@@ -13,16 +16,18 @@
           {{ errorsFeedback }}
         </div>
       </div>
-
-    <h1 class="title">Cadastramento de Funcionários</h1>
-
-      <div class="col">
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col-6">
         <div class="form-floating mb-3">
           <input type="number" [(ngModel)]="funcionario.cpf" name="cpf" class="form-control" id="floatingInput"
             placeholder="CPF">
           <label for="floatingInput">CPF</label>
         </div>
-      <div class="col">
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col-6">
         <div class="form-floating mb-3">
           <input type="text" [(ngModel)]="funcionario.nome" name="nome" class="form-control" id="floatingInput"
             placeholder="Nome">
@@ -30,50 +35,66 @@
         </div>
       </div>
     </div>
-      <div class="col">
+    <div class="row d-flex justify-content-center">
+      <div class="col-6">
         <div class="form-floating mb-3">
           <input type="email" [(ngModel)]="funcionario.email" name="email" class="form-control" id="floatingInput"
             placeholder="nome@exemplo.com">
           <label for="floatingInput">Email</label>
         </div>
-      <div class="col">
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col-6">
         <div class="form-floating mb-3">
           <input type="text" [(ngModel)]="funcionario.senha" name="senha" class="form-control" id="floatingInput"
             placeholder="Senha">
           <label for="floatingInput">Senha</label>
         </div>
       </div>
-      <div class="col-2">
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col-3">
         <div class="form-check">
-          <input class="form-check-input" [(ngModel)]="funcionario.cargoFuncionario" type="radio" name="flexRadioDefault" id="flexRadioDefault1" [value]="true">
-          <label class="form-check-label" for="flexRadioDefault1">
+          <input class="form-check-input" [(ngModel)]="funcionario.cargoFuncionario" type="radio"
+            name="flexRadioDefault" id="flexRadioDefault1" [value]="true">
+          <label class="form-check-label my-1 ms-1" for="flexRadioDefault1">
             Gerente
           </label>
         </div>
+      </div>
+      <div class="col-3">
         <div class="form-check">
-          <input class="form-check-input" [(ngModel)]="funcionario.cargoFuncionario" type="radio" name="flexRadioDefault" id="flexRadioDefault2" [value]="false">
-          <label class="form-check-label" for="flexRadioDefault2">
+          <input class="form-check-input" [(ngModel)]="funcionario.cargoFuncionario" type="radio"
+            name="flexRadioDefault" id="flexRadioDefault2" [value]="false">
+          <label class="form-check-label my-1 ms-1" for="flexRadioDefault2">
             Funcionário
           </label>
         </div>
       </div>
     </div>
-
-    <div class="d-grid gap-2">
-      <button class="btn btn-roxo" type="submit" *ngIf="!funcionario.funcionario_id">
-        CADASTRAR
-      </button>
-      <button type="submit" class="btn btn-warning" *ngIf="funcionario.funcionario_id">
-        <i class="fa fa-sync-alt"></i>
-        Atualizar
-      </button>
-      <button type="button" class="btn btn-danger ml-1" (click)="voltarListagem()">
-        <i class="fa fa-arrow-alt-circle-left"></i>
-        Voltar
-      </button>
+    <div class="row d-flex justify-content-center mt-2">
+      <div class="col-6">
+        <button class="btn btn-roxo w-100" type="submit" *ngIf="!funcionario.funcionario_id">
+          CADASTRAR
+        </button>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col-6">
+        <button type="submit" class="btn btn-warning w-100" *ngIf="funcionario.funcionario_id">
+          <i class="fa fa-sync-alt"></i>
+          Atualizar
+        </button>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center mt-1">
+      <div class="col-6">
+        <button type="button" class="btn btn-danger w-100" (click)="voltarListagem()">
+          <i class="fa fa-arrow-alt-circle-left"></i>
+          Voltar
+        </button>
+      </div>
     </div>
   </form>
-
-  {{ funcionario | json }}
-
 </div>
