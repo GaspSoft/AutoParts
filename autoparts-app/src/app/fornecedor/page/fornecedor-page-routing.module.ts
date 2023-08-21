@@ -6,7 +6,8 @@ import { FornecedorFormCadastroComponent } from '../templates/fornecedor-form-ca
 const routes: Routes = [
   { path: 'cadastrar', component: FornecedorFormCadastroComponent },
   { path: 'alterar', component: FornecedorFormCadastroComponent },
-  { path: 'listar', component: FornecedoresListaComponent }
+  { path: 'lista', component: FornecedoresListaComponent },
+  { path: '', redirectTo: '/fornecedor/lista', pathMatch: 'full'}
 ];
 
 @NgModule({
