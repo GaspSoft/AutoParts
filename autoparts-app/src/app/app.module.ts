@@ -12,6 +12,7 @@ import { FuncionariosService } from './services/funcionario/funcionarios.service
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FornecedorService } from './services/fornecedor/fornecedor.service';
 import { PecaService } from './services/pecas/peca.service';
+import { IConfig } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { PecaService } from './services/pecas/peca.service';
     HttpClientModule,
     ClientesModule,
     FuncionariosModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [
     ClientesService,
