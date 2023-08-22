@@ -21,9 +21,6 @@ export class PecaService {
     return this.http.post(`${this.url}`, formData);
   }
   
-  
-  
-
   listarPecas(): Observable<Pecas[]> {
     return this.http.get<Pecas[]>(this.url);
   }
