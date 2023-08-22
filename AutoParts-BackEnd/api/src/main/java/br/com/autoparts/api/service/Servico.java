@@ -26,40 +26,30 @@ public class Servico {
     @Autowired
     private FuncionarioRepositorio funcionarioRepositorio;
  
-    // Verifica o login 
-    public ResponseEntity<?> verificarUser(Pessoa p){
-        
-        if(p.getEmail() == null || p.getSenha() == null){
-                retorno.setMensagem("Valores de senha ou/e email nulo!");
-                return new ResponseEntity<>(retorno.getMensagem(), HttpStatus.BAD_REQUEST);
-            } else{
-                List<Cliente> funcionariosByEmail = clienteRepositorio.findByEmail(p.getEmail());
-                List<Cliente> funcionariosBySenha = clienteRepositorio.findBySenha(p.getSenha());
+    public ResponseEntity<?> verificarUser(Pessoa p) {
+        if (p.getEmail() == null || p.getSenha() == null) {
+            retorno.setMensagem("Valores de senha ou/e email nulo!");
+            return new ResponseEntity<>(retorno.getMensagem(), HttpStatus.BAD_REQUEST);
+        } else {
+            List<Cliente> clienteByEmail = clienteRepositorio.findByEmail(p.getEmail());
+            List<Cliente> clienteBySenha = clienteRepositorio.findBySenha(p.getSenha());
 
+            if (!clienteByEmail.isEmpty() && !clienteBySenha.isEmpty()) {
+                return new ResponseEntity<>(clienteByEmail.get(0), HttpStatus.OK);
+            }
 
-                if (funcionariosByEmail.isEmpty() || funcionariosBySenha.isEmpty()) {
-                    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-                } else {
-                    return new ResponseEntity<>(funcionariosByEmail.get(0),HttpStatus.OK);
-                }
+            List<Funcionario> funcionariosByEmail = funcionarioRepositorio.findByEmail(p.getEmail());
+            List<Funcionario> funcionariosBySenha = funcionarioRepositorio.findBySenha(p.getSenha());
 
-         }
+            if (!funcionariosByEmail.isEmpty() && !funcionariosBySenha.isEmpty()) {
+                return new ResponseEntity<>(funcionariosByEmail.get(0), HttpStatus.OK);
+            }
+
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
-         public ResponseEntity<?> verificarFuncionario(Funcionario f){
-            if(f.getEmail() == null || f.getSenha() == null){
-                retorno.setMensagem("Valores de senha ou/e email nulo!");
-                return new ResponseEntity<>(retorno.getMensagem(), HttpStatus.BAD_REQUEST);
-            } else{
-                List<Funcionario> funcionariosByEmail = funcionarioRepositorio.findByEmail(f.getEmail());
-                List<Funcionario> funcionariosBySenha = funcionarioRepositorio.findBySenha(f.getSenha());
 
-                if (funcionariosByEmail.isEmpty() || funcionariosBySenha.isEmpty()) {
-                    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-                } else {
-                    return new ResponseEntity<>(funcionariosByEmail.get(0),HttpStatus.OK);
-                }
-
-         }
-
+    public ResponseEntity<?> verificarFuncionario(Pessoa p) {
+        return null;
     }
 }

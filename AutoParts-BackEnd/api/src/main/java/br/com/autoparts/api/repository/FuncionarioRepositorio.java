@@ -17,6 +17,6 @@ JpaRepository<Funcionario, Integer> {
     
     List<Funcionario> findByEmail(String email);
     List<Funcionario> findBySenha(String senha);
-    List<Funcionario> findByCargoFuncionario(Boolean cargoFuncionario);
+    //List<Funcionario> findByCargoFuncionario(Boolean cargoFuncionario);
 
 }
