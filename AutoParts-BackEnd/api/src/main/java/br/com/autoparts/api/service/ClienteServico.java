@@ -1,14 +1,10 @@
 package br.com.autoparts.api.service;
 
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
-
 import br.com.autoparts.api.model.Cliente;
 import br.com.autoparts.api.model.Endereco;
 import br.com.autoparts.api.model.Retorno;

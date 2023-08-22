@@ -4,7 +4,6 @@ package br.com.autoparts.api.repository;
 import br.com.autoparts.api.model.Cliente;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
