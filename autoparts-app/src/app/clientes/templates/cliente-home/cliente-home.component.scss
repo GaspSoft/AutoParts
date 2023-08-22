@@ -94,7 +94,7 @@
     background: $cinza-claro;
 }
 
-.carousel-control-prev {                        
+.carousel-control-prev {
     background: linear-gradient(to right, #6500e4 0%, #342A41 100%) !important;;
     opacity: 100%;
     height: 18px;
@@ -108,4 +108,8 @@
     height: 18px;
     width: 38px;
     border-radius: 40px;
+}
+
+.description {
+  color: $cinza-claro;
 }
