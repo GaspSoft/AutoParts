@@ -16,7 +16,7 @@ export class NavbarFuncionarioComponent {
   }
 
   linkListaProduto():void {
-    this.router.navigate(['/funcionario']);
+    this.router.navigate(['/funcionario/lista-pecas']);
   }
 
   linkListaCliente():void {
