@@ -5,6 +5,8 @@ import { FuncionariosListaComponent } from '../../templates/funcionarios-lista/f
 import { ClientesListaComponent } from '../../templates/clientes-lista/clientes-lista.component';
 import { FornecedorFormCadastroComponent } from '../../templates/fornecedor-form-cadastro/fornecedor-form-cadastro.component';
 import { FornecedoresListaComponent } from '../../templates/fornecedores-lista/fornecedores-lista.component';
+import { PecasFormsCadastroComponent } from '../../templates/pecas-forms-cadastro/pecas-forms-cadastro.component';
+import { PecasListaComponent } from '../../templates/pecas-lista/pecas-lista.component';
 
 const routes: Routes = [
   { path: 'cadastro-funcionario', component: FuncionarioFormCadastroComponent },
@@ -14,6 +16,8 @@ const routes: Routes = [
   { path: 'lista-fornecedor', component: FornecedoresListaComponent },
   { path: 'cadastro-fornecedor', component: FornecedorFormCadastroComponent },
   { path: 'alterar-fornecedor', component: FornecedorFormCadastroComponent },
+  { path: 'cadastro-pecas', component: PecasFormsCadastroComponent },
+  { path: 'lista-pecas', component: PecasListaComponent },
   { path: '', redirectTo: '/funcionario/lista-funcionario', pathMatch: 'full'}
 
 ];
