@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-2">
+          <button class="btn btn-primary" (click)="novoCadastroPecas()" >
+            <i class="fa fa-plus"></i>
+            Novo
+          </button>
+        </div>
+      </div>
+      <table class="table table-condensed table-hover">
+        <thead>
+          <tr>
+            <td>Imagem</td>
+            <td>Nome</td>
+            <td>Descrição</td>
+            <td>Estoque</td>
+            <td>Preço</td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let peca of pecas" class="peca-card">
+            <td><img *ngIf="peca.base64" [src]="getFotoUrl(peca)" alt="Foto da Peça" />   </td>
+            <td> {{ peca.nome}} </td>
+            <td> {{ peca.descricao}}</td>
+            <td>  {{ peca.quantidade }} </td>
+            <td> {{ peca.preco }} </td>
+
+            <td>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDelecao" >
+                <i class="fa-solid fa-trash"></i>
+              </button>
+              <button type="button" class="btn btn-primary">
+                <i class="fa-solid fa-pen"></i>
+              </button>
+              <button type="button" class="btn btn-primary">
+                <i class="fa-solid fa-circle-info"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+</div>
+

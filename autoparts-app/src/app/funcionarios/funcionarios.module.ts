@@ -9,6 +9,8 @@ import { FuncionarioPageComponent } from './page/funcionario-page/funcionario-pa
 import { ClientesListaComponent } from './templates/clientes-lista/clientes-lista.component';
 import { FornecedorFormCadastroComponent } from './templates/fornecedor-form-cadastro/fornecedor-form-cadastro.component';
 import { FornecedoresListaComponent } from './templates/fornecedores-lista/fornecedores-lista.component';
+import { PecasFormsCadastroComponent } from './templates/pecas-forms-cadastro/pecas-forms-cadastro.component';
+import { PecasListaComponent } from './templates/pecas-lista/pecas-lista.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { FornecedoresListaComponent } from './templates/fornecedores-lista/forne
     FuncionarioPageComponent,
     ClientesListaComponent,
     FornecedorFormCadastroComponent,
-    FornecedoresListaComponent
+    FornecedoresListaComponent,
+    PecasFormsCadastroComponent,
+    PecasListaComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +34,9 @@ import { FornecedoresListaComponent } from './templates/fornecedores-lista/forne
     FuncionariosListaComponent,
     ClientesListaComponent,
     FornecedorFormCadastroComponent,
-    FornecedoresListaComponent
+    FornecedoresListaComponent,
+    PecasFormsCadastroComponent,
+    PecasListaComponent
   ]
 })
 export class FuncionariosModule { }
