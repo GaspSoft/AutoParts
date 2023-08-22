@@ -38,3 +38,7 @@ $linear-corrente-cinza: linear-gradient(to right, #555555 0%, #afafaf  51%, #555
 .btn-close:hover {
   color: $branco;
 }
+
+.cursor-btn {
+  cursor: pointer;
+}
