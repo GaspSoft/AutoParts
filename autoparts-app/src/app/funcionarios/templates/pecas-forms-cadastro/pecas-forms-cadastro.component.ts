@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 import { Pecas } from 'src/app/model/pecas/pecas';
 import { PecaService } from 'src/app/services/pecas/peca.service';
 
 @Component({
-  selector: 'app-pecas-cards',
-  templateUrl: './pecas-cards.component.html',
-  styleUrls: ['./pecas-cards.component.scss']
+  selector: 'app-pecas-forms-cadastro',
+  templateUrl: './pecas-forms-cadastro.component.html',
+  styleUrls: ['./pecas-forms-cadastro.component.scss']
 })
-export class PecasCardsComponent {
-  constructor(private pecaService: PecaService) {
+export class PecasFormsCadastroComponent {
+  constructor(private service: PecaService, private router: Router) {
     this.peca = new Pecas();
     this.foto = new File([], '');
   }
@@ -18,15 +19,15 @@ export class PecasCardsComponent {
   sucessoFeedback: boolean = false;
   errorsFeedback?: string = '';
   id?: number;
-  
-  
+
+
   onFileChange(event: any) {
     this.foto = event.target.files[0];
   }
 
 
   salvarPeca() {
-    this.pecaService.cadastrarPeca(this.peca, this.foto)
+    this.service.cadastrarPeca(this.peca, this.foto)
       .subscribe(
         response => {
           this.sucessoFeedback = true;
@@ -42,5 +43,7 @@ export class PecasCardsComponent {
       );
   }
 
-  
+  voltarListagem(): void {
+    this.router.navigate(['funcionario/lista-pecas']);
+  }
 }
