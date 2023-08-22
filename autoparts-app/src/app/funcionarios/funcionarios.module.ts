@@ -27,7 +27,7 @@ import { PecasListaComponent } from './templates/pecas-lista/pecas-lista.compone
     CommonModule,
     ComponentsModule,
     FormsModule,
-    FuncionariosRoutingModule
+    FuncionariosRoutingModule,
   ],
   exports: [
     FuncionarioFormCadastroComponent,

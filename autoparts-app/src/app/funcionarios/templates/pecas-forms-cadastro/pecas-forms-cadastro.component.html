@@ -76,9 +76,18 @@
           </div>
 
           <div class="card-body">
-              <div class="form-floating mb-3">
-                  <input class="form-control" id="floatingInput" type="text" name="Fornecedor" placeholder="Fornecedor" [(ngModel)]="peca.fornecedor.cnpj">
-                  <label for="floatingInput" class="form-label">Fornecedor Cnpj</label>
+
+
+            <div class="col-12">
+                <div class="form-floating mb-3">
+                  <select class="form-control" [ngModelOptions]="{ standalone: true }" [(ngModel)]="peca.fornecedor.cnpj">
+                    <option value="">Selecione</option>
+                    <option *ngFor="let fornecedor of fornecedores" [ngValue]="fornecedor.cnpj">
+                        {{ fornecedor.nome }}
+                    </option>
+                  </select>
+                  <label for="floatingInput">Fornecedor</label>
+                </div>
               </div>
           </div>
       </div>
