@@ -27,7 +27,7 @@ import { ClienteHomeComponent } from './templates/cliente-home/cliente-home.comp
     ClienteFormCadastroComponent,
     ClienteFormPerfilComponent,
     ClienteSobreComponent,
-    ClienteHomeComponent
+    ClienteHomeComponent,
   ]
 })
 export class ClientesModule { }
