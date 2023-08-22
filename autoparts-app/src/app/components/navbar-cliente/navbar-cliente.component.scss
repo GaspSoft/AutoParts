@@ -4,6 +4,10 @@ nav {
     background: $linear;
 }
 
+.nav-item a {
+  cursor: pointer;
+}
+
 .navbar-logo {
     height: 30px;
     width: 33px;
