@@ -1,25 +1,39 @@
 import { Router } from '@angular/router';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Pecas } from 'src/app/model/pecas/pecas';
 import { PecaService } from 'src/app/services/pecas/peca.service';
+import { Fornecedor } from 'src/app/model/fornecedor/fornecedor';
+import { FornecedorService } from 'src/app/services/fornecedor/fornecedor.service';
 
 @Component({
   selector: 'app-pecas-forms-cadastro',
   templateUrl: './pecas-forms-cadastro.component.html',
   styleUrls: ['./pecas-forms-cadastro.component.scss']
 })
-export class PecasFormsCadastroComponent {
-  constructor(private service: PecaService, private router: Router) {
-    this.peca = new Pecas();
-    this.foto = new File([], '');
-  }
+export class PecasFormsCadastroComponent implements OnInit {
 
   peca: Pecas;
   foto!: File;
   sucessoFeedback: boolean = false;
   errorsFeedback?: string = '';
   id?: number;
+  fornecedores?: Fornecedor[];
 
+  constructor(
+    private service: PecaService, 
+    private router: Router,
+    private fornecedorService: FornecedorService) {
+    this.peca = new Pecas();
+    this.foto = new File([], '');
+  }
+
+  ngOnInit(): void {
+    this.fornecedorService.getFornecedor().subscribe(
+      response => {
+        this.fornecedores = response;
+      }
+    )
+  }
 
   onFileChange(event: any) {
     this.foto = event.target.files[0];

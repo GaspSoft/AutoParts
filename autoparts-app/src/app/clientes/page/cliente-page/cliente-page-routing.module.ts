@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'perfil-cliente', component: ClienteFormPerfilComponent },
   { path: 'home-cliente', component: ClienteHomeComponent },
   { path: 'carrinho-cliente', component: ClienteCarrinhoComponent },
-  { path: '', redirectTo: '/cliente/lista-cliente', pathMatch: 'full'}
+  { path: '', redirectTo: '/cliente/home-cliente', pathMatch: 'full'}
 ];
 
 @NgModule({

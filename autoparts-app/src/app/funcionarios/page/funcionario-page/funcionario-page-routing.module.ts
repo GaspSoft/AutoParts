@@ -7,6 +7,7 @@ import { FornecedorFormCadastroComponent } from '../../templates/fornecedor-form
 import { FornecedoresListaComponent } from '../../templates/fornecedores-lista/fornecedores-lista.component';
 import { PecasFormsCadastroComponent } from '../../templates/pecas-forms-cadastro/pecas-forms-cadastro.component';
 import { PecasListaComponent } from '../../templates/pecas-lista/pecas-lista.component';
+import { PainelComponent } from '../../templates/painel/painel.component';
 
 const routes: Routes = [
   { path: 'cadastro-funcionario', component: FuncionarioFormCadastroComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'alterar-fornecedor', component: FornecedorFormCadastroComponent },
   { path: 'cadastro-pecas', component: PecasFormsCadastroComponent },
   { path: 'lista-pecas', component: PecasListaComponent },
+  { path: 'painel', component: PainelComponent },
   { path: '', redirectTo: '/funcionario/lista-funcionario', pathMatch: 'full'}
 
 ];

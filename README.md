@@ -1,4 +1,6 @@
-# AutoParts - Projeto Integrador IFSC 🖥️
+
+![Logo So a letra branca](https://github.com/GaspSoft/AutoParts/assets/86849487/4e78846b-0416-4f14-98e3-df601e1ede6e)
+
 
 Projeto Spring Boot Java, MySql, Angular, HTML5 e SCSS
 Este projeto é um aplicativo web full-stack. Funcionando como um sistema de compra de peças de carros, tendo os seus atores: Gerente, Funcionário e Cliente.
