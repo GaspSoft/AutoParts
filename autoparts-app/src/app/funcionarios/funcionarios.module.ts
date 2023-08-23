@@ -11,6 +11,7 @@ import { FornecedorFormCadastroComponent } from './templates/fornecedor-form-cad
 import { FornecedoresListaComponent } from './templates/fornecedores-lista/fornecedores-lista.component';
 import { PecasFormsCadastroComponent } from './templates/pecas-forms-cadastro/pecas-forms-cadastro.component';
 import { PecasListaComponent } from './templates/pecas-lista/pecas-lista.component';
+import { PainelComponent } from './templates/painel/painel.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PecasListaComponent } from './templates/pecas-lista/pecas-lista.compone
     FornecedorFormCadastroComponent,
     FornecedoresListaComponent,
     PecasFormsCadastroComponent,
-    PecasListaComponent
+    PecasListaComponent,
+    PainelComponent
   ],
   imports: [
     CommonModule,
