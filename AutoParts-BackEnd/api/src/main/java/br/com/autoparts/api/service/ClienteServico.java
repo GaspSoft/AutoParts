@@ -139,4 +139,8 @@ public class ClienteServico {
 
     }
 
+    public Cliente buscarClientePorId(Integer cliente_id) {
+        return clienteRepositorio.findByClienteId(cliente_id);
+    }
+
 }
