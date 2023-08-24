@@ -3,6 +3,7 @@ package br.com.autoparts.api.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +21,10 @@ public class VendaControler {
     private VendaServico servico;
 
     @PostMapping("/venda")
-    public ResponseEntity<?> cadastrarVenda(@RequestBody List<Vendas> vendas){
-        return servico.cadastrarVenda(vendas);
+    public ResponseEntity<?> cadastrarVenda(@RequestBody Vendas venda){
+        System.out.println(venda.getCliente().getCliente_id());
+        
+        return servico.cadastrarVenda(venda);
     }
+     
 }

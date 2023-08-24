@@ -30,7 +30,7 @@ public class Vendas {
     private Funcionario funcionario;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "clientes_id")
+    @JoinColumn(name = "cliente_id")
     private Cliente cliente;
     
 }
