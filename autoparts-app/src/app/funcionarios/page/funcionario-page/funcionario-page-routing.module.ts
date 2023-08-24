@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'alterar-fornecedor', component: FornecedorFormCadastroComponent },
   { path: 'cadastro-pecas', component: PecasFormsCadastroComponent },
   { path: 'lista-pecas', component: PecasListaComponent },
+  { path: 'alterar-pecas', component: PecasFormsCadastroComponent },
   { path: 'painel', component: PainelComponent },
   { path: '', redirectTo: '/funcionario/lista-funcionario', pathMatch: 'full'}
 

@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Pecas } from 'src/app/model/pecas/pecas';
+import { Pecas } from './../../../model/pecas/pecas';
 import { PecaService } from 'src/app/services/pecas/peca.service';
 
 @Component({
@@ -8,21 +8,40 @@ import { PecaService } from 'src/app/services/pecas/peca.service';
   templateUrl: './pecas-lista.component.html',
   styleUrls: ['./pecas-lista.component.scss']
 })
-export class PecasListaComponent {
+export class PecasListaComponent implements OnInit {
   constructor(
     private service: PecaService,
     private router: Router) { }
 
   pecas: Pecas[] = [];
+  pecaSelecionada: Pecas = new Pecas();
+  feedbackSucesso?:string;
+  feedbackErro?:string;
 
   ngOnInit(): void {
-    this.service.listarPecas().subscribe(
-      (data) => {
-        this.pecas = data;
-      },
-      (error) => {
-        console.log(error);
+    this.service.getPeca().subscribe(
+      response => {
+        this.pecas = response;
       }
+    )
+  }
+
+  editarPeca(pecas_id: number): void {
+    this.service.setPecaId(pecas_id);
+    this.router.navigate(['funcionario/alterar-pecas'])
+  }
+
+  preparaDelecao(pecas: Pecas) {
+    this.pecaSelecionada = pecas;
+  }
+
+  deletarPeca() {
+    this.service.deletarPeca(this.pecaSelecionada).subscribe(
+      response => {
+        this.feedbackSucesso = 'Peça deletado com sucesso';
+        this.ngOnInit();
+      },
+      errorResponse => this.feedbackErro = 'Ocorreu um erro ao deletar a peça'
     )
   }
 

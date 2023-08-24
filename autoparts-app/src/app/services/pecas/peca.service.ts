@@ -17,14 +17,14 @@ export class PecaService {
     const formData = new FormData();
     formData.append('peca', JSON.stringify(peca));
     formData.append('foto', foto, foto.name);
-  
+
     return this.http.post(`${this.url}`, formData);
   }
-  
+
   listarPecas(): Observable<Pecas[]> {
     return this.http.get<Pecas[]>(this.url);
   }
-  
+
   listarPecasPorId(id: number): Observable<Pecas> {
     return this.http.get<Pecas>(`${this.url}/${id}`);
   }
@@ -33,8 +33,12 @@ export class PecaService {
     return this.http.put<Pecas>(this.url, peca);
   }
 
-  deletarPeca(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.url}/${id}`);
+  deletarPeca(peca: Pecas): Observable<any> {
+    return this.http.delete<any>(`${this.url}/${peca.pecas_id}`);
+  }
+
+  getPeca(): Observable<Pecas[]>{
+    return this.http.get<Pecas[]>(this.url);
   }
 
   setPecaId(id: number) {

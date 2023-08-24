@@ -1,1 +1,16 @@
 @import '../../../../assets/scss/variaveis.scss';
+
+.img-peca {
+  max-height: 100px;
+  border-radius: 10px;
+}
+
+.max-height {
+  max-height: 100px;
+  height: 100%;
+}
+
+.max-buttons {
+  max-width: 100px;
+  max-height: 50px;
+}
