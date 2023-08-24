@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import br.com.autoparts.api.DTO.PecaEstoqueDTO;
 import br.com.autoparts.api.model.Fornecedor;
 import br.com.autoparts.api.model.Pecas;
 import br.com.autoparts.api.model.Retorno;
@@ -39,8 +41,6 @@ public class PecasServico {
     }
 
 
-    
-
     public List<Pecas> listarTodos() {
          return pecasRepositorio.findAll();
     }
@@ -61,8 +61,20 @@ public class PecasServico {
             return new ResponseEntity<>(retorno, HttpStatus.OK);
         } else return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Peça não encontrada.");
     }
+
+    public void diminuirEstoque(Integer estoque, Integer pecas_id) {
+        Optional<Pecas> peca = pecasRepositorio.findById(pecas_id);
+        if (peca.isPresent()) {
+            PecaEstoqueDTO pecaEstoqueDTO = new PecaEstoqueDTO();
+            Pecas p = peca.get();
+            p.setQuantidade(p.getQuantidade() - estoque);
+            pecasRepositorio.save(p);
+        }
+    }
+
+    }
     
    
     
     
-}
+
