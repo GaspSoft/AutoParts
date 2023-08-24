@@ -65,7 +65,7 @@ export class FornecedorFormCadastroComponent {
         },
         errorResponse => {
           this.sucessoFeedback = false;
-          this.errorsFeedback = errorResponse.error.errors;
+          this.errorsFeedback = errorResponse.error.mensagem;
         }
       );
     }
