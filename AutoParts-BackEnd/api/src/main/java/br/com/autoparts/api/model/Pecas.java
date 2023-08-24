@@ -39,7 +39,7 @@ public class Pecas {
     private String base64;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fornecedores_id")
+    @JoinColumn(name = "fornecedor_id")
     private Fornecedor fornecedor;
     // link a forncedor with id
     
