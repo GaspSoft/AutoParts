@@ -29,7 +29,7 @@
             <td> {{ peca.preco }} </td>
 
             <td class="d-flex justify-content-end max-height">
-              <button type="button" class="btn btn-vermelho mx-4 px-4 max-buttons" data-bs-toggle="modal" data-bs-target="#modalDelecao">
+              <button type="button" class="btn btn-vermelho mx-4 px-4 max-buttons" data-bs-toggle="modal" data-bs-target="#modalDelecao" (click)="preparaDelecao(peca)">
                 <i class="fa-solid fa-trash"></i>
               </button>
               <button type="button" class="btn btn-amarelo mx-4 px-4 max-buttons" (click)="editarPeca(peca.pecas_id)">

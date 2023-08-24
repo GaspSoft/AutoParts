@@ -21,6 +21,10 @@ export class PecaService {
     return this.http.post(`${this.url}`, formData);
   }
 
+  atualizarFuncionario(peca: Pecas): Observable<any> {
+    return this.http.put<Pecas>(this.url, peca);
+  }
+
   listarPecas(): Observable<Pecas[]> {
     return this.http.get<Pecas[]>(this.url);
   }
@@ -29,15 +33,15 @@ export class PecaService {
     return this.http.get<Pecas>(`${this.url}/${id}`);
   }
 
-  atualizarPeca(peca: Pecas): Observable<Pecas> {
-    return this.http.put<Pecas>(this.url, peca);
+  atualizarPeca(peca: Pecas): Observable<any> {
+    return this.http.put<any>(this.url, peca);
   }
 
   deletarPeca(peca: Pecas): Observable<any> {
     return this.http.delete<any>(`${this.url}/${peca.pecas_id}`);
   }
 
-  getPeca(): Observable<Pecas[]>{
+  getPecas(): Observable<Pecas[]>{
     return this.http.get<Pecas[]>(this.url);
   }
 
