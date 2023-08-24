@@ -12,30 +12,30 @@
       <table class="table table-condensed table-hover text-start">
         <thead>
           <tr>
-            <td class="column-list">Imagem</td>
-            <td class="column-list">Nome</td>
-            <td class="column-list">Descrição</td>
-            <td class="column-list">Estoque</td>
-            <td class="column-list">Preço</td>
+            <td class="columns-list">Imagem</td>
+            <td class="columns-list">Nome</td>
+            <td class="columns-list">Descrição</td>
+            <td class="columns-list">Estoque</td>
+            <td class="columns-list">Preço</td>
             <td></td>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let peca of pecas" class="peca-card">
-            <td><img *ngIf="peca.base64" [src]="getFotoUrl(peca)" alt="Foto da Peça" />   </td>
+            <td><img class="img-peca" *ngIf="peca.base64" [src]="getFotoUrl(peca)" alt="Foto da Peça" />   </td>
             <td> {{ peca.nome}} </td>
             <td> {{ peca.descricao}}</td>
             <td>  {{ peca.quantidade }} </td>
             <td> {{ peca.preco }} </td>
 
-            <td class="d-flex justify-content-end">
-              <button type="button" class="btn btn-vermelho mx-4 px-4" data-bs-toggle="modal" data-bs-target="#modalDelecao" >
+            <td class="d-flex justify-content-end max-height">
+              <button type="button" class="btn btn-vermelho mx-4 px-4 max-buttons" data-bs-toggle="modal" data-bs-target="#modalDelecao">
                 <i class="fa-solid fa-trash"></i>
               </button>
-              <button type="button" class="btn btn-amarelo mx-4 px-4">
+              <button type="button" class="btn btn-amarelo mx-4 px-4 max-buttons" (click)="editarPeca(peca.pecas_id)">
                 <i class="fa-solid fa-pen"></i>
               </button>
-              <button type="button" class="btn btn-azul mx-4 px-4">
+              <button type="button" class="btn btn-azul mx-4 px-4 max-buttons">
                 <i class="fa-solid fa-circle-info"></i>
               </button>
             </td>
@@ -44,8 +44,20 @@
       </table>
     </div>
   </div>
-
-
-
+  <div id="modalDelecao" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4>Confirmação de Deleção</h4>
+        </div>
+        <div class="modal-body" *ngIf="pecaSelecionada">
+          Confirmar a deleção de {{ pecaSelecionada.nome }}
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-roxo" (click)="deletarPeca()" data-bs-dismiss="modal">Confirmar</button>
+          <button class="btn btn-cinza" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
 </div>
 
