@@ -113,4 +113,13 @@ public class VendaServico {
         return new ResponseEntity<>(retorno, HttpStatus.CREATED);
     }
 
+    public ResponseEntity<?> listarVendas(){
+        List<Vendas> vendas = vendaRepositorio.findAll();
+        if(vendas.isEmpty()){
+            retorno.setMensagem("Não há vendas cadastradas.");
+            return ResponseEntity.badRequest().body(retorno);
+        }
+        return new ResponseEntity<>(vendas, HttpStatus.OK);
+    }
+
 }
