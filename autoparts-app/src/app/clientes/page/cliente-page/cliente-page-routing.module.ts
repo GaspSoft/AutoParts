@@ -4,13 +4,15 @@ import { ClienteFormCadastroComponent } from '../../templates/cliente-form-cadas
 import { ClienteSobreComponent } from '../../templates/cliente-sobre/cliente-sobre.component';
 import { ClienteFormPerfilComponent } from '../../templates/cliente-form-perfil/cliente-form-perfil.component';
 import { ClienteHomeComponent } from '../../templates/cliente-home/cliente-home.component';
+import { ClienteCarrinhoComponent } from '../../templates/cliente-carrinho/cliente-carrinho.component';
 
 const routes: Routes = [
   { path: 'cadastrar-cliente', component: ClienteFormCadastroComponent },
   { path: 'sobre-cliente', component: ClienteSobreComponent },
   { path: 'perfil-cliente', component: ClienteFormPerfilComponent },
   { path: 'home-cliente', component: ClienteHomeComponent },
-  { path: '', redirectTo: '/cliente/lista-cliente', pathMatch: 'full'}
+  { path: 'carrinho-cliente', component: ClienteCarrinhoComponent },
+  { path: '', redirectTo: '/cliente/home-cliente', pathMatch: 'full'}
 ];
 
 @NgModule({

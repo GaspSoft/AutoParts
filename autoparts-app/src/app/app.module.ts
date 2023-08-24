@@ -24,7 +24,7 @@ import { PecaService } from './services/pecas/peca.service';
     HttpClientModule,
     ClientesModule,
     FuncionariosModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [
     ClientesService,

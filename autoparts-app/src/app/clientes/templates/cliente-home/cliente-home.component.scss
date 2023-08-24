@@ -10,14 +10,11 @@
   width: 50%;
 }
 
-.bg-pri-sec {
-    background-color: $cinza-claro;
-}
-
 .img-home1 {
     justify-content: flex-end;
     max-width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: fill;
 }
 
 .start-page h1 {
@@ -90,7 +87,7 @@
     border-radius: 40px !important;
 }
 
-.bg-carousel {
+.bg-grey {
     background: $cinza-claro;
 }
 
@@ -111,5 +108,21 @@
 }
 
 .description {
-  color: $cinza-claro;
+  color: $cinza;
+  font-weight: 500;
+}
+
+.icons {
+  color: $branco;
+  background: $linear;
+  border-radius: 50px;
+}
+
+.arrow-icon {
+  font-size: 30px;
+  color: $roxo-claro;
+}
+
+.down {
+  top: 30%;
 }

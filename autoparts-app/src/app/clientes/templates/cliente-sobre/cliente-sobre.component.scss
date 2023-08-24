@@ -1,13 +1,12 @@
 @import '../../../../assets/scss/variaveis.scss';
 
-.final{
-  color: $cinza-escuro;
+.bg-gradiente{
+  color: $branco;
   font-weight: 600;
-  text-decoration: underline;
-  text-decoration-color: $roxo-claro;
+  background: $linear;
 }
 
-section{
+.separate{
   width: 50%;
 }
 
