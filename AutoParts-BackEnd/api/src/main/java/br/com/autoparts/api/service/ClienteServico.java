@@ -29,8 +29,8 @@ public class ClienteServico {
         if (cliente.getEndereco() != null) {
             // Verifica se já existe um cliente com o mesmo e-mail ou CPF
 
-            List<Cliente> funcionariosByEmail = clienteRepositorio.findByEmail(cliente.getEmail());
-            List<Cliente> funcionariosBySenha = clienteRepositorio.findByCpf(cliente.getCpf());
+            List<Cliente> clientesByEmail = clienteRepositorio.findByEmail(cliente.getEmail());
+            List<Cliente> clientesBySenha = clienteRepositorio.findByCpf(cliente.getCpf());
 
 
             if(cliente.getCpf() == null) {
@@ -73,7 +73,7 @@ public class ClienteServico {
                 retorno.setMensagem("Insira o número da residência.");
                 return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
             }
-            if (!funcionariosByEmail.isEmpty() || !funcionariosBySenha.isEmpty()) {
+            if (!clientesByEmail.isEmpty() || !clientesBySenha.isEmpty()) {
                 retorno.setMensagem("E-mail ou CPF já cadastrados.");
                 return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
             }
