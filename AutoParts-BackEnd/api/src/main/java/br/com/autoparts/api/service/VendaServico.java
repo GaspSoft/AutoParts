@@ -15,12 +15,13 @@ import br.com.autoparts.api.model.Funcionario;
 import br.com.autoparts.api.model.Pecas;
 import br.com.autoparts.api.model.Retorno;
 import br.com.autoparts.api.model.Vendas;
+import br.com.autoparts.api.repository.ClienteRepositorio;
 import br.com.autoparts.api.repository.FornecedorRepositorio;
 import br.com.autoparts.api.repository.FuncionarioRepositorio;
 import br.com.autoparts.api.repository.PecasRepositorio;
 import br.com.autoparts.api.repository.VendasRepositorio;
 
-
+ 
 @Service
 public class VendaServico {
     @Autowired
@@ -36,7 +37,8 @@ public class VendaServico {
 
     @Autowired
     private ClienteServico clienteServico;
-
+    @Autowired
+    private ClienteRepositorio clienteRepositorio;
 
     @Autowired
     private FuncionarioServico funcionarioServico;
@@ -48,71 +50,76 @@ public class VendaServico {
     @Autowired
     private FornecedorRepositorio fornecedorRepositorio;
 
-    public ResponseEntity<?> cadastrarVenda(List<Vendas> vendas) {
-
-        // Verifica se cada item da lista esta com o JSON está vazio
-        for (Vendas v : vendas) {
+    public ResponseEntity<?> cadastrarVenda(Vendas venda) {
+    
             if (
-                v.getCliente().getCliente_id() == null 
-                && v.getFuncionario().getFuncionario_id() == null
-                //&& v.getPeca().getFornecedor().getFornecedor_id() != null
-                && v.getPeca().getPecas_id() == null 
-                //&& v.getPeca().getQuantidade() != null 
-                //&& v.getPeca().getPreco() != null
+                venda.getPeca().getFornecedor().getFornecedor_id()== null
+                || venda.getCliente().getCliente_id() == null
+                || venda.getFuncionario().getFuncionario_id() == null
+                || venda.getPeca().getPecas_id() == null
+                
             ) {
-                // Verifica se o cliente, funcionário, peça e fornecedor não estão nulos
                 retorno.setMensagem("Um ou mais campos da venda são nulos.");
                 return ResponseEntity.badRequest().body(retorno);
             }
-        }
+        
         // Verifica se o cliente, funcionário, peça e fornecedor existem e o estoque da peça
-        for (Vendas v : vendas){
-            Cliente clienteExist = clienteServico.buscarClientePorId(v.getCliente().getCliente_id());
-            Optional<Fornecedor> fornecedorExist = fornecedorRepositorio.findById(v.getPeca().getFornecedor().getFornecedor_id());
-            Funcionario funcionarioExist = funcionarioRepositorio.findByFuncionarioId(v.getFuncionario().getFuncionario_id());
-            Optional<Pecas> pecaExist = pecaRepositorio.findById(v.getPeca().getPecas_id());
-            if (clienteExist == null){
+        
+            Optional<Cliente> clienteExist = clienteRepositorio.findById(venda.getCliente().getCliente_id());
+            Optional<Fornecedor> fornecedorExist = fornecedorRepositorio.findById(venda.getPeca().getFornecedor().getFornecedor_id());
+            Optional<Funcionario> funcionarioExist = funcionarioRepositorio.findById(venda.getFuncionario().getFuncionario_id());
+            Optional<Pecas> pecaExist = pecaRepositorio.findById(venda.getPeca().getPecas_id());
+            if (!clienteExist.isPresent()){
                 retorno.setMensagem("Cliente não encontrado.");
                 return ResponseEntity.badRequest().body(retorno);
             }
             else{
-                v.setCliente(clienteExist);
+                venda.setCliente(clienteExist.get());
             }
             if(!fornecedorExist.isPresent()){
                 retorno.setMensagem("Fornecedor não encontrado.");
                 return ResponseEntity.badRequest().body(retorno);
             }
             else{
-                v.getPeca().setFornecedor(fornecedorExist.get());
+                venda.getPeca().setFornecedor(fornecedorExist.get());
             }
-            if(funcionarioExist == null){
+            if(!funcionarioExist.isPresent()){
                 retorno.setMensagem("Funcionário não encontrado.");
                 return ResponseEntity.badRequest().body(retorno);
             }
             else{
-                v.setFuncionario(funcionarioExist);
+                venda.setFuncionario(funcionarioExist.get());
             }
             if( !pecaExist.isPresent()){
                 retorno.setMensagem("Peça não encontrada.");
                 return ResponseEntity.badRequest().body(retorno);
             }
             else{
-                v.setPeca(pecaExist.get());
+                venda.setPeca(pecaExist.get());
             }
-            if(v.getPeca().getQuantidade() <= 0){
+            if(venda.getPeca().getQuantidade() <= 0){
                 retorno.setMensagem("Peças sem estoque.");
                 return ResponseEntity.badRequest().body(retorno);
             }
 
-        }
+        
         // Diminui o estoque da peça
-        for (Vendas v : vendas){
-            pecaServico.diminuirEstoque(v.getPeca().getQuantidade(), v.getPeca().getPecas_id());
-        }
+        
+        pecaServico.diminuirEstoque(venda.getPeca().getQuantidade(), venda.getPeca().getPecas_id());
+        
         // Salva a venda no banco de dados
-        vendaRepositorio.saveAll(vendas);
+        vendaRepositorio.save(venda);
         retorno.setMensagem("Venda(s) cadastrada(s) com sucesso.");
         return new ResponseEntity<>(retorno, HttpStatus.CREATED);
+    }
+
+    public ResponseEntity<?> listarVendas(){
+        List<Vendas> vendas = vendaRepositorio.findAll();
+        if(vendas.isEmpty()){
+            retorno.setMensagem("Não há vendas cadastradas.");
+            return ResponseEntity.badRequest().body(retorno);
+        }
+        return new ResponseEntity<>(vendas, HttpStatus.OK);
     }
 
 }
