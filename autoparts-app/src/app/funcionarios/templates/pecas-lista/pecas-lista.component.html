@@ -1,22 +1,22 @@
-<div class="container">
+<div class="container ajust-footer">
   <div class="row">
     <div class="col-md-12">
       <div class="row">
         <div class="col-md-2">
-          <button class="btn btn-primary" (click)="novoCadastroPecas()" >
-            <i class="fa fa-plus"></i>
+          <button class="btn btn-roxo mx-5 my-3" (click)="novoCadastroPecas()" >
+            <i class="fa fa-plus pe-2"></i>
             Novo
           </button>
         </div>
       </div>
-      <table class="table table-condensed table-hover">
+      <table class="table table-condensed table-hover text-start">
         <thead>
           <tr>
-            <td>Imagem</td>
-            <td>Nome</td>
-            <td>Descrição</td>
-            <td>Estoque</td>
-            <td>Preço</td>
+            <td class="column-list">Imagem</td>
+            <td class="column-list">Nome</td>
+            <td class="column-list">Descrição</td>
+            <td class="column-list">Estoque</td>
+            <td class="column-list">Preço</td>
             <td></td>
           </tr>
         </thead>
@@ -28,14 +28,14 @@
             <td>  {{ peca.quantidade }} </td>
             <td> {{ peca.preco }} </td>
 
-            <td>
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDelecao" >
+            <td class="d-flex justify-content-end">
+              <button type="button" class="btn btn-vermelho mx-4 px-4" data-bs-toggle="modal" data-bs-target="#modalDelecao" >
                 <i class="fa-solid fa-trash"></i>
               </button>
-              <button type="button" class="btn btn-primary">
+              <button type="button" class="btn btn-amarelo mx-4 px-4">
                 <i class="fa-solid fa-pen"></i>
               </button>
-              <button type="button" class="btn btn-primary">
+              <button type="button" class="btn btn-azul mx-4 px-4">
                 <i class="fa-solid fa-circle-info"></i>
               </button>
             </td>
