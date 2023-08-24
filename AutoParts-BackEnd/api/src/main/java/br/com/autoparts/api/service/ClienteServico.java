@@ -33,6 +33,46 @@ public class ClienteServico {
             List<Cliente> funcionariosBySenha = clienteRepositorio.findByCpf(cliente.getCpf());
 
 
+            if(cliente.getCpf() == null) {
+                retorno.setMensagem("Insira um CPF.");
+                return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
+            }
+            if(cliente.getNome() == null || cliente.getNome().isEmpty()) {
+                retorno.setMensagem("Insira um nome.");
+                return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
+            }
+            if(cliente.getEmail() == null || cliente.getEmail().isEmpty()) {
+                retorno.setMensagem("Insira um e-mail.");
+                return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
+            }
+            if(cliente.getSenha() == null || cliente.getSenha().isEmpty()) {
+                retorno.setMensagem("Insira uma senha.");
+                return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
+            }
+            if(cliente.getEndereco().getCep() == null) {
+                retorno.setMensagem("Insira um CEP.");
+                return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
+            }
+            if(cliente.getEndereco().getEstado() == null || cliente.getEndereco().getEstado().isEmpty()) {
+                retorno.setMensagem("Insira um estado.");
+                return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
+            }
+            if(cliente.getEndereco().getCidade() == null || cliente.getEndereco().getCidade().isEmpty()) {
+                retorno.setMensagem("Insira o nome da cidade.");
+                return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
+            }
+            if(cliente.getEndereco().getBairro() == null || cliente.getEndereco().getBairro().isEmpty()) {
+                retorno.setMensagem("Insira o nome do bairro.");
+                return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
+            }
+            if(cliente.getEndereco().getRua() == null || cliente.getEndereco().getRua().isEmpty()) {
+                retorno.setMensagem("Insira o nome da rua.");
+                return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
+            }
+            if(cliente.getEndereco().getNumero() == null) {
+                retorno.setMensagem("Insira o número da residência.");
+                return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
+            }
             if (!funcionariosByEmail.isEmpty() || !funcionariosBySenha.isEmpty()) {
                 retorno.setMensagem("E-mail ou CPF já cadastrados.");
                 return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
@@ -53,8 +93,6 @@ public class ClienteServico {
             retorno.setMensagem("O endereço do cliente é nulo.");
             return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
         }
-         
-
     }
 
     // Lista todos os clientes
