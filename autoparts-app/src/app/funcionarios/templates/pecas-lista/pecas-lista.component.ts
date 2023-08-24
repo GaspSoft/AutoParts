@@ -9,17 +9,17 @@ import { PecaService } from 'src/app/services/pecas/peca.service';
   styleUrls: ['./pecas-lista.component.scss']
 })
 export class PecasListaComponent implements OnInit {
-  constructor(
-    private service: PecaService,
-    private router: Router) { }
-
   pecas: Pecas[] = [];
   pecaSelecionada: Pecas = new Pecas();
   feedbackSucesso?:string;
   feedbackErro?:string;
+  
+  constructor(
+    private service: PecaService,
+    private router: Router) { }
 
   ngOnInit(): void {
-    this.service.getPeca().subscribe(
+    this.service.getPecas().subscribe(
       response => {
         this.pecas = response;
       }
@@ -31,8 +31,8 @@ export class PecasListaComponent implements OnInit {
     this.router.navigate(['funcionario/alterar-pecas'])
   }
 
-  preparaDelecao(pecas: Pecas) {
-    this.pecaSelecionada = pecas;
+  preparaDelecao(peca: Pecas) {
+    this.pecaSelecionada = peca;
   }
 
   deletarPeca() {
