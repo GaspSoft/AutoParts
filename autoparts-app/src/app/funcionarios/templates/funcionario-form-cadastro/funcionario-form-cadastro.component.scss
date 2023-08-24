@@ -39,6 +39,14 @@
     box-shadow: inset 1px 1px var(--container-color);
 }
 
+.form-check-input:hover {
+  border: 2px solid #460a8f;
+}
+
+.form-check-input:checked::before {
+  transform: scale(1);
+}
+
 .form-control:not(:placeholder-shown) {
   transition: 2s;
   border: 1px solid #460a8f;
