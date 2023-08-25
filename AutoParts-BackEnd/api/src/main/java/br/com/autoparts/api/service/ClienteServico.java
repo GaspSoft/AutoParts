@@ -31,8 +31,6 @@ public class ClienteServico {
 
             List<Cliente> clientesByEmail = clienteRepositorio.findByEmail(cliente.getEmail());
             List<Cliente> clientesBySenha = clienteRepositorio.findByCpf(cliente.getCpf());
-
-
             if(cliente.getCpf() == null) {
                 retorno.setMensagem("Insira um CPF.");
                 return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);

@@ -25,7 +25,7 @@ public class FornecedorServico {
             retorno.setMensagem("Insira o CNPJ da empresa.");
             return ResponseEntity.badRequest().body(retorno);
         }
-        if(f.getNome() == null || f.getNome().isEmpty()) {
+        if (f.getNome() == null || f.getNome().isEmpty()) {
             retorno.setMensagem("Insira o nome da empresa.");
             return ResponseEntity.badRequest().body(retorno);
         }
@@ -78,6 +78,14 @@ public class FornecedorServico {
                 retorno.setMensagem("Forcedor não encontrado.");
                 return ResponseEntity.badRequest().body(retorno);
             } else {
+                if (f.getCnpj() == null) {
+                    retorno.setMensagem("Insira o CNPJ da empresa.");
+                    return ResponseEntity.badRequest().body(retorno);
+                }
+                if (f.getNome() == null || f.getNome().isEmpty()) {
+                    retorno.setMensagem("Insira o nome da empresa.");
+                    return ResponseEntity.badRequest().body(retorno);
+                }
                 retorno.setMensagem("Fornecedor alterado com sucesso.");
                 fornecedor.setNome(f.getNome());
                 fornecedorRepositorio.save(fornecedor);

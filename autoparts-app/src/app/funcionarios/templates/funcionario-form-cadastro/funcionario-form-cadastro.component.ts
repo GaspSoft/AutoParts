@@ -49,8 +49,7 @@ export class FuncionarioFormCadastroComponent implements OnInit {
           }, 7000);
         },
         errorResponse => {
-          this.errorsFeedback = 'Erro ao atualizar o funcionário';
-          console.log(errorResponse)
+          this.errorsFeedback = errorResponse.error.mensagem;
         }
       )
     } else {
@@ -66,7 +65,6 @@ export class FuncionarioFormCadastroComponent implements OnInit {
         errorResponse => {
           this.sucessoFeedback = false;
           this.errorsFeedback = errorResponse.error.mensagem;
-          console.log(errorResponse)
         }
       );
     }

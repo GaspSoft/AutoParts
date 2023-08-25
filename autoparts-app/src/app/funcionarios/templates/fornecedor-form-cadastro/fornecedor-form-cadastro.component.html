@@ -7,8 +7,8 @@
     </p>
   </div>
   <form #clienteForm="ngForm" (ngSubmit)="onSubmit()">
-    <div class="row">
-      <div class="col-md-12">
+    <div class="row d-flex justify-content-center">
+      <div class="col-6">
         <div class="alert alert-success" role="alert" *ngIf="sucessoFeedback">
           Fornecedor salvo/atualizado com sucesso
         </div>
@@ -48,7 +48,7 @@
 
     <div class="row d-flex justify-content-center mt-1">
       <div class="col-6">
-        <button type="submit" class="btn btn-warning w-100" *ngIf="fornecedor.fornecedor_id">
+        <button type="submit" class="btn btn-amarelo w-100" *ngIf="fornecedor.fornecedor_id">
           <i class="fa fa-sync-alt"></i>
           Atualizar
         </button>

@@ -17,36 +17,56 @@ public class FuncionarioServico {
     private Retorno retorno;
 
     public ResponseEntity<?> cadastrarFuncionario(Funcionario funcionario) {
-        if(funcionario.getCpf() == null) {
+        if (funcionario.getCpf() == null) {
             retorno.setMensagem("Insira um CPF.");
             return ResponseEntity.badRequest().body(retorno);
         }
-        if(funcionario.getNome() == null || funcionario.getNome().isEmpty()) {
+        if (funcionario.getNome() == null || funcionario.getNome().isEmpty()) {
             retorno.setMensagem("Insira um nome.");
             return ResponseEntity.badRequest().body(retorno);
         }
-        if(funcionario.getEmail() == null || funcionario.getEmail().isEmpty()) {
+        if (funcionario.getEmail() == null || funcionario.getEmail().isEmpty()) {
             retorno.setMensagem("Insira um e-mail.");
             return ResponseEntity.badRequest().body(retorno);
         }
-        if(funcionario.getSenha() == null || funcionario.getSenha().isEmpty()) {
+        if (funcionario.getSenha() == null || funcionario.getSenha().isEmpty()) {
             retorno.setMensagem("Insira uma senha.");
             return ResponseEntity.badRequest().body(retorno);
         }
-        if(funcionario.getCargoFuncionario() == null) {
+        if (funcionario.getCargoFuncionario() == null) {
             retorno.setMensagem("Insira um cargo.");
             return ResponseEntity.badRequest().body(retorno);
         }
         return new ResponseEntity<>(repoFunc.save(funcionario), HttpStatus.CREATED);
     }
 
-    public ResponseEntity<?> alterarFuncionario(Funcionario obj) {
-        if (obj.getFuncionario_id() == null) {
+    public ResponseEntity<?> alterarFuncionario(Funcionario funcionario) {
+        if (funcionario.getFuncionario_id() == null) {
             retorno.setMensagem("ID não informado");
 
             return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
-        } else if (repoFunc.existsById(obj.getFuncionario_id())) {
-            cadastrarFuncionario(obj);
+        } else if (repoFunc.existsById(funcionario.getFuncionario_id())) {
+            if (funcionario.getCpf() == null) {
+                retorno.setMensagem("Insira um CPF.");
+                return ResponseEntity.badRequest().body(retorno);
+            }
+            if (funcionario.getNome() == null || funcionario.getNome().isEmpty()) {
+                retorno.setMensagem("Insira um nome.");
+                return ResponseEntity.badRequest().body(retorno);
+            }
+            if (funcionario.getEmail() == null || funcionario.getEmail().isEmpty()) {
+                retorno.setMensagem("Insira um e-mail.");
+                return ResponseEntity.badRequest().body(retorno);
+            }
+            if (funcionario.getSenha() == null || funcionario.getSenha().isEmpty()) {
+                retorno.setMensagem("Insira uma senha.");
+                return ResponseEntity.badRequest().body(retorno);
+            }
+            if (funcionario.getCargoFuncionario() == null) {
+                retorno.setMensagem("Insira um cargo.");
+                return ResponseEntity.badRequest().body(retorno);
+            }
+            cadastrarFuncionario(funcionario);
             return new ResponseEntity<>(HttpStatus.OK);
         }
         retorno.setMensagem("ID não existente");
