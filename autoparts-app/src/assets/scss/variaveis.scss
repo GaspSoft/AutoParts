@@ -98,15 +98,28 @@ $linear-corrente-azul: linear-gradient(to right, #5086c1 0%, #84b6f4 51%, #5086c
 }
 
 .table-border-roxo {
-  border-right: 2px solid $roxo-claro;
-  border-left: 2px solid $roxo-claro;
+  border-right: 1px solid $roxo-claro;
+  border-left: 1px solid $roxo-claro;
+  border-radius: 100px;
+}
+
+.table-border-roxo td {
+  border-color: $roxo-claro; /* Define a cor das bordas das células como vermelho */
+}
+
+.table-border-roxo tr:nth-child(even) td {
+  background-color: white; /* Define a cor de fundo para linhas pares */
+}
+
+.table-border-roxo tr:nth-child(odd) td {
+  background-color: white; /* Define a cor de fundo para linhas ímpares */
 }
 
 .table-border-roxo tr:first-child  {
-  border-top: 2px solid $roxo-claro; /* Adiciona uma borda sólida cinza no topo das células da primeira linha */
+  border-top: 1px solid $roxo-claro; /* Adiciona uma borda sólida cinza no topo das células da primeira linha */
 }
 
 .table-border-roxo tr:last-child {
-  border-bottom: 2px solid $roxo-claro; /* Adiciona uma borda sólida cinza na parte inferior das células da última linha */
+  border-bottom: 1px solid $roxo-claro; /* Adiciona uma borda sólida cinza na parte inferior das células da última linha */
 }
 

@@ -9,10 +9,10 @@
           </button>
         </div>
       </div>
-      <table class="table table-borderless table-font-roxo table-hover align-middle text-start">
-        <thead class="table-border-roxo">
+      <table class="table table-border-roxo table-font-roxo table-hover align-middle text-start">
+        <thead>
           <tr>
-            <td class="col columns-list">Id</td>
+            <td class="col columns-list">*</td>
             <td class="col columns-list">Nome</td>
             <td class="col columns-list">CPF</td>
             <td class="col columns-list">Cargo</td>
@@ -20,8 +20,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr scope="row" class="" *ngFor="let funcionario of funcionarios">
-            <td class="line-list"> {{ funcionario.funcionario_id}} </td>
+          <tr scope="row" class="" *ngFor="let funcionario of funcionarios; let i = index;">
+            <td class="line-list"> {{ i + 1 }} </td>
             <td class="line-list"> {{ funcionario.nome}} </td>
             <td class="line-list"> {{ funcionario.email}} </td>
             <td class="line-list"> {{ funcionario.cargoFuncionario ? 'Gerente' : 'Vendedor'}} </td>
