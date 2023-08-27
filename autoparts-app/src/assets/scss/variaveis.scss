@@ -6,11 +6,11 @@ $cinza: #7a7a7a !important;
 $cinza-claro: #dadada !important;
 $cinza-escuro: #525252 !important;
 $linear: linear-gradient(to right, #342A41 0%, #6500E4 100%) !important;
-$linear-corrente: linear-gradient(to right, #342A41 0%, #6500e4  51%, #342A41  100%) !important;
-$linear-corrente-cinza: linear-gradient(to right, #555555 0%, #afafaf  51%, #555555  100%) !important;
-$linear-corrente-amarelo: linear-gradient(to right, #d1a318 0%, #F6CE55  51%, #d1a318  100%) !important;
-$linear-corrente-vermelho: linear-gradient(to right, #C63637 0%, #FF6961  51%, #C63637  100%) !important;
-$linear-corrente-azul: linear-gradient(to right, #5086c1 0%, #84b6f4  51%, #5086c1  100%) !important;
+$linear-corrente: linear-gradient(to right, #342A41 0%, #6500e4 51%, #342A41 100%) !important;
+$linear-corrente-cinza: linear-gradient(to right, #555555 0%, #afafaf 51%, #555555 100%) !important;
+$linear-corrente-amarelo: linear-gradient(to right, #d1a318 0%, #F6CE55 51%, #d1a318 100%) !important;
+$linear-corrente-vermelho: linear-gradient(to right, #C63637 0%, #FF6961 51%, #C63637 100%) !important;
+$linear-corrente-azul: linear-gradient(to right, #5086c1 0%, #84b6f4 51%, #5086c1 100%) !important;
 
 .btn-roxo {
   background-image: $linear-corrente;
@@ -81,9 +81,45 @@ $linear-corrente-azul: linear-gradient(to right, #5086c1 0%, #84b6f4  51%, #5086
 
 .columns-list {
   color: $roxo-claro;
+  font-weight: bold;
+}
+
+.line-list {
+  color: $roxo-escuro;
 }
 
 .ajust-footer {
   min-height: 60vh;
   max-height: 100%;
 }
+
+.bg-roxo {
+  background: $linear;
+}
+
+.table-border-roxo {
+  border-right: 1px solid $roxo-claro;
+  border-left: 1px solid $roxo-claro;
+  border-radius: 100px;
+}
+
+.table-border-roxo td {
+  border-color: $roxo-claro; /* Define a cor das bordas das células como vermelho */
+}
+
+.table-border-roxo tr:nth-child(even) td {
+  background-color: white; /* Define a cor de fundo para linhas pares */
+}
+
+.table-border-roxo tr:nth-child(odd) td {
+  background-color: white; /* Define a cor de fundo para linhas ímpares */
+}
+
+.table-border-roxo tr:first-child  {
+  border-top: 1px solid $roxo-claro; /* Adiciona uma borda sólida cinza no topo das células da primeira linha */
+}
+
+.table-border-roxo tr:last-child {
+  border-bottom: 1px solid $roxo-claro; /* Adiciona uma borda sólida cinza na parte inferior das células da última linha */
+}
+
