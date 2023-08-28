@@ -38,10 +38,10 @@ export class PecasListaComponent implements OnInit {
   deletarPeca() {
     this.service.deletarPeca(this.pecaSelecionada).subscribe(
       response => {
-        this.feedbackSucesso = 'Peça deletado com sucesso';
+        this.feedbackSucesso = 'Funcionário deletado com sucesso';
         this.ngOnInit();
       },
-      errorResponse => this.feedbackErro = 'Ocorreu um erro ao deletar a peça'
+      errorResponse => this.feedbackErro = 'Ocorreu um erro ao deletar o funcionário'
     )
   }
 

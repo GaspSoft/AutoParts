@@ -10,7 +10,7 @@ export class PecaService {
 
   constructor(private http: HttpClient) { }
 
-  private pecaId: number = 1;
+  private pecaId: number = 0;
   private url: string = 'http://localhost:8080/pecas';
 
   cadastrarPeca(peca: Pecas, foto: File): Observable<any> {
