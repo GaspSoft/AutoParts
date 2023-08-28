@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Funcionario } from 'src/app/model/funcionario/funcionario';
 import { FuncionariosService } from 'src/app/services/funcionario/funcionarios.service';
@@ -13,10 +14,16 @@ export class FuncionariosListaComponent implements OnInit {
   funcionarioSelecionado: Funcionario = new Funcionario();
   feedbackSucesso?:string;
   feedbackErro?:string;
+//  searchValue = '';
+// searchForm = this.fb.nonNullable.group({
+//   searchValue,
+// });
 
   constructor(
     private service: FuncionariosService,
-    private router: Router
+    private router: Router,
+    private funcionariosService: FuncionariosService,
+    private fb: FormBuilder
     ) { }
 
   ngOnInit(): void {
@@ -25,6 +32,7 @@ export class FuncionariosListaComponent implements OnInit {
         this.funcionarios = response;
       }
     )
+//    this.fetchData();
   }
 
   editarFuncionario(funcionario_id: number): void {
@@ -50,4 +58,15 @@ export class FuncionariosListaComponent implements OnInit {
       errorResponse => this.feedbackErro = 'Ocorreu um erro ao deletar o funcionário'
     )
   }
+
+//  fetchData(): void {
+//    this.funcionariosService.getFuncionarios(this.searchValue).subscribe((funcionarios) => {
+//      this.funcionarios = funcionarios;
+//    });
+//  }
+
+//  onSearchSubmit(): void {
+//    this.searchValue = this.searchForm.value.searchValue ?? '';
+//    this.fetchData();
+//  }
 }

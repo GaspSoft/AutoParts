@@ -8,6 +8,9 @@
             Novo
           </button>
         </div>
+        <!-- <form [formGroup]="searchForm" (ngSubmit)="onSearchSubmit()">
+          <input type="text" placeholder="Search..." formControlName="searchValue">
+        </form> -->
       </div>
       <table class="table table-border-roxo table-font-roxo table-hover align-middle text-start">
         <thead>
@@ -20,7 +23,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr scope="row" class="" *ngFor="let funcionario of funcionarios; let i = index;">
+          <tr scope="row" *ngFor="let funcionario of funcionarios; let i = index;">
             <td class="line-list"> {{ i + 1 }} </td>
             <td class="line-list"> {{ funcionario.nome}} </td>
             <td class="line-list"> {{ funcionario.email}} </td>
