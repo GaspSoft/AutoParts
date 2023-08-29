@@ -1,10 +1,5 @@
 @import '../../../../assets/scss/variaveis.scss';
 
-.height-full {
-  min-height: 60vh;
-  max-height: 100%;
-}
-
 .title {
   font-weight: 600;
 }
@@ -12,7 +7,6 @@
 .row-hr {
   border: 1px solid $cinza-claro;
 }
-
 
 .separate1 {
   width: 15%;
@@ -31,6 +25,14 @@
   transition: 500ms ease-in-out;
 }
 
-.card:hover {
+.card:hover, .card:hover .card-img-top {
   border-color: $roxo-claro;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 100%;
+  max-height: 250px;
+  border-bottom: 1px solid $cinza-claro;
+  transition: 500ms ease-in-out;
 }
