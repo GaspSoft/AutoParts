@@ -11,6 +11,10 @@ export class NavbarFuncionarioComponent {
   constructor(private router: Router) {
   }
 
+  linkPainel():void {
+    this.router.navigate(['/funcionario/painel']);
+  }
+
   linkListaFuncionario():void {
     this.router.navigate(['/funcionario/lista-funcionario']);
   }
