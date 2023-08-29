@@ -15,7 +15,7 @@ $linear-corrente-azul: linear-gradient(to right, #5086c1 0%, #84b6f4 51%, #5086c
 .btn-roxo {
   background-image: $linear-corrente;
   background-size: 200% auto;
-  transition: 500ms;
+  transition: 500ms ease-in-out;
   color: $branco;
 }
 
@@ -26,7 +26,7 @@ $linear-corrente-azul: linear-gradient(to right, #5086c1 0%, #84b6f4 51%, #5086c
 .btn-cinza {
   background-image: $linear-corrente-cinza;
   background-size: 200% auto;
-  transition: 500ms;
+  transition: 500ms ease-in-out;
   color: $branco;
 }
 
@@ -37,7 +37,7 @@ $linear-corrente-azul: linear-gradient(to right, #5086c1 0%, #84b6f4 51%, #5086c
 .btn-amarelo {
   background-image: $linear-corrente-amarelo;
   background-size: 200% auto;
-  transition: 500ms;
+  transition: 500ms ease-in-out;
   color: $branco;
 }
 
@@ -48,18 +48,19 @@ $linear-corrente-azul: linear-gradient(to right, #5086c1 0%, #84b6f4 51%, #5086c
 .btn-vermelho {
   background-image: $linear-corrente-vermelho;
   background-size: 200% auto;
-  transition: 500ms;
+  transition: 500ms ease-in-out;
   color: $branco;
 }
 
 .btn-vermelho:hover {
   background-position: right center;
+  transition: 500ms ease-in-out;
 }
 
 .btn-azul {
   background-image: $linear-corrente-azul;
   background-size: 200% auto;
-  transition: 500ms;
+  transition: 500ms ease-in-out;
   color: $branco;
 }
 
@@ -118,6 +119,3 @@ $linear-corrente-azul: linear-gradient(to right, #5086c1 0%, #84b6f4 51%, #5086c
 .table-border-roxo tr:first-child  {
   border-top: 1px solid $roxo-claro; /* Adiciona uma borda sólida cinza no topo das células da primeira linha */
 }
-
-
-
