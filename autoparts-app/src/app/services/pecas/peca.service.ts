@@ -45,6 +45,10 @@ export class PecaService {
     return this.http.get<Pecas[]>(this.url);
   }
 
+  getPecaById(id: number): Observable<Pecas> {
+    return this.http.get<Pecas>(`${this.url}/${id}`)
+  }
+
   setPecaId(id: number) {
     this.pecaId = id;
   }
