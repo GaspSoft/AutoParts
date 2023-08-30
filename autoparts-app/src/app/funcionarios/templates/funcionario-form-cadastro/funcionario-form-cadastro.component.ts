@@ -24,16 +24,16 @@ export class FuncionarioFormCadastroComponent implements OnInit {
   }
   ngOnInit(): void {
     this.id = this.service.getFuncionarioId()
-      if (this.id) {
-        this.service.getFuncionarioById(this.id).subscribe(
-          response => {
-            this.funcionario = response;
-          },
-          errorResponse => {
-            this.funcionario = new Funcionario();
-          }
-        );
-      }
+    if (this.id) {
+      this.service.getFuncionarioById(this.id).subscribe(
+        response => {
+          this.funcionario = response;
+        },
+        errorResponse => {
+          this.funcionario = new Funcionario();
+        }
+      );
+    }
 
     console.log()
   }
