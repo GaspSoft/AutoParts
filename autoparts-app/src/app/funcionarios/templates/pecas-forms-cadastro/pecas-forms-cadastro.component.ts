@@ -52,7 +52,10 @@ export class PecasFormsCadastroComponent implements OnInit {
 
 
   salvarPeca() {
-    this.service.cadastrarPeca(this.peca, this.foto)
+    if(this.id) {
+      alert("AAAAAAAAAAAAAAAAAA")
+    } else {
+      this.service.cadastrarPeca(this.peca, this.foto)
       .subscribe(
         response => {
           this.sucessoFeedback = response.mensagem;
@@ -68,6 +71,9 @@ export class PecasFormsCadastroComponent implements OnInit {
           console.log(errorResponse);
         }
       );
+      alert("BBBBBBBBBBBBBBBB")
+    }
+
   }
 
   voltarListagem(): void {
