@@ -1,18 +1,17 @@
 @import '../../../../assets/scss/variaveis.scss';
 
-.final{
-  color: $cinza-escuro;
-  font-weight: 600;
-  text-decoration: underline;
-  text-decoration-color: $roxo-claro;
+.bg-gradiente{
+  color: $branco;
+  font-weight: 900;
+  background: $linear;
 }
 
-section{
+.separate{
   width: 50%;
 }
 
 .img-mec{
-  height: 550px;
+  height: 440px;
   border-radius: 30px;
 }
 
@@ -21,8 +20,8 @@ section{
 }
 
 .img-logo{
-  height: 280px;
-  width: 290px;
+  height: 200px;
+  width: 230px;
   margin: 0 auto;
 }
 
@@ -41,4 +40,25 @@ section{
 
 .text-sobre::first-letter , p::first-letter {
   margin-left: 5%;
+}
+
+/* Exemplo de estilização para um título */
+.titulo {
+  font-size: 28px; /* Tamanho da fonte */
+ font-weight: bold; /* Peso da fonte (negrito) */
+  color: #ffffff; /* Cor do texto */
+  margin-top: 10px; /* Margem superior */
+  margin-bottom: 20px; /* Margem inferior */
+  text-align: center; /* Alinhamento do texto */
+  text-transform: uppercase; /* Transformação de texto (maiúsculas) */
+  letter-spacing: 2px; /* Espaçamento entre letras */
+  line-height: 1.2; /* Altura da linha */
+  /* Outras propriedades de estilização, como font-family, text-decoration, etc. */
+}
+.fs-4{
+  font-size: 28px; /* Tamanho da fonte */
+  font-weight: bold; /* Peso da fonte (negrito) */
+  letter-spacing: 2px; /* Espaçamento entre letras */
+  text-transform: uppercase; /* Transformação de texto (maiúsculas) */
+  margin-bottom: 40px; /* Margem inferior */
 }

@@ -1,43 +1,55 @@
-<nav class="navbar bg-body-tertiary fixed">
+<nav class="navbar bg-body-tertiary bg-roxo fixed">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img src="/assets/img/LogoBrancaSemFundo.png" class="navbar-logo" alt=""> AutoParts Store</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+    <a class="navbar-brand" (click)="linkPainel()"><img
+        src="/assets/img/LogoBrancaSemFundo.png" class="navbar-logo" alt>
+      AutoParts Store</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasNavbar"
       aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+      aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img src="/assets/img/LogoBrancaSemFundo.png" class="menu-logo" alt=""> AutoParts Store</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img
+            src="/assets/img/LogoBrancaSemFundo.png" class="menu-logo" alt>
+          AutoParts Store</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+          aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">
+            <a class="nav-link active cursor-btn" aria-current="page"
+              (click)="linkPainel()">
               <i class="fa fa-house svg"></i>
               Painel
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" (click)="linkListaFuncionario()">
+            <a class="nav-link active cursor-btn" aria-current="page"
+              (click)="linkListaFuncionario()">
               <i class="fa fa-briefcase svg"></i>
               Funcionário
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page"(click)="linkListaProduto()">
+            <a class="nav-link active cursor-btn" aria-current="page"
+              (click)="linkListaProduto()">
               <i class="fa-solid fa-box svg"></i>
               Produto
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" (click)="linkListaCliente()">
+            <a class="nav-link active cursor-btn" aria-current="page"
+              (click)="linkListaCliente()">
               <i class="bi bi-people-fill svg"></i>
               Cliente
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" (click)="linkListaFornecedor()">
+            <a class="nav-link active cursor-btn" aria-current="page"
+              (click)="linkListaFornecedor()">
               <i class="fa fa-truck svg"></i>
               Fornecedor
             </a>

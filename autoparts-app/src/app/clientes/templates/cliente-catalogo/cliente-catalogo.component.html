@@ -1,0 +1,39 @@
+<div class="container-fluid d-flex mx-2 height-full">
+  <section class="separate1 p-5 mt-5">
+    <button class="btn text-start text-filter w-100">Turbinas</button>
+    <button class="btn text-start text-filter w-100">Freios</button>
+    <button class="btn text-start text-filter w-100">Transmissão</button>
+    <button class="btn text-start text-filter w-100">Motor</button>
+    <button class="btn text-start text-filter w-100">Amortecedor</button>
+    <button class="btn text-start text-filter w-100">Bateria</button>
+    <button class="btn text-start text-filter w-100">Direção</button>
+    <button class="btn text-start text-filter w-100">Cilindros</button>
+    <button class="btn text-start text-filter w-100">Câmbio</button>
+    <button class="btn text-start text-filter w-100">Embreagem</button>
+    <button class="btn text-start text-filter w-100">Suspensão</button>
+    <button class="btn text-start text-filter w-100">Correias</button>
+    <hr class="row-hr">
+  </section>
+  <section class="separate2 mx-4">
+    <h1 class="fs-2 my-4 mx-4 title">LOJA</h1>
+    <hr class="row-hr">
+    <div class="row row-cols-1 row-cols-5 g-3">
+      <div *ngFor="let peca of pecas" class="d-flex my-4 mx-0">
+        <div class="card w-100">
+          <img *ngIf="peca.base64" [src]="getFotoUrl(peca)" alt="Foto da Peça" class="card-img-top">
+          <div class="card-body">
+            <h3 class="card-title"> {{ peca.nome }} </h3>
+            <h5 class="text-filter"> {{ peca.descricao }} </h5>
+            <h5 class="text-filter"> {{ peca.quantidade }} </h5>
+            <h3 class="card-title"> R$ {{ peca.preco }} </h3>
+          </div>
+          <div class="card-footer text-center">
+            <button class="btn mx-auto btn-roxo w-75" type="submit">
+              COMPRAR
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

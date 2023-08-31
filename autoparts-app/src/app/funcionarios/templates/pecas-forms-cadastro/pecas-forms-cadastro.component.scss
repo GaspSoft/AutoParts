@@ -1,1 +1,19 @@
 @import '../../../../assets/scss/variaveis.scss';
+
+.p-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: $preto;
+}
+
+.subtitle {
+  font-size: 17px;
+  font-weight: 400;
+  color: $cinza-escuro;
+}
+
+.form-control:not(:placeholder-shown) {
+  transition: 2s;
+  border: 1px solid #460a8f;
+  color: #460a8f !important;
+}

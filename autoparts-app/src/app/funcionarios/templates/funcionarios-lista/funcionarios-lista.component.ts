@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Funcionario } from 'src/app/model/funcionario/funcionario';
 import { FuncionariosService } from 'src/app/services/funcionario/funcionarios.service';
@@ -16,7 +17,8 @@ export class FuncionariosListaComponent implements OnInit {
 
   constructor(
     private service: FuncionariosService,
-    private router: Router
+    private router: Router,
+    private funcionariosService: FuncionariosService,
     ) { }
 
   ngOnInit(): void {

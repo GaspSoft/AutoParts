@@ -1,4 +1,4 @@
-<nav class="navbar bg-body-tertiary fixed">
+<nav class="navbar bg-body-tertiary bg-roxo fixed">
   <div class="container-fluid">
     <a class="navbar-brand" href="#"><img src="/assets/img/LogoBrancaSemFundo.png" class="navbar-logo" alt="">AutoParts Store</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
@@ -13,37 +13,37 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./cliente/home-cliente">
+            <a class="nav-link active" aria-current="page" (click)="linkClienteHome()">
               <i class="fa fa-house svg"></i>
               Home
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">
+            <a class="nav-link active" aria-current="page" (click)="linkClienteCatalogo()">
               <i class="bi bi-archive-fill svg"></i>
               Catálogo
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">
+            <a class="nav-link active" aria-current="page" (click)="linkClienteCarrinho()">
               <i class="bi bi-basket-fill svg"></i>
               Carrinho
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./cliente/sobre-cliente">
+            <a class="nav-link active" aria-current="page" (click)="linkClienteSobre()">
               <i class="bi bi-bank2 svg"></i>
               Institucional
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./cliente/perfil-cliente">
+            <a class="nav-link active" aria-current="page" (click)="linkClientePerfil()">
               <i class="fa fa-user svg"></i>
               Perfil
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./cliente/ajuda-cliente">
+            <a class="nav-link active" aria-current="page" (click)="linkClienteAjuda()">
               <i class="bi bi-info-circle-fill svg"></i>
               Ajuda
             </a>

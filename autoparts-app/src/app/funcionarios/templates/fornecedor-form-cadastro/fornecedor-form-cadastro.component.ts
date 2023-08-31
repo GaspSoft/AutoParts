@@ -49,8 +49,7 @@ export class FornecedorFormCadastroComponent {
           }, 7000);
         },
         errorResponse => {
-          this.errorsFeedback = 'Erro ao atualizar o funcionário';
-          console.log(errorResponse)
+          this.errorsFeedback = errorResponse.error.mensagem;
         }
       )
     } else {
@@ -65,7 +64,7 @@ export class FornecedorFormCadastroComponent {
         },
         errorResponse => {
           this.sucessoFeedback = false;
-          this.errorsFeedback = errorResponse.error.errors;
+          this.errorsFeedback = errorResponse.error.mensagem;
         }
       );
     }

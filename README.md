@@ -1,5 +1,6 @@
-# AutoParts - Projeto Integrador IFSC 🖥️
+![Header](https://github.com/pedrogodri/AutoParts/assets/86849487/e7f32022-dd63-4991-a7ea-e06a196341ab)
 
+<h1 align="center">Auto Parts Store</h1>
 Projeto Spring Boot Java, MySql, Angular, HTML5 e SCSS
 Este projeto é um aplicativo web full-stack. Funcionando como um sistema de compra de peças de carros, tendo os seus atores: Gerente, Funcionário e Cliente.
 

@@ -1,8 +1,11 @@
 @import '../../../assets/scss/variaveis.scss';
 
 nav {
-    background: $linear;
     margin-bottom: 1%;
+}
+
+.nav-item a {
+  cursor: pointer;
 }
 
 .navbar-logo {

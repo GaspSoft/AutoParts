@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FuncionarioFormCadastroComponent } from './templates/funcionario-form-cadastro/funcionario-form-cadastro.component';
 import { ComponentsModule } from '../components/components.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FuncionariosRoutingModule } from './funcionarios-routing.module';
 import { FuncionariosListaComponent } from './templates/funcionarios-lista/funcionarios-lista.component';
 import { FuncionarioPageComponent } from './page/funcionario-page/funcionario-page.component';
@@ -11,6 +11,7 @@ import { FornecedorFormCadastroComponent } from './templates/fornecedor-form-cad
 import { FornecedoresListaComponent } from './templates/fornecedores-lista/fornecedores-lista.component';
 import { PecasFormsCadastroComponent } from './templates/pecas-forms-cadastro/pecas-forms-cadastro.component';
 import { PecasListaComponent } from './templates/pecas-lista/pecas-lista.component';
+import { PainelComponent } from './templates/painel/painel.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +22,15 @@ import { PecasListaComponent } from './templates/pecas-lista/pecas-lista.compone
     FornecedorFormCadastroComponent,
     FornecedoresListaComponent,
     PecasFormsCadastroComponent,
-    PecasListaComponent
+    PecasListaComponent,
+    PainelComponent
   ],
   imports: [
     CommonModule,
     ComponentsModule,
     FormsModule,
-    FuncionariosRoutingModule
+    FuncionariosRoutingModule,
+    ReactiveFormsModule
   ],
   exports: [
     FuncionarioFormCadastroComponent,

@@ -24,16 +24,16 @@ export class FuncionarioFormCadastroComponent implements OnInit {
   }
   ngOnInit(): void {
     this.id = this.service.getFuncionarioId()
-      if (this.id) {
-        this.service.getFuncionarioById(this.id).subscribe(
-          response => {
-            this.funcionario = response;
-          },
-          errorResponse => {
-            this.funcionario = new Funcionario();
-          }
-        );
-      }
+    if (this.id) {
+      this.service.getFuncionarioById(this.id).subscribe(
+        response => {
+          this.funcionario = response;
+        },
+        errorResponse => {
+          this.funcionario = new Funcionario();
+        }
+      );
+    }
 
     console.log()
   }
@@ -49,8 +49,7 @@ export class FuncionarioFormCadastroComponent implements OnInit {
           }, 7000);
         },
         errorResponse => {
-          this.errorsFeedback = 'Erro ao atualizar o funcionário';
-          console.log(errorResponse)
+          this.errorsFeedback = errorResponse.error.mensagem;
         }
       )
     } else {
@@ -65,7 +64,7 @@ export class FuncionarioFormCadastroComponent implements OnInit {
         },
         errorResponse => {
           this.sucessoFeedback = false;
-          this.errorsFeedback = errorResponse.error.errors;
+          this.errorsFeedback = errorResponse.error.mensagem;
         }
       );
     }
