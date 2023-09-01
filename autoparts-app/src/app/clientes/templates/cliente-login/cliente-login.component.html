@@ -1,0 +1,62 @@
+<div class="container mb-5 mt-4">
+  <div class="row d-flex justify-content-center">
+    <img src="/assets/img/LogoSemFundo.png" class="w-25 h-25 mb-3" alt="">
+    <p class="p-title text-center">SUA CONTA</p>
+    <p class="p-title text-center mb-4">AUTOPARTS</p>
+  </div>
+  <form>
+
+    <div class="row d-flex justify-content-center">
+      <div class="col-6">
+        <div class="form-floating mb-3">
+          <input type="number" name="cpf" class="form-control" id="floatingInput" placeholder="CPF">
+          <label for="floatingInput">Email</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+      <div class="col-6">
+        <div class="form-floating mb-3">
+          <input type="text" name="nome" class="form-control" id="floatingInput"
+            placeholder="Nome">
+          <label for="floatingInput">Senha</label>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="row d-flex justify-content-center">
+        <div class="col-3 w-50">
+          <div class="form-check">
+            <input class="form-check-input" type="radio"
+              name="flexRadioDefault" id="flexRadioDefault1" [value]="true">
+            <label class="form-check-label mt-1 ps-2 terms" for="flexRadioDefault1">
+              Matenha-me Conectado
+            </label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row d-flex justify-content-center my-3">
+        <div class="col-3 w-50 text-center">
+          <p class="terms">Ao fazer login, você concorda com a <u><strong> Política <br> de Privacidade </strong></u> e os <u><strong>Termos de Uso da <br> AutoParts Store.</strong></u></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+      <div class="col-6">
+        <button class="btn btn-roxo w-100 text-uppercase" type="submit">
+          Criar conta
+        </button>
+      </div>
+    </div>
+
+    <div class="row d-inline justify-content-center">
+      <div class="col-3 w-100 text-center">
+        <a class="terms cursor-pointer" (click)="linkClienteCadastro()">Não é um membro? <u><strong>Junte-se a nós</strong></u></a>
+      </div>
+    </div>
+  </form>
+</div>

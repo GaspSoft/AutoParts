@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Cliente } from 'src/app/model/cliente/cliente';
 import { ClientesService } from 'src/app/services/cliente/clientes.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'cliente-form-cadastro',
@@ -13,7 +14,7 @@ export class ClienteFormCadastroComponent {
   sucessoFeedback: boolean = false;
   errorsFeedback?: string = '';
 
-  constructor(private service: ClientesService) {
+  constructor(private service: ClientesService, private router: Router) {
     this.cliente = new Cliente();
     this.estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO']
   }
@@ -33,5 +34,9 @@ export class ClienteFormCadastroComponent {
         this.errorsFeedback = errorResponse.error.mensagem;
       }
     );
+  }
+
+  linkClienteLogin():void {
+    this.router.navigate(['/cliente/login-cliente']);
   }
 }
