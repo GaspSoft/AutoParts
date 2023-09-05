@@ -33,7 +33,7 @@ public class FuncionarioServico {
             retorno.setMensagem("Insira uma senha.");
             return ResponseEntity.badRequest().body(retorno);
         }
-        if (funcionario.getCargoFuncionario() == null) {
+        if (funcionario.getTipoPessoa() == null) {
             retorno.setMensagem("Insira um cargo.");
             return ResponseEntity.badRequest().body(retorno);
         }
@@ -62,7 +62,7 @@ public class FuncionarioServico {
                 retorno.setMensagem("Insira uma senha.");
                 return ResponseEntity.badRequest().body(retorno);
             }
-            if (funcionario.getCargoFuncionario() == null) {
+            if (funcionario.getTipoPessoa() == null) {
                 retorno.setMensagem("Insira um cargo.");
                 return ResponseEntity.badRequest().body(retorno);
             }
