@@ -6,6 +6,7 @@ import { ClienteFormPerfilComponent } from '../../templates/cliente-form-perfil/
 import { ClienteHomeComponent } from '../../templates/cliente-home/cliente-home.component';
 import { ClienteCarrinhoComponent } from '../../templates/cliente-carrinho/cliente-carrinho.component';
 import { ClienteCatalogoComponent } from '../../templates/cliente-catalogo/cliente-catalogo.component';
+import { ClienteLoginComponent } from '../../templates/cliente-login/cliente-login.component';
 
 const routes: Routes = [
   { path: 'cadastrar-cliente', component: ClienteFormCadastroComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'home-cliente', component: ClienteHomeComponent },
   { path: 'carrinho-cliente', component: ClienteCarrinhoComponent },
   { path: 'catalogo-cliente', component: ClienteCatalogoComponent },
+  { path: 'login-cliente', component: ClienteLoginComponent },
   { path: '', redirectTo: '/cliente/home-cliente', pathMatch: 'full'}
 ];
 
