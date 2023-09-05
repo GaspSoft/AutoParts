@@ -119,3 +119,35 @@ $linear-corrente-azul: linear-gradient(to right, #5086c1 0%, #84b6f4 51%, #5086c
 .table-border-roxo tr:first-child  {
   border-top: 1px solid $roxo-claro; /* Adiciona uma borda sólida cinza no topo das células da primeira linha */
 }
+
+.bg-roxo-animado {
+  background-image: linear-gradient(to right, #342A41, #6500e4, #342A41, #6500e4, #342A41);
+  background-size: 200% auto;
+  animation: animationRoxo 5s linear infinite;
+}
+
+.bg-roxo-animado-top {
+  background-image: linear-gradient(to top, #342A41, #6500e4, #342A41, #6500e4, #342A41);
+  background-size: 100% 200%;
+  animation: animationRoxoTop 3s linear infinite;
+}
+
+@keyframes animationRoxoTop {
+  0% {
+    background-position: 0% 100%;
+  }
+
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+@keyframes animationRoxo {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+    background-position: 200% 0%;
+  }
+}
