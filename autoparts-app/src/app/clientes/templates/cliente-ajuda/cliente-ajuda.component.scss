@@ -1,0 +1,73 @@
+@import '../../../../assets/scss/variaveis.scss';
+
+.title {
+  font-size: 28px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.sec1 {
+  margin-left: 10%;
+  width: 100%;
+}
+
+.sec2 {
+  width: 50%;
+}
+
+.subtitle {
+  font-size: 22px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.write-text {
+  font-size: 18px;
+  font-weight: 400;
+  color: $cinza;
+  text-align: justify;
+}
+
+.last-text {
+  font-size: 18px;
+  font-weight: 400;
+  color: $cinza;
+}
+
+.write-text::first-letter {
+  margin-left: 2%;
+}
+
+.topics {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.row-vertical {
+  border-left: 2px solid $cinza-claro;
+  height: 100%;
+}
+
+.icon {
+  font-size: 100px;
+  color: $cinza-escuro;
+}
+
+.icons-text {
+  font-size: 20px;
+  font-weight: 500;
+  color: $cinza;
+  text-decoration: underline;
+}
+
+.maps {
+  height: 800px;
+  width: 400px;
+}
+
+.border-maps {
+  border: 2px solid $cinza;
+  border-radius: 5px;
+  height: 804px;
+}
