@@ -25,9 +25,10 @@
 }
 
 .offcanvas  {
-    border-top-left-radius: 2%;
-    border-bottom-left-radius: 2%;
-    background: $roxo-escuro;
+    border-top-left-radius: 1%;
+    border-bottom-left-radius: 1%;
+    box-shadow: 20px 20px 20px 20px;
+    border-left: 1px solid $cinza;
 }
 
 .menu-logo {
