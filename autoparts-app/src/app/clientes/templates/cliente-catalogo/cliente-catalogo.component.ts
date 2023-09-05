@@ -10,13 +10,8 @@ import { PecaService } from 'src/app/services/pecas/peca.service';
 })
 export class ClienteCatalogoComponent implements OnInit {
   pecas: Pecas[] = [];
-  pecaSelecionada: Pecas = new Pecas();
-  feedbackSucesso?:string;
-  feedbackErro?:string;
-  
-  constructor(
-    private service: PecaService,
-    private router: Router) { }
+
+  constructor( private service: PecaService ) { }
 
   ngOnInit(): void {
     this.service.getPecas().subscribe(
@@ -31,9 +26,5 @@ export class ClienteCatalogoComponent implements OnInit {
       return `data:image/jpeg;base64,${peca.base64}`;
     }
     return ''; // Ou uma URL de imagem padrão
-  }
-
-  novoCadastroPecas() {
-    this.router.navigate(['funcionario/cadastro-pecas'])
   }
 }
