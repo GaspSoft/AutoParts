@@ -38,7 +38,8 @@
             <span class="visually-hidden">Next</span>
           </button>
         </div>
-        <div class="carousel-inner">
+
+        <div *ngFor="let peca of pecas" class="carousel-inner">
           <div class="carousel-item active" data-bs-interval="10000">
             <img src="/assets/img/Image-Home1.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
@@ -52,46 +53,32 @@
               </div>
             </div>
           </div>
-          <div class="carousel-item" data-bs-interval="2000">
-            <img src="/assets/img/Image-Home2.png" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h1>R$ Valor</h1>
-              <div class="row d-flex justify-content-center">
-                <div class="col-6">
-                  <button class="btn btn-roxo w-100 text-uppercase" type="submit">
-                    Ver Produto
-                  </button>
-                </div>
-              </div>
+        </div>
+
+
+
+
+
+        <div *ngFor="let peca of pecas" class="d-flex my-4 mx-0">
+          <div class="card w-100">
+            <img *ngIf="peca.base64" [src]="getFotoUrl(peca)" alt="Foto da Peça" class="card-img-top">
+            <div class="card-body">
+              <h3 class="card-title"> {{ peca.nome }} </h3>
+              <h5 class="text-filter"> {{ peca.descricao }} </h5>
+              <h5 class="text-filter"> {{ peca.quantidade }} </h5>
+              <h3 class="card-title"> R$ {{ peca.preco }} </h3>
             </div>
-          </div>
-          <div class="carousel-item" data-bs-interval="2000">
-            <img src="./assets/img/LogoSemFundo.png" class="d-block w-100 h-auto" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h1>R$ Valor</h1>
-              <div class="row d-flex justify-content-center">
-                <div class="col-6">
-                  <button class="btn btn-roxo w-100 text-uppercase" type="submit">
-                    Ver Produto
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item" data-bs-interval="2000">
-            <img src="./assets/img/LogoBrancaSemFundo.png" class="d-block w-100 h-auto" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h1>R$ Valor</h1>
-              <div class="row d-flex justify-content-center">
-                <div class="col-6">
-                  <button class="btn btn-roxo w-100 text-uppercase" type="submit">
-                    Ver Produto
-                  </button>
-                </div>
-              </div>
+            <div class="card-footer text-center">
+              <button class="btn mx-auto btn-roxo w-75" type="submit">
+                COMPRAR
+              </button>
             </div>
           </div>
         </div>
+
+
+
+
       </div>
     </section>
   </div>
