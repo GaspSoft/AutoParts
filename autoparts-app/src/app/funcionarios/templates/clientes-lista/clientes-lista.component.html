@@ -2,7 +2,8 @@
 <div class="container ajust-footer">
   <div class="row">
     <div class="col-md-12">
-      <table class="table table-border-roxo table-font-roxo table-hover align-middle text-start">
+      <lista-vazia-cliente *ngIf="!clientesExiste"></lista-vazia-cliente>
+      <table *ngIf="clientesExiste" class="table table-border-roxo table-font-roxo table-hover align-middle text-start">
         <thead>
           <tr>
             <td class="col columns-list">Id</td>

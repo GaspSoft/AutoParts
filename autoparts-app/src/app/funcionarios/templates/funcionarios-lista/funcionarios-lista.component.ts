@@ -12,6 +12,7 @@ import { FuncionariosService } from 'src/app/services/funcionario/funcionarios.s
 export class FuncionariosListaComponent implements OnInit {
   funcionarios: Funcionario[] = [];
   funcionarioSelecionado: Funcionario = new Funcionario();
+  funcionarioExiste:boolean = false;
   feedbackSucesso?:string;
   feedbackErro?:string;
 
@@ -25,6 +26,13 @@ export class FuncionariosListaComponent implements OnInit {
     this.service.getFuncionarios().subscribe(
       response => {
         this.funcionarios = response;
+      }
+    )
+
+    this.service.getFuncionarios().subscribe(
+      response => {
+        this.funcionarios = response;
+        this.funcionarioExiste = this.funcionarios.length > 0;
       }
     )
   }

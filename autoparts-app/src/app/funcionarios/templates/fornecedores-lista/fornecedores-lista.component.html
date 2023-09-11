@@ -9,7 +9,8 @@
           </button>
         </div>
       </div>
-      <table class="table table-border-roxo table-font-roxo table-hover align-middle text-start">
+      <lista-vazia-fornecedor *ngIf="!fornecedoresExiste"></lista-vazia-fornecedor>
+      <table *ngIf="fornecedoresExiste" class="table table-border-roxo table-font-roxo table-hover align-middle text-start">
         <thead>
           <tr>
             <td class="col columns-list">Id</td>

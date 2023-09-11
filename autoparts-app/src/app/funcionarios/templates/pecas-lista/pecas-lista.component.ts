@@ -11,9 +11,10 @@ import { PecaService } from 'src/app/services/pecas/peca.service';
 export class PecasListaComponent implements OnInit {
   pecas: Pecas[] = [];
   pecaSelecionada: Pecas = new Pecas();
+  pecasExiste:boolean = false;
   feedbackSucesso?:string;
   feedbackErro?:string;
-  
+
   constructor(
     private service: PecaService,
     private router: Router) { }
@@ -22,6 +23,13 @@ export class PecasListaComponent implements OnInit {
     this.service.getPecas().subscribe(
       response => {
         this.pecas = response;
+      }
+    )
+
+    this.service.getPecas().subscribe(
+      response => {
+        this.pecas = response;
+        this.pecasExiste = this.pecas.length > 0;
       }
     )
   }
