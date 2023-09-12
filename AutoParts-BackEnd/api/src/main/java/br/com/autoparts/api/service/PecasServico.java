@@ -83,6 +83,10 @@ public class PecasServico {
         return pecasRepositorio.findAll();
     }
 
+    public List<Pecas> listarPorFornecedor(Fornecedor fornecedor) {
+        return pecasRepositorio.findByFornecedor(fornecedor);
+    }
+
     public ResponseEntity<?> buscarPeca(Integer pecas_id) {
 
         Optional<Pecas> peca = pecasRepositorio.findById(pecas_id);
