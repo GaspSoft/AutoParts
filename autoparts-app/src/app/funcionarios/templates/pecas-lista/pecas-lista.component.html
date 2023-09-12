@@ -9,7 +9,8 @@
           </button>
         </div>
       </div>
-      <table class="table table-border-roxo table-font-roxo table-hover align-middle text-start">
+      <lista-vazia-pecas *ngIf="!pecasExiste"></lista-vazia-pecas>
+      <table *ngIf="pecasExiste" class="table table-border-roxo table-font-roxo table-hover align-middle text-start">
         <thead>
           <tr>
             <td class="columns-list">Imagem</td>
@@ -25,7 +26,7 @@
             <td><img class="img-peca" *ngIf="peca.base64" [src]="getFotoUrl(peca)" alt="Foto da Peça"/>   </td>
             <td> {{ peca.nome }} </td>
             <td> {{ peca.descricao }}</td>
-            <td>  {{ peca.quantidade }} </td>
+            <td> {{ peca.quantidade }} </td>
             <td> {{ peca.preco }} </td>
 
             <td class="d-flex justify-content-end max-height">
