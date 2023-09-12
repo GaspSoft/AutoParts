@@ -1,5 +1,7 @@
 package br.com.autoparts.api.controller;
 
+import java.security.SignatureException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +27,11 @@ public class Controle {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Pessoa p){
-        return servico.verificarUser(p);
+        return servico.geraToken(p);
+    }
 
+   @PostMapping("/login/decode")
+    public ResponseEntity<?> loginas(@RequestBody String token) throws SignatureException{
+        return servico.validarToken(token);
     }
 }
