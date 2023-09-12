@@ -22,6 +22,7 @@ public class FornecedorControle {
     @Autowired
     private FornecedorServico servico;
 
+
     @PostMapping("/fornecedor")
     public ResponseEntity<?> cadastrarFornecedor(@RequestBody Fornecedor f){
         return servico.cadastrarFornecedor(f);
@@ -38,6 +39,7 @@ public class FornecedorControle {
 
     @DeleteMapping("/fornecedor/{fornecedor_id}")
     public ResponseEntity<?> deletarFornecedor(@PathVariable Integer fornecedor_id){
+        
         return servico.deletarFornecedor(fornecedor_id);
     }
     

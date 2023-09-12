@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import br.com.autoparts.api.model.Fornecedor;
+import br.com.autoparts.api.model.Pecas;
 import br.com.autoparts.api.model.Retorno;
 import br.com.autoparts.api.repository.FornecedorRepositorio;
 
@@ -18,6 +19,9 @@ public class FornecedorServico {
 
     @Autowired
     private FornecedorRepositorio fornecedorRepositorio;
+
+    @Autowired
+    private PecasServico pecasServico;
 
     public ResponseEntity<?> cadastrarFornecedor(Fornecedor f) {
 
@@ -51,14 +55,18 @@ public class FornecedorServico {
     }
 
     public ResponseEntity<?> deletarFornecedor(Integer fornecedor_id) {
-        if (fornecedor_id != null) {
-            fornecedorRepositorio.deleteById(fornecedor_id);
-            retorno.setMensagem("Fornecedor deletado com sucesso.");
-            return ResponseEntity.ok(retorno);
-        } else {
-            retorno.setMensagem("O ID do fornecedor é nulo.");
+        Fornecedor fornecedor = fornecedorRepositorio.findById(fornecedor_id).get();
+        List<Pecas> pecasListFornecedor = pecasServico.listarPorFornecedor(fornecedor);
+        if (!pecasListFornecedor.isEmpty()) {
+            retorno.setMensagem("Não é possível deletar o fornecedor, pois existem peças cadastradas.");
             return ResponseEntity.badRequest().body(retorno);
+        } else {
+
+            retorno.setMensagem("Fornecedor deletado com sucesso.");
+            fornecedorRepositorio.delete(fornecedor);
+            return ResponseEntity.ok(fornecedor);
         }
+
     }
 
     public ResponseEntity<?> selecionarPorID(Integer fornecedor_id) {
