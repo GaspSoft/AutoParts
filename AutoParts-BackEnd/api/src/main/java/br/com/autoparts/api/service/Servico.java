@@ -1,5 +1,6 @@
 package br.com.autoparts.api.service;
 
+import java.security.Key;
 import java.security.KeyPair;
 import java.security.SignatureException;
 import java.util.Date;
@@ -24,7 +25,9 @@ import io.jsonwebtoken.security.Keys;
 
 @Service    
 public class Servico  {
-    private String secretKey = "mySecretKey";
+
+
+    private Key privateKey;
 
     @Autowired
     private Retorno retorno;
@@ -72,7 +75,7 @@ public class Servico  {
                     Date expirationDate = new Date(System.currentTimeMillis() + (tokenExpirationMinutes * 60000));
         
                    KeyPair keyPair = Keys.keyPairFor(SignatureAlgorithm.RS256);
-
+                    privateKey = keyPair.getPrivate();
                     // Gere um token JWT com o email do usuário como payload
                     String token = Jwts.builder()
                             .setSubject(p.getEmail()) // Define o email como assunto (subject) do token
@@ -95,12 +98,14 @@ public class Servico  {
         
 
     public ResponseEntity<?> validarToken(String token) throws SignatureException {
+token = "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJuaWNvbGFzQGpkc2Fqc2FkIiwiZXhwIjoxNjk0NTI4NjEzfQ.dN31_ZY4SEQlSpN1EI7yR3cQdCDj-RleD55mFS06VbjGr5Env1ikp02E99a2i-xkc1_69N3ikBHi1Pgun5M4SnNfKOofugS8KOgjAAj5J8wLASmFVsSusZP5bHqw0xgtqPzncM3Wu4b0pIPF8UMGuhjv6LemMhSIEIahmEIcxKRxc0gvLdETeK6sS9mO3SVTdaxWUkG37zb8FBAD4AQH6ZrpNh0vdWnjcy3PXe2-mtazqGKX6hNyFFNjzPN1MUU-xIhn4YjwXuWtTIZotmnRkTORFm8aXvhuk2tw-kykJvaKEA0b4XcunhmUn_EtMwqw5DoKhxA0Dd0G1WhBf_A_vA";
+        System.out.println(token);
         try {
-            Claims claims = Jwts.parser()
-                    .setSigningKey(Keys.hmacShaKeyFor(secretKey.getBytes()))
-                    .parseClaimsJws(token)
-                    .getBody();
-
+            Claims claims = Jwts.parserBuilder()
+            .setSigningKey(privateKey)
+            .build()
+            .parseClaimsJws(token)
+            .getBody();
             // Verifique se o token ainda não expirou
             Date expirationDate = claims.getExpiration();
             if (expirationDate.before(new Date())) {
