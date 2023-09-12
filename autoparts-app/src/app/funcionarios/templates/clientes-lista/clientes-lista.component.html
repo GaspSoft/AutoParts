@@ -2,18 +2,19 @@
 <div class="container ajust-footer">
   <div class="row">
     <div class="col-md-12">
-      <table class="table table-condensed table-hover text-start">
+      <lista-vazia-cliente *ngIf="!clientesExiste"></lista-vazia-cliente>
+      <table *ngIf="clientesExiste" class="table table-border-roxo table-font-roxo table-hover align-middle text-start">
         <thead>
           <tr>
-            <td class="columns-list">Id</td>
-            <td class="columns-list">Nome</td>
-            <td class="columns-list">Email</td>
+            <td class="col columns-list">Id</td>
+            <td class="col columns-list">Nome</td>
+            <td class="col columns-list">Email</td>
             <td></td>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let cliente of clientes">
-            <td> {{ cliente.cliente_id}} </td>
+          <tr scope="row" *ngFor="let cliente of clientes; let i = index">
+            <td> {{ i + 1 }} </td>
             <td> {{ cliente.nome}} </td>
             <td> {{ cliente.email}} </td>
             <td class="d-flex justify-content-end ">

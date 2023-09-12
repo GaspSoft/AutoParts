@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Funcionario } from 'src/app/model/funcionario/funcionario';
 import { FuncionariosService } from 'src/app/services/funcionario/funcionarios.service';
@@ -11,18 +12,27 @@ import { FuncionariosService } from 'src/app/services/funcionario/funcionarios.s
 export class FuncionariosListaComponent implements OnInit {
   funcionarios: Funcionario[] = [];
   funcionarioSelecionado: Funcionario = new Funcionario();
+  funcionarioExiste:boolean = false;
   feedbackSucesso?:string;
   feedbackErro?:string;
 
   constructor(
     private service: FuncionariosService,
-    private router: Router
+    private router: Router,
+    private funcionariosService: FuncionariosService,
     ) { }
 
   ngOnInit(): void {
     this.service.getFuncionarios().subscribe(
       response => {
         this.funcionarios = response;
+      }
+    )
+
+    this.service.getFuncionarios().subscribe(
+      response => {
+        this.funcionarios = response;
+        this.funcionarioExiste = this.funcionarios.length > 0;
       }
     )
   }

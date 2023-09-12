@@ -9,7 +9,8 @@
           </button>
         </div>
       </div>
-      <table class="table table-condensed table-hover text-start">
+      <lista-vazia-pecas *ngIf="!pecasExiste"></lista-vazia-pecas>
+      <table *ngIf="pecasExiste" class="table table-border-roxo table-font-roxo table-hover align-middle text-start">
         <thead>
           <tr>
             <td class="columns-list">Imagem</td>
@@ -22,14 +23,14 @@
         </thead>
         <tbody>
           <tr *ngFor="let peca of pecas" class="peca-card">
-            <td><img class="img-peca" *ngIf="peca.base64" [src]="getFotoUrl(peca)" alt="Foto da Peça" />   </td>
-            <td> {{ peca.nome}} </td>
-            <td> {{ peca.descricao}}</td>
-            <td>  {{ peca.quantidade }} </td>
+            <td><img class="img-peca" *ngIf="peca.base64" [src]="getFotoUrl(peca)" alt="Foto da Peça"/>   </td>
+            <td> {{ peca.nome }} </td>
+            <td> {{ peca.descricao }}</td>
+            <td> {{ peca.quantidade }} </td>
             <td> {{ peca.preco }} </td>
 
             <td class="d-flex justify-content-end max-height">
-              <button type="button" class="btn btn-vermelho mx-4 px-4 max-buttons" data-bs-toggle="modal" data-bs-target="#modalDelecao">
+              <button type="button" class="btn btn-vermelho mx-4 px-4 max-buttons" data-bs-toggle="modal" data-bs-target="#modalDelecao" (click)="preparaDelecao(peca)">
                 <i class="fa-solid fa-trash"></i>
               </button>
               <button type="button" class="btn btn-amarelo mx-4 px-4 max-buttons" (click)="editarPeca(peca.pecas_id)">

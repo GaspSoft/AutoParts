@@ -5,6 +5,9 @@ import { ClienteSobreComponent } from '../../templates/cliente-sobre/cliente-sob
 import { ClienteFormPerfilComponent } from '../../templates/cliente-form-perfil/cliente-form-perfil.component';
 import { ClienteHomeComponent } from '../../templates/cliente-home/cliente-home.component';
 import { ClienteCarrinhoComponent } from '../../templates/cliente-carrinho/cliente-carrinho.component';
+import { ClienteCatalogoComponent } from '../../templates/cliente-catalogo/cliente-catalogo.component';
+import { ClienteLoginComponent } from '../../templates/cliente-login/cliente-login.component';
+import { ClienteAjudaComponent } from '../../templates/cliente-ajuda/cliente-ajuda.component';
 
 const routes: Routes = [
   { path: 'cadastrar-cliente', component: ClienteFormCadastroComponent },
@@ -12,6 +15,9 @@ const routes: Routes = [
   { path: 'perfil-cliente', component: ClienteFormPerfilComponent },
   { path: 'home-cliente', component: ClienteHomeComponent },
   { path: 'carrinho-cliente', component: ClienteCarrinhoComponent },
+  { path: 'catalogo-cliente', component: ClienteCatalogoComponent },
+  { path: 'login-cliente', component: ClienteLoginComponent },
+  { path: 'ajuda-cliente', component: ClienteAjudaComponent },
   { path: '', redirectTo: '/cliente/home-cliente', pathMatch: 'full'}
 ];
 

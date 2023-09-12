@@ -10,7 +10,7 @@ export class PecaService {
 
   constructor(private http: HttpClient) { }
 
-  private pecaId: number = 1;
+  private pecaId: number = 0;
   private url: string = 'http://localhost:8080/pecas';
 
   cadastrarPeca(peca: Pecas, foto: File): Observable<any> {
@@ -21,6 +21,10 @@ export class PecaService {
     return this.http.post(`${this.url}`, formData);
   }
 
+  atualizarFuncionario(peca: Pecas): Observable<any> {
+    return this.http.put<Pecas>(this.url, peca);
+  }
+
   listarPecas(): Observable<Pecas[]> {
     return this.http.get<Pecas[]>(this.url);
   }
@@ -29,16 +33,20 @@ export class PecaService {
     return this.http.get<Pecas>(`${this.url}/${id}`);
   }
 
-  atualizarPeca(peca: Pecas): Observable<Pecas> {
-    return this.http.put<Pecas>(this.url, peca);
+  atualizarPeca(peca: Pecas): Observable<any> {
+    return this.http.put<any>(this.url, peca);
   }
 
   deletarPeca(peca: Pecas): Observable<any> {
     return this.http.delete<any>(`${this.url}/${peca.pecas_id}`);
   }
 
-  getPeca(): Observable<Pecas[]>{
+  getPecas(): Observable<Pecas[]>{
     return this.http.get<Pecas[]>(this.url);
+  }
+
+  getPecaById(id: number): Observable<Pecas> {
+    return this.http.get<Pecas>(`${this.url}/${id}`)
   }
 
   setPecaId(id: number) {

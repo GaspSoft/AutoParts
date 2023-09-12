@@ -12,6 +12,7 @@ import { ClientesService } from 'src/app/services/cliente/clientes.service';
 export class ClientesListaComponent implements OnInit {
 
   clientes: Cliente[] = [];
+  clientesExiste:boolean = false;
 
   constructor(
     private service: ClientesService) { }
@@ -20,6 +21,13 @@ export class ClientesListaComponent implements OnInit {
     this.service.listarClientes().subscribe(
       response => {
         this.clientes = response;
+      }
+    )
+
+    this.service.getCliente().subscribe(
+      response => {
+        this.clientes = response;
+        this.clientesExiste = this.clientes.length > 0;
       }
     )
   }

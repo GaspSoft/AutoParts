@@ -12,6 +12,10 @@ export class NavbarClienteComponent {
   constructor(private router: Router) {
   }
 
+  linkClienteCatalogo():void {
+    this.router.navigate(['/cliente/catalogo-cliente']);
+  }
+
   linkClienteHome():void {
     this.router.navigate(['/cliente/home-cliente']);
   }

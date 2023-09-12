@@ -20,7 +20,7 @@ export class PecasFormsCadastroComponent implements OnInit {
   fornecedores?: Fornecedor[];
 
   constructor(
-    private service: PecaService, 
+    private service: PecaService,
     private router: Router,
     private fornecedorService: FornecedorService) {
     this.peca = new Pecas();
@@ -33,6 +33,17 @@ export class PecasFormsCadastroComponent implements OnInit {
         this.fornecedores = response;
       }
     )
+    this.id = this.service.getPecaId();
+    if (this.id) {
+      this.service.getPecaById(this.id).subscribe(
+        response => {
+          this.peca = response
+        },
+        errorResponse => {
+          this.peca = new Pecas();
+        }
+      )
+    }
   }
 
   onFileChange(event: any) {
@@ -41,20 +52,27 @@ export class PecasFormsCadastroComponent implements OnInit {
 
 
   salvarPeca() {
-    this.service.cadastrarPeca(this.peca, this.foto)
+    if(this.id) {
+      alert("AAAAAAAAAAAAAAAAAA")
+    } else {
+      this.service.cadastrarPeca(this.peca, this.foto)
       .subscribe(
         response => {
-          this.sucessoFeedback = true;
-        this.errorsFeedback = '';
-        setTimeout(() => {
+          this.sucessoFeedback = response.mensagem;
+          this.errorsFeedback = '';
+          setTimeout(() => {
+            this.sucessoFeedback = false;
+          }, 7000);
+          console.log(response);
+        },
+        errorResponse => {
           this.sucessoFeedback = false;
-        }, 7000);
-      },
-      (error) => {
-        this.sucessoFeedback = false;
-        this.errorsFeedback = error.error.message;
+          this.errorsFeedback = errorResponse.error.mensagem;
+          console.log(errorResponse, "ERRO");
         }
       );
+    }
+
   }
 
   voltarListagem(): void {

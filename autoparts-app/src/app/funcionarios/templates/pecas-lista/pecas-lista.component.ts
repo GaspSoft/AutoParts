@@ -9,19 +9,27 @@ import { PecaService } from 'src/app/services/pecas/peca.service';
   styleUrls: ['./pecas-lista.component.scss']
 })
 export class PecasListaComponent implements OnInit {
+  pecas: Pecas[] = [];
+  pecaSelecionada: Pecas = new Pecas();
+  pecasExiste:boolean = false;
+  feedbackSucesso?:string;
+  feedbackErro?:string;
+
   constructor(
     private service: PecaService,
     private router: Router) { }
 
-  pecas: Pecas[] = [];
-  pecaSelecionada: Pecas = new Pecas();
-  feedbackSucesso?:string;
-  feedbackErro?:string;
-
   ngOnInit(): void {
-    this.service.getPeca().subscribe(
+    this.service.getPecas().subscribe(
       response => {
         this.pecas = response;
+      }
+    )
+
+    this.service.getPecas().subscribe(
+      response => {
+        this.pecas = response;
+        this.pecasExiste = this.pecas.length > 0;
       }
     )
   }
@@ -31,17 +39,17 @@ export class PecasListaComponent implements OnInit {
     this.router.navigate(['funcionario/alterar-pecas'])
   }
 
-  preparaDelecao(pecas: Pecas) {
-    this.pecaSelecionada = pecas;
+  preparaDelecao(peca: Pecas) {
+    this.pecaSelecionada = peca;
   }
 
   deletarPeca() {
     this.service.deletarPeca(this.pecaSelecionada).subscribe(
       response => {
-        this.feedbackSucesso = 'Peça deletado com sucesso';
+        this.feedbackSucesso = 'Funcionário deletado com sucesso';
         this.ngOnInit();
       },
-      errorResponse => this.feedbackErro = 'Ocorreu um erro ao deletar a peça'
+      errorResponse => this.feedbackErro = 'Ocorreu um erro ao deletar o funcionário'
     )
   }
 

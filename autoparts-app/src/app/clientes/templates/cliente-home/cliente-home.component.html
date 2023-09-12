@@ -3,7 +3,7 @@
       <div class="met-page p-5 bg-grey">
         <h1 class="pt-5 ms-5">Bem-vindos à AutoParts Store!</h1>
         <h5 class="pt-5 p-2 ms-5">Na AutoParts Store, a qualidade é nossa prioridade número um. Cada peça em nosso estoque é cuidadosamente selecionada para garantir que atenda aos mais altos padrões da indústria automotiva. Você pode confiar em nós para fornecer peças confiáveis e duradouras.</h5>
-        <a type="button" class="btn btn-get-in m-5" href="./cliente/sobre">
+        <a type="button" class="btn btn-get-in m-5" (click)="linkClienteSobre()">
           Sobre nós
           <i class="bi bi-arrow-right"></i>
         </a>
@@ -25,63 +25,26 @@
     <section class="container mt-5">
       <div id="carouselExampleLight" class="carousel carousel-light slide">
         <div class="carousel-indicators">
+          <!-- Indicadores de carrossel -->
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleLight" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+            <span class="visually-hidden">Anterior</span>
           </button>
-          <button type="button" data-bs-target="#carouselExampleLight" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleLight" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleLight" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          <button type="button" data-bs-target="#carouselExampleLight" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <!-- Crie um indicador para cada peça -->
+          <button *ngFor="let peca of pecas; let i = index" [class.active]="i === 0" type="button" data-bs-target="#carouselExampleLight" [attr.data-bs-slide-to]="i" [attr.aria-label]="'Slide ' + (i+1)"></button>
+          <!-- Botão de próximo -->
           <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleLight" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+            <span class="visually-hidden">Próximo</span>
           </button>
         </div>
+
         <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="10000">
-            <img src="/assets/img/Image-Home1.jpg" class="d-block w-100" alt="...">
+          <!-- Use *ngFor para criar um slide para cada peça -->
+          <div *ngFor="let peca of pecas; let i = index" class="carousel-item" [class.active]="i === 0">
+            <img [src]="getFotoUrl(peca)" class="d-block w-100" alt="Imagem da Peça">
             <div class="carousel-caption d-none d-md-block">
-              <h1>R$ Valor</h1>
-              <div class="row d-flex justify-content-center">
-                <div class="col-6">
-                  <button class="btn btn-roxo w-100 text-uppercase" type="submit">
-                    Ver Produto
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item" data-bs-interval="2000">
-            <img src="/assets/img/Image-Home2.png" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h1>R$ Valor</h1>
-              <div class="row d-flex justify-content-center">
-                <div class="col-6">
-                  <button class="btn btn-roxo w-100 text-uppercase" type="submit">
-                    Ver Produto
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item" data-bs-interval="2000">
-            <img src="./assets/img/LogoSemFundo.png" class="d-block w-100 h-auto" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h1>R$ Valor</h1>
-              <div class="row d-flex justify-content-center">
-                <div class="col-6">
-                  <button class="btn btn-roxo w-100 text-uppercase" type="submit">
-                    Ver Produto
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item" data-bs-interval="2000">
-            <img src="./assets/img/LogoBrancaSemFundo.png" class="d-block w-100 h-auto" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h1>R$ Valor</h1>
+              <h1>R$ {{ peca.preco }}</h1>
               <div class="row d-flex justify-content-center">
                 <div class="col-6">
                   <button class="btn btn-roxo w-100 text-uppercase" type="submit">
@@ -93,6 +56,7 @@
           </div>
         </div>
       </div>
+
     </section>
   </div>
   <section class="container">

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-3">
     <form style="margin-top: 20px;"  *ngIf="cliente" (ngSubmit)="alterar()" #clienteForm="ngForm">
 
       <div class="row">
@@ -11,7 +11,7 @@
           </div>
         </div>
       </div>
-      
+
         <h1 class="title">Dados Pessoais</h1>
         <div class="row">
           <div class="col">
@@ -27,7 +27,7 @@
             </div>
           </div>
         </div>
-    
+
         <div class="row">
           <div class="col">
             <div class="form-floating mb-3">
@@ -41,16 +41,14 @@
               <label for="floatingInput">Senha</label>
             </div>
           </div>
-          
+
         </div>
         <div class="d-grid gap-2">
-            <button class="btn mt-3 mx-auto btn-success" type="submit">
+            <button class="btn mt-3 mx-auto btn-roxo w-50" type="submit">
               <i class="bi bi-cloud-download-fill"></i>
               Alterar dados pessoais
             </button>
           </div>
-          
-{{ cliente | json }}
     </form>
 
     <form style="margin-top: 20px;" *ngIf="endereco" (ngSubmit)="alterarEndereco()" #clienteForm="ngForm">
@@ -69,7 +67,7 @@
             </div>
           </div>
         </div>
-    
+
         <div class="row">
           <div class="col">
             <div class="form-floating mb-3">
@@ -84,7 +82,7 @@
             </div>
           </div>
         </div>
-    
+
         <div class="row">
           <div class="col">
             <div class="form-floating mb-3">
@@ -100,23 +98,22 @@
           </div>
           <div class="col">
             <div class="form-floating mb-3">
-              <input type="text" name="complemento" class="form-control" id="floatingInput" placeholder="Complemento" [value]="cliente.endereco.complemento" [(ngModel)]="endereco.complemento"> 
+              <input type="text" name="complemento" class="form-control" id="floatingInput" placeholder="Complemento" [value]="cliente.endereco.complemento" [(ngModel)]="endereco.complemento">
               <label for="floatingInput">Complemento</label>
             </div>
           </div>
         </div>
         <div class="d-grid gap-2">
-          <button class="btn mt-3 mx-auto btn-primary btn-success" type="submit">
+          <button class="btn mt-3 mx-auto btn-roxo w-50" type="submit">
             <i class="bi bi-cloud-download-fill"></i>
             Alterar endereço
           </button>
         </div>
-        {{ endereco | json }}
     </form>
 </div>
 <div class="container" style="margin-top: 20px;">
         <div class="d-grid gap-2 col-6 mx-auto" >
-            <button class="btn mx-auto btn-danger" type="button" (click)="excluirCliente()">
+            <button class="btn mx-auto btn-vermelho" type="button" (click)="excluirCliente()">
               <i class="bi bi-trash3-fill"></i>
               DELETAR CONTA
             </button>

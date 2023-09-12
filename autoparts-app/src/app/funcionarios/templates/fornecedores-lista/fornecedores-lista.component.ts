@@ -11,6 +11,7 @@ import { FornecedorService } from 'src/app/services/fornecedor/fornecedor.servic
 export class FornecedoresListaComponent {
   fornecedores: Fornecedor[] = [];
   fornecedorSelecionado: Fornecedor = new Fornecedor();
+  fornecedoresExiste:boolean = false;
   feedbackSucesso?: string;
   feedbackErro?: string;
 
@@ -23,6 +24,13 @@ export class FornecedoresListaComponent {
     this.service.getFornecedor().subscribe(
       response => {
         this.fornecedores = response;
+      }
+    )
+
+    this.service.getFornecedor().subscribe(
+      response => {
+        this.fornecedores = response;
+        this.fornecedoresExiste = this.fornecedores.length > 0;
       }
     )
   }

@@ -9,23 +9,24 @@
           </button>
         </div>
       </div>
-      <table class="table table-condensed table-hover text-start">
+      <lista-vazia-funcionario *ngIf="!funcionarioExiste"></lista-vazia-funcionario>
+      <table *ngIf="funcionarioExiste" class="table table-border-roxo table-font-roxo table-hover align-middle text-start">
         <thead>
           <tr>
-            <td class="columns-list">Id</td>
-            <td class="columns-list">Nome</td>
-            <td class="columns-list">CPF</td>
-            <td class="columns-list">Cargo</td>
+            <td class="col columns-list">*</td>
+            <td class="col columns-list">Nome</td>
+            <td class="col columns-list">CPF</td>
+            <td class="col columns-list">Cargo</td>
             <td></td>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let funcionario of funcionarios">
-            <td> {{ funcionario.funcionario_id}} </td>
-            <td> {{ funcionario.nome}} </td>
-            <td> {{ funcionario.email}} </td>
-            <td> {{ funcionario.cargoFuncionario ? 'Gerente' : 'Vendedor'}} </td>
-            <td class="d-flex justify-content-end">
+          <tr scope="row" *ngFor="let funcionario of funcionarios; let i = index;">
+            <td class="line-list"> {{ i + 1 }} </td>
+            <td class="line-list"> {{ funcionario.nome}} </td>
+            <td class="line-list"> {{ funcionario.email}} </td>
+            <td class="line-list"> {{ funcionario.cargoFuncionario ? 'Gerente' : 'Vendedor'}} </td>
+            <td class="d-flex justify-content-end line-list">
               <button type="button" class="btn btn-vermelho mx-4 px-4" data-bs-toggle="modal" data-bs-target="#modalDelecao" (click)="preparaDelecao(funcionario)">
                 <i class="fa-solid fa-trash"></i>
               </button>
