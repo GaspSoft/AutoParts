@@ -9,13 +9,9 @@ import { ClientePageComponent } from './page/cliente-page/cliente-page.component
 import { ClienteSobreComponent } from './templates/cliente-sobre/cliente-sobre.component';
 import { ClienteHomeComponent } from './templates/cliente-home/cliente-home.component';
 import { ClienteCarrinhoComponent } from './templates/cliente-carrinho/cliente-carrinho.component';
-<<<<<<< HEAD
 import { ClienteCompraComponent } from './templates/cliente-compra/cliente-compra.component';
-=======
-import { ClienteCatalogoComponent } from './templates/cliente-catalogo/cliente-catalogo.component';
-import { ClienteLoginComponent } from './templates/cliente-login/cliente-login.component';
 import { ClienteAjudaComponent } from './templates/cliente-ajuda/cliente-ajuda.component';
->>>>>>> main
+import { ClienteCatalogoComponent } from './templates/cliente-catalogo/cliente-catalogo.component';
 
 @NgModule({
   declarations: [
@@ -25,13 +21,9 @@ import { ClienteAjudaComponent } from './templates/cliente-ajuda/cliente-ajuda.c
     ClienteSobreComponent,
     ClienteHomeComponent,
     ClienteCarrinhoComponent,
-<<<<<<< HEAD
-    ClienteCompraComponent
-=======
+    ClienteCompraComponent,
     ClienteCatalogoComponent,
-    ClienteLoginComponent,
-    ClienteAjudaComponent
->>>>>>> main
+    ClienteAjudaComponent,
   ],
   imports: [
     CommonModule,
@@ -42,11 +34,12 @@ import { ClienteAjudaComponent } from './templates/cliente-ajuda/cliente-ajuda.c
   exports: [
     ClienteFormCadastroComponent,
     ClienteFormPerfilComponent,
+    ClientePageComponent,
     ClienteSobreComponent,
     ClienteHomeComponent,
     ClienteCarrinhoComponent,
+    ClienteCompraComponent,
     ClienteCatalogoComponent,
-    ClienteLoginComponent,
     ClienteAjudaComponent
   ]
 })
