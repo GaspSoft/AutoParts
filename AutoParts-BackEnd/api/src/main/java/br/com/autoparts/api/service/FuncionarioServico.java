@@ -1,5 +1,7 @@
 package br.com.autoparts.api.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,6 +37,16 @@ public class FuncionarioServico {
         }
         if (funcionario.getTipoPessoa() == null) {
             retorno.setMensagem("Insira um cargo.");
+            return ResponseEntity.badRequest().body(retorno);
+        }
+        Optional<Funcionario> funcionariosByEmail = repoFunc.findByEmail(funcionario.getEmail());
+        if (funcionariosByEmail !=null ){
+             retorno.setMensagem("Email já registrado.");
+            return ResponseEntity.badRequest().body(retorno);
+        }
+        Optional<Funcionario> funcionariosByCpf = repoFunc.findByCpf(funcionario.getCpf());
+        if (funcionariosByCpf !=null ){
+            retorno.setMensagem("CPF já registrado.");
             return ResponseEntity.badRequest().body(retorno);
         }
         return new ResponseEntity<>(repoFunc.save(funcionario), HttpStatus.CREATED);
