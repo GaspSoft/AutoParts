@@ -68,10 +68,9 @@ export class PecasFormsCadastroComponent implements OnInit {
         errorResponse => {
           this.sucessoFeedback = false;
           this.errorsFeedback = errorResponse.error.mensagem;
-          console.log(errorResponse);
+          console.log(errorResponse, "ERRO");
         }
       );
-      alert("BBBBBBBBBBBBBBBB")
     }
 
   }

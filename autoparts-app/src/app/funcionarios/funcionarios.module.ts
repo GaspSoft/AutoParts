@@ -12,6 +12,10 @@ import { FornecedoresListaComponent } from './templates/fornecedores-lista/forne
 import { PecasFormsCadastroComponent } from './templates/pecas-forms-cadastro/pecas-forms-cadastro.component';
 import { PecasListaComponent } from './templates/pecas-lista/pecas-lista.component';
 import { PainelComponent } from './templates/painel/painel.component';
+import { ListaVaziaFuncionarioComponent } from './templates/lista-vazia/lista-vazia-funcionario/lista-vazia-funcionario.component';
+import { ListaVaziaPecasComponent } from './templates/lista-vazia/lista-vazia-pecas/lista-vazia-pecas.component';
+import { ListaVaziaFornecedorComponent } from './templates/lista-vazia/lista-vazia-fornecedor/lista-vazia-fornecedor.component';
+import { ListaVaziaClienteComponent } from './templates/lista-vazia/lista-vazia-cliente/lista-vazia-cliente.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { PainelComponent } from './templates/painel/painel.component';
     FornecedoresListaComponent,
     PecasFormsCadastroComponent,
     PecasListaComponent,
-    PainelComponent
+    PainelComponent,
+    ListaVaziaFuncionarioComponent,
+    ListaVaziaPecasComponent,
+    ListaVaziaFornecedorComponent,
+    ListaVaziaClienteComponent,
   ],
   imports: [
     CommonModule,

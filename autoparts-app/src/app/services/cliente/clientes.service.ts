@@ -14,36 +14,34 @@ export class ClientesService {
 
   private url: string = 'http://localhost:8080/cliente';
 
-  // Cadastra
   cadastrarCliente(cliente: Cliente): Observable<Cliente> {
     return this.http.post<Cliente>(this.url, cliente);
   }
 
-  // Listar todos
-  listarClientes(): Observable<Cliente[]>{
+  listarClientes(): Observable<Cliente[]> {
     return this.http.get<Cliente[]>(this.url);
   }
 
-  // Lista um cliente
   listarCliente(id: number): Observable<Cliente> {
     const url = `${this.url}/${id}`;
     return this.http.get<Cliente>(url);
   }
 
-  // Alterar dados do cliente
   alterarCliente(cliente: Cliente): Observable<Cliente> {
     return this.http.put<Cliente>(this.url, cliente);
   }
 
-   // Alterar dados do endereço
-   alterarEndereco(id: number, endereco: Endereco): Observable<Endereco> {
+  alterarEndereco(id: number, endereco: Endereco): Observable<Endereco> {
     const urlEnd = `${this.url}/${id}`;
     return this.http.put<Endereco>(urlEnd, endereco);
   }
 
-  // Excluir um cliente
   excluirCliente(id: number): Observable<Cliente> {
     const url = `${this.url}/${id}`;
     return this.http.delete<Cliente>(url);
+  }
+
+  getCliente(): Observable<Cliente[]>{
+    return this.http.get<Cliente[]>(this.url);
   }
 }

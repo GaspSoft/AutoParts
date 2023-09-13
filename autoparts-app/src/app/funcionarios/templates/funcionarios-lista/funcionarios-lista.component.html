@@ -9,7 +9,8 @@
           </button>
         </div>
       </div>
-      <table class="table table-border-roxo table-font-roxo table-hover align-middle text-start">
+      <lista-vazia-funcionario *ngIf="!funcionarioExiste"></lista-vazia-funcionario>
+      <table *ngIf="funcionarioExiste" class="table table-border-roxo table-font-roxo table-hover align-middle text-start">
         <thead>
           <tr>
             <td class="col columns-list">*</td>

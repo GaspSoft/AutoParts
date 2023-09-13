@@ -1,0 +1,26 @@
+@import '../../../../assets/scss/variaveis.scss';
+
+.separate1 {
+    width: 70%;
+}
+
+.separate2 {
+    width: 30%;
+}
+
+.title {
+    font-weight: 500;
+}
+
+.subtitle {
+    font-weight: 400;
+    color: $cinza;
+}
+
+.row-hr {
+    border: 1px solid $cinza-claro;
+}
+
+.btn {
+    border-radius: 20px;
+}

@@ -9,8 +9,13 @@ import { ClientePageComponent } from './page/cliente-page/cliente-page.component
 import { ClienteSobreComponent } from './templates/cliente-sobre/cliente-sobre.component';
 import { ClienteHomeComponent } from './templates/cliente-home/cliente-home.component';
 import { ClienteCarrinhoComponent } from './templates/cliente-carrinho/cliente-carrinho.component';
+<<<<<<< HEAD
+import { ClienteCompraComponent } from './templates/cliente-compra/cliente-compra.component';
+=======
 import { ClienteCatalogoComponent } from './templates/cliente-catalogo/cliente-catalogo.component';
 import { ClienteLoginComponent } from './templates/cliente-login/cliente-login.component';
+import { ClienteAjudaComponent } from './templates/cliente-ajuda/cliente-ajuda.component';
+>>>>>>> main
 
 @NgModule({
   declarations: [
@@ -20,8 +25,13 @@ import { ClienteLoginComponent } from './templates/cliente-login/cliente-login.c
     ClienteSobreComponent,
     ClienteHomeComponent,
     ClienteCarrinhoComponent,
+<<<<<<< HEAD
+    ClienteCompraComponent
+=======
     ClienteCatalogoComponent,
-    ClienteLoginComponent
+    ClienteLoginComponent,
+    ClienteAjudaComponent
+>>>>>>> main
   ],
   imports: [
     CommonModule,
@@ -36,7 +46,8 @@ import { ClienteLoginComponent } from './templates/cliente-login/cliente-login.c
     ClienteHomeComponent,
     ClienteCarrinhoComponent,
     ClienteCatalogoComponent,
-    ClienteLoginComponent
+    ClienteLoginComponent,
+    ClienteAjudaComponent
   ]
 })
 export class ClientesModule { }
