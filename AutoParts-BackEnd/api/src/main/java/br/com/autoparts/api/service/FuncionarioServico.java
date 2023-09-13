@@ -40,15 +40,18 @@ public class FuncionarioServico {
             return ResponseEntity.badRequest().body(retorno);
         }
         Optional<Funcionario> funcionariosByEmail = repoFunc.findByEmail(funcionario.getEmail());
-        if (funcionariosByEmail !=null ){
+        System.out.println(funcionariosByEmail);
+        if (!funcionariosByEmail.isEmpty() ){
              retorno.setMensagem("Email já registrado.");
             return ResponseEntity.badRequest().body(retorno);
         }
         Optional<Funcionario> funcionariosByCpf = repoFunc.findByCpf(funcionario.getCpf());
-        if (funcionariosByCpf !=null ){
+        System.out.println(funcionariosByCpf);
+        if (!funcionariosByCpf.isEmpty() ){
             retorno.setMensagem("CPF já registrado.");
             return ResponseEntity.badRequest().body(retorno);
         }
+        
         return new ResponseEntity<>(repoFunc.save(funcionario), HttpStatus.CREATED);
     }
 
