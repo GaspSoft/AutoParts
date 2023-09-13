@@ -5,6 +5,7 @@ import java.security.KeyPair;
 import java.security.SignatureException;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -50,11 +51,11 @@ public class Servico  {
                 return new ResponseEntity<>(clienteByEmail.get(0), HttpStatus.OK);
             }
 
-            List<Funcionario> funcionariosByEmail = funcionarioRepositorio.findByEmail(p.getEmail());
+            Optional<Funcionario> funcionariosByEmail = funcionarioRepositorio.findByEmail(p.getEmail());
             List<Funcionario> funcionariosBySenha = funcionarioRepositorio.findBySenha(p.getSenha());
 
             if (!funcionariosByEmail.isEmpty() && !funcionariosBySenha.isEmpty()) {
-                return new ResponseEntity<>(funcionariosByEmail.get(0), HttpStatus.OK);
+                return new ResponseEntity<>(funcionariosByEmail.get(), HttpStatus.OK);
             }
 
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -84,7 +85,9 @@ public class Servico  {
                             .compact();
         
                     // Retorna o token gerado
-                    return new ResponseEntity<>(token, HttpStatus.OK);
+                    return ResponseEntity.status(HttpStatus.OK)
+                    .header("Authorization", "Bearer " + token) // Use o cabeçalho "Authorization" para o token
+                    .build();                
                 } catch (Exception e) {
                     // Em caso de erro na geração do token, você pode retornar uma resposta de erro adequada.
                     return new ResponseEntity<>("Erro ao gerar o token.", HttpStatus.INTERNAL_SERVER_ERROR);
@@ -98,7 +101,6 @@ public class Servico  {
         
 
     public ResponseEntity<?> validarToken(String token) throws SignatureException {
-token = "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJuaWNvbGFzQGpkc2Fqc2FkIiwiZXhwIjoxNjk0NTI4NjEzfQ.dN31_ZY4SEQlSpN1EI7yR3cQdCDj-RleD55mFS06VbjGr5Env1ikp02E99a2i-xkc1_69N3ikBHi1Pgun5M4SnNfKOofugS8KOgjAAj5J8wLASmFVsSusZP5bHqw0xgtqPzncM3Wu4b0pIPF8UMGuhjv6LemMhSIEIahmEIcxKRxc0gvLdETeK6sS9mO3SVTdaxWUkG37zb8FBAD4AQH6ZrpNh0vdWnjcy3PXe2-mtazqGKX6hNyFFNjzPN1MUU-xIhn4YjwXuWtTIZotmnRkTORFm8aXvhuk2tw-kykJvaKEA0b4XcunhmUn_EtMwqw5DoKhxA0Dd0G1WhBf_A_vA";
         System.out.println(token);
         try {
             Claims claims = Jwts.parserBuilder()
@@ -116,8 +118,9 @@ token = "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJuaWNvbGFzQGpkc2Fqc2FkIiwiZXhwIjoxNjk0NT
             String email = claims.getSubject();
             // List<Funcionario> funcionariosByEmail = funcionarioRepositorio.findByEmail(p.getEmail());
             //List<Funcionario> funcionariosBySenha = funcionarioRepositorio.findBySenha(p.getSenha());
-            Funcionario funcionario = (Funcionario) funcionarioRepositorio.findByEmail(email);
-
+            
+            Optional <Funcionario> funcionario =   funcionarioRepositorio.findByEmail(email);
+            System.out.println(funcionario);
             if (funcionario != null){
                         return new ResponseEntity<>("Token válido para o usuário: " + email, HttpStatus.OK);
 
@@ -136,9 +139,10 @@ token = "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJuaWNvbGFzQGpkc2Fqc2FkIiwiZXhwIjoxNjk0NT
             return new ResponseEntity<>("Token expirado", HttpStatus.UNAUTHORIZED);
         } catch (MalformedJwtException e) {
             return new ResponseEntity<>("Token inválido", HttpStatus.UNAUTHORIZED);
-        } catch (Exception e) {
-            return new ResponseEntity<>("Erro na validação do token", HttpStatus.INTERNAL_SERVER_ERROR);
         }
+        catch (Exception e) {
+     return new ResponseEntity<>("Erro na validação do token", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
         
         return null;
          
