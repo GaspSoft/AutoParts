@@ -12,8 +12,8 @@ export class FornecedoresListaComponent {
   fornecedores: Fornecedor[] = [];
   fornecedorSelecionado: Fornecedor = new Fornecedor();
   fornecedoresExiste:boolean = false;
-  feedbackSucesso?: string;
-  feedbackErro?: string;
+  sucessoFeedback: boolean = false;
+  errorsFeedback?: string = '';
 
   constructor(
     private service: FornecedorService,
@@ -49,13 +49,22 @@ export class FornecedoresListaComponent {
     this.fornecedorSelecionado = fornecedor;
   }
 
-  deletarFuncionario() {
+  deletarFornecedor() {
     this.service.deletarFornecedor(this.fornecedorSelecionado).subscribe(
       response => {
-        this.feedbackSucesso = 'Funcionário deletado com sucesso';
+        this.sucessoFeedback = true;
+        this.errorsFeedback = '';
+        setTimeout(() => {
+          this.sucessoFeedback = false;
+        }, 7000);
         this.ngOnInit();
       },
-      errorResponse => this.feedbackErro = 'Ocorreu um erro ao deletar o funcionário'
+      errorResponse => {
+        this.errorsFeedback = errorResponse.error.mensagem;
+        setTimeout(() => {
+          this.errorsFeedback = '';
+        }, 7000);
+      }
     )
   }
 }
