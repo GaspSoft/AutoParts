@@ -9,6 +9,16 @@
           </button>
         </div>
       </div>
+      <div class="row d-flex justify-content-center">
+        <div class="col">
+          <div class="alert alert-success" role="alert" *ngIf="sucessoFeedback">
+            Fornecedor excluído com sucesso
+          </div>
+          <div class="alert alert-danger" role="alert" *ngIf="errorsFeedback">
+            {{errorsFeedback}}
+          </div>
+        </div>
+      </div>
       <lista-vazia-fornecedor *ngIf="!fornecedoresExiste"></lista-vazia-fornecedor>
       <table *ngIf="fornecedoresExiste" class="table table-border-roxo table-font-roxo table-hover align-middle text-start">
         <thead>
@@ -51,7 +61,7 @@
           Confirmar a deleção de {{ fornecedorSelecionado.nome }}
         </div>
         <div class="modal-footer">
-          <button class="btn btn-roxo" (click)="deletarFuncionario()" data-bs-dismiss="modal">Confirmar</button>
+          <button class="btn btn-roxo" (click)="deletarFornecedor()" data-bs-dismiss="modal">Confirmar</button>
           <button class="btn btn-vermelho" data-bs-dismiss="modal">Cancelar</button>
         </div>
       </div>
