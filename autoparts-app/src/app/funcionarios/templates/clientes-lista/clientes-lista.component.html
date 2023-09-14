@@ -9,15 +9,17 @@
             <td class="col columns-list">Id</td>
             <td class="col columns-list">Nome</td>
             <td class="col columns-list">Email</td>
+            <td class="col columns-list">CPF</td>
             <td></td>
           </tr>
         </thead>
         <tbody>
           <tr scope="row" *ngFor="let cliente of clientes; let i = index">
-            <td> {{ i + 1 }} </td>
-            <td> {{ cliente.nome}} </td>
-            <td> {{ cliente.email}} </td>
-            <td class="d-flex justify-content-end ">
+            <td class="line-list"> {{ i + 1 }} </td>
+            <td class="line-list"> {{ cliente.nome}} </td>
+            <td class="line-list"> {{ cliente.email}} </td>
+            <td class="line-list"> {{ formatarCpf(cliente.cpf) }} </td>
+            <td class="d-flex justify-content-end line-list">
               <button type="button" class="btn btn-azul mx-4 px-4">
                 <i class="fa-solid fa-circle-info"></i>
               </button>

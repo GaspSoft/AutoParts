@@ -1,5 +1,5 @@
 export class Pessoa {
-  cpf?: number;
+  cpf: number = 0;
   nome?: string;
   email?: string;
   senha?: string;
