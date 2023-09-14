@@ -10,15 +10,15 @@ import { ClienteLoginComponent } from '../../templates/cliente-login/cliente-log
 import { ClienteAjudaComponent } from '../../templates/cliente-ajuda/cliente-ajuda.component';
 
 const routes: Routes = [
-  { path: 'cadastrar-cliente', component: ClienteFormCadastroComponent },
-  { path: 'sobre-cliente', component: ClienteSobreComponent },
-  { path: 'perfil-cliente', component: ClienteFormPerfilComponent },
-  { path: 'home-cliente', component: ClienteHomeComponent },
-  { path: 'carrinho-cliente', component: ClienteCarrinhoComponent },
-  { path: 'catalogo-cliente', component: ClienteCatalogoComponent },
-  { path: 'login-cliente', component: ClienteLoginComponent },
-  { path: 'ajuda-cliente', component: ClienteAjudaComponent },
-  { path: '', redirectTo: '/cliente/home-cliente', pathMatch: 'full'}
+  { path: 'cadastrar', component: ClienteFormCadastroComponent },
+  { path: 'sobre', component: ClienteSobreComponent },
+  { path: 'perfil', component: ClienteFormPerfilComponent },
+  { path: 'home', component: ClienteHomeComponent },
+  { path: 'carrinho', component: ClienteCarrinhoComponent },
+  { path: 'catalogo', component: ClienteCatalogoComponent },
+  { path: 'login', component: ClienteLoginComponent },
+  { path: 'ajuda', component: ClienteAjudaComponent },
+  { path: '', redirectTo: '/cliente/home', pathMatch: 'full'}
 ];
 
 @NgModule({

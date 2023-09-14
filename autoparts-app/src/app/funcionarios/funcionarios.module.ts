@@ -16,6 +16,7 @@ import { ListaVaziaFuncionarioComponent } from './templates/lista-vazia/lista-va
 import { ListaVaziaPecasComponent } from './templates/lista-vazia/lista-vazia-pecas/lista-vazia-pecas.component';
 import { ListaVaziaFornecedorComponent } from './templates/lista-vazia/lista-vazia-fornecedor/lista-vazia-fornecedor.component';
 import { ListaVaziaClienteComponent } from './templates/lista-vazia/lista-vazia-cliente/lista-vazia-cliente.component';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ListaVaziaClienteComponent } from './templates/lista-vazia/lista-vazia-
     ComponentsModule,
     FormsModule,
     FuncionariosRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxMaskModule.forRoot()
   ],
   exports: [
     FuncionarioFormCadastroComponent,
