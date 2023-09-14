@@ -8,6 +8,7 @@ import { ClienteCarrinhoComponent } from '../../templates/cliente-carrinho/clien
 import { ClienteCatalogoComponent } from '../../templates/cliente-catalogo/cliente-catalogo.component';
 import { ClienteLoginComponent } from '../../templates/cliente-login/cliente-login.component';
 import { ClienteAjudaComponent } from '../../templates/cliente-ajuda/cliente-ajuda.component';
+import { ClienteCompraComponent } from '../../templates/cliente-compra/cliente-compra.component';
 
 const routes: Routes = [
   { path: 'cadastrar', component: ClienteFormCadastroComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'catalogo', component: ClienteCatalogoComponent },
   { path: 'login', component: ClienteLoginComponent },
   { path: 'ajuda', component: ClienteAjudaComponent },
+  { path: 'compra', component: ClienteCompraComponent },
   { path: '', redirectTo: '/cliente/home', pathMatch: 'full'}
 ];
 
