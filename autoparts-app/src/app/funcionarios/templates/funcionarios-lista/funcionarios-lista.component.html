@@ -24,7 +24,7 @@
           <tr scope="row" *ngFor="let funcionario of funcionarios; let i = index;">
             <td class="line-list"> {{ i + 1 }} </td>
             <td class="line-list"> {{ funcionario.nome}} </td>
-            <td class="line-list"> {{ funcionario.email}} </td>
+            <td class="line-list"> {{ formatarCpf(funcionario.cpf) }} </td>
             <td class="line-list"> {{ funcionario.cargoFuncionario ? 'Gerente' : 'Vendedor'}} </td>
             <td class="d-flex justify-content-end line-list">
               <button type="button" class="btn btn-vermelho mx-4 px-4" data-bs-toggle="modal" data-bs-target="#modalDelecao" (click)="preparaDelecao(funcionario)">

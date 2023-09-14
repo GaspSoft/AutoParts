@@ -23,13 +23,13 @@
         </thead>
         <tbody>
           <tr *ngFor="let peca of pecas" class="peca-card">
-            <td><img class="img-peca" *ngIf="peca.base64" [src]="getFotoUrl(peca)" alt="Foto da Peça"/>   </td>
-            <td> {{ peca.nome }} </td>
-            <td> {{ peca.descricao }}</td>
-            <td> {{ peca.quantidade }} </td>
-            <td> {{ peca.preco }} </td>
+            <td class="line-list"><img class="img-peca" *ngIf="peca.base64" [src]="getFotoUrl(peca)" alt="Foto da Peça"/>   </td>
+            <td class="line-list"> {{ peca.nome }} </td>
+            <td class="line-list"> {{ peca.descricao }}</td>
+            <td class="line-list"> {{ peca.quantidade }} </td>
+            <td class="line-list"> {{ peca.preco | currency:'BRL':'symbol':'1.2-2' }} </td>
 
-            <td class="d-flex justify-content-end max-height">
+            <td class="d-flex justify-content-end max-height line-list">
               <button type="button" class="btn btn-vermelho mx-4 px-4 max-buttons" data-bs-toggle="modal" data-bs-target="#modalDelecao" (click)="preparaDelecao(peca)">
                 <i class="fa-solid fa-trash"></i>
               </button>
