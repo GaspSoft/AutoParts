@@ -12,6 +12,7 @@ import { ClienteCarrinhoComponent } from './templates/cliente-carrinho/cliente-c
 import { ClienteCompraComponent } from './templates/cliente-compra/cliente-compra.component';
 import { ClienteAjudaComponent } from './templates/cliente-ajuda/cliente-ajuda.component';
 import { ClienteCatalogoComponent } from './templates/cliente-catalogo/cliente-catalogo.component';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ClienteCatalogoComponent } from './templates/cliente-catalogo/cliente-c
     ComponentsModule,
     ClientesRoutingModule,
     FormsModule,
+    NgxMaskModule.forChild()
   ],
   exports: [
     ClienteFormCadastroComponent,

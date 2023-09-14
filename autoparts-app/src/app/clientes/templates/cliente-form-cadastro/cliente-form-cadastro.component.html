@@ -20,7 +20,7 @@
     <div class="row d-flex justify-content-center">
       <div class="col-6">
         <div class="form-floating mb-3">
-          <input type="number" [(ngModel)]="cliente.cpf" name="cpf" class="form-control" id="floatingInput" placeholder="CPF">
+          <input type="text" [(ngModel)]="cliente.cpf" name="cpf" class="form-control" id="floatingInput" placeholder="CPF" mask="000.000.000-00">
           <label for="floatingInput">CPF</label>
         </div>
       </div>
@@ -59,8 +59,8 @@
     <div class="row d-flex justify-content-center">
       <div class="col-3">
         <div class="form-floating mb-3">
-          <input type="number" [(ngModel)]="cliente.endereco.cep" name="cep" class="form-control" id="floatingInput"
-            placeholder="CEP">
+          <input type="text" [(ngModel)]="cliente.endereco.cep" name="cep" class="form-control" id="floatingInput"
+            placeholder="CEP" mask="00000-000">
           <label for="floatingInput">CEP</label>
         </div>
       </div>

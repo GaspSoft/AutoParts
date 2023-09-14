@@ -20,8 +20,8 @@
     <div class="row d-flex justify-content-center">
       <div class="col-6">
         <div class="form-floating mb-3">
-          <input type="number" [(ngModel)]="fornecedor.cnpj" name="cpf" class="form-control" id="floatingInput"
-            placeholder="CNPJ">
+          <input type="text" [(ngModel)]="fornecedor.cnpj" name="cpf" class="form-control" id="floatingInput"
+            placeholder="CNPJ" mask="00.000.000/0000-00">
           <label for="floatingInput">CNPJ</label>
         </div>
       </div>
