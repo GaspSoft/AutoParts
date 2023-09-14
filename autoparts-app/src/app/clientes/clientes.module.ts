@@ -13,6 +13,7 @@ import { ClienteCompraComponent } from './templates/cliente-compra/cliente-compr
 import { ClienteAjudaComponent } from './templates/cliente-ajuda/cliente-ajuda.component';
 import { ClienteCatalogoComponent } from './templates/cliente-catalogo/cliente-catalogo.component';
 import { NgxMaskModule } from 'ngx-mask';
+import { ClienteLoginComponent } from './templates/cliente-login/cliente-login.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { NgxMaskModule } from 'ngx-mask';
     ClientePageComponent,
     ClienteSobreComponent,
     ClienteHomeComponent,
+    ClienteLoginComponent,
     ClienteCarrinhoComponent,
     ClienteCompraComponent,
     ClienteCatalogoComponent,
@@ -30,6 +32,7 @@ import { NgxMaskModule } from 'ngx-mask';
     CommonModule,
     ComponentsModule,
     ClientesRoutingModule,
+
     FormsModule,
     NgxMaskModule.forChild()
   ],
@@ -39,6 +42,7 @@ import { NgxMaskModule } from 'ngx-mask';
     ClientePageComponent,
     ClienteSobreComponent,
     ClienteHomeComponent,
+    ClienteLoginComponent,
     ClienteCarrinhoComponent,
     ClienteCompraComponent,
     ClienteCatalogoComponent,
