@@ -15,6 +15,7 @@ export class FuncionariosListaComponent implements OnInit {
   funcionarioExiste:boolean = false;
   feedbackSucesso?:string;
   feedbackErro?:string;
+  searchText = '';
 
   constructor(
     private service: FuncionariosService,

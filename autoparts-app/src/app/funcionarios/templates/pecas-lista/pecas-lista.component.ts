@@ -14,6 +14,7 @@ export class PecasListaComponent implements OnInit {
   pecasExiste:boolean = false;
   feedbackSucesso?:string;
   feedbackErro?:string;
+  searchText = '';
 
   constructor(
     private service: PecaService,
