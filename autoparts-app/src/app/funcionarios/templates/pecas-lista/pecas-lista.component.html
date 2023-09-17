@@ -1,12 +1,15 @@
 <div class="container ajust-footer">
   <div class="row">
     <div class="col-md-12">
-      <div class="row">
+      <div class="row justify-content-between">
         <div class="col-md-2">
-          <button class="btn btn-roxo mx-5 my-3" (click)="novoCadastroPecas()" >
+          <button class="btn btn-roxo my-3" (click)="novoCadastroPecas()" >
             <i class="fa fa-plus pe-2"></i>
             Novo
           </button>
+        </div>
+        <div class="col-md-2">
+          <input class="form-control mt-3" type="search" placeholder="Pesquisar..." aria-label="Search" [(ngModel)]="searchText">
         </div>
       </div>
       <lista-vazia-pecas *ngIf="!pecasExiste"></lista-vazia-pecas>
@@ -22,7 +25,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let peca of pecas" class="peca-card">
+          <tr *ngFor="let peca of pecas | search: searchText" class="peca-card">
             <td class="line-list"><img class="img-peca" *ngIf="peca.base64" [src]="getFotoUrl(peca)" alt="Foto da Peça"/>   </td>
             <td class="line-list"> {{ peca.nome }} </td>
             <td class="line-list"> {{ peca.descricao }}</td>

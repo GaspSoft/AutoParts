@@ -14,6 +14,7 @@ export class FornecedoresListaComponent {
   fornecedoresExiste:boolean = false;
   sucessoFeedback: boolean = false;
   errorsFeedback?: string = '';
+  searchText = '';
 
   constructor(
     private service: FornecedorService,
