@@ -26,10 +26,6 @@ public class Vendas {
     private Pecas peca;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "funcionario_id")
-    private Funcionario funcionario;
-
-    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
     

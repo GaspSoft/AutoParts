@@ -18,7 +18,7 @@ import { SearchPipe } from './model/pipes/search.pipe';
 @NgModule({
   declarations: [
     AppComponent,
-    
+
   ],
   imports: [
     BrowserModule,
