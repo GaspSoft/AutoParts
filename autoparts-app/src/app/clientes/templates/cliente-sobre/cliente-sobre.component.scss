@@ -1,9 +1,9 @@
 @import '../../../../assets/scss/variaveis.scss';
 
 .bg-gradiente{
-  color: $branco;
+
   font-weight: 900;
-  background: $linear;
+
 }
 
 .separate{
@@ -46,7 +46,7 @@
 .titulo {
   font-size: 28px; /* Tamanho da fonte */
  font-weight: bold; /* Peso da fonte (negrito) */
-  color: #ffffff; /* Cor do texto */
+  color: $branco; /* Cor do texto */
   margin-top: 10px; /* Margem superior */
   margin-bottom: 20px; /* Margem inferior */
   text-align: center; /* Alinhamento do texto */
@@ -61,4 +61,5 @@
   letter-spacing: 2px; /* Espaçamento entre letras */
   text-transform: uppercase; /* Transformação de texto (maiúsculas) */
   margin-bottom: 40px; /* Margem inferior */
+  color: $branco;
 }
