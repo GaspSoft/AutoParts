@@ -20,11 +20,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import br.com.autoparts.api.model.Pecas;
 import br.com.autoparts.api.service.PecasServico;
-import lombok.extern.slf4j.Slf4j;
 
 @CrossOrigin(origins = "*")
 @RestController
-@Slf4j
+
 public class PecasControle {
     
     @Autowired
