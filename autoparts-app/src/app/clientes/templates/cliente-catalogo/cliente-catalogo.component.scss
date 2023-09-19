@@ -36,3 +36,8 @@
   border-bottom: 1px solid $cinza-claro;
   transition: 500ms ease-in-out;
 }
+
+.form-control:focus {
+  box-shadow: none;
+  border: 1px solid #460a8f;
+}
