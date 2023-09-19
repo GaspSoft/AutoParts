@@ -36,6 +36,11 @@ export class FornecedoresListaComponent {
     )
   }
 
+  detalhesFornecedor(funcionario_id: number): void {
+    this.service.getFuncionarioById(funcionario_id);
+    this.router.navigate(['funcionario/detalhes-funcionario']);
+  }
+
   editarFornecedor(funcionario_id: number): void {
     this.service.setFornecedorId(funcionario_id);
     this.router.navigate(['funcionario/alterar-fornecedor'])
