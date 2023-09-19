@@ -24,7 +24,7 @@ export class ClienteLoginComponent implements OnInit {
     this.service.login(this.pessoa).subscribe(
 
       response =>{
-        
+
 
         console.log('AAAAAAAAAAAAA' + response)
 
@@ -36,7 +36,7 @@ export class ClienteLoginComponent implements OnInit {
 
 
   linkClienteCadastro():void {
-    this.router.navigate(['/cliente/cadastrar-cliente']);
+    this.router.navigate(['/cliente/cadastrar']);
   }
 
 }
