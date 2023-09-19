@@ -21,7 +21,7 @@ import { FornecedorDetalhesComponent } from './templates/fornecedor-detalhes/for
 import { ClienteDetalhesComponent } from './templates/cliente-detalhes/cliente-detalhes.component';
 import { PecasDetalhesComponent } from './templates/pecas-detalhes/pecas-detalhes.component';
 import { FuncionarioDetalhesComponent } from './templates/funcionario-detalhes/funcionario-detalhes.component';
-import { SearchPipe } from '../model/pipes/search.pipe';
+import { SearchPipe } from '../services/pipes/search.pipe';
 
 @NgModule({
   declarations: [
