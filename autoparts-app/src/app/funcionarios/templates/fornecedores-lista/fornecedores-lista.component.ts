@@ -14,6 +14,7 @@ export class FornecedoresListaComponent {
   fornecedoresExiste:boolean = false;
   sucessoFeedback: boolean = false;
   errorsFeedback?: string = '';
+  searchText = '';
 
   constructor(
     private service: FornecedorService,
@@ -66,5 +67,17 @@ export class FornecedoresListaComponent {
         }, 7000);
       }
     )
+  }
+
+  formatarCnpj(numero: number): string {
+    // Verifica se o número é válido antes de formatar
+    if (!numero) {
+      return '';
+    }
+
+    const cnpj = numero.toString().padStart(14, '0'); // Garante que tenha 14 dígitos
+
+    // Aplica a formatação
+    return `${cnpj.substr(0, 2)}.${cnpj.substr(2, 3)}.${cnpj.substr(5, 3)}/${cnpj.substr(8, 4)}-${cnpj.substr(12)}`;
   }
 }

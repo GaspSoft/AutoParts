@@ -1,12 +1,15 @@
 <div class="container ajust-footer">
   <div class="row">
     <div class="col-md-12">
-      <div class="row">
+      <div class="row justify-content-between">
         <div class="col-md-2">
-          <button class="btn btn-roxo mx-5 my-2" (click)="novoCadastroFuncionario()">
+          <button class="btn btn-roxo my-3" (click)="novoCadastroFuncionario()">
             <i class="fa fa-plus pe-2"></i>
             Novo
           </button>
+        </div>
+        <div class="col-md-2">
+          <input class="form-control mt-3" type="search" placeholder="Pesquisar..." aria-label="Search" [(ngModel)]="searchText">
         </div>
       </div>
       <lista-vazia-funcionario *ngIf="!funcionarioExiste"></lista-vazia-funcionario>
@@ -21,10 +24,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr scope="row" *ngFor="let funcionario of funcionarios; let i = index;">
+          <tr scope="row" *ngFor="let funcionario of funcionarios | search: searchText; let i = index;">
             <td class="line-list"> {{ i + 1 }} </td>
             <td class="line-list"> {{ funcionario.nome}} </td>
-            <td class="line-list"> {{ funcionario.email}} </td>
+            <td class="line-list"> {{ formatarCpf(funcionario.cpf) }} </td>
             <td class="line-list"> {{ funcionario.cargoFuncionario ? 'Gerente' : 'Vendedor'}} </td>
             <td class="d-flex justify-content-end line-list">
               <button type="button" class="btn btn-vermelho mx-4 px-4" data-bs-toggle="modal" data-bs-target="#modalDelecao" (click)="preparaDelecao(funcionario)">

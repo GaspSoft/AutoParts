@@ -1,12 +1,15 @@
 <div class="container ajust-footer">
   <div class="row">
     <div class="col-md-12">
-      <div class="row">
+      <div class="row justify-content-between">
         <div class="col-md-2">
-          <button class="btn btn-roxo mx-5 my-3" (click)="novoCadastroPecas()" >
+          <button class="btn btn-roxo my-3" (click)="novoCadastroPecas()" >
             <i class="fa fa-plus pe-2"></i>
             Novo
           </button>
+        </div>
+        <div class="col-md-2">
+          <input class="form-control mt-3" type="search" placeholder="Pesquisar..." aria-label="Search" [(ngModel)]="searchText">
         </div>
       </div>
       <lista-vazia-pecas *ngIf="!pecasExiste"></lista-vazia-pecas>
@@ -22,14 +25,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let peca of pecas" class="peca-card">
-            <td><img class="img-peca" *ngIf="peca.base64" [src]="getFotoUrl(peca)" alt="Foto da Peça"/>   </td>
-            <td> {{ peca.nome }} </td>
-            <td> {{ peca.descricao }}</td>
-            <td> {{ peca.quantidade }} </td>
-            <td> {{ peca.preco }} </td>
+          <tr *ngFor="let peca of pecas | search: searchText" class="peca-card">
+            <td class="line-list"><img class="img-peca" *ngIf="peca.base64" [src]="getFotoUrl(peca)" alt="Foto da Peça"/>   </td>
+            <td class="line-list"> {{ peca.nome }} </td>
+            <td class="line-list"> {{ peca.descricao }}</td>
+            <td class="line-list"> {{ peca.quantidade }} </td>
+            <td class="line-list"> {{ peca.preco | currency:'BRL':'symbol':'1.2-2' }} </td>
 
-            <td class="d-flex justify-content-end max-height">
+            <td class="d-flex justify-content-end max-height line-list">
               <button type="button" class="btn btn-vermelho mx-4 px-4 max-buttons" data-bs-toggle="modal" data-bs-target="#modalDelecao" (click)="preparaDelecao(peca)">
                 <i class="fa-solid fa-trash"></i>
               </button>

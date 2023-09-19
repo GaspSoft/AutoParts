@@ -1,5 +1,7 @@
 package br.com.autoparts.api.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,10 +35,23 @@ public class FuncionarioServico {
             retorno.setMensagem("Insira uma senha.");
             return ResponseEntity.badRequest().body(retorno);
         }
-        if (funcionario.getCargoFuncionario() == null) {
+        if (funcionario.getTipoPessoa() == null) {
             retorno.setMensagem("Insira um cargo.");
             return ResponseEntity.badRequest().body(retorno);
         }
+        Optional<Funcionario> funcionariosByEmail = repoFunc.findByEmail(funcionario.getEmail());
+        System.out.println(funcionariosByEmail);
+        if (!funcionariosByEmail.isEmpty() ){
+             retorno.setMensagem("Email já registrado.");
+            return ResponseEntity.badRequest().body(retorno);
+        }
+        Optional<Funcionario> funcionariosByCpf = repoFunc.findByCpf(funcionario.getCpf());
+        System.out.println(funcionariosByCpf);
+        if (!funcionariosByCpf.isEmpty() ){
+            retorno.setMensagem("CPF já registrado.");
+            return ResponseEntity.badRequest().body(retorno);
+        }
+        
         return new ResponseEntity<>(repoFunc.save(funcionario), HttpStatus.CREATED);
     }
 
@@ -62,7 +77,7 @@ public class FuncionarioServico {
                 retorno.setMensagem("Insira uma senha.");
                 return ResponseEntity.badRequest().body(retorno);
             }
-            if (funcionario.getCargoFuncionario() == null) {
+            if (funcionario.getTipoPessoa() == null) {
                 retorno.setMensagem("Insira um cargo.");
                 return ResponseEntity.badRequest().body(retorno);
             }
