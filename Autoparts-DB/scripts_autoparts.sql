@@ -48,6 +48,7 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   `email` VARCHAR(45) NOT NULL,
   `senha` VARCHAR(50) NOT NULL,
   `enderecos_id` INT NOT NULL,
+  `tipo_pessoa` tinyInt NOT NULL,
   PRIMARY KEY (`cliente_id`, `enderecos_id`),
   CONSTRAINT `fk_clientes_enderecos1` FOREIGN KEY (`enderecos_id`) REFERENCES `enderecos` (`endereco_id`)
   ON DELETE CASCADE
@@ -59,8 +60,9 @@ CREATE TABLE IF NOT EXISTS `funcionarios` (
   `nome` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   `senha` varchar(50) NOT NULL,
-  `cargo_funcionario` BIT not null, 
+  `tipo_pessoa` tinyInt NOT NULL,
   PRIMARY KEY (`funcionario_id`)
+
 );
 
 CREATE TABLE IF NOT EXISTS `vendas` (
@@ -69,6 +71,8 @@ CREATE TABLE IF NOT EXISTS `vendas` (
   `pecas_fornecedores_id` INT NOT NULL,
   `vendedores_id` INT NOT NULL,
   `clientes_id` INT NOT NULL,
+  
+
   PRIMARY KEY (`vendas_id`, `pecas_id`, `pecas_fornecedores_id`, `vendedores_id`, `clientes_id`),
   CONSTRAINT `fk_pecas_has_vendedores_pecas1` FOREIGN KEY (`pecas_id`, `pecas_fornecedores_id`) REFERENCES `pecas` (`pecas_id`, `fornecedores_id`),
   CONSTRAINT `fk_vendas_vendedores1` FOREIGN KEY (`vendedores_id`) REFERENCES `funcionarios` (`funcionario_id`),

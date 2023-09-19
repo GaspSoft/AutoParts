@@ -4,21 +4,23 @@
     <p class="p-title text-center">SUA CONTA</p>
     <p class="p-title text-center mb-4">AUTOPARTS</p>
   </div>
-  <form>
+  <form #pessoaForm="ngForm" (ngSubmit)="login()">
 
     <div class="row d-flex justify-content-center">
       <div class="col-6">
         <div class="form-floating mb-3">
-          <input type="email" name="email" class="form-control" id="floatingInput" placeholder="Email">
+          <input type="text" [(ngModel)]="pessoa.email" name="email" class="form-control" id="floatingInput" placeholder="Email">
           <label for="floatingInput">Email</label>
         </div>
       </div>
     </div>
 
+
+
     <div class="row d-flex justify-content-center">
       <div class="col-6">
         <div class="form-floating mb-3">
-          <input type="password" name="senha" class="form-control" id="floatingInput"
+          <input type="text" name="senha" [(ngModel)]="pessoa.senha" class="form-control" id="floatingInput"
             placeholder="Senha">
           <label for="floatingInput">Senha</label>
         </div>
@@ -53,10 +55,11 @@
       </div>
     </div>
 
+  </form>
     <div class="row d-inline justify-content-center">
       <div class="col-3 w-100 text-center">
         <a class="terms cursor-pointer" (click)="linkClienteCadastro()">Não é um membro? <u><strong>Junte-se a nós</strong></u></a>
       </div>
     </div>
-  </form>
+{{ pessoa | json}}
 </div>

@@ -17,6 +17,7 @@ public class Funcionario extends Pessoa{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer funcionario_id;
 
-    private Boolean cargoFuncionario;
+    
+
     
 }
