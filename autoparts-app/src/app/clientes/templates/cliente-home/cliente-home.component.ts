@@ -31,7 +31,7 @@ export class ClienteHomeComponent implements OnInit {
   }
 
   linkClienteSobre():void {
-    this.router.navigate(['/cliente/sobre-cliente']);
+    this.router.navigate(['/cliente/sobre']);
   }
 
 }

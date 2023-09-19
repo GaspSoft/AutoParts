@@ -15,6 +15,7 @@ export class FuncionariosListaComponent implements OnInit {
   funcionarioExiste:boolean = false;
   feedbackSucesso?:string;
   feedbackErro?:string;
+  searchText = '';
 
   constructor(
     private service: FuncionariosService,
@@ -59,5 +60,19 @@ export class FuncionariosListaComponent implements OnInit {
       },
       errorResponse => this.feedbackErro = 'Ocorreu um erro ao deletar o funcionário'
     )
+  }
+
+
+  formatarCpf(numero: number): string {
+    // Verifica se o CPF é válido antes de formatar
+    if (!numero) {
+      return '';
+    }
+
+    // Remove caracteres não numéricos
+    const cpf = numero.toString().padStart(11, '0');
+
+    // Aplica a formatação
+    return `${cpf.substr(0, 3)}.${cpf.substr(3, 3)}.${cpf.substr(6, 3)}-${cpf.substr(9, 2)}`;
   }
 }

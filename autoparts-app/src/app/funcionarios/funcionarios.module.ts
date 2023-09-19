@@ -17,6 +17,11 @@ import { ListaVaziaPecasComponent } from './templates/lista-vazia/lista-vazia-pe
 import { ListaVaziaFornecedorComponent } from './templates/lista-vazia/lista-vazia-fornecedor/lista-vazia-fornecedor.component';
 import { ListaVaziaClienteComponent } from './templates/lista-vazia/lista-vazia-cliente/lista-vazia-cliente.component';
 import { NgxMaskModule } from 'ngx-mask';
+import { FornecedorDetalhesComponent } from './templates/fornecedor-detalhes/fornecedor-detalhes.component';
+import { ClienteDetalhesComponent } from './templates/cliente-detalhes/cliente-detalhes.component';
+import { PecasDetalhesComponent } from './templates/pecas-detalhes/pecas-detalhes.component';
+import { FuncionarioDetalhesComponent } from './templates/funcionario-detalhes/funcionario-detalhes.component';
+import { SearchPipe } from '../services/pipes/search.pipe';
 
 @NgModule({
   declarations: [
@@ -33,6 +38,11 @@ import { NgxMaskModule } from 'ngx-mask';
     ListaVaziaPecasComponent,
     ListaVaziaFornecedorComponent,
     ListaVaziaClienteComponent,
+    FornecedorDetalhesComponent,
+    ClienteDetalhesComponent,
+    PecasDetalhesComponent,
+    FuncionarioDetalhesComponent,
+    SearchPipe
   ],
   imports: [
     CommonModule,
