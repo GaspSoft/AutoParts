@@ -14,8 +14,11 @@
     <button class="btn text-start text-filter w-100">Correias</button>
     <hr class="row-hr">
   </section>
-  <section class="separate2 mx-4">
-    <h1 class="fs-2 my-4 mx-4 title">LOJA</h1>
+  <section class="separate2 mx-4 mt-2">
+    <div class="d-flex justify-content-between">
+      <h1 class="fs-2 my-4 mx-4 title">LOJA</h1>
+      <input class="form-control my-3 w-25" type="search" placeholder="Pesquisar..." aria-label="Search" [(ngModel)]="searchText">
+    </div>
     <hr class="row-hr">
     <div class="row row-cols-1 row-cols-5 g-3">
       <div *ngFor="let peca of pecas" class="d-flex my-4 mx-0">

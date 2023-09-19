@@ -10,6 +10,7 @@ import { PecaService } from 'src/app/services/pecas/peca.service';
 })
 export class ClienteCatalogoComponent implements OnInit {
   pecas: Pecas[] = [];
+  searchText = '';
 
   constructor( private service: PecaService ) { }
 

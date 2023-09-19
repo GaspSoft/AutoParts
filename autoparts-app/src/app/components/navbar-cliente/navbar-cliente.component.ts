@@ -13,26 +13,26 @@ export class NavbarClienteComponent {
   }
 
   linkClienteCatalogo():void {
-    this.router.navigate(['/cliente/catalogo-cliente']);
+    this.router.navigate(['/cliente/catalogo']);
   }
 
   linkClienteHome():void {
-    this.router.navigate(['/cliente/home-cliente']);
+    this.router.navigate(['/cliente/home']);
   }
 
   linkClienteCarrinho():void {
-    this.router.navigate(['/cliente/carrinho-cliente']);
+    this.router.navigate(['/cliente/carrinho']);
   }
 
   linkClienteSobre():void {
-    this.router.navigate(['/cliente/sobre-cliente']);
+    this.router.navigate(['/cliente/sobre']);
   }
 
   linkClientePerfil():void {
-    this.router.navigate(['/cliente/perfil-cliente']);
+    this.router.navigate(['/cliente/perfil']);
   }
 
   linkClienteAjuda():void {
-    this.router.navigate(['/cliente/ajuda-cliente']);
+    this.router.navigate(['/cliente/ajuda']);
   }
 }
