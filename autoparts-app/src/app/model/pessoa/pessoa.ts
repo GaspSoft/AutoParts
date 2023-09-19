@@ -4,4 +4,5 @@ export class Pessoa {
   email?: string;
   senha?: string;
   dataNasc?: number;
+  headers: any;
 }

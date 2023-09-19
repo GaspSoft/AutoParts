@@ -24,9 +24,15 @@ export class ClienteLoginComponent implements OnInit {
     this.service.login(this.pessoa).subscribe(
 
       response =>{
-        
 
-        console.log('AAAAAAAAAAAAA' + response)
+        const authToken = response.headers.get('Authorization');
+        if (authToken) {
+        console.log(response)
+        console.log('Token recebido:', authToken);
+        }
+        else {
+          console.log('Token não encontrado no cabeçalho da resposta.');
+        }
 
       },
       errorResponse =>{
