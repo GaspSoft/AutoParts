@@ -12,7 +12,6 @@
     private url: string = 'http://localhost:8080/login';
 
     login(pessoa: Pessoa): Observable<Pessoa> {
-      console.log(Observable<Pessoa>);
       console.log(this.http.post<Pessoa>(this.url, pessoa));
 
       return this.http.post<Pessoa>(this.url, pessoa);
