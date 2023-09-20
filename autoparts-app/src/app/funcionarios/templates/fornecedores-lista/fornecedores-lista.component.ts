@@ -38,7 +38,7 @@ export class FornecedoresListaComponent {
 
   detalhesFornecedor(funcionario_id: number): void {
     this.service.getFuncionarioById(funcionario_id);
-    this.router.navigate(['funcionario/detalhes-funcionario']);
+    this.router.navigate([`funcionario/detalhes-fornecedor/${funcionario_id}`]);
   }
 
   editarFornecedor(funcionario_id: number): void {

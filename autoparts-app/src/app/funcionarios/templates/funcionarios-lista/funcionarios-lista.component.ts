@@ -62,7 +62,6 @@ export class FuncionariosListaComponent implements OnInit {
     )
   }
 
-
   formatarCpf(numero: number): string {
     // Verifica se o CPF é válido antes de formatar
     if (!numero) {

@@ -19,17 +19,17 @@ const routes: Routes = [
   { path: 'cadastro-funcionario', component: FuncionarioFormCadastroComponent },
   { path: 'alterar-funcionario', component: FuncionarioFormCadastroComponent },
   { path: 'lista-funcionario', component: FuncionariosListaComponent },
-  { path: 'detalhes-funcionario', component: FuncionarioDetalhesComponent},
+  { path: 'detalhes-funcionario/:id', component: FuncionarioDetalhesComponent},
 
   { path: 'lista-fornecedor', component: FornecedoresListaComponent },
   { path: 'cadastro-fornecedor', component: FornecedorFormCadastroComponent },
   { path: 'alterar-fornecedor', component: FornecedorFormCadastroComponent },
-  { path: 'detalhes-fornecedor', component: FornecedorDetalhesComponent },
+  { path: 'detalhes-fornecedor/:id', component: FornecedorDetalhesComponent },
 
   { path: 'cadastro-pecas', component: PecasFormsCadastroComponent },
   { path: 'lista-pecas', component: PecasListaComponent },
   { path: 'alterar-pecas', component: PecasFormsCadastroComponent },
-  { path: 'detalhes-pecas', component: PecasDetalhesComponent },
+  { path: 'detalhes-pecas/:id', component: PecasDetalhesComponent },
 
   { path: 'painel', component: PainelComponent },
   { path: '', redirectTo: '/funcionario/painel', pathMatch: 'full'}
