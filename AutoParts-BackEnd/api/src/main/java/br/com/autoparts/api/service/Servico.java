@@ -17,6 +17,7 @@ import br.com.autoparts.api.model.Pessoa;
 import br.com.autoparts.api.model.Retorno;
 import br.com.autoparts.api.repository.ClienteRepositorio;
 import br.com.autoparts.api.repository.FuncionarioRepositorio;
+import br.com.autoparts.api.service.Interfaces.IServico;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
@@ -25,7 +26,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 
 @Service    
-public class Servico  {
+public class Servico implements IServico {
 
 
     private Key privateKey;
