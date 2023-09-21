@@ -12,7 +12,7 @@ export class ClienteCatalogoComponent implements OnInit {
   pecas: Pecas[] = [];
   searchText = '';
 
-  constructor( private service: PecaService ) { }
+  constructor( private service: PecaService, private router: Router ) { }
 
   ngOnInit(): void {
     this.service.getPecas().subscribe(
@@ -27,5 +27,10 @@ export class ClienteCatalogoComponent implements OnInit {
       return `data:image/jpeg;base64,${peca.base64}`;
     }
     return ''; // Ou uma URL de imagem padrão
+  }
+
+  comprarPeca(pecas_id: number): void {
+    this.service.setPecaId(pecas_id);
+    this.router.navigate([`cliente/compra/${pecas_id}`])
   }
 }
