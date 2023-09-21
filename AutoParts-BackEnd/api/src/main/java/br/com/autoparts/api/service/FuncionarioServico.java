@@ -10,9 +10,10 @@ import org.springframework.stereotype.Service;
 import br.com.autoparts.api.model.Funcionario;
 import br.com.autoparts.api.model.Retorno;
 import br.com.autoparts.api.repository.FuncionarioRepositorio;
+import br.com.autoparts.api.service.Interfaces.IFuncionarioServico;
 
 @Service
-public class FuncionarioServico {
+public class FuncionarioServico implements IFuncionarioServico{
     @Autowired
     private FuncionarioRepositorio repoFunc;
     @Autowired

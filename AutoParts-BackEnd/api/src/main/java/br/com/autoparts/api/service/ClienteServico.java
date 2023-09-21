@@ -10,9 +10,10 @@ import br.com.autoparts.api.model.Endereco;
 import br.com.autoparts.api.model.Retorno;
 import br.com.autoparts.api.repository.ClienteRepositorio;
 import br.com.autoparts.api.repository.EnderecoRepositorio;
+import br.com.autoparts.api.service.Interfaces.IClienteServico;
 
 @Service
-public class ClienteServico {
+public class ClienteServico implements IClienteServico{
 
     @Autowired
     private Retorno retorno;
