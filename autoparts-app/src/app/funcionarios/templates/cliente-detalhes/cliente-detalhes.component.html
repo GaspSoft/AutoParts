@@ -1,5 +1,109 @@
-<div *ngIf="clienteDetalhado">
+<div class="container" *ngIf="clienteDetalhado">
   <h2>Detalhes do Item</h2>
-  <p>Nome: {{ clienteDetalhado.nome }}</p>
-  <!-- Outras informações detalhadas -->
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-6">
+      <div class="form-floating mb-3">
+        <input type="text" [(ngModel)]="clienteDetalhado.cpf" name="cpf" class="form-control" id="floatingInput" placeholder="CPF" mask="000.000.000-00" disabled>
+        <label for="floatingInput">CPF</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-6">
+      <div class="form-floating mb-3">
+        <input type="text" [(ngModel)]="clienteDetalhado.nome" name="nome" class="form-control" id="floatingInput"
+          placeholder="Nome" disabled>
+        <label for="floatingInput">Nome</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-6">
+      <div class="form-floating mb-3">
+        <input type="email" [(ngModel)]="clienteDetalhado.email" name="email" class="form-control" id="floatingInput"
+          placeholder="nome@exemplo.com" disabled>
+        <label for="floatingInput">Email</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-6">
+      <div class="form-floating mb-3">
+        <input type="text" [(ngModel)]="clienteDetalhado.senha" name="senha" class="form-control" id="floatingInput"
+          placeholder="Senha" disabled>
+        <label for="floatingInput">Senha</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-3">
+      <div class="form-floating mb-3">
+        <input type="text" [(ngModel)]="clienteDetalhado.endereco.cep" name="cep" class="form-control" id="floatingInput"
+          placeholder="CEP" mask="00000-000" disabled>
+        <label for="floatingInput">CEP</label>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="form-floating mb-3">
+        <input type="text" [(ngModel)]="clienteDetalhado.endereco.estado" name="estado" class="form-control" id="floatingInput"
+          placeholder="Estado" disabled>
+        <label for="floatingInput">Estado</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-6">
+      <div class="form-floating mb-3">
+        <input type="text" [(ngModel)]="clienteDetalhado.endereco.cidade" name="cidade" class="form-control" id="floatingInput"
+          placeholder="Cidade" disabled>
+        <label for="floatingInput">Cidade</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-6">
+      <div class="form-floating mb-3">
+        <input type="text" [(ngModel)]="clienteDetalhado.endereco.bairro" name="bairro" class="form-control" id="floatingInput"
+          placeholder="Bairro" disabled>
+        <label for="floatingInput">Bairro</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-6">
+      <div class="form-floating mb-3">
+        <input type="text" [(ngModel)]="clienteDetalhado.endereco.rua" name="rua" class="form-control" id="floatingInput"
+          placeholder="Rua" disabled>
+        <label for="floatingInput">Rua</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-6">
+      <div class="form-floating mb-3">
+        <input type="number" [(ngModel)]="clienteDetalhado.endereco.numero" name="numero" class="form-control"
+          id="floatingInput" placeholder="Número" disabled>
+        <label for="floatingInput">Número</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-6">
+      <div class="form-floating mb-3">
+        <input type="text" [(ngModel)]="clienteDetalhado.endereco.complemento" name="complemento" class="form-control"
+          id="floatingInput" placeholder="Complemento" disabled>
+        <label for="floatingInput">Complemento</label>
+      </div>
+    </div>
+  </div>
 </div>

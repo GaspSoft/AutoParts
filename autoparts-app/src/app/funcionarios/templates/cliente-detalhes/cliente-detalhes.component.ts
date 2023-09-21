@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { FornecedorService } from 'src/app/services/fornecedor/fornecedor.service';
+import { ClientesService } from 'src/app/services/cliente/clientes.service';
 
 @Component({
   selector: 'app-cliente-detalhes',
@@ -12,14 +12,14 @@ export class ClienteDetalhesComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private service: FornecedorService
+    private service: ClientesService
   ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       const id = params['id'];
       // Use um serviço para buscar os detalhes com base no ID
-      this.service.getFuncionarioById(id).subscribe((data) => {
+      this.service.getClienteById(id).subscribe((data) => {
         this.clienteDetalhado = data;
       });
     });

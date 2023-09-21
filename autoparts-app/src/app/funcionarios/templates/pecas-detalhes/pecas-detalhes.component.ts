@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Fornecedor } from 'src/app/model/fornecedor/fornecedor';
+import { Pecas } from 'src/app/model/pecas/pecas';
 import { PecaService } from 'src/app/services/pecas/peca.service';
 
 @Component({
@@ -18,10 +20,16 @@ export class PecasDetalhesComponent {
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       const id = params['id'];
-      // Use um serviço para buscar os detalhes com base no ID
       this.service.getPecaById(id).subscribe((data) => {
         this.pecaDetalhado = data;
       });
     });
+  }
+
+  getFotoUrl(peca: Pecas): string {
+    if (peca.base64) {
+      return `data:image/jpeg;base64,${peca.base64}`;
+    }
+    return ''; // Ou uma URL de imagem padrão
   }
 }
