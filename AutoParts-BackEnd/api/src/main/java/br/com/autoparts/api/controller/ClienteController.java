@@ -20,7 +20,7 @@ import br.com.autoparts.api.service.ClienteServico;
 
 @CrossOrigin(origins = "*")
 @RestController
-public class ClienteControle implements IClienteController {
+public class ClienteController implements IClienteController {
 
     @Autowired
     private ClienteServico servico;

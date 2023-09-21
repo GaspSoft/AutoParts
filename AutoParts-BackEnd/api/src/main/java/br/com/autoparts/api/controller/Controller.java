@@ -18,7 +18,7 @@ import jakarta.servlet.http.HttpServletRequest;
 
 @CrossOrigin(origins = "*")
 @RestController
-public class Controle implements IController{
+public class Controller implements IController{
 
     @Autowired
     private Servico servico;
