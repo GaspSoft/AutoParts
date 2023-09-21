@@ -107,12 +107,12 @@ public class PecasServico {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Peça não encontrada.");
     }
 
-    public void diminuirEstoque(Integer estoque, Integer pecas_id) {
+    public void diminuirEstoque(Integer pecas_id) {
         Optional<Pecas> peca = pecasRepositorio.findById(pecas_id);
         if (peca.isPresent()) {
             PecaEstoqueDTO pecaEstoqueDTO = new PecaEstoqueDTO();
             Pecas p = peca.get();
-            p.setQuantidade(p.getQuantidade() - estoque);
+            p.setQuantidade(p.getQuantidade() - 1);
             pecasRepositorio.save(p);
         }
     }
