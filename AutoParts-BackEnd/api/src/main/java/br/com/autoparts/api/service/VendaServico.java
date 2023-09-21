@@ -20,9 +20,10 @@ import br.com.autoparts.api.repository.FornecedorRepositorio;
 import br.com.autoparts.api.repository.FuncionarioRepositorio;
 import br.com.autoparts.api.repository.PecasRepositorio;
 import br.com.autoparts.api.repository.VendasRepositorio;
+import br.com.autoparts.api.service.Interfaces.IVendaServico;
 
 @Service
-public class VendaServico {
+public class VendaServico implements IVendaServico{
     @Autowired
     private Retorno retorno;
 

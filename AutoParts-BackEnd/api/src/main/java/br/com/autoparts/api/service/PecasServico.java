@@ -14,9 +14,10 @@ import br.com.autoparts.api.model.Pecas;
 import br.com.autoparts.api.model.Retorno;
 import br.com.autoparts.api.repository.FornecedorRepositorio;
 import br.com.autoparts.api.repository.PecasRepositorio;
+import br.com.autoparts.api.service.Interfaces.IPecasService;
 
 @Service
-public class PecasServico {
+public class PecasServico implements IPecasService{
     @Autowired
     private Retorno retorno;
     @Autowired

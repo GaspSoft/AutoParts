@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.HttpClientErrorException.BadRequest;
 
+import br.com.autoparts.api.controller.Interfaces.IController;
 import br.com.autoparts.api.model.Pessoa;
 import br.com.autoparts.api.service.Servico;
 import jakarta.servlet.http.HttpServletRequest;
 
 @CrossOrigin(origins = "*")
 @RestController
-public class Controle {
+public class Controller implements IController{
 
     @Autowired
     private Servico servico;
@@ -33,7 +33,7 @@ public class Controle {
     }
 
    @GetMapping("/login")
-    public ResponseEntity<?> loginas(HttpServletRequest request) throws SignatureException{
+    public ResponseEntity<?> logins(HttpServletRequest request) throws SignatureException{
         
         String authorizationHeader = request.getHeader("Authorization");
 

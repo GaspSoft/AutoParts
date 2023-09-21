@@ -13,13 +13,14 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.autoparts.api.controller.Interfaces.IClienteController;
 import br.com.autoparts.api.model.Cliente;
 import br.com.autoparts.api.model.Endereco;
 import br.com.autoparts.api.service.ClienteServico;
 
 @CrossOrigin(origins = "*")
 @RestController
-public class ClienteControle {
+public class ClienteController implements IClienteController {
 
     @Autowired
     private ClienteServico servico;
