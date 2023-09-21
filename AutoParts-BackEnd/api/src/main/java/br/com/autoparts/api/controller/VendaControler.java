@@ -24,7 +24,6 @@ public class VendaControler {
     @PostMapping("/venda")
     public ResponseEntity<?> cadastrarVenda(@RequestBody Vendas venda){
         System.out.println(venda.getCliente().getCliente_id());
-        
         return servico.cadastrarVenda(venda);
     }
 

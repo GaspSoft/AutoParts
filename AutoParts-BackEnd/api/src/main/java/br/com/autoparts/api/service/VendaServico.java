@@ -85,7 +85,7 @@ public class VendaServico {
 
         // Diminui o estoque da peça
 
-        pecaServico.diminuirEstoque(venda.getPeca().getQuantidade(), venda.getPeca().getPecas_id());
+        pecaServico.diminuirEstoque(venda.getPeca().getPecas_id());
 
         // Salva a venda no banco de dados
         vendaRepositorio.save(venda);

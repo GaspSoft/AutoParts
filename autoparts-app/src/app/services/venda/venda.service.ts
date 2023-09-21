@@ -9,7 +9,7 @@ import { Venda } from 'src/app/model/venda/venda';
 export class VendaService {
 
   constructor(private http: HttpClient) { }
-  private url: string = 'http://localhost:8080/vendas';
+  private url: string = 'http://localhost:8080/venda';
 
   cadastrarVenda(venda: Venda): Observable<any>{
     return this.http.post(`${this.url}`, venda);
