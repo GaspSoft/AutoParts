@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FornecedorService } from 'src/app/services/fornecedor/fornecedor.service';
 
 @Component({
@@ -12,18 +12,24 @@ export class FornecedorDetalhesComponent implements OnInit {
   forncedorDetalhado: any;
 
   constructor(
-    private route: ActivatedRoute,
-    private service: FornecedorService
+    private activatedRoute: ActivatedRoute,
+    private service: FornecedorService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) => {
+    this.activatedRoute.params.subscribe((params) => {
       const id = params['id'];
       // Use um serviço para buscar os detalhes com base no ID
       this.service.getFuncionarioById(id).subscribe((data) => {
         this.forncedorDetalhado = data;
       });
     });
+  }
+
+
+  voltarListagem(): void {
+    this.router.navigate(['funcionario/lista-fornecedor']);
   }
 
 }
