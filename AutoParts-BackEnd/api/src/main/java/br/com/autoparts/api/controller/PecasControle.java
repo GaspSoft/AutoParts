@@ -19,13 +19,14 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import br.com.autoparts.api.controller.Interfaces.IPecaController;
 import br.com.autoparts.api.model.Pecas;
 import br.com.autoparts.api.service.PecasServico;
 
 @CrossOrigin(origins = "*")
 @RestController
 
-public class PecasControle {
+public class PecasControle implements IPecaController{
     
     @Autowired
     private PecasServico servico;
