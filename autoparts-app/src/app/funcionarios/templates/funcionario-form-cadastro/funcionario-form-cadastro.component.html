@@ -56,8 +56,8 @@
     <div class="row d-flex justify-content-center">
       <div class="col-3">
         <div class="form-check">
-          <input class="form-check-input" [(ngModel)]="funcionario.cargoFuncionario" type="radio"
-            name="flexRadioDefault" id="flexRadioDefault1" [value]="true">
+          <input class="form-check-input" [(ngModel)]="funcionario.tipoPessoa" type="radio"
+            name="flexRadioDefault" id="flexRadioDefault1" [value]="'GERENTE'">
           <label class="form-check-label mt-1 ps-2" for="flexRadioDefault1">
             Gerente
           </label>
@@ -65,8 +65,8 @@
       </div>
       <div class="col-3">
         <div class="form-check">
-          <input class="form-check-input" [(ngModel)]="funcionario.cargoFuncionario" type="radio"
-            name="flexRadioDefault" id="flexRadioDefault2" [value]="false">
+          <input class="form-check-input" [(ngModel)]="funcionario.tipoPessoa" type="radio"
+            name="flexRadioDefault" id="flexRadioDefault2" [value]="'FUNCIONARIO'">
           <label class="form-check-label my-1 ps-2" for="flexRadioDefault2">
             Funcionário
           </label>
@@ -97,5 +97,7 @@
         </button>
       </div>
     </div>
+
+    {{ funcionario | json }}
   </form>
 </div>

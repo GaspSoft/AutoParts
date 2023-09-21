@@ -35,6 +35,11 @@ export class PecasListaComponent implements OnInit {
     )
   }
 
+  detalhesPecas(pecas_id: number): void {
+    this.service.getPecaById(pecas_id);
+    this.router.navigate([`funcionario/detalhes-pecas/${pecas_id}`]);
+  }
+
   editarPeca(pecas_id: number): void {
     this.service.setPecaId(pecas_id);
     this.router.navigate(['funcionario/alterar-pecas'])

@@ -8,7 +8,7 @@
             Novo
           </button>
         </div>
-        <div class="col-md-2">
+        <div *ngIf="fornecedoresExiste" class="col-md-2">
           <input class="form-control mt-3" type="search" placeholder="Pesquisar..." aria-label="Search" [(ngModel)]="searchText">
         </div>
       </div>

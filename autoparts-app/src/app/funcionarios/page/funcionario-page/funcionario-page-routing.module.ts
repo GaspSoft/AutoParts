@@ -11,10 +11,12 @@ import { PainelComponent } from '../../templates/painel/painel.component';
 import { FuncionarioDetalhesComponent } from '../../templates/funcionario-detalhes/funcionario-detalhes.component';
 import { FornecedorDetalhesComponent } from '../../templates/fornecedor-detalhes/fornecedor-detalhes.component';
 import { PecasDetalhesComponent } from '../../templates/pecas-detalhes/pecas-detalhes.component';
+import { ClienteDetalhesComponent } from '../../templates/cliente-detalhes/cliente-detalhes.component';
 
 const routes: Routes = [
 
   { path: 'lista-cliente', component: ClientesListaComponent },
+  { path: 'detalhes-cliente/:id', component: ClienteDetalhesComponent },
 
   { path: 'cadastro-funcionario', component: FuncionarioFormCadastroComponent },
   { path: 'alterar-funcionario', component: FuncionarioFormCadastroComponent },

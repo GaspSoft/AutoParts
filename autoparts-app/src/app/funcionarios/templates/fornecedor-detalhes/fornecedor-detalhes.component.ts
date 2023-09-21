@@ -16,8 +16,6 @@ export class FornecedorDetalhesComponent implements OnInit {
     private service: FornecedorService
   ) {}
 
-
-
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       const id = params['id'];
