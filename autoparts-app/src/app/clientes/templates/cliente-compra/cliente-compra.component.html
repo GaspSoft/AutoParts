@@ -1,6 +1,6 @@
 
-<div class="container mt-5 pt-2 d-flex ">
-  <form #vendaForm="ngForm" (ngSubmit)="cadastrarVenda()">
+<div class="container-fluid mx-5 my-5 d-flex">
+  <form class="row" #vendaForm="ngForm" (ngSubmit)="cadastrarVenda()">
     <div class="row d-flex justify-content-center">
       <div class="col-6">
         <div class="alert alert-success" role="alert" *ngIf="sucessoFeedback">
@@ -11,30 +11,25 @@
         </div>
       </div>
     </div>
-  <section class="separate1 w-75">
-    <div class="container">
-      <h1 class="title px-5 fs-3"></h1>
-      <hr class="row-hr">
+    <div class="container col">
       <div class="img">
-        <img class="img-peca" *ngIf="peca.base64" [src]="getFotoUrl(peca)" alt="Foto da Peça"/>
+        <img class="img-peca mx-5" data-options="zoomPosition:inner;hint:off;" *ngIf="peca.base64" [src]="getFotoUrl(peca)" alt="Foto da Peça"/>
       </div>
     </div>
-  </section>
 
-    <section class="separate2">
-      <div class="card text-center" style="width: 21rem;">
+      <div class="col card text-center">
         <div class="card-body">
-          <h2 class="card-title">{{peca.nome }}</h2>
-          <h3 class="card-title">{{peca.descricao }}</h3>
-          <p class="card-text"> {{peca.preco | currency:'BRL':'symbol':'1.2-2'}} </p>
+          <img src="/assets/img/LogoSemFundo.png" class="img-logo d-block mt-md-3 mx-auto" alt="imagem">
+          <h1 class="card-title mt-3 fs-2 fw-medium">{{peca.nome }}</h1>
+          <h2 class="card-title fs-4">{{peca.descricao }}</h2>
+          <p class="card-text fs-5 mx-2 mb-5"> {{peca.preco | currency:'BRL':'symbol':'1.2-2'}} </p>
           <div class="px-5">
-            <button class="btn btn-roxo w-100 text-uppercase p-2" type="submit">
+            <button class="btn btn-roxo w-50 text-uppercase p-2" type="submit">
               Comprar
             </button>
           </div>
         </div>
       </div>
-    </section>
     {{venda | json}}
   </form>
 </div>
