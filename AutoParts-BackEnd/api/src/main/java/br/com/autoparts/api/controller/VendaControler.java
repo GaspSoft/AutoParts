@@ -11,13 +11,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.autoparts.api.controller.Interfaces.IVendaController;
 import br.com.autoparts.api.model.Vendas;
 import br.com.autoparts.api.service.VendaServico;
 
 
 @CrossOrigin(origins = "*")
 @RestController
-public class VendaControler {
+public class VendaControler implements IVendaController {
     @Autowired
     private VendaServico servico;
 

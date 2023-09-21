@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.autoparts.api.controller.Interfaces.IFuncionarioController;
 import br.com.autoparts.api.model.Funcionario;
 import br.com.autoparts.api.service.FuncionarioServico;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @CrossOrigin(origins = "*")
 @RestController
-public class FuncionarioControle {
+public class FuncionarioControle  implements IFuncionarioController{
     @Autowired
     FuncionarioServico funcionario;
 
