@@ -3,5 +3,11 @@ export class Pessoa {
   nome?: string;
   email?: string;
   senha?: string;
-  dataNasc?: number;
+  tipoPessoa?: TipoPessoa
+}
+
+enum TipoPessoa {
+  GERENTE,
+  FUNCIONARIO,
+  CLIENTE
 }

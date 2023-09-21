@@ -1,1 +1,60 @@
-<p>funcionario-detalhes works!</p>
+<div class="container" *ngIf="funcionarioDetalhado">
+  <h2>Detalhes do Item</h2>
+  <div class="row d-flex justify-content-center">
+    <div class="col-6">
+      <div class="form-floating mb-3">
+        <input type="text" [(ngModel)]="funcionarioDetalhado.cpf" name="cpf" class="form-control" id="floatingInput"
+          placeholder="CPF" mask="000.000.000-00" disabled>
+        <label for="floatingInput">CPF</label>
+      </div>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-6">
+      <div class="form-floating mb-3">
+        <input type="text" [(ngModel)]="funcionarioDetalhado.nome" name="nome" class="form-control" id="floatingInput"
+          placeholder="Nome" disabled>
+        <label for="floatingInput">Nome</label>
+      </div>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-6">
+      <div class="form-floating mb-3">
+        <input type="email" [(ngModel)]="funcionarioDetalhado.email" name="email" class="form-control" id="floatingInput"
+          placeholder="nome@exemplo.com" disabled>
+        <label for="floatingInput">Email</label>
+      </div>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-6">
+      <div class="form-floating mb-3">
+        <input type="text" [(ngModel)]="funcionarioDetalhado.senha" name="senha" class="form-control" id="floatingInput"
+          placeholder="Senha" disabled>
+        <label for="floatingInput">Senha</label>
+      </div>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-3">
+      <div class="form-check">
+        <input class="form-check-input" [(ngModel)]="funcionarioDetalhado.tipoPessoa" type="radio"
+          name="flexRadioDefault" id="flexRadioDefault1" [value]="'GERENTE'" disabled>
+        <label class="form-check-label mt-1 ps-2" for="flexRadioDefault1">
+          Gerente
+        </label>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="form-check">
+        <input class="form-check-input" [(ngModel)]="funcionarioDetalhado.tipoPessoa" type="radio"
+          name="flexRadioDefault" id="flexRadioDefault2" [value]="'FUNCIONARIO'" disabled>
+        <label class="form-check-label my-1 ps-2" for="flexRadioDefault2">
+          Funcionário
+        </label>
+      </div>
+    </div>
+  </div>
+
+</div>

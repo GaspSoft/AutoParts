@@ -39,7 +39,6 @@ public class FuncionarioControle {
 
     @GetMapping("/funcionario/{id}")
     public ResponseEntity<?> selecionarioPorId(@PathVariable Integer id) {
-
         return funcionario.ListarPorId(id);
     }
 
