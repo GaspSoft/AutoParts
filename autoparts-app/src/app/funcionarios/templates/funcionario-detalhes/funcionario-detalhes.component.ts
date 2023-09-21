@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FuncionariosService } from 'src/app/services/funcionario/funcionarios.service';
 
 @Component({
@@ -11,19 +11,22 @@ export class FuncionarioDetalhesComponent implements OnInit {
   funcionarioDetalhado: any;
 
   constructor(
-    private route: ActivatedRoute,
+    private activedRoute: ActivatedRoute,
+    private router: Router,
     private service: FuncionariosService
   ) {}
 
-
-
   ngOnInit(): void {
-    this.route.params.subscribe((params) => {
+    this.activedRoute.params.subscribe((params) => {
       const id = params['id'];
       // Use um serviço para buscar os detalhes com base no ID
       this.service.getFuncionarioById(id).subscribe((data) => {
         this.funcionarioDetalhado = data;
       });
     });
+  }
+
+  voltarListagem(): void {
+    this.router.navigate(['funcionario/lista-funcionario']);
   }
 }

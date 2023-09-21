@@ -173,6 +173,18 @@ color: #460a8f !important;
   animation: animationRoxoTop 3s linear infinite;
 }
 
+.text {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.icon {
+  font-size: 30vh;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
 @keyframes animationRoxoTop {
   0% {
     background-position: 0% 100%;

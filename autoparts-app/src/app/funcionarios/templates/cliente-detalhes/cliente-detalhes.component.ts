@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ClientesService } from 'src/app/services/cliente/clientes.service';
 
 @Component({
@@ -11,17 +11,22 @@ export class ClienteDetalhesComponent implements OnInit {
   clienteDetalhado: any;
 
   constructor(
-    private route: ActivatedRoute,
-    private service: ClientesService
+    private activatedRoute: ActivatedRoute,
+    private service: ClientesService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) => {
+    this.activatedRoute.params.subscribe((params) => {
       const id = params['id'];
       // Use um serviço para buscar os detalhes com base no ID
       this.service.getClienteById(id).subscribe((data) => {
         this.clienteDetalhado = data;
       });
     });
+  }
+
+  voltarListagem(): void {
+    this.router.navigate(['funcionario/lista-cliente']);
   }
 }

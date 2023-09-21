@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Fornecedor } from 'src/app/model/fornecedor/fornecedor';
 import { Pecas } from 'src/app/model/pecas/pecas';
 import { PecaService } from 'src/app/services/pecas/peca.service';
@@ -13,12 +13,13 @@ export class PecasDetalhesComponent {
   pecaDetalhado: any;
 
   constructor(
-    private route: ActivatedRoute,
-    private service: PecaService
+    private activatedRoute: ActivatedRoute,
+    private service: PecaService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) => {
+    this.activatedRoute.params.subscribe((params) => {
       const id = params['id'];
       this.service.getPecaById(id).subscribe((data) => {
         this.pecaDetalhado = data;
@@ -31,5 +32,9 @@ export class PecasDetalhesComponent {
       return `data:image/jpeg;base64,${peca.base64}`;
     }
     return ''; // Ou uma URL de imagem padrão
+  }
+
+  voltarListagem(): void {
+    this.router.navigate(['funcionario/lista-pecas']);
   }
 }

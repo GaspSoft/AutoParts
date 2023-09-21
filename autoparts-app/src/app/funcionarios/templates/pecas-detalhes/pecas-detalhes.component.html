@@ -1,90 +1,113 @@
-<div class="container" *ngIf="pecaDetalhado">
-  <h2>Detalhes do Item</h2>
-  <img class="img-peca" *ngIf="pecaDetalhado.base64" [src]="getFotoUrl(pecaDetalhado)" alt="Foto da Peça"/>
-  <div class="row d-flex justify-content-center">
+  <div class="container" *ngIf="pecaDetalhado">
+    <div class="col mt-5 mb-5">
+      <div class="text text-center text-uppercase bg-roxo-animado">
+        <h1 class="fw-bold fs-2">
+          Detalhes da peça {{pecaDetalhado.nome}}
+        </h1>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
     <div class="col-6">
-      <div class="form-floating mb-3">
-        <input class="form-control" id="floatingInput" type="text"
-          placeholder="Nome" name="Nome" [(ngModel)]="pecaDetalhado.nome" disabled>
-        <label for="floatingInput" class="form-label">Nome</label>
+      <div class="mt-auto mb-auto d-flex justify-content-center">
+        <img class="img-peca mb-3 rounded-2" *ngIf="pecaDetalhado.base64" [src]="getFotoUrl(pecaDetalhado)" alt="Foto da Peça"/>
       </div>
     </div>
   </div>
 
-  <div class="row d-flex justify-content-center">
-    <div class="col-6">
-      <div class="form-floating mb-3">
-        <input class="form-control" id="floatingInput" type="text"
-          placeholder="Descrição" name="Descrição"
-          [(ngModel)]="pecaDetalhado.descricao" disabled>
-        <label for="floatingInput" class="form-label">Descrição</label>
-      </div>
-    </div>
-  </div>
-
-  <div class="row d-flex justify-content-center">
-    <div class="col-6">
-      <div class="form-floating mb-3">
-        <input class="form-control" id="floatingInput" type="number"
-          placeholder="Quantidade" name="Quantidade"
-          [(ngModel)]="pecaDetalhado.quantidade" disabled>
-        <label for="floatingInput" class="form-label">Quantidade em estoque</label>
-      </div>
-    </div>
-  </div>
-
-  <div class="row d-flex justify-content-center">
-    <div class="col-6">
-      <div class="form-floating mb-3">
-        <input class="form-control" id="floatingInput" type="text"
-          placeholder="Marca" name="Marca" [(ngModel)]="pecaDetalhado.marca" disabled>
-        <label for="floatingInput" class="form-label">Marca</label>
-      </div>
-    </div>
-  </div>
-
-  <div class="row d-flex justify-content-center">
-    <div class="col-6">
-      <div class="form-floating mb-3">
-        <input class="form-control" id="ano" type="number" min="1900"
-          max="2099" step="1" placeholder="Ano" name="Ano"
-          [(ngModel)]="pecaDetalhado.ano" disabled>
-        <label for="ano" class="form-label">Ano</label>
-      </div>
-    </div>
-  </div>
-
-  <div class="row d-flex justify-content-center">
-    <div class="col-6">
-      <div class="form-floating mb-3">
-        <div class="input-group">
-          <span class="input-group-text">R$</span>
-          <input class="form-control" id="preco" type="" step="0.01"
-            min="0.01" placeholder="0.00" name="Preço"
-            [(ngModel)]="pecaDetalhado.preco" disabled>
+    <div class="row d-flex justify-content-center">
+      <div class="col-6">
+        <div class="form-floating mb-3">
+          <input class="form-control" id="floatingInput" type="text"
+            placeholder="Nome" name="Nome" [(ngModel)]="pecaDetalhado.nome" disabled>
+          <label for="floatingInput" class="form-label">Nome</label>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="row d-flex justify-content-center">
-    <div class="col-6">
-      <div class="form-floating mb-3">
-        <input class="form-control" id="floatingInput" type="text"
-          name="Modelo" placeholder="Modelo" [(ngModel)]="pecaDetalhado.modelo" disabled>
-        <label for="floatingInput" class="form-label">Modelo</label>
+    <div class="row d-flex justify-content-center">
+      <div class="col-6">
+        <div class="form-floating mb-3">
+          <input class="form-control" id="floatingInput" type="text"
+            placeholder="Descrição" name="Descrição"
+            [(ngModel)]="pecaDetalhado.descricao" disabled>
+          <label for="floatingInput" class="form-label">Descrição</label>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="row d-flex justify-content-center">
-    <div class="col-6">
-      <div class="form-floating mb-3">
-        <input class="form-control" id="floatingInput" type="text"
-          name="Modelo" placeholder="Modelo" [(ngModel)]="pecaDetalhado.fornecedor.cnpj" disabled>
-        <label for="floatingInput" class="form-label">Fornecedor</label>
+    <div class="row d-flex justify-content-center">
+      <div class="col-6">
+        <div class="form-floating mb-3">
+          <input class="form-control" id="floatingInput" type="number"
+            placeholder="Quantidade" name="Quantidade"
+            [(ngModel)]="pecaDetalhado.quantidade" disabled>
+          <label for="floatingInput" class="form-label">Quantidade em estoque</label>
+        </div>
       </div>
     </div>
-  </div>
 
-</div>
+    <div class="row d-flex justify-content-center">
+      <div class="col-6">
+        <div class="form-floating mb-3">
+          <input class="form-control" id="floatingInput" type="text"
+            placeholder="Marca" name="Marca" [(ngModel)]="pecaDetalhado.marca" disabled>
+          <label for="floatingInput" class="form-label">Marca</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+      <div class="col-6">
+        <div class="form-floating mb-3">
+          <input class="form-control" id="ano" type="number" min="1900"
+            max="2099" step="1" placeholder="Ano" name="Ano"
+            [(ngModel)]="pecaDetalhado.ano" disabled>
+          <label for="ano" class="form-label">Ano</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+      <div class="col-6">
+        <div class="form-floating mb-3">
+          <div class="input-group">
+            <span class="input-group-text">R$</span>
+            <input class="form-control" id="preco" type="" step="0.01"
+              min="0.01" placeholder="0.00" name="Preço"
+              [(ngModel)]="pecaDetalhado.preco" disabled>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+      <div class="col-6">
+        <div class="form-floating mb-3">
+          <input class="form-control" id="floatingInput" type="text"
+            name="Modelo" placeholder="Modelo" [(ngModel)]="pecaDetalhado.modelo" disabled>
+          <label for="floatingInput" class="form-label">Modelo</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+      <div class="col-6">
+        <div class="form-floating mb-3">
+          <input class="form-control" id="floatingInput" type="text"
+            name="Modelo" placeholder="Modelo" [(ngModel)]="pecaDetalhado.fornecedor.cnpj" disabled>
+          <label for="floatingInput" class="form-label">Fornecedor</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center mt-5">
+      <div class="col-6">
+        <button type="button" class="btn btn-cinza ml-1 w-100" (click)="voltarListagem()">
+          <i class="fa fa-arrow-alt-circle-left"></i>
+          Voltar
+        </button>
+      </div>
+    </div>
+
+  </div>
