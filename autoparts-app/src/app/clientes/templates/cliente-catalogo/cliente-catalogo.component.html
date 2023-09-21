@@ -31,7 +31,7 @@
             <h3 class="card-title"> R$ {{ peca.preco }} </h3>
           </div>
           <div class="card-footer text-center">
-            <button class="btn mx-auto btn-roxo w-75" type="submit">
+            <button class="btn mx-auto btn-roxo w-75" type="button" (click)="comprarPeca(peca.pecas_id)">
               COMPRAR
             </button>
           </div>

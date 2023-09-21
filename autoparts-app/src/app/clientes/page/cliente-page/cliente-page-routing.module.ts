@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'catalogo', component: ClienteCatalogoComponent },
   { path: 'login', component: ClienteLoginComponent },
   { path: 'ajuda', component: ClienteAjudaComponent },
-  { path: 'compra', component: ClienteCompraComponent },
+  { path: 'compra/:id', component: ClienteCompraComponent },
   { path: '', redirectTo: '/cliente/home', pathMatch: 'full'}
 ];
 
