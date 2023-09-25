@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
 import br.com.autoparts.api.model.Cliente;
 import br.com.autoparts.api.model.Funcionario;
 import br.com.autoparts.api.model.Pessoa;
@@ -77,18 +78,24 @@ public class Servico  {
         
                    KeyPair keyPair = Keys.keyPairFor(SignatureAlgorithm.RS256);
                     privateKey = keyPair.getPrivate();
-                    // Gere um token JWT com o email do usuário como payload
                     String token = Jwts.builder()
-                            .setSubject(p.getEmail()) // Define o email como assunto (subject) do token
-                            .setExpiration(expirationDate) // Define a data de expiração do token
+                            .setSubject(p.getEmail()) 
+                            .setExpiration(expirationDate) 
                             .signWith(keyPair.getPrivate())
                             .compact();
         
-                    // Retorna o token gerado
-                    return ResponseEntity.status(HttpStatus.OK)
+                  return ResponseEntity
+                    .status(HttpStatus.OK)
                     .header("Authorization", "Bearer " + token) // Use o cabeçalho "Authorization" para o token
-                    .build();                
-                } catch (Exception e) {
+                   .build();
+                   
+                   // HttpHeaders respoHeaders = new HttpHeaders();
+                   //respoHeaders.set("authentication", "Bearer " + token);
+                   //return ResponseEntity.ok(respoHeaders);
+                
+    
+                        
+                        } catch (Exception e) {
                     // Em caso de erro na geração do token, você pode retornar uma resposta de erro adequada.
                     return new ResponseEntity<>("Erro ao gerar o token.", HttpStatus.INTERNAL_SERVER_ERROR);
                 }
@@ -103,7 +110,7 @@ public class Servico  {
     public ResponseEntity<?> validarToken(String token) throws SignatureException {
         System.out.println(token);
         try {
-            Claims claims = Jwts.parserBuilder()
+            Claims claims =  Jwts.parserBuilder()
             .setSigningKey(privateKey)
             .build()
             .parseClaimsJws(token)
@@ -122,7 +129,10 @@ public class Servico  {
             Optional <Funcionario> funcionario =   funcionarioRepositorio.findByEmail(email);
             System.out.println(funcionario);
             if (funcionario != null){
-                        return new ResponseEntity<>("Token válido para o usuário: " + email, HttpStatus.OK);
+               //caminho a seguir 
+                /// HttpHeaders responseHeader  = new HttpHeaders();
+                  
+                return new ResponseEntity<>("Token válido para o usuário: " + email, HttpStatus.OK);
 
             }else
             {
@@ -145,8 +155,9 @@ public class Servico  {
     }
         
         return null;
-         
+      
     }
+    
 }
         
         
