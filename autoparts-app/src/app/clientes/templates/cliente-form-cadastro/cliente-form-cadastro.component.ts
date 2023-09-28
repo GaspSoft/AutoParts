@@ -37,6 +37,6 @@ export class ClienteFormCadastroComponent {
   }
 
   linkClienteLogin():void {
-    this.router.navigate(['/cliente/login-cliente']);
+    this.router.navigate(['/cliente/login']);
   }
 }
