@@ -18,7 +18,7 @@ import br.com.autoparts.api.service.Servico;
 
 @CrossOrigin(origins = "*")
 @RestController
-public class Controle implements IController{
+public class Controle{
 
     @Autowired
     private Servico servico;
