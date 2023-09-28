@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Pessoa } from 'src/app/model/pessoa/pessoa';
+import { isEmpty } from 'rxjs';
 import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
@@ -9,34 +9,43 @@ import { LoginService } from 'src/app/services/login/login.service';
   styleUrls: ['./cliente-login.component.scss']
 })
 export class ClienteLoginComponent implements OnInit {
-  pessoa: Pessoa;
+  email: string;
+  senha: string;
 
-  constructor(private service: LoginService, private router: Router) {
-    this.pessoa = new Pessoa();
+  sucessoFeedback: boolean = false;
+  errorsFeedback?: string = '';
+  constructor(
+    private service: LoginService,
+    private router: Router
+  ) {
+    this.email = "";
+    this.senha = "";
   }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  login(): void {
+    this.service.login(this.email, this.senha)
+      .subscribe(
+        (response) => {
+          // Lida com a resposta da solicitação aqui (por exemplo, redireciona ou mostra mensagem de sucesso)
+          if(response.mensagem == "Autorizado"){
+            this.router.navigate(['cliente/home']);
+          }
+          //this.router.navigate(['https://www.google.com.br/']); // Redireciona após o login bem-sucedido
+        },
+        (error) => {
+          // Lida com erros da solicitação aqui (por exemplo, mostra mensagem de erro)
+          this.sucessoFeedback = true;
+          setTimeout(() => {
+            this.sucessoFeedback = false;
+          }, 7000);
+          this.errorsFeedback = 'Erro! email e/ou senhas não encontrados!';
+        }
+      );
   }
 
-  login(): void{
-    console.log(this.pessoa);
-
-    this.service.login(this.pessoa).subscribe(
-
-      response =>{
-
-
-        console.log('AAAAAAAAAAAAA' + response)
-
-      },
-      errorResponse =>{
-      }
-    );
-  }
-
-
-  linkClienteCadastro():void {
+  linkClienteCadastro(): void {
     this.router.navigate(['/cliente/cadastrar']);
   }
-
 }

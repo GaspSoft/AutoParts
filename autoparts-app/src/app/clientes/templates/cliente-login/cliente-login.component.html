@@ -1,3 +1,11 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="alert alert-danger" role="alert" *ngIf="errorsFeedback">
+      {{ errorsFeedback }}
+    </div>
+  </div>
+</div>
+
 <div class="container mb-5 mt-4">
   <div class="row d-flex justify-content-center">
     <img src="/assets/img/LogoSemFundo.png" class="w-25 h-25 mb-3" alt="">
@@ -9,7 +17,7 @@
     <div class="row d-flex justify-content-center">
       <div class="col-6">
         <div class="form-floating mb-3">
-          <input type="text" [(ngModel)]="pessoa.email" name="email" class="form-control" id="floatingInput" placeholder="Email">
+          <input type="text" [(ngModel)]="email" name="email" class="form-control" id="floatingInput" placeholder="Email">
           <label for="floatingInput">Email</label>
         </div>
       </div>
@@ -20,7 +28,7 @@
     <div class="row d-flex justify-content-center">
       <div class="col-6">
         <div class="form-floating mb-3">
-          <input type="password" name="senha" [(ngModel)]="pessoa.senha" class="form-control" id="floatingInput"
+          <input type="password" name="senha" [(ngModel)]="senha" class="form-control" id="floatingInput"
             placeholder="Senha">
           <label for="floatingInput">Senha</label>
         </div>
@@ -50,7 +58,7 @@
     <div class="row d-flex justify-content-center">
       <div class="col-6">
         <button class="btn btn-roxo w-100 text-uppercase" type="submit">
-          Criar conta
+          Logar
         </button>
       </div>
     </div>
@@ -61,5 +69,4 @@
         <a class="terms cursor-pointer" (click)="linkClienteCadastro()">Não é um membro? <u><strong>Junte-se a nós</strong></u></a>
       </div>
     </div>
-{{ pessoa | json}}
 </div>

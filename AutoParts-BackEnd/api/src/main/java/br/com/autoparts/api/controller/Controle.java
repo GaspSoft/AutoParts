@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.autoparts.api.controller.Interfaces.IController;
 import br.com.autoparts.api.model.Pessoa;
 import br.com.autoparts.api.service.Servico;
-import jakarta.servlet.http.HttpServletRequest;
 
 @CrossOrigin(origins = "*")
 @RestController
-public class Controle implements IController{
+public class Controle{
 
     @Autowired
     private Servico servico;
@@ -30,12 +30,14 @@ public class Controle implements IController{
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Pessoa p){
         return servico.geraToken(p);
+    
     }
 
    @GetMapping("/login")
-    public ResponseEntity<?> logins(HttpServletRequest request) throws SignatureException{
+    public ResponseEntity<?> loginas(@RequestHeader (name = "authorization", required = false) String authorizationHeader) throws SignatureException {
         
-        String authorizationHeader = request.getHeader("Authorization");
+
+         System.out.println(authorizationHeader);
 
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
             // Se o cabeçalho de autorização existir e começar com "Bearer ",
