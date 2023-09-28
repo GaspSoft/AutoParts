@@ -38,6 +38,11 @@ export class FuncionariosListaComponent implements OnInit {
     )
   }
 
+  detalhesFuncionario(funcionario_id: number): void {
+    this.service.getFuncionarioById(funcionario_id);
+    this.router.navigate([`funcionario/detalhes-funcionario/${funcionario_id}`]);
+  }
+
   editarFuncionario(funcionario_id: number): void {
     this.service.setFuncionarioId(funcionario_id);
     this.router.navigate(['funcionario/alterar-funcionario'])
@@ -61,7 +66,6 @@ export class FuncionariosListaComponent implements OnInit {
       errorResponse => this.feedbackErro = 'Ocorreu um erro ao deletar o funcionário'
     )
   }
-
 
   formatarCpf(numero: number): string {
     // Verifica se o CPF é válido antes de formatar

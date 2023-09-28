@@ -11,25 +11,27 @@ import { PainelComponent } from '../../templates/painel/painel.component';
 import { FuncionarioDetalhesComponent } from '../../templates/funcionario-detalhes/funcionario-detalhes.component';
 import { FornecedorDetalhesComponent } from '../../templates/fornecedor-detalhes/fornecedor-detalhes.component';
 import { PecasDetalhesComponent } from '../../templates/pecas-detalhes/pecas-detalhes.component';
+import { ClienteDetalhesComponent } from '../../templates/cliente-detalhes/cliente-detalhes.component';
 
 const routes: Routes = [
 
   { path: 'lista-cliente', component: ClientesListaComponent },
+  { path: 'detalhes-cliente/:id', component: ClienteDetalhesComponent },
 
   { path: 'cadastro-funcionario', component: FuncionarioFormCadastroComponent },
   { path: 'alterar-funcionario', component: FuncionarioFormCadastroComponent },
   { path: 'lista-funcionario', component: FuncionariosListaComponent },
-  { path: 'detalhes-funcionario', component: FuncionarioDetalhesComponent},
+  { path: 'detalhes-funcionario/:id', component: FuncionarioDetalhesComponent},
 
   { path: 'lista-fornecedor', component: FornecedoresListaComponent },
   { path: 'cadastro-fornecedor', component: FornecedorFormCadastroComponent },
   { path: 'alterar-fornecedor', component: FornecedorFormCadastroComponent },
-  { path: 'detalhes-fornecedor', component: FornecedorDetalhesComponent },
+  { path: 'detalhes-fornecedor/:id', component: FornecedorDetalhesComponent },
 
   { path: 'cadastro-pecas', component: PecasFormsCadastroComponent },
   { path: 'lista-pecas', component: PecasListaComponent },
   { path: 'alterar-pecas', component: PecasFormsCadastroComponent },
-  { path: 'detalhes-pecas', component: PecasDetalhesComponent },
+  { path: 'detalhes-pecas/:id', component: PecasDetalhesComponent },
 
   { path: 'painel', component: PainelComponent },
   { path: '', redirectTo: '/funcionario/painel', pathMatch: 'full'}

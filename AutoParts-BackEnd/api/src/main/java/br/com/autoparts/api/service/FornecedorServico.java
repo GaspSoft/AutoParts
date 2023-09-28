@@ -10,9 +10,9 @@ import br.com.autoparts.api.model.Fornecedor;
 import br.com.autoparts.api.model.Pecas;
 import br.com.autoparts.api.model.Retorno;
 import br.com.autoparts.api.repository.FornecedorRepositorio;
-
+import br.com.autoparts.api.service.Interfaces.IFornecedorServico;;
 @Service
-public class FornecedorServico {
+public class FornecedorServico implements IFornecedorServico{
     @Autowired
     private Retorno retorno;
 
@@ -22,7 +22,7 @@ public class FornecedorServico {
     @Autowired
     private PecasServico pecasServico;
 
-    public ResponseEntity<?> cadastrarFornecedor(Fornecedor f) {
+    public ResponseEntity<?> cadastrarFornecedor(Fornecedor f){
 
         if (f.getCnpj() == null) {
             retorno.setMensagem("Insira o CNPJ da empresa.");

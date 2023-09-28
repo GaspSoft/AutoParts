@@ -3,7 +3,12 @@ export class Pessoa {
   nome?: string;
   email?: string;
   senha?: string;
-  dataNasc?: number;
   headers: any;
- 
+  tipoPessoa?: TipoPessoa
+}
+
+enum TipoPessoa {
+  GERENTE,
+  FUNCIONARIO,
+  CLIENTE
 }

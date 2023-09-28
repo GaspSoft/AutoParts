@@ -12,12 +12,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.autoparts.api.controller.Interfaces.IController;
 import br.com.autoparts.api.model.Pessoa;
 import br.com.autoparts.api.service.Servico;
 
 @CrossOrigin(origins = "*")
 @RestController
-public class Controle {
+public class Controle implements IController{
 
     @Autowired
     private Servico servico;

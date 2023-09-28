@@ -20,9 +20,10 @@ import br.com.autoparts.api.repository.FornecedorRepositorio;
 import br.com.autoparts.api.repository.FuncionarioRepositorio;
 import br.com.autoparts.api.repository.PecasRepositorio;
 import br.com.autoparts.api.repository.VendasRepositorio;
+import br.com.autoparts.api.service.Interfaces.IVendaServico;
 
 @Service
-public class VendaServico {
+public class VendaServico implements IVendaServico{
     @Autowired
     private Retorno retorno;
 
@@ -85,7 +86,7 @@ public class VendaServico {
 
         // Diminui o estoque da peça
 
-        pecaServico.diminuirEstoque(venda.getPeca().getQuantidade(), venda.getPeca().getPecas_id());
+        pecaServico.diminuirEstoque(venda.getPeca().getPecas_id());
 
         // Salva a venda no banco de dados
         vendaRepositorio.save(venda);
