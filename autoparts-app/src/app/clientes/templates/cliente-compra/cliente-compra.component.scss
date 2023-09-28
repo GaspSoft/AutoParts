@@ -10,10 +10,12 @@
 }
 
 .img-peca {
-    max-width: 700px;
-    max-height: 700px;
-    border: 3px solid $cinza-claro;
-    border-radius: 5%;
+  min-height: 500px;
+  min-width: 900px;
+  max-height: 500px;
+  max-width: 900px;
+  border: 3px solid $cinza-claro;
+  border-radius: 5%;
 }
 
 .btn {
@@ -21,7 +23,12 @@
 }
 
 .container {
-  min-height: 80vh;
+  min-height: 50vh;
+}
+
+.card-body {
+  border: 1px solid $cinza-claro;
+  border-radius: 5%;
 }
 
 .card{
