@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { isEmpty } from 'rxjs';
 import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
@@ -8,13 +9,18 @@ import { LoginService } from 'src/app/services/login/login.service';
   styleUrls: ['./cliente-login.component.scss']
 })
 export class ClienteLoginComponent implements OnInit {
-  email: string = "dajasdkjdasdasjk@hotmail.com";
-  senha: string = "asda";
+  email: string;
+  senha: string;
 
+  sucessoFeedback: boolean = false;
+  errorsFeedback?: string = '';
   constructor(
     private service: LoginService,
     private router: Router
-  ) {}
+  ) {
+    this.email = "";
+    this.senha = "";
+  }
 
   ngOnInit() {}
 
@@ -23,12 +29,18 @@ export class ClienteLoginComponent implements OnInit {
       .subscribe(
         (response) => {
           // Lida com a resposta da solicitação aqui (por exemplo, redireciona ou mostra mensagem de sucesso)
-          console.log("Resposta da API:", response);
+          if(response.mensagem == "Autorizado"){
+            this.router.navigate(['cliente/home']);
+          }
           //this.router.navigate(['https://www.google.com.br/']); // Redireciona após o login bem-sucedido
         },
         (error) => {
           // Lida com erros da solicitação aqui (por exemplo, mostra mensagem de erro)
-          console.error("Erro:", error);
+          this.sucessoFeedback = true;
+          setTimeout(() => {
+            this.sucessoFeedback = false;
+          }, 7000);
+          this.errorsFeedback = 'Erro! email e/ou senhas não encontrados!';
         }
       );
   }

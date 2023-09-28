@@ -85,10 +85,12 @@ public class Servico implements IServico {
                             .signWith(keyPair.getPrivate())
                             .compact();
         
-                  return ResponseEntity
-                    .status(HttpStatus.OK)
-                    .header("Authorization", "Bearer " + token) // Use o cabeçalho "Authorization" para o token
-                   .build();
+                retorno.setMensagem("Autorizado");
+                return new ResponseEntity<>(retorno, HttpStatus.CREATED);
+                //   return ResponseEntity
+                //     .status(HttpStatus.OK)
+                //     .header("Authorization", "Bearer " + token) // Use o cabeçalho "Authorization" para o token
+                //    .build();
                    
                    // HttpHeaders respoHeaders = new HttpHeaders();
                    //respoHeaders.set("authentication", "Bearer " + token);
