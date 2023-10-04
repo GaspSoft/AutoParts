@@ -11,44 +11,44 @@
 }
 
 .img-home1 {
-    justify-content: flex-end;
-    max-width: 100%;
-    height: 100%;
-    object-fit: fill;
+  justify-content: flex-end;
+  max-width: 100%;
+  height: 100%;
+  object-fit: fill;
 }
 
 .start-page h1 {
-    letter-spacing: 1px;
-    font-size: 40px;
-    font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 40px;
+  font-weight: 500;
 }
 
 .start-page h5 {
-    letter-spacing: 1px;
-    color: #6b6b6b;
-    font-size: 18px;
+  letter-spacing: 1px;
+  color: $cinza;
+  font-size: 18px;
 }
 
 .btn-get-in {
-    height: 38px;
-    width: 150px;
-    margin-top: 20px;
-    border-radius: 20px;
-    border-color: transparent;
-    transition: 500ms;
-    color: white;
-    background-image: $linear-corrente;
-    background-size: 200% auto;
-    text-align: center;
+  height: 38px;
+  width: 150px;
+  margin-top: 20px;
+  border-radius: 20px;
+  border-color: transparent;
+  transition: 500ms;
+  color: $branco;
+  background-image: $linear-corrente;
+  background-size: 200% auto;
+  text-align: center;
 }
 
 .btn-get-in:hover {
-    transform: scale(1.1, 1.1);
-    background-position: right center;
+  transform: scale(1.1, 1.1);
+  background-position: right center;
 }
 
 .title-experience {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .subtitle-experience {
