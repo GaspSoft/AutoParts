@@ -1,9 +1,13 @@
 @import '../../../../assets/scss/variaveis.scss';
 
+.container, .container-fluid {
+  background: var(--branco);
+}
+
 .start-page {
-    max-width: 100%;
-    height: auto;
-    display: flex;
+  max-width: 100%;
+  height: auto;
+  display: flex;
 }
 
 .met-page {
@@ -21,11 +25,12 @@
   letter-spacing: 1px;
   font-size: 40px;
   font-weight: 500;
+  color: var(--preto) !important;
 }
 
 .start-page h5 {
   letter-spacing: 1px;
-  color: $cinza;
+  color: var(--cinza);
   font-size: 18px;
 }
 
@@ -36,8 +41,8 @@
   border-radius: 20px;
   border-color: transparent;
   transition: 500ms;
-  color: $branco;
-  background-image: $linear-corrente;
+  color: var(--branco);
+  background-image: var(--linear-corrente);
   background-size: 200% auto;
   text-align: center;
 }
@@ -48,16 +53,18 @@
 }
 
 .title-experience {
+  color: var(--preto) !important;
   font-weight: 600;
 }
 
 .subtitle-experience {
+  color: var(--preto);
   margin-top: 80px;
   font-size: 600;
 }
 
 .text-experience {
-  color: $cinza;
+  color: var(--cinza);
   text-align: justify;
   width: 40%;
 }
@@ -75,54 +82,68 @@
 }
 
 .carousel-inner {
-    border-radius: 40px !important;
+  border-radius: 40px !important;
 }
 
 .carousel-item {
-    height: 600px;
+  height: 600px;
 }
 
 .btn {
-    width: 50% !important;
-    border-radius: 40px !important;
+  width: 50% !important;
+  border-radius: 40px !important;
 }
 
 .bg-grey {
-    background: $cinza-claro;
+  background: var(--cinza-claro);
 }
 
 .carousel-control-prev {
-    background: linear-gradient(to right, #6500e4 0%, #342A41 100%) !important;;
-    opacity: 100%;
-    height: 18px;
-    width: 38px;
-    border-radius: 40px;
+  background: linear-gradient(to right, #6500e4 0%, #342A41 100%) !important;;
+  opacity: 100%;
+  height: 18px;
+  width: 38px;
+  border-radius: 40px;
 }
 
 .carousel-control-next {
-    background: linear-gradient(to right, #342A41 0%, #6500e4 100%) !important;;
-    opacity: 100%;
-    height: 18px;
-    width: 38px;
-    border-radius: 40px;
+  background: linear-gradient(to right, #342A41 0%, #6500e4 100%) !important;;
+  opacity: 100%;
+  height: 18px;
+  width: 38px;
+  border-radius: 40px;
 }
 
 .description {
-  color: $cinza;
+  color: var(--cinza);
   font-weight: 500;
 }
 
 .icons {
-  color: $branco;
-  background: $linear;
+  color: var(--branco);
+  background: var(--linear);
   border-radius: 50px;
 }
 
 .arrow-icon {
   font-size: 30px;
-  color: $roxo-claro;
+  color: var(--roxo-claro);
 }
 
 .down {
   top: 30%;
+}
+
+.text-armazem {
+  color: var(--preto) !important;
+}
+
+.patrocionio {
+  background: var(--cinza);
+  border-radius: 50%;
+}
+
+.img-patrocionio {
+  height: 150px;
+  width: 200px;
 }

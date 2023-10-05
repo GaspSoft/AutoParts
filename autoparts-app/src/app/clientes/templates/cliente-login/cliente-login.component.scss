@@ -1,61 +1,69 @@
-@import '../../../../assets/scss/variaveis.scss';
+@import "../../../../assets/scss/variaveis.scss";
 
 .container {
-    width: 40%;
+  width: 40%;
 }
 
 .p-title {
-    font-size: 25px;
-    font-weight: 800;
-    color: $preto;
+  font-size: 25px;
+  font-weight: 800;
+  color: var(--preto);
 }
 
 .terms {
-    font-size: 16px;
-    font-weight: 400;
-    color: $cinza-escuro;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--cinza-escuro);
 }
 
 .cursor-pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .form-control:not(:placeholder-shown) {
   transition: 2s;
-  border: 1px solid #460a8f;
-  color: #460a8f !important;
+  border: 1px solid var(--roxo-claro);
+  color: var(--roxo-claro) !important;
 }
 
 .form-check-input {
-    margin-left: 0;
-    margin-bottom: 1.2%;
-    appearance: none;
-    background-color: #ffffff;
-    color: #D2D2D2;
-    width: 20px;
-    height: 20px;
-    border: 1px solid currentColor;
-    border-radius: 4px;
-    transform: translateY(-0.075em);
+  margin-left: 0;
+  margin-bottom: 1.2%;
+  appearance: none;
+  background-color: var(--branco);
+  color: var(--cinza);
+  width: 20px;
+  height: 20px;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  transform: translateY(-0.075em);
 }
 
 .form-check-input:before {
-    appearance: none;
-    content: "\2713";
-    color: #460a8f;
-    position: absolute;
-    padding-left: 10%;
-    left: 2px;
-    transform: scale(0);
-    border-radius: 4px;
-    transition: 300ms transform ease-in-out;
-    box-shadow: inset 1px 1px var(--container-color);
+  appearance: none;
+  content: "\2713";
+  color: var(--roxo-claro);
+  position: absolute;
+  padding-left: 10%;
+  left: 2px;
+  transform: scale(0);
+  border-radius: 4px;
+  transition: 300ms transform ease-in-out;
+  box-shadow: inset 1px 1px var(--container-color);
 }
 
 .form-check-input:hover {
-  border: 2px solid #460a8f;
+  border: 1px solid var(--roxo-claro);
 }
 
 .form-check-input:checked::before {
   transform: scale(1);
+}
+
+.form-control {
+  background: var(--branco);
+}
+
+.form-label {
+  color: var(--cinza-escuro);
 }

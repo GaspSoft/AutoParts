@@ -1,11 +1,12 @@
 @import '../../../assets/scss/variaveis.scss';
 
 footer {
-    margin-top: 3%;
+    background: var(--branco);
 }
 
 section, .text-center {
-    color: $branco;
+    color: var(--branco);
+    border-bottom-color: var(--branco) !important;
 }
 
 .col-md-3 p {

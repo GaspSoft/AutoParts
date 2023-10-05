@@ -50,7 +50,6 @@ export class PecasFormsCadastroComponent implements OnInit {
     this.foto = event.target.files[0];
   }
 
-
   salvarPeca() {
     if(this.id) {
       alert("AAAAAAAAAAAAAAAAAA")

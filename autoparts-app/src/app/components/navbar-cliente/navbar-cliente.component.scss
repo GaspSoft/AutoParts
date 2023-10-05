@@ -12,7 +12,7 @@
 }
 
 .navbar-brand {
-    color: $branco;
+    color: var(--branco);
 }
 
 .navbar-toggler-icon {
@@ -20,7 +20,7 @@
 }
 
 .navbar-toggler {
-    border: 1px solid $branco;
+    border: 1px solid var(--branco);
     box-shadow: none;
 }
 
@@ -28,7 +28,7 @@
     border-top-left-radius: 1%;
     border-bottom-left-radius: 1%;
     box-shadow: 20px 20px 20px 20px;
-    border-left: 1px solid $cinza;
+    border-left: 1px solid var(--cinza);
 }
 
 .menu-logo {
@@ -44,14 +44,14 @@
     display: flex;
     font-size: 22px;
     font-weight: 500;
-    color: $branco;
+    color: var(--branco);
     width: 100%;
 }
 
 .nav-link {
     padding-left: 3%;
     font-size: 18px;
-    color: $branco;
+    color: var(--branco) !important;
     border-radius: 10px;
     transition: 1s;
     height: 35px;
@@ -60,8 +60,8 @@
 
 .nav-link:hover {
     transition: 0.2s;
-    background: $branco;
-    color: $roxo-escuro;
+    background: var(--branco);
+    color: var(--roxo-escuro) !important;
     border-radius: 10px;
 }
 

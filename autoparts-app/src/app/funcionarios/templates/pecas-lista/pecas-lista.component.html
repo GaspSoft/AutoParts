@@ -9,7 +9,7 @@
           </button>
         </div>
         <div *ngIf="pecasExiste" class="col-md-2">
-          <input class="form-control mt-3" type="search" placeholder="Pesquisar..." aria-label="Search" [(ngModel)]="searchText">
+          <input class="form-control mt-3 search" type="search" placeholder="Pesquisar..." aria-label="Search" [(ngModel)]="searchText">
         </div>
       </div>
       <lista-vazia-pecas *ngIf="!pecasExiste"></lista-vazia-pecas>
