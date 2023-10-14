@@ -85,19 +85,11 @@ public class Servico implements IServico {
                             .signWith(keyPair.getPrivate())
                             .compact();
         
-                retorno.setMensagem("Autorizado");
-                return new ResponseEntity<>(retorno, HttpStatus.CREATED);
-                //   return ResponseEntity
-                //     .status(HttpStatus.OK)
-                //     .header("Authorization", "Bearer " + token) // Use o cabeçalho "Authorization" para o token
-                //    .build();
-                   
-                   // HttpHeaders respoHeaders = new HttpHeaders();
-                   //respoHeaders.set("authentication", "Bearer " + token);
-                   //return ResponseEntity.ok(respoHeaders);
-                
+             
+                        return ResponseEntity.ok("{\"token\": \"" + token + "\"}");           
+
     
-                        
+                      
                         } catch (Exception e) {
                     // Em caso de erro na geração do token, você pode retornar uma resposta de erro adequada.
                     return new ResponseEntity<>("Erro ao gerar o token.", HttpStatus.INTERNAL_SERVER_ERROR);
@@ -124,16 +116,11 @@ public class Servico implements IServico {
                 return new ResponseEntity<>("Token expirado", HttpStatus.UNAUTHORIZED);
             }
 
-            // As informações do usuário podem ser acessadas através de claims
-            String email = claims.getSubject();
-            // List<Funcionario> funcionariosByEmail = funcionarioRepositorio.findByEmail(p.getEmail());
-            //List<Funcionario> funcionariosBySenha = funcionarioRepositorio.findBySenha(p.getSenha());
-            
+           String email = claims.getSubject();
+
             Optional <Funcionario> funcionario =   funcionarioRepositorio.findByEmail(email);
             System.out.println(funcionario);
             if (funcionario != null){
-               //caminho a seguir 
-                /// HttpHeaders responseHeader  = new HttpHeaders();
                   
                 return new ResponseEntity<>("Token válido para o usuário: " + email, HttpStatus.OK);
 

@@ -1,6 +1,7 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { isEmpty } from 'rxjs';
+import { Pessoa } from 'src/app/model/pessoa/pessoa';
 import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
@@ -9,43 +10,52 @@ import { LoginService } from 'src/app/services/login/login.service';
   styleUrls: ['./cliente-login.component.scss']
 })
 export class ClienteLoginComponent implements OnInit {
-  email: string;
-  senha: string;
+  pessoa: Pessoa;
 
   sucessoFeedback: boolean = false;
   errorsFeedback?: string = '';
   constructor(
+    private http: HttpClient,   
     private service: LoginService,
     private router: Router
   ) {
-    this.email = "";
-    this.senha = "";
+    this.pessoa = new Pessoa();
   }
-
-  ngOnInit() {}
+  
+  ngOnInit() {
+  }
 
   login(): void {
-    this.service.login(this.email, this.senha)
-      .subscribe(
-        (response) => {
-          // Lida com a resposta da solicitação aqui (por exemplo, redireciona ou mostra mensagem de sucesso)
-          if(response.mensagem == "Autorizado"){
-            this.router.navigate(['cliente/home']);
-          }
-          //this.router.navigate(['https://www.google.com.br/']); // Redireciona após o login bem-sucedido
-        },
-        (error) => {
-          // Lida com erros da solicitação aqui (por exemplo, mostra mensagem de erro)
-          this.sucessoFeedback = true;
-          setTimeout(() => {
-            this.sucessoFeedback = false;
-          }, 7000);
-          this.errorsFeedback = 'Erro! email e/ou senhas não encontrados!';
-        }
-      );
-  }
+    console.log(this.pessoa);
 
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ${token}'
+      })
+    };
+
+    this.http.post<any>('http://localhost:8080/login', this.pessoa, httpOptions).subscribe(
+      (response) => {
+        if (response && response.token) {
+          localStorage.setItem('token', response.token);
+          console.log('Token armazenado em localStorage:', response.token);
+            this.router.navigate(['cliente/home']);
+      
+        } else {
+          console.log('Token não encontrado na resposta.');
+        }
+      },
+      (error) => {
+        setTimeout(() => {
+          this.sucessoFeedback = false;
+        }, 7000);
+        this.errorsFeedback = 'Erro! email e/ou senhas não encontrados!';
+      }
+    );
+}
+  
   linkClienteCadastro(): void {
-    this.router.navigate(['/cliente/cadastrar']);
+    this.router.navigate(['/cliente/cadastrar-cliente']);
   }
 }
