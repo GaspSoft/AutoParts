@@ -119,9 +119,11 @@ public class Servico implements IServico {
            String email = claims.getSubject();
 
             Optional <Funcionario> funcionario =   funcionarioRepositorio.findByEmail(email);
+
             if (!funcionario.isEmpty()){
+
+            System.out.println(funcionario);
             
-                System.out.println(funcionario);
 
                 return new ResponseEntity<>(funcionario, HttpStatus.OK);
             }else
@@ -130,7 +132,8 @@ public class Servico implements IServico {
                     if (cliente != null){
                        System.out.println(cliente);
                         return new ResponseEntity<>(cliente, HttpStatus.OK);
-                }
+
+                }   
             }
             // Token válido
         } catch (ExpiredJwtException e) {
