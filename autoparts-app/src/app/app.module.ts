@@ -16,6 +16,7 @@ import { FornecedorService } from './services/fornecedor/fornecedor.service';
 import { PecaService } from './services/pecas/peca.service';
 import { NgxMaskModule } from 'ngx-mask';
 import { SearchPipe } from './services/pipes/search.pipe';
+import { AuthServiceService } from './services/auth/auth-service.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { SearchPipe } from './services/pipes/search.pipe';
     ClientesService,
     FuncionariosService,
     FornecedorService,
-    PecaService
+    PecaService,
+    AuthServiceService
   ],
   bootstrap: [AppComponent]
 })

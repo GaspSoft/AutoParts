@@ -4,7 +4,8 @@ export class Pessoa {
   email?: string;
   senha?: string;
   headers: any;
-  tipoPessoa?: TipoPessoa
+  tipoPessoa?: TipoPessoa;
+  jwtExpiration?: Date;
 }
 
 enum TipoPessoa {
