@@ -46,11 +46,11 @@ public class Servico implements IServico {
             retorno.setMensagem("Valores de senha ou/e email nulo!");
             return new ResponseEntity<>(retorno.getMensagem(), HttpStatus.BAD_REQUEST);
         } else {
-            List<Cliente> clienteByEmail = clienteRepositorio.findByEmail(p.getEmail());
+            Optional<Cliente> clienteByEmail = clienteRepositorio.findByEmail(p.getEmail());
             List<Cliente> clienteBySenha = clienteRepositorio.findBySenha(p.getSenha());
 
             if (!clienteByEmail.isEmpty() && !clienteBySenha.isEmpty()) {
-                return new ResponseEntity<>(clienteByEmail.get(0), HttpStatus.OK);
+                return new ResponseEntity<>(clienteByEmail.get(), HttpStatus.OK);
             }
 
             Optional<Funcionario> funcionariosByEmail = funcionarioRepositorio.findByEmail(p.getEmail());
@@ -101,7 +101,7 @@ public class Servico implements IServico {
             }
         }
         
-
+        // valida o token e retorna as informações de usuario
     public ResponseEntity<?> validarToken(String token) throws SignatureException {
         System.out.println(token);
         try {
@@ -115,23 +115,21 @@ public class Servico implements IServico {
             if (expirationDate.before(new Date())) {
                 return new ResponseEntity<>("Token expirado", HttpStatus.UNAUTHORIZED);
             }
-
+            
            String email = claims.getSubject();
 
             Optional <Funcionario> funcionario =   funcionarioRepositorio.findByEmail(email);
-            System.out.println(funcionario);
-            if (funcionario != null){
-                  
-                return new ResponseEntity<>("Token válido para o usuário: " + email, HttpStatus.OK);
+            if (!funcionario.isEmpty()){
+            
+                System.out.println(funcionario);
 
+                return new ResponseEntity<>(funcionario, HttpStatus.OK);
             }else
             {
-                Cliente cliente = (Cliente) clienteRepositorio.findByEmail(email);
+                 Optional<Cliente>cliente =  clienteRepositorio.findByEmail(email);
                     if (cliente != null){
-
-                        return new ResponseEntity<>("Token válido para o usuário: " + email, HttpStatus.OK);
-
-
+                       System.out.println(cliente);
+                        return new ResponseEntity<>(cliente, HttpStatus.OK);
                 }
             }
             // Token válido
