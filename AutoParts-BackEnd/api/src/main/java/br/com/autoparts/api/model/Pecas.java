@@ -1,9 +1,6 @@
 package br.com.autoparts.api.model;
 
-import org.hibernate.annotations.ManyToAny;
-import org.hibernate.mapping.Set;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

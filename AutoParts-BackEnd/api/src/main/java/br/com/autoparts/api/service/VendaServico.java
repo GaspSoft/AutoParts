@@ -1,6 +1,5 @@
 package br.com.autoparts.api.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -11,13 +10,11 @@ import org.springframework.stereotype.Service;
 
 import br.com.autoparts.api.model.Cliente;
 import br.com.autoparts.api.model.Fornecedor;
-import br.com.autoparts.api.model.Funcionario;
 import br.com.autoparts.api.model.Pecas;
 import br.com.autoparts.api.model.Retorno;
 import br.com.autoparts.api.model.Vendas;
 import br.com.autoparts.api.repository.ClienteRepositorio;
 import br.com.autoparts.api.repository.FornecedorRepositorio;
-import br.com.autoparts.api.repository.FuncionarioRepositorio;
 import br.com.autoparts.api.repository.PecasRepositorio;
 import br.com.autoparts.api.repository.VendasRepositorio;
 import br.com.autoparts.api.service.Interfaces.IVendaServico;

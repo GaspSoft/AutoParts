@@ -9,11 +9,9 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.autoparts.api.controller.Interfaces.IController;
 import br.com.autoparts.api.model.Pessoa;
 import br.com.autoparts.api.service.Servico;
 
@@ -45,7 +43,7 @@ public class Controle{
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         
     
-        //return ;
+        
     }
 }
 }

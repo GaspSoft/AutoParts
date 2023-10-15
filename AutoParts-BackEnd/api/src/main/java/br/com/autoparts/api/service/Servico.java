@@ -71,10 +71,8 @@ public class Servico implements IServico {
             if (HttpStatus.OK.equals(userVerificado)) {
                 try {
 
-                    // Defina a duração do token em minutos (exemplo: 30 minutos)
                     int tokenExpirationMinutes = 30;
         
-                    // Calcule a data de expiração com base na duração em minutos
                     Date expirationDate = new Date(System.currentTimeMillis() + (tokenExpirationMinutes * 60000));
         
                    KeyPair keyPair = Keys.keyPairFor(SignatureAlgorithm.RS256);
@@ -91,35 +89,39 @@ public class Servico implements IServico {
     
                       
                         } catch (Exception e) {
-                    // Em caso de erro na geração do token, você pode retornar uma resposta de erro adequada.
                     return new ResponseEntity<>("Erro ao gerar o token.", HttpStatus.INTERNAL_SERVER_ERROR);
                 }
                 
             } else {
-                // Caso o usuário não seja verificado, você pode retornar um erro ou outra resposta adequada.
                 return new ResponseEntity<>("Usuário não encontrado ou não autorizado.", HttpStatus.UNAUTHORIZED);
             }
         }
         
-        // valida o token e retorna as informações de usuario
     public ResponseEntity<?> validarToken(String token) throws SignatureException {
         System.out.println(token);
         try {
             Claims claims =  Jwts.parserBuilder()
             .setSigningKey(privateKey)
+            //define a chave de assinatura(criptografia)
             .build()
+            //builda um jwtParser que é imutável e  seguro
             .parseClaimsJws(token)
+            //decoda o token
             .getBody();
-            // Verifique se o token ainda não expirou
+            //pega as infos
+
+            //verifica se o time stamp do token é valido
             Date expirationDate = claims.getExpiration();
             if (expirationDate.before(new Date())) {
                 return new ResponseEntity<>("Token expirado", HttpStatus.UNAUTHORIZED);
             }
-            
+            // a variavel recebe o payload do token(email)
            String email = claims.getSubject();
 
             Optional <Funcionario> funcionario =   funcionarioRepositorio.findByEmail(email);
-
+            //através do email procura por email um funcionario que corresponda esse dado
+            //se vazio procura um cliente
+            // e em fim retorna uma instancia de cliente/funcionario
             if (!funcionario.isEmpty()){
 
             System.out.println(funcionario);
@@ -135,7 +137,6 @@ public class Servico implements IServico {
 
                 }   
             }
-            // Token válido
         } catch (ExpiredJwtException e) {
             return new ResponseEntity<>("Token expirado", HttpStatus.UNAUTHORIZED);
         } catch (MalformedJwtException e) {
