@@ -1,22 +1,12 @@
 @import '../../../../assets/scss/variaveis.scss';
 
 .bg-gradiente{
-
   font-weight: 900;
-
-}
-
-.separate{
-  width: 50%;
 }
 
 .img-mec{
-  height: 440px;
+  height: 540px;
   border-radius: 30px;
-}
-
-.sec-column {
-  width: 80%;
 }
 
 .img-logo{
@@ -27,13 +17,13 @@
 
 .title-sobre {
   font-weight: 500;
-  color: $cinza-escuro;
+  color: var(--cinza-escuro);
 }
 
 .text-sobre {
   justify-content: center;
   font-size: 16px;
-  color: $cinza;
+  color: var(--cinza);
   text-align: justify;
   width: 100%;
 }
@@ -42,24 +32,10 @@
   margin-left: 5%;
 }
 
-/* Exemplo de estilização para um título */
-.titulo {
-  font-size: 28px; /* Tamanho da fonte */
- font-weight: bold; /* Peso da fonte (negrito) */
-  color: $branco; /* Cor do texto */
-  margin-top: 10px; /* Margem superior */
-  margin-bottom: 20px; /* Margem inferior */
-  text-align: center; /* Alinhamento do texto */
-  text-transform: uppercase; /* Transformação de texto (maiúsculas) */
-  letter-spacing: 2px; /* Espaçamento entre letras */
-  line-height: 1.2; /* Altura da linha */
-  /* Outras propriedades de estilização, como font-family, text-decoration, etc. */
-}
-.fs-4{
-  font-size: 28px; /* Tamanho da fonte */
-  font-weight: bold; /* Peso da fonte (negrito) */
-  letter-spacing: 2px; /* Espaçamento entre letras */
-  text-transform: uppercase; /* Transformação de texto (maiúsculas) */
-  margin-bottom: 40px; /* Margem inferior */
-  color: $branco;
+.title {
+  color: var(--preto); 
+} 
+
+.subtitle{
+  color: var(--preto);
 }

@@ -1,5 +1,9 @@
 @import '../../../../assets/scss/variaveis.scss';
 
+.container {
+  background: var(--branco);
+}
+
 .card-img {
   max-width: 100%;
   min-width: 100%;
@@ -10,4 +14,13 @@
 .card {
   max-height: 640px;
   min-height: 640px;
+  background: var(--cinza-claro);
+}
+
+.card-title {
+  color: var(--preto);
+}
+
+.card-text {
+  color: var(--cinza-escuro);
 }

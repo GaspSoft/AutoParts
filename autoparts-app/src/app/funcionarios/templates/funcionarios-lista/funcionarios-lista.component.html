@@ -9,7 +9,7 @@
           </button>
         </div>
         <div *ngIf="funcionarioExiste" class="col-md-2">
-          <input class="form-control mt-3" type="search" placeholder="Pesquisar..." aria-label="Search" [(ngModel)]="searchText">
+          <input class="form-control mt-3 search" type="search" placeholder="Pesquisar..." aria-label="Search" [(ngModel)]="searchText">
         </div>
       </div>
       <lista-vazia-funcionario *ngIf="!funcionarioExiste"></lista-vazia-funcionario>
@@ -26,7 +26,7 @@
         <tbody>
           <tr scope="row" *ngFor="let funcionario of funcionarios | search: searchText; let i = index;">
             <td class="line-list"> {{ i + 1 }} </td>
-            <td class="line-list"> {{ funcionario.nome}} </td>
+            <td class="line-list"> {{ funcionario.nome }} </td>
             <td class="line-list"> {{ formatarCpf(funcionario.cpf) }} </td>
             <td class="line-list">{{ funcionario.tipoPessoa.charAt(0).toUpperCase() + funcionario.tipoPessoa.slice(1).toLowerCase() }}</td>
             <td class="d-flex justify-content-end line-list">

@@ -16,5 +16,14 @@
 
 .form-control:focus {
   box-shadow: none;
-  border: 1px solid #460a8f;
+  border: 1px solid var(--roxo-claro);
+}
+
+.search {
+  background: var(--branco) !important;
+  color: var(--preto);
+}
+
+.search::placeholder {
+  color: var(--cinza-escuro);
 }

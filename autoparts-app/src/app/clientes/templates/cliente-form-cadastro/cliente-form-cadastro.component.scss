@@ -3,25 +3,25 @@
 .p-title {
     font-size: 18px;
     font-weight: 800;
-    color: $preto;
+    color: var(--preto);
 }
 
 .subtitle {
     font-size: 17px;
     font-weight: 400;
-    color: $cinza-escuro;
+    color: var(--cinza-escuro);
 }
 
 .form-control:not(:placeholder-shown) {
   transition: 2s;
-  border: 1px solid #460a8f;
-  color: #460a8f !important;
+  border: 1px solid var(--roxo-claro);
+  color: var(--roxo-claro) !important;
 }
 
 .terms {
   font-size: 16px;
   font-weight: 400;
-  color: $cinza-escuro;
+  color: var(--cinza-escuro);
 }
 
 .cursor-pointer {
