@@ -1,3 +1,5 @@
+import { TipoPessoa } from "./enumPessoa";
+
 export class Pessoa {
   cpf?: number;
   nome?: string;
@@ -8,8 +10,4 @@ export class Pessoa {
   jwtExpiration?: Date;
 }
 
-enum TipoPessoa {
-  GERENTE,
-  FUNCIONARIO,
-  CLIENTE
-}
+

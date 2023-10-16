@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Cliente } from 'src/app/model/cliente/cliente';
 import { ClientesService } from 'src/app/services/cliente/clientes.service';
 import { Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 
 @Component({
   selector: 'cliente-form-cadastro',
@@ -14,9 +15,19 @@ export class ClienteFormCadastroComponent {
   sucessoFeedback: boolean = false;
   errorsFeedback?: string = '';
 
-  constructor(private service: ClientesService, private router: Router) {
+  constructor(private service: ClientesService, private router: Router, private authService: AuthServiceService,) {
+    enum TipoPessoa {
+      CLIENTE
+    }
     this.cliente = new Cliente();
+    this.cliente.tipoPessoa = TipoPessoa.CLIENTE;
+
     this.estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO']
+
+    const clienteLogado = authService.getAuthUser();
+    if (clienteLogado != null ) {
+      this.router.navigate(['cliente/login']);
+    }
   }
 
   cadastrar(): void {
@@ -29,6 +40,7 @@ export class ClienteFormCadastroComponent {
         }, 7000);
         this.errorsFeedback = '';
         this.cliente = new Cliente();
+        this.router.navigate(['cliente/login']);
       },
       errorResponse => {
         this.errorsFeedback = errorResponse.error.mensagem;
@@ -39,4 +51,6 @@ export class ClienteFormCadastroComponent {
   linkClienteLogin():void {
     this.router.navigate(['/cliente/login']);
   }
+
+
 }

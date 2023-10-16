@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Fornecedor } from 'src/app/model/fornecedor/fornecedor';
 import { Pecas } from 'src/app/model/pecas/pecas';
+import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 import { PecaService } from 'src/app/services/pecas/peca.service';
 
 @Component({
@@ -15,8 +16,16 @@ export class PecasDetalhesComponent {
   constructor(
     private activatedRoute: ActivatedRoute,
     private service: PecaService,
-    private router: Router
-  ) {}
+    private router: Router,  private authService: AuthServiceService
+  ) {
+
+    const clienteLogado = authService.getAuthUser();
+    const tipoUser = authService.getTipoUser();
+    if (clienteLogado !== null && tipoUser !== undefined && tipoUser != 'CLIENTE') {}
+    else{
+      this.router.navigate(['cliente/login']);
+    }
+  }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {

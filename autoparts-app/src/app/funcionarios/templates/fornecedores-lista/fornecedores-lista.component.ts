@@ -1,6 +1,7 @@
 import { Fornecedor } from './../../../model/fornecedor/fornecedor';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 import { FornecedorService } from 'src/app/services/fornecedor/fornecedor.service';
 
 @Component({
@@ -18,8 +19,17 @@ export class FornecedoresListaComponent {
 
   constructor(
     private service: FornecedorService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private authService: AuthServiceService
+  ) {
+    const clienteLogado = authService.getAuthUser();
+    const tipoUser = authService.getTipoUser();
+    if (clienteLogado !== null && tipoUser !== undefined && tipoUser != 'CLIENTE') {
+    } else{
+      this.router.navigate(['cliente/login']);
+
+    }
+  }
 
   ngOnInit(): void {
     this.service.getFornecedor().subscribe(

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 
 @Component({
   selector: 'navbar-funcionario',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarFuncionarioComponent {
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private authService: AuthServiceService) {
   }
 
   linkPainel():void {
@@ -29,5 +30,10 @@ export class NavbarFuncionarioComponent {
 
   linkListaFornecedor():void {
     this.router.navigate(['/funcionario/lista-fornecedor']);
+  }
+
+  logoff(){
+    this.authService.clearAuthUser();
+    this.router.navigate(['/cliente/login']);
   }
 }
