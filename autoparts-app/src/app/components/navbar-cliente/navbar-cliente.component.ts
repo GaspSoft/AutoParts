@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 
 @Component({
   selector: 'navbar-cliente',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 
 export class NavbarClienteComponent {
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private authService: AuthServiceService) {
   }
 
   linkClienteCatalogo():void {
@@ -34,5 +35,10 @@ export class NavbarClienteComponent {
 
   linkClienteAjuda():void {
     this.router.navigate(['/cliente/ajuda']);
+  }
+
+  logoff(){
+    this.authService.clearAuthUser();
+    this.router.navigate(['/cliente/login']);
   }
 }
