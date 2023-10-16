@@ -1,6 +1,6 @@
 
-<div class="container-fluid mx-5 d-flex">
-  <form class="row" #vendaForm="ngForm" (ngSubmit)="cadastrarVenda()">
+<div class="container-fluid my-5 d-flex">
+  <form class="row" #vendaForm="ngForm" (ngSubmit)="addCarrinho()">
     <div class="row d-flex justify-content-center">
       <div class="col-6">
         <div class="alert alert-success" role="alert" *ngIf="sucessoFeedback">
@@ -15,6 +15,24 @@
       <div class="img">
         <img class="img-peca mx-5" data-options="zoomPosition:inner;hint:off;" *ngIf="peca.base64" [src]="getFotoUrl(peca)" alt="Foto da Peça"/>
       </div>
+      <div class="mt-5">
+        <table class="table table-border-roxo table-font-roxo table-hover align-middle text-center">
+          <thead>
+            <tr>
+              <td class="col columns-list">Marca</td>
+              <td class="col columns-list">Ano</td>
+              <td class="col columns-list">Modelo</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="line-list"> {{ peca.marca }} </td>
+              <td class="line-list"> {{ peca.ano }} </td>
+              <td class="line-list"> {{ peca.modelo }} </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
       <div class="col card text-center mx-5 h-50">
@@ -24,12 +42,18 @@
           <h2 class="card-title fs-4">{{peca.descricao }}</h2>
           <p class="card-text fs-5 mx-2 mb-5"> {{peca.preco | currency:'BRL':'symbol':'1.2-2'}} </p>
         </div>
-          <div class="my-5 d-flex justify-content-end">
-            <button class="btn btn-roxo text-uppercase w-75" type="submit">
+        <div class="my-4 d-flex justify-content-end flex-wrap">
+            <button class="btn btn-roxo text-uppercase w-75 mb-3" type="submit">
               Comprar
             </button>
-          </div>
+         
+            <button type="button" class="btn btn-cinza text-uppercase w-75" (click)="voltarCatalogo()">
+              <i class="fa fa-arrow-alt-circle-left"></i>
+              Voltar
+            </button>
         </div>
+      </div>
+      {{ carrinho | json }}
     </form>
   </div>
 
