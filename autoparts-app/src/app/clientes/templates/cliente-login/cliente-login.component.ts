@@ -12,7 +12,7 @@ import { LoginService } from 'src/app/services/login/login.service';
   templateUrl: './cliente-login.component.html',
   styleUrls: ['./cliente-login.component.scss']
 })
-export class ClienteLoginComponent implements OnInit{
+export class ClienteLoginComponent implements OnInit {
   pessoa: Pessoa;
 
   sucessoFeedback: boolean = false;
@@ -25,56 +25,38 @@ export class ClienteLoginComponent implements OnInit{
     this.pessoa = new Pessoa();
   }
   ngOnInit(): void {
-    this.validarToken();
   }
 
   login() {
-    this.service.login(this.pessoa).subscribe(
-      (token: string) => {
-        localStorage.setItem('authToken', token);
-        this.validarToken();
-      },
-      (error) => {
-        this.pessoa = new Pessoa();
-        this.sucessoFeedback = true;
-        this.errorsFeedback = 'Erro! email e/ou senhas não encontrados!';
-        setTimeout(() => {
-          this.sucessoFeedback = false;
-          this.errorsFeedback = ''; // Limpa a mensagem de erro
-        }, 7000);
-      }
-    );
-  }
-
-  validarToken() {
-    const token = localStorage.getItem('authToken');
-    if (token) {
-      this.service.validarToken(token).subscribe(
-        (pessoa: Pessoa) => {
-          localStorage.setItem('authenticatedUser', JSON.stringify(pessoa));
-          this.authService.setAuthUser();
-
-          const tipoUser = this.authService.getTipoUser();
-          if (tipoUser == 'CLIENTE') {
-            this.router.navigate(['cliente/home']);
-          } else {
-            this.router.navigate(['funcionario']);
-          }
+      // Caso contrário, execute o login.
+      this.service.login(this.pessoa).subscribe(
+        (token: string) => {
+          this.authService.setToken(token.replace(/^"(.*)"$/, '$1'));
+          this.validarToken();
         },
         (error) => {
-          console.log(error);
           this.pessoa = new Pessoa();
           this.sucessoFeedback = true;
-          this.errorsFeedback = 'Erro! algum erro ao validar seu login ocorreu!';
+          this.errorsFeedback = 'Erro! email e/ou senhas não encontrados!';
           setTimeout(() => {
             this.sucessoFeedback = false;
             this.errorsFeedback = ''; // Limpa a mensagem de erro
-          }, 7000);
+          }, 7000); 
         }
       );
-    } else {
-      // Outras ações, se necessário
-    }
+    
+  }
+  
+
+  validarToken() {
+    this.authService.verificaToken();
+    const tipoUser = this.authService.getTipoUser();
+    if (tipoUser == 'CLIENTE') {
+      this.router.navigate(['cliente/home']);
+    } else if (tipoUser == 'FUNCIONARIO' || tipoUser == 'GERENTE') {
+      this.router.navigate(['funcionario']);
+    } else{}
+
   }
 
 
