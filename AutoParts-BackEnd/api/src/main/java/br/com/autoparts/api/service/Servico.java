@@ -9,8 +9,10 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException.NotFound;
 
 import br.com.autoparts.api.model.Cliente;
 import br.com.autoparts.api.model.Funcionario;
@@ -26,9 +28,8 @@ import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 
-@Service    
+@Service
 public class Servico implements IServico {
-
 
     private Key privateKey;
 
@@ -40,17 +41,22 @@ public class Servico implements IServico {
 
     @Autowired
     private FuncionarioRepositorio funcionarioRepositorio;
- 
+
+    public Servico() {
+        KeyPair keyPair = Keys.keyPairFor(SignatureAlgorithm.RS256);
+        privateKey = keyPair.getPrivate();
+    }
+
     public ResponseEntity<?> verificarUser(Pessoa p) {
         if (p.getEmail() == null || p.getSenha() == null) {
             retorno.setMensagem("Valores de senha ou/e email nulo!");
             return new ResponseEntity<>(retorno.getMensagem(), HttpStatus.BAD_REQUEST);
         } else {
-            List<Cliente> clienteByEmail = clienteRepositorio.findByEmail(p.getEmail());
+            Optional<Cliente> clienteByEmail = clienteRepositorio.findByEmail(p.getEmail());
             List<Cliente> clienteBySenha = clienteRepositorio.findBySenha(p.getSenha());
 
             if (!clienteByEmail.isEmpty() && !clienteBySenha.isEmpty()) {
-                return new ResponseEntity<>(clienteByEmail.get(0), HttpStatus.OK);
+                return new ResponseEntity<>(clienteByEmail.get(), HttpStatus.OK);
             }
 
             Optional<Funcionario> funcionariosByEmail = funcionarioRepositorio.findByEmail(p.getEmail());
@@ -64,91 +70,82 @@ public class Servico implements IServico {
         }
     }
 
+    public ResponseEntity<?> geraToken(Pessoa p) {
+        HttpStatus userVerificado = (HttpStatus) verificarUser(p).getStatusCode();
+        System.out.println(userVerificado);
+        if (HttpStatus.OK.equals(userVerificado)) {
+            try {
 
-        public ResponseEntity<?> geraToken(Pessoa p) {
-            HttpStatus userVerificado = (HttpStatus) verificarUser(p).getStatusCode();
-            System.out.println(userVerificado);
-            if (HttpStatus.OK.equals(userVerificado)) {
-                try {
+                int tokenExpirationMinutes = 30;
 
-                    // Defina a duração do token em minutos (exemplo: 30 minutos)
-                    int tokenExpirationMinutes = 30;
-        
-                    // Calcule a data de expiração com base na duração em minutos
-                    Date expirationDate = new Date(System.currentTimeMillis() + (tokenExpirationMinutes * 60000));
-        
-                   KeyPair keyPair = Keys.keyPairFor(SignatureAlgorithm.RS256);
-                    privateKey = keyPair.getPrivate();
-                    String token = Jwts.builder()
-                            .setSubject(p.getEmail()) 
-                            .setExpiration(expirationDate) 
-                            .signWith(keyPair.getPrivate())
-                            .compact();
-        
-             
-                        return ResponseEntity.ok("{\"token\": \"" + token + "\"}");           
+                Date expirationDate = new Date(System.currentTimeMillis() + (tokenExpirationMinutes * 60000));
 
-    
-                      
-                        } catch (Exception e) {
-                    // Em caso de erro na geração do token, você pode retornar uma resposta de erro adequada.
-                    return new ResponseEntity<>("Erro ao gerar o token.", HttpStatus.INTERNAL_SERVER_ERROR);
-                }
-                
-            } else {
-                // Caso o usuário não seja verificado, você pode retornar um erro ou outra resposta adequada.
-                return new ResponseEntity<>("Usuário não encontrado ou não autorizado.", HttpStatus.UNAUTHORIZED);
+                String token = Jwts.builder()
+                        .setSubject(p.getEmail())
+                        .setExpiration(expirationDate)
+                        .signWith(privateKey)
+                        .compact();
+
+                return ResponseEntity.ok(token);
+
+            } catch (Exception e) {
+                return new ResponseEntity<>("Erro ao gerar o token.", HttpStatus.INTERNAL_SERVER_ERROR);
             }
+
+        } else {
+            return new ResponseEntity<>("Usuário não encontrado ou não autorizado.", HttpStatus.UNAUTHORIZED);
         }
-        
+    }
 
     public ResponseEntity<?> validarToken(String token) throws SignatureException {
-        System.out.println(token);
+        System.out.println("Token " + token);
         try {
-            Claims claims =  Jwts.parserBuilder()
-            .setSigningKey(privateKey)
-            .build()
-            .parseClaimsJws(token)
-            .getBody();
-            // Verifique se o token ainda não expirou
+            Claims claims = Jwts.parserBuilder()
+                    .setSigningKey(privateKey)
+                    // define a chave de assinatura(criptografia)
+                    .build()
+                    // builda um jwtParser que é imutável e seguro
+                    .parseClaimsJws(token)
+                    // decoda o token
+                    .getBody();
+            // pega as infos
+
+            // verifica se o time stamp do token é valido
             Date expirationDate = claims.getExpiration();
             if (expirationDate.before(new Date())) {
                 return new ResponseEntity<>("Token expirado", HttpStatus.UNAUTHORIZED);
             }
+            // a variavel recebe o payload do token(email)
+            String email = claims.getSubject();
 
-           String email = claims.getSubject();
+            Optional<Funcionario> funcionario = funcionarioRepositorio.findByEmail(email);
+            // através do email procura por email um funcionario que corresponda esse dado
+            // se vazio procura um cliente
+            // e em fim retorna uma instancia de cliente/funcionario
 
-            Optional <Funcionario> funcionario =   funcionarioRepositorio.findByEmail(email);
-            System.out.println(funcionario);
-            if (funcionario != null){
-                  
-                return new ResponseEntity<>("Token válido para o usuário: " + email, HttpStatus.OK);
-
-            }else
-            {
-                Cliente cliente = (Cliente) clienteRepositorio.findByEmail(email);
-                    if (cliente != null){
-
-                        return new ResponseEntity<>("Token válido para o usuário: " + email, HttpStatus.OK);
-
+            if (funcionario.isPresent()) {
+                System.out.println("Funcionario exist: " + funcionario.get());
+                return new ResponseEntity<>(funcionario.get(), HttpStatus.OK);
+            } else {
+                Optional<Cliente> cliente = clienteRepositorio.findByEmail(email);
+                if (cliente.isPresent()) {
+                    System.out.println("Cliente exist" + cliente);
+                    return new ResponseEntity<>(cliente.get(), HttpStatus.OK);
 
                 }
             }
-            // Token válido
         } catch (ExpiredJwtException e) {
             return new ResponseEntity<>("Token expirado", HttpStatus.UNAUTHORIZED);
         } catch (MalformedJwtException e) {
             return new ResponseEntity<>("Token inválido", HttpStatus.UNAUTHORIZED);
+        } catch (Exception e) {
+            System.out.println("Exceção não tratada: " + e.getMessage());
+            return new ResponseEntity<>("Erro na validação do token", HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        catch (Exception e) {
-     return new ResponseEntity<>("Erro na validação do token", HttpStatus.INTERNAL_SERVER_ERROR);
-    }
-        
-        return null;
-      
-    }
-    
-}
-        
         
 
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
+    }
+
+}

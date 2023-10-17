@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Cliente } from 'src/app/model/cliente/cliente';
 import { Pecas } from 'src/app/model/pecas/pecas';
+import { TipoPessoa } from 'src/app/model/pessoa/enumPessoa';
 import { Venda } from 'src/app/model/venda/venda';
+import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 import { ClientesService } from 'src/app/services/cliente/clientes.service';
 import { PecaService } from 'src/app/services/pecas/peca.service';
 import { VendaService } from 'src/app/services/venda/venda.service';
@@ -16,14 +19,22 @@ export class ClienteCompraComponent implements OnInit {
   peca: Pecas;
   id?: number;
   itemID: any;
-
+  cliente: Cliente;
   sucessoFeedback: string = '';
   errorsFeedback?: string = '';
 
-  constructor(private router: Router, private ActivatedRoute: ActivatedRoute, private pecasService: PecaService, private clienteService: ClientesService, private vendaService: VendaService) {
+  constructor(private router: Router, private ActivatedRoute: ActivatedRoute, private pecasService: PecaService, private clienteService: ClientesService, private vendaService: VendaService,   private authService: AuthServiceService) {
     this.venda = new Venda();
     this.peca = new Pecas();
+    this.cliente = new Cliente;
+    const clienteLogado = authService.getAuthUser();
+    const tipoUser = authService.getTipoUser();
+    if (clienteLogado !== null && tipoUser !== undefined && tipoUser == 'CLIENTE') {
+      this.cliente = clienteLogado;
+    } else{
+      this.router.navigate(['cliente/login']);
 
+    }
   }
   ngOnInit(): void {
     this.ActivatedRoute.paramMap.subscribe(params => {
@@ -38,12 +49,11 @@ export class ClienteCompraComponent implements OnInit {
         }
       }
     )
-    console.log(this.itemID);
   }
 
   cadastrarVenda(){
 
-    this.venda.cliente.cliente_id = 1;
+    this.venda.cliente.cliente_id = this.cliente.cliente_id;
     this.venda.peca.pecas_id = this.peca.pecas_id;
     this.venda.peca.fornecedor.fornecedor_id = this.peca.fornecedor.fornecedor_id;
     this.vendaService.cadastrarVenda(this.venda).subscribe(

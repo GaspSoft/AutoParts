@@ -32,7 +32,6 @@ import { ClienteLoginComponent } from './templates/cliente-login/cliente-login.c
     CommonModule,
     ComponentsModule,
     ClientesRoutingModule,
-
     FormsModule,
     NgxMaskModule.forChild()
   ],

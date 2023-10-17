@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Etheme } from 'src/app/enums/Ethemes.enum';
 
 @Component({
   selector: 'navbar-funcionario',
@@ -11,7 +10,7 @@ export class NavbarFuncionarioComponent {
   public iconTheme: string = Etheme.ICON_MOON;
   public body = document.body.classList.toggle('light-theme');
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private authService: AuthServiceService) {
   }
 
   linkPainel():void {
@@ -46,5 +45,10 @@ export class NavbarFuncionarioComponent {
       body.classList.add('light-theme');
       this.iconTheme = Etheme.ICON_SUN;
     }
+  }
+
+  logoff(){
+    this.authService.clearAuthUser();
+    this.router.navigate(['/cliente/login']);
   }
 }

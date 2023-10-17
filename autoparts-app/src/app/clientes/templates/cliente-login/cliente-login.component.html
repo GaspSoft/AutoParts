@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <div class="alert alert-danger" role="alert" *ngIf="errorsFeedback">
+    <div class="alert alert-danger" role="alert" *ngIf="errorsFeedback" >
       {{ errorsFeedback }}
     </div>
   </div>
@@ -36,17 +36,6 @@
     </div>
 
     <div>
-      <div class="row d-flex justify-content-center">
-        <div class="col-3 w-50">
-          <div class="form-check">
-            <input class="form-check-input" type="radio"
-              name="flexRadioDefault" id="flexRadioDefault1" [value]="true">
-            <label class="form-check-label mt-1 ps-2 terms" for="flexRadioDefault1">
-              Matenha-me Conectado
-            </label>
-          </div>
-        </div>
-      </div>
 
       <div class="row d-flex justify-content-center my-3">
         <div class="col-3 w-50 text-center">
@@ -64,6 +53,7 @@
     </div>
 
   </form>
+
     <div class="row d-inline justify-content-center">
       <div class="col-3 w-100 text-center">
         <a class="terms cursor-pointer" (click)="linkClienteCadastro()">Não é um membro? <u><strong>Junte-se a nós</strong></u></a>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Funcionario } from 'src/app/model/funcionario/funcionario';
+import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 import { FuncionariosService } from 'src/app/services/funcionario/funcionarios.service';
 
 @Component({
@@ -20,8 +21,16 @@ export class FuncionariosListaComponent implements OnInit {
   constructor(
     private service: FuncionariosService,
     private router: Router,
-    private funcionariosService: FuncionariosService,
-    ) { }
+    private funcionariosService: FuncionariosService,private authService: AuthServiceService
+    ) {
+      const clienteLogado = authService.getAuthUser();
+    const tipoUser = authService.getTipoUser();
+    if (clienteLogado !== null && tipoUser !== undefined && tipoUser == 'GERENTE') {
+    } else{
+      this.router.navigate(['cliente/login']);
+
+    }
+    }
 
   ngOnInit(): void {
     this.service.getFuncionarios().subscribe(

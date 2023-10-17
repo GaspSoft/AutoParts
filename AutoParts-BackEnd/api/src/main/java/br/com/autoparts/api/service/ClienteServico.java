@@ -1,6 +1,8 @@
 package br.com.autoparts.api.service;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,7 +32,7 @@ public class ClienteServico implements IClienteServico{
         if (cliente.getEndereco() != null) {
             // Verifica se já existe um cliente com o mesmo e-mail ou CPF
 
-            List<Cliente> clientesByEmail = clienteRepositorio.findByEmail(cliente.getEmail());
+            Optional<Cliente> clientesByEmail = clienteRepositorio.findByEmail(cliente.getEmail());
             List<Cliente> clientesBySenha = clienteRepositorio.findByCpf(cliente.getCpf());
             if(cliente.getCpf() == null) {
                 retorno.setMensagem("Insira um CPF.");
