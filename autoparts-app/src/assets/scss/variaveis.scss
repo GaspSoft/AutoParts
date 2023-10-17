@@ -1,4 +1,4 @@
-:root .light-theme{
+:root {
   --roxo-escuro: #380972 !important;
   --roxo-claro: #6500E4 !important;
   --perm-branco: #FFFFFF !important;
@@ -13,27 +13,23 @@
   --linear-corrente-amarelo: linear-gradient(to right, #d1a318 0%, #F6CE55 51%, #d1a318 100%) !important;
   --linear-corrente-vermelho: linear-gradient(to right, #C63637 0%, #FF6961 51%, #C63637 100%) !important;
   --linear-corrente-azul: linear-gradient(to right, #5086c1 0%, #84b6f4 51%, #5086c1 100%) !important;
-  --linear-navbar: linear-gradient(to right, #342A41, #6500e4, #342A41, #6500e4, #342A41);
-  --linear-sidebar: linear-gradient(to top, #342A41, #6500e4, #342A41, #6500e4, #342A41);
 }
 
-:root .dark-theme{
-  --roxo-escuro: #9835C5 !important;
-  --roxo-claro: #D16DF9 !important;
+:root .dark-theme {
+  --roxo-escuro: #6500E4 !important;
+  --roxo-claro: #380972 !important;
   --perm-branco: #FFFFFF !important;
   --branco: #4d4d4d !important;
   --preto: #fdfdfd !important;
   --cinza: #7a7a7a !important;
   --cinza-claro: #2b2b2b !important;
   --cinza-escuro: #d4d4d4 !important;
-  --linear: linear-gradient(to right, #9835C5 0%, #D16DF9 100%) !important;
-  --linear-corrente: linear-gradient(to right, #CC5EE0 0%, #F19CDF 51%, #CC5EE0 100%) !important;
+  --linear: linear-gradient(to right, #380972 0%, #6500E4 100%) !important;
+  --linear-corrente: linear-gradient(to right, #380972 0%, #6500E4 51%, #380972 100%) !important;
   --linear-corrente-cinza: linear-gradient(to right, #555555 0%, #afafaf 51%, #555555 100%) !important;
   --linear-corrente-amarelo: linear-gradient(to right, #d1a318 0%, #F6CE55 51%, #d1a318 100%) !important;
   --linear-corrente-vermelho: linear-gradient(to right, #C63637 0%, #FF6961 51%, #C63637 100%) !important;
   --linear-corrente-azul: linear-gradient(to right, #5086c1 0%, #84b6f4 51%, #5086c1 100%) !important;
-  --linear-navbar: linear-gradient(to right, #9835C5, #D16DF9, #9835C5, #D16DF9, #9835C5);
-  --linear-sidebar: linear-gradient(to top, #9835C5, #D16DF9, #9835C5, #D16DF9, #9835C5);
 }
 
 .btn-roxo {
@@ -186,15 +182,13 @@ color: var(--roxo-claro) !important;
 }
 
 .bg-roxo-animado {
-  background-image: var(--linear-navbar);
+  background: var(--roxo-claro) !important;
   background-size: 200% auto;
-  animation: animationRoxo 5s linear infinite;
 }
 
 .bg-roxo-animado-top {
-  background-image: var(--linear-sidebar);
+  background: var(--roxo-claro) !important;
   background-size: 100% 200%;
-  animation: animationRoxoTop 3s linear infinite;
 }
 
 .text {
@@ -206,25 +200,4 @@ color: var(--roxo-claro) !important;
   font-size: 30vh;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-
-@keyframes animationRoxoTop {
-  0% {
-    background-position: 0% 100%;
-  }
-
-  100% {
-    background-position: 0% 0%;
-  }
-}
-
-@keyframes animationRoxo {
-  0% {
-    background-position: 0% 0%;
-  }
-
-  100% {
-    background-position: 200% 0%;
-  }
 }

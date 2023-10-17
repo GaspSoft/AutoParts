@@ -10,7 +10,6 @@ import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 })
 export class NavbarFuncionarioComponent {
   public iconTheme: string = Etheme.ICON_MOON;
-  public body = document.body.classList.toggle('light-theme');
 
   constructor(private router: Router, private authService: AuthServiceService) {
   }
@@ -38,13 +37,11 @@ export class NavbarFuncionarioComponent {
   public toggle() {
     const body = document.body;
 
-    if (body.classList.contains('light-theme')) {
-      body.classList.remove('light-theme');
+    if (!body.classList.contains('dark-theme')) {
       body.classList.add('dark-theme');
       this.iconTheme = Etheme.ICON_MOON;
     } else if (body.classList.contains('dark-theme')) {
       body.classList.remove('dark-theme');
-      body.classList.add('light-theme');
       this.iconTheme = Etheme.ICON_SUN;
     }
   }

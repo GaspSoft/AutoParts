@@ -8,12 +8,13 @@ html, body {
     padding: 0;
     font-family: 'Poppins', sans-serif;
     background: var(--branco);
+    min-height: 40vh;
 }
 
 body::-webkit-scrollbar {
     display: none;
 }
 
-* {
-    transition: all .3s ease-in-out;
+main {
+    background: var(--branco);
 }
