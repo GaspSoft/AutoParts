@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Etheme } from 'src/app/enums/Ethemes.enum';
+import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 
 @Component({
   selector: 'navbar-funcionario',
