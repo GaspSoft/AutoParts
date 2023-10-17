@@ -1,25 +1,12 @@
-<div class="container-fluid d-flex mx-2 height-full">
-  <section class="separate1 p-5 mt-5">
-    <button class="btn text-start text-filter w-100">Turbinas</button>
-    <button class="btn text-start text-filter w-100">Freios</button>
-    <button class="btn text-start text-filter w-100">Transmissão</button>
-    <button class="btn text-start text-filter w-100">Motor</button>
-    <button class="btn text-start text-filter w-100">Amortecedor</button>
-    <button class="btn text-start text-filter w-100">Bateria</button>
-    <button class="btn text-start text-filter w-100">Direção</button>
-    <button class="btn text-start text-filter w-100">Cilindros</button>
-    <button class="btn text-start text-filter w-100">Câmbio</button>
-    <button class="btn text-start text-filter w-100">Embreagem</button>
-    <button class="btn text-start text-filter w-100">Suspensão</button>
-    <button class="btn text-start text-filter w-100">Correias</button>
-    <hr class="row-hr">
-  </section>
-  <section class="separate2 mx-4 mt-2">
+<div class="container height-full">
     <div class="d-flex justify-content-between">
       <h1 class="fs-2 my-4 mx-4 title">LOJA</h1>
-      <input class="form-control my-3 w-25" type="search" placeholder="Pesquisar..." aria-label="Search" [(ngModel)]="searchText">
+      <div class="form-floating my-3">
+        <input class="form-control w-100 justify-content-end" type="search" placeholder="Pesquisar..." [(ngModel)]="searchText" id="floatingInput">
+      <label for="floatingInput" class="form-label">Pesquisar</label>
+      </div>
     </div>
-    <hr class="row-hr">
+    <hr class="row-hr m-0">
     <div class="row row-cols-1 row-cols-5 g-3">
       <div *ngFor="let peca of pecas" class="d-flex my-4 mx-0">
         <div class="card w-100">
@@ -38,5 +25,4 @@
         </div>
       </div>
     </div>
-  </section>
 </div>

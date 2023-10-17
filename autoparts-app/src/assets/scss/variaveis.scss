@@ -13,6 +13,10 @@
   --linear-corrente-amarelo: linear-gradient(to right, #d1a318 0%, #F6CE55 51%, #d1a318 100%) !important;
   --linear-corrente-vermelho: linear-gradient(to right, #C63637 0%, #FF6961 51%, #C63637 100%) !important;
   --linear-corrente-azul: linear-gradient(to right, #5086c1 0%, #84b6f4 51%, #5086c1 100%) !important;
+  --letras: #fdfdfd !important;
+  --search: #ececec !important;
+  --search-color: #6500E4 !important;
+  --form-control: #6500E4 !important;
 }
 
 :root .dark-theme {
@@ -30,13 +34,17 @@
   --linear-corrente-amarelo: linear-gradient(to right, #d1a318 0%, #F6CE55 51%, #d1a318 100%) !important;
   --linear-corrente-vermelho: linear-gradient(to right, #C63637 0%, #FF6961 51%, #C63637 100%) !important;
   --linear-corrente-azul: linear-gradient(to right, #5086c1 0%, #84b6f4 51%, #5086c1 100%) !important;
+  --letras: #fdfdfd !important;
+  --search: #777777 !important;
+  --search-color: #6500E4 !important;
+  --form-control: #fdfdfd !important;
 }
 
 .btn-roxo {
   background-image: var(--linear-corrente);
   background-size: 200% auto;
   transition: 500ms ease-in-out;
-  color: var(--branco);
+  color: var(--letras);
 }
 
 .btn-roxo:hover {
@@ -47,7 +55,7 @@
   background-image: var(--linear-corrente-cinza);
   background-size: 200% auto;
   transition: 500ms ease-in-out;
-  color: var(--branco);
+  color: var(--letras);
 }
 
 .btn-cinza:hover {
@@ -69,7 +77,7 @@
   background-image: var(--linear-corrente-vermelho);
   background-size: 200% auto;
   transition: 500ms ease-in-out;
-  color: var(--branco);
+  color: var(--letras);
 }
 
 .btn-vermelho:hover {
@@ -127,19 +135,24 @@
 }
 
 .form-check-input:hover {
-border: 2px solid var(--roxo-claro);
+  border: 2px solid var(--roxo-claro);
 }
 
 .form-check-input:checked::before {
-transform: scale(1);
+  transform: scale(1);
 }
 
 .form-control:not(:placeholder-shown) {
-transition: 2s;
-border: 1px solid var(--roxo-claro);
-color: var(--roxo-claro) !important;
+  transition: 2s;
+  border: 1px solid var(--form-control);
+  color: var(--form-control) !important;
+  background: var(--search) !important;;
 }
 
+.form-control {
+  background: var(--search) !important;
+  border: 1px solid var(--letras);
+}
 
 .columns-list {
   color: var(--roxo-claro);

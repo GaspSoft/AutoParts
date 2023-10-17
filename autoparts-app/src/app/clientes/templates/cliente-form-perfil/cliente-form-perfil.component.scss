@@ -16,12 +16,6 @@
     color: var(--preto);
 }
 
-.form-control:not(:placeholder-shown) {
-    transition: 2s;
-    border: 1px solid var(--roxo-claro);
-    color: var(--roxo-claro) !important;
-}
-
 .col-2 {
     display: grid;
     width: 100%;
@@ -33,9 +27,9 @@
 
 .form-control {
     background: var(--branco);
-  }
+}
   
-  .form-label {
-    color: var(--cinza-escuro);
-  }
+.form-label {
+ color: var(--cinza-escuro);
+}
 

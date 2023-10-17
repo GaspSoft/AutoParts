@@ -20,12 +20,6 @@
   cursor: pointer;
 }
 
-.form-control:not(:placeholder-shown) {
-  transition: 2s;
-  border: 1px solid var(--roxo-claro);
-  color: var(--roxo-claro) !important;
-}
-
 .form-check-input {
   margin-left: 0;
   margin-bottom: 1.2%;
@@ -58,10 +52,6 @@
 
 .form-check-input:checked::before {
   transform: scale(1);
-}
-
-.form-control {
-  background: var(--branco);
 }
 
 .form-label {

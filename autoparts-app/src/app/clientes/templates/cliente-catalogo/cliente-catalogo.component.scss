@@ -1,27 +1,20 @@
 @import '../../../../assets/scss/variaveis.scss';
 
+.container {
+  min-height: 55vh;
+}
+
 .title {
   font-weight: 600;
+  color: var(--preto);
 }
 
 .row-hr {
-  border: 1px solid var(--cinza-claro);
-}
-
-.separate1 {
-  width: 15%;
-}
-
-.separate2 {
-  width: 100%;
+  border: 1px solid var(--cinza-escuro);
 }
 
 .text-filter {
   color: var(--cinza);
-}
-
-.form-control {
-  background-color: var(--branco);
 }
 
 .card{
@@ -40,9 +33,4 @@
   max-height: 250px;
   border-bottom: 1px solid var(--cinza-claro);
   transition: 500ms ease-in-out;
-}
-
-.form-control:focus {
-  box-shadow: none;
-  border: 1px solid var(--roxo-claro);
 }
