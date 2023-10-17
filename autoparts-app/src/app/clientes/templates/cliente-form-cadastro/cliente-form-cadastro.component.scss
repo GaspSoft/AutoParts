@@ -12,6 +12,10 @@
     color: var(--cinza-escuro);
 }
 
+.form-control {
+  background-color: var(--branco);
+}
+
 .form-control:not(:placeholder-shown) {
   transition: 2s;
   border: 1px solid var(--roxo-claro);

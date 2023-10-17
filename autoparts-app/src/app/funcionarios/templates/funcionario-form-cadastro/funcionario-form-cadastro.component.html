@@ -1,4 +1,4 @@
-<div class="container w-50">
+<div class="container w-50 my-5">
   <div class="row d-flex justify-content-center">
     <img src="/assets/img/LogoSemFundo.png" class="w-25 h-25 mb-3" alt="">
     <p class="p-title text-center mb-2">TORNE-SE UM <br>FUNCIONÁRIO AUTOPARTS</p>
@@ -47,7 +47,7 @@
     <div class="row d-flex justify-content-center">
       <div class="col-6">
         <div class="form-floating mb-3">
-          <input type="text" [(ngModel)]="funcionario.senha" name="senha" class="form-control" id="floatingInput"
+          <input type="password" [(ngModel)]="funcionario.senha" name="senha" class="form-control" id="floatingInput"
             placeholder="Senha">
           <label for="floatingInput">Senha</label>
         </div>
@@ -97,7 +97,5 @@
         </button>
       </div>
     </div>
-
-    {{ funcionario | json }}
   </form>
 </div>

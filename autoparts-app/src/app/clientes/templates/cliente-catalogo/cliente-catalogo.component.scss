@@ -20,9 +20,14 @@
   color: var(--cinza);
 }
 
+.form-control {
+  background-color: var(--branco);
+}
+
 .card{
   width: 80%;
   transition: 500ms ease-in-out;
+  background-color: var(--branco);
 }
 
 .card:hover, .card:hover .card-img-top {
