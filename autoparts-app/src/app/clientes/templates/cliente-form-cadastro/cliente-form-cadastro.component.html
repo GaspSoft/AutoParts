@@ -59,14 +59,14 @@
     <div class="row d-flex justify-content-center">
       <div class="col-3">
         <div class="form-floating mb-3">
-          <input type="text" [(ngModel)]="cliente.endereco.cep" name="cep" class="form-control" id="floatingInput"
-            placeholder="CEP" mask="00000-000">
+          <input type="text" [(ngModel)]="cliente.endereco.cep" class="form-control" id="floatingInput"
+            placeholder="CEP" mask="00000-000" ngModel #cep="ngModel" (blur)="consultaCEP(applyFilter($event), clienteForm)">
           <label for="floatingInput">CEP</label>
         </div>
       </div>
       <div class="col-3">
         <div class="form-floating mb-3">
-          <select class="form-control" [ngModelOptions]="{ standalone: true }" [(ngModel)]="cliente.endereco.estado">
+          <select class="form-control" [ngModelOptions]="{ standalone: true }" name="uf" [(ngModel)]="cliente.endereco.estado" ngModel #uf="ngModel" >
             <option value="">Selecione</option>
             <option *ngFor="let estado of estados" [ngValue]="estado">
               {{ estado }}
@@ -81,7 +81,7 @@
       <div class="col-6">
         <div class="form-floating mb-3">
           <input type="text" [(ngModel)]="cliente.endereco.cidade" name="cidade" class="form-control" id="floatingInput"
-            placeholder="Cidade">
+            placeholder="Cidade" ngModel #cidade="ngModel" >
           <label for="floatingInput">Cidade</label>
         </div>
       </div>
@@ -91,7 +91,7 @@
       <div class="col-6">
         <div class="form-floating mb-3">
           <input type="text" [(ngModel)]="cliente.endereco.bairro" name="bairro" class="form-control" id="floatingInput"
-            placeholder="Bairro">
+            placeholder="Bairro" ngModel #bairro="ngModel" >
           <label for="floatingInput">Bairro</label>
         </div>
       </div>
@@ -100,8 +100,8 @@
     <div class="row d-flex justify-content-center">
       <div class="col-6">
         <div class="form-floating mb-3">
-          <input type="text" [(ngModel)]="cliente.endereco.rua" name="rua" class="form-control" id="floatingInput"
-            placeholder="Rua">
+          <input type="text" [(ngModel)]="cliente.endereco.rua" name="logradouro" class="form-control" id="floatingInput"
+            placeholder="Rua" ngModel #logradouro="ngModel" >
           <label for="floatingInput">Rua</label>
         </div>
       </div>

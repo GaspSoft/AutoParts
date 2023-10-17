@@ -3,6 +3,7 @@ import { Cliente } from 'src/app/model/cliente/cliente';
 import { ClientesService } from 'src/app/services/cliente/clientes.service';
 import { Router } from '@angular/router';
 import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
+import { CepService } from 'src/app/services/cep/cep.service';
 
 @Component({
   selector: 'cliente-form-cadastro',
@@ -15,7 +16,7 @@ export class ClienteFormCadastroComponent {
   sucessoFeedback: boolean = false;
   errorsFeedback?: string = '';
 
-  constructor(private service: ClientesService, private router: Router, private authService: AuthServiceService,) {
+  constructor(private service: ClientesService, private router: Router, private authService: AuthServiceService, private cepService: CepService) {
     enum TipoPessoa {
       CLIENTE
     }
@@ -47,6 +48,25 @@ export class ClienteFormCadastroComponent {
       }
     );
   }
+
+  consultaCEP(valor: any, form: any) {
+    this.cepService.buscarCEP(valor).subscribe((dados) => this.popularForm(dados, form));
+  }
+
+  popularForm(dados: any, form: any) {
+    form.setValue({
+      cep: dados.cep,
+      logradouro: dados.logradouro,
+      bairro: dados.bairro,
+      cidade: dados.localidade,
+      uf: dados.uf
+    })
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    return filterValue;
+}
 
   linkClienteLogin():void {
     this.router.navigate(['/cliente/login']);
