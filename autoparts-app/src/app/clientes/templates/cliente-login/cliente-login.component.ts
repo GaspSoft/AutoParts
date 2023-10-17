@@ -56,6 +56,6 @@ export class ClienteLoginComponent implements OnInit {
 }
   
   linkClienteCadastro(): void {
-    this.router.navigate(['/cliente/cadastrar-cliente']);
+    this.router.navigate(['/cliente/cadastrar']);
   }
 }

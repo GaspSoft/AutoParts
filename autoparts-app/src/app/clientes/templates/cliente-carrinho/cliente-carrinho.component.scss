@@ -1,11 +1,7 @@
 @import '../../../../assets/scss/variaveis.scss';
 
-.separate1 {
-    width: 70%;
-}
-
-.separate2 {
-    width: 30%;
+.full-page {
+    min-height: 50vh;
 }
 
 .title {
@@ -28,8 +24,22 @@
 .img-peca {
     min-width: 200px;
     max-width: 200px;
+    border-right: 2px solid $cinza-claro;
 }
 
 .item-carrinho {
-    border: 1px solid var(--roxo-claro);
+    border: 2px solid $cinza-claro;
+    border-radius: 1%;
+}
+
+.title-item {
+    color: $preto;
+}
+
+.desc-item {
+    color: $cinza-escuro;
+}
+
+.prec-item {
+    color: $cinza;
 }

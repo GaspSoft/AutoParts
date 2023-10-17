@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CarrinhoService {
-  listaCarrinho: number[] = [2, 1];
+  listaCarrinho: number[] = [];
   
   constructor() { }
 

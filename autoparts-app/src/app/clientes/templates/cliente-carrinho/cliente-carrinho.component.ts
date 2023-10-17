@@ -17,14 +17,14 @@ export class ClienteCarrinhoComponent implements OnInit {
   }
 
   ngOnInit() {
-    for (let i = 0; i < this.carrinho.length; i++) {
-      const itemId = this.carrinho[i];
+    this.pecas = [];
+    this.carrinhoService.listaCarrinho.forEach(itemId => {
       this.service.getPecaById(itemId).subscribe(
         response => {
           this.pecas.push(response);
         }
       );
-    }
+    });
   }
 
   getFotoUrl(peca: Pecas): string {
@@ -32,5 +32,12 @@ export class ClienteCarrinhoComponent implements OnInit {
       return `data:image/jpeg;base64,${peca.base64}`;
     }
     return ''; // Ou uma URL de imagem padrão
+  }
+
+  removeCarrinho(index: number) {
+    if (index >= 0 && index < this.pecas.length) {
+      this.carrinho.splice(index, 1);
+      this.ngOnInit();
+    }
   }
 }

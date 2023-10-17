@@ -67,6 +67,9 @@ export class ClienteCompraComponent implements OnInit {
   addCarrinho() {
     if (this.itemID && this.carrinho.indexOf(this.itemID) === -1) {
       this.carrinho.push(this.itemID);
+      this.sucessoFeedback = 'Peça adicionada ao Carrinho!';
+    } else {
+      this.errorsFeedback = 'Não foi possível adicionadar a Peça ao Carrinho!';
     }
   }
 

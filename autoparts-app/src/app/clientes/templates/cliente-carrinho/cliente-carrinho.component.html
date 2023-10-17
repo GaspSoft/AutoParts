@@ -1,19 +1,20 @@
-<div class="container mt-5 pt-2 d-flex">
-  <section class="separate1">
+<div class="container mt-5 pt-2 d-flex full-page">
+  <section class="col-8">
     <div class="container">
       <h1 class="title px-4 fs-3">Carrinho</h1>
       <hr class="row-hr">
     </div>
-    <div *ngFor="let peca of pecas" class="d-flex item-carrinho">
-      <img class="img-peca mx-5" data-options="zoomPosition:inner;hint:off;" *ngIf="peca.base64" [src]="getFotoUrl(peca)" alt="Foto da Peça"/>
-      <div>
-        <h1>{{ peca.nome }}</h1>
-        <h2>{{ peca.descricao }}</h2>
-        <h4>{{ peca.preco }}</h4>
+    <div *ngFor="let peca of pecas; let i = index" class="d-flex item-carrinho my-2 mx-4">
+      <img class="img-peca" data-options="zoomPosition:inner;hint:off;" *ngIf="peca.base64" [src]="getFotoUrl(peca)" alt="Foto da Peça"/>
+      <div class="mx-4 my-2">
+        <h1 class="title-item">{{ peca.nome }}</h1>
+        <h2 class="desc-item">{{ peca.descricao }}</h2>
+        <h4 class="prec-item">{{ peca.preco | currency:'BRL':'symbol':'1.2-2' }}</h4>
+        <button class="btn btn-roxo" (click)="removeCarrinho(i)"><i class="bi bi-trash3-fill"></i></button>
       </div>
     </div>
   </section>
-  <section class="separate2">
+  <section class="col">
     <div>
       <h1 class="title p-3 fs-4">Seu Pedido</h1>
       <div class="d-inline">
@@ -35,6 +36,5 @@
         </button>
       </div>
     </div>
-    {{ carrinho | json }}
   </section>
 </div>
