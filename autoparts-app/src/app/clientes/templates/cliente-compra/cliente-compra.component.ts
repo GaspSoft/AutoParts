@@ -21,7 +21,12 @@ export class ClienteCompraComponent implements OnInit {
   sucessoFeedback: string = '';
   errorsFeedback?: string = '';
 
-  constructor(private router: Router, private ActivatedRoute: ActivatedRoute, private pecasService: PecaService, private clienteService: ClientesService, private vendaService: VendaService, private carrinhoService: CarrinhoService) {
+  constructor(private router: Router, 
+    private ActivatedRoute: ActivatedRoute, 
+    private pecasService: PecaService, 
+    private clienteService: ClientesService, 
+    private vendaService: VendaService, 
+    private carrinhoService: CarrinhoService) {
     this.venda = new Venda();
     this.peca = new Pecas();
     this.carrinho = this.carrinhoService.listaCarrinho;

@@ -31,10 +31,11 @@
     <hr class="row-hr">
     <div class="row d-flex justify-content-center">
       <div class="px-5">
-        <button class="btn btn-roxo w-100 text-uppercase p-2" type="submit">
+        <button class="btn btn-roxo w-100 text-uppercase p-2" type="submit" (click)="comprarItens()">
           Comprar
         </button>
       </div>
     </div>
+    {{ pecas | json }}
   </section>
 </div>

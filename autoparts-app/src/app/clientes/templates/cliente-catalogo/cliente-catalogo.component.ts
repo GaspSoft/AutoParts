@@ -17,7 +17,7 @@ export class ClienteCatalogoComponent implements OnInit {
   ngOnInit(): void {
     this.service.getPecas().subscribe(
       response => {
-        this.pecas = response;
+        this.pecas = response.filter(peca => peca.quantidade > 0);
       }
     )
   }
@@ -31,6 +31,6 @@ export class ClienteCatalogoComponent implements OnInit {
 
   comprarPeca(pecas_id: number): void {
     this.service.setPecaId(pecas_id);
-    this.router.navigate([`cliente/compra/${pecas_id}`])
+    this.router.navigate([`cliente/compra/${pecas_id}`]);
   }
 }
