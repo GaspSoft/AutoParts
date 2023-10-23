@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 import { ClientesService } from 'src/app/services/cliente/clientes.service';
 
 @Component({
@@ -13,8 +14,16 @@ export class ClienteDetalhesComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private service: ClientesService,
-    private router: Router
-  ) {}
+    private router: Router, private authService: AuthServiceService
+  ) {
+    const clienteLogado = authService.getAuthUser();
+    const tipoUser = authService.getTipoUser();
+    if (clienteLogado !== null && tipoUser !== undefined && tipoUser == 'GERENTE') {
+    } else{
+      this.router.navigate(['cliente/login']);
+
+    }
+  }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {

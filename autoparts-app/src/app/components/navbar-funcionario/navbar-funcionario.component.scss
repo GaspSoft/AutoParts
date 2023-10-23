@@ -1,7 +1,7 @@
-@import '../../../assets/scss/variaveis.scss';
+@import "../../../assets/scss/variaveis.scss";
 
 nav {
-    margin-bottom: 1%;
+  margin-bottom: 1%;
 }
 
 .nav-item a {
@@ -9,66 +9,75 @@ nav {
 }
 
 .navbar-logo {
-    height: 30px;
-    width: 33px;
-    margin-left: 5%;
-    margin-right: 5%;
+  height: 30px;
+  width: 33px;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .navbar-brand {
-    color: $branco;
+  color: var(--perm-branco);
 }
 
 .navbar-toggler-icon {
-
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
 .navbar-toggler {
-  border: 1px solid $branco;
+  border: 1px solid var(--perm-branco);
   box-shadow: none;
 }
 
-.offcanvas  {
+.offcanvas {
   border-top-left-radius: 1%;
   border-bottom-left-radius: 1%;
   box-shadow: 20px 20px 20px 20px;
-  border-left: 1px solid $cinza;
+  border-left: 1px solid var(--cinza);
 }
 
 .menu-logo {
-    height: 30px;
-    width: 35px;
-    margin-top: -1%;
-    margin-right: 2%;
+  height: 30px;
+  width: 35px;
+  margin-top: -1%;
+  margin-right: 2%;
 }
 
 .offcanvas-title {
-    padding-top: 3%;
-    justify-content: center;
-    display: flex;
-    font-size: 22px;
-    font-weight: 500;
-    color: $branco;
-    width: 100%;
+  padding-top: 3%;
+  justify-content: center;
+  display: flex;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--perm-branco);
+  width: 100%;
 }
 
 .nav-link {
-    padding-left: 3%;
-    font-size: 18px;
-    color: $branco;
-    border-radius: 10px;
-    transition: 1s;
-    height: 35px;
-    margin-bottom: 3%;
+  padding-left: 3%;
+  font-size: 18px;
+  color: var(--perm-branco) !important;
+  border-radius: 10px;
+  transition: 1s;
+  height: 35px;
+  margin-bottom: 3%;
 }
 
 .nav-link:hover {
-    transition: 0.2s;
-    background: $branco;
-    color: $roxo-escuro;
-    border-radius: 10px;
+  transition: 0.2s;
+  background: var(--perm-branco);
+  color: var(--roxo-claro) !important;
+  border-radius: 10px;
 }
 
 .svg {
-    padding-right: 4% !important;
+  padding-right: 4% !important;
+}
+
+.btn-logoff {
+  height: 50px;
+  width: 50px;
+}
+
+.btn-dark-light {
+  height: 50px;
+  width: 50px;
 }

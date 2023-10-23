@@ -1,10 +1,8 @@
 @import '../../../../assets/scss/variaveis.scss';
 
 .title {
-  font-size: 28px;
+  color: var(--preto);
   letter-spacing: 1px;
-  font-weight: 600;
-  text-transform: uppercase;
 }
 
 .sec1 {
@@ -17,22 +15,20 @@
 }
 
 .subtitle {
-  font-size: 22px;
-  font-weight: 600;
-  text-transform: uppercase;
+  color: var(--preto);
 }
 
 .write-text {
   font-size: 18px;
   font-weight: 400;
-  color: $cinza;
+  color: var(--cinza);
   text-align: justify;
 }
 
 .last-text {
   font-size: 18px;
   font-weight: 400;
-  color: $cinza;
+  color: var(--cinza);
 }
 
 .write-text::first-letter {
@@ -40,24 +36,25 @@
 }
 
 .topics {
+  color: var(--cinza-escuro);
   font-size: 20px;
   font-weight: 500;
 }
 
 .row-vertical {
-  border-left: 2px solid $cinza-claro;
+  border-left: 2px solid var(--cinza-claro);
   height: 100%;
 }
 
-.icon {
-  font-size: 100px;
-  color: $cinza-escuro;
+.icons {
+  font-size: 140px;
+  color: var(--cinza-escuro);
 }
 
 .icons-text {
   font-size: 20px;
   font-weight: 500;
-  color: $cinza;
+  color: var(--cinza);
   text-decoration: underline;
 }
 
@@ -67,7 +64,7 @@
 }
 
 .border-maps {
-  border: 2px solid $cinza;
+  border: 2px solid var(--cinza);
   border-radius: 5px;
   height: 804px;
 }

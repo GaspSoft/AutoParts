@@ -10,11 +10,11 @@
 
 .subtitle {
     font-weight: 400;
-    color: $cinza;
+    color: var(--cinza);
 }
 
 .row-hr {
-    border: 1px solid $cinza-claro;
+    border: 1px solid var(--cinza-claro);
 }
 
 .btn {

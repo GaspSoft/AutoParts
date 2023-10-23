@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Fornecedor } from 'src/app/model/fornecedor/fornecedor';
+import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 import { FornecedorService } from 'src/app/services/fornecedor/fornecedor.service';
 
 @Component({
@@ -17,10 +18,16 @@ export class FornecedorFormCadastroComponent {
   constructor(
     private service: FornecedorService,
     private activatedRoute: ActivatedRoute,
-    private router: Router,
+    private router: Router, private authService: AuthServiceService
   ) {
     this.fornecedor = new Fornecedor();
+    const clienteLogado = authService.getAuthUser();
+    const tipoUser = authService.getTipoUser();
+    if (clienteLogado !== null && tipoUser !== undefined && tipoUser != 'CLIENTE') {
+    } else{
+      this.router.navigate(['cliente/login']);
 
+    }
   }
   ngOnInit(): void {
     this.id = this.service.getFornecedorId()

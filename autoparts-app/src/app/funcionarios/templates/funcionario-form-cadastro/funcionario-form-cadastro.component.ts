@@ -2,6 +2,7 @@ import { FuncionariosService } from './../../../services/funcionario/funcionario
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Funcionario } from 'src/app/model/funcionario/funcionario';
+import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 
 @Component({
   selector: 'app-funcionario-form-cadastro',
@@ -17,9 +18,16 @@ export class FuncionarioFormCadastroComponent implements OnInit {
   constructor(
     private service: FuncionariosService,
     private activatedRoute: ActivatedRoute,
-    private router: Router,
+    private router: Router, private authService: AuthServiceService
   ) {
     this.funcionario = new Funcionario();
+    const clienteLogado = authService.getAuthUser();
+    const tipoUser = authService.getTipoUser();
+    if (clienteLogado !== null && tipoUser !== undefined && tipoUser == 'GERENTE') {
+    } else{
+      this.router.navigate(['cliente/login']);
+
+    }
 
   }
   ngOnInit(): void {

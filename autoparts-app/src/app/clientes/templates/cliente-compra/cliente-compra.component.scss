@@ -1,7 +1,8 @@
 @import '../../../../assets/scss/variaveis.scss';
+
 .subtitle {
     font-weight: 400;
-    color: $cinza;
+    color: var(--cinza);
 }
 
 .img-logo {
@@ -14,7 +15,7 @@
   min-width: 900px;
   max-height: 500px;
   max-width: 900px;
-  border: 3px solid $cinza-claro;
+  border: 3px solid var(--cinza-claro);
   border-radius: 5%;
 }
 
@@ -27,7 +28,7 @@
 }
 
 .card-body {
-  border: 1px solid $cinza-claro;
+  border: 1px solid var(--cinza-claro);
   border-radius: 5%;
 }
 

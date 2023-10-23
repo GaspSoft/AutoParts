@@ -1,11 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Pecas } from 'src/app/model/pecas/pecas';
-import { Venda } from 'src/app/model/venda/venda';
-import { CarrinhoService } from 'src/app/services/carrinho/carrinho.service';
-import { ClientesService } from 'src/app/services/cliente/clientes.service';
-import { PecaService } from 'src/app/services/pecas/peca.service';
-import { VendaService } from 'src/app/services/venda/venda.service';
+import { Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 
 @Component({
   selector: 'app-cliente-carrinho',
@@ -20,15 +16,13 @@ export class ClienteCarrinhoComponent implements OnInit {
   sucessoFeedback: string = '';
   errorsFeedback?: string = '';
 
-  constructor(
-    private service: PecaService,
-    private carrinhoService: CarrinhoService,
-    private clienteService: ClientesService,
-    private vendaService: VendaService
-  ) {
-    this.carrinho = this.carrinhoService.listaCarrinho;
-    this.venda = new Venda();
-    this.peca = new Pecas();
+  constructor( private authService: AuthServiceService,  private router: Router) {
+    const clienteLogado = authService.getAuthUser();
+    const tipoUser = authService.getTipoUser();
+    if (clienteLogado !== null && tipoUser !== undefined && tipoUser == 'CLIENTE') {}
+    else{
+      this.router.navigate(['cliente/login']);
+    }
   }
 
   ngOnInit() {

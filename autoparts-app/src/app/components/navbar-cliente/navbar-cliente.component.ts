@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Etheme } from 'src/app/enums/Ethemes.enum';
+import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 
 @Component({
   selector: 'navbar-cliente',
@@ -8,8 +10,10 @@ import { Router } from '@angular/router';
 })
 
 export class NavbarClienteComponent {
+  public iconTheme: string = Etheme.ICON_MOON;
+  public body = document.body.classList.toggle('light-theme');
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private authService: AuthServiceService) {
   }
 
   linkClienteCatalogo():void {
@@ -34,5 +38,24 @@ export class NavbarClienteComponent {
 
   linkClienteAjuda():void {
     this.router.navigate(['/cliente/ajuda']);
+  }
+
+  public toggle() {
+    const body = document.body;
+
+    if (body.classList.contains('light-theme')) {
+      body.classList.remove('light-theme');
+      body.classList.add('dark-theme');
+      this.iconTheme = Etheme.ICON_MOON;
+    } else if (body.classList.contains('dark-theme')) {
+      body.classList.remove('dark-theme');
+      body.classList.add('light-theme');
+      this.iconTheme = Etheme.ICON_SUN;
+    }
+  }
+
+  logoff(){
+    this.authService.clearAuthUser();
+    this.router.navigate(['/cliente/login']);
   }
 }

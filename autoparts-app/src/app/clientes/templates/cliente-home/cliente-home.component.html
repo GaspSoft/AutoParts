@@ -44,7 +44,6 @@
           <div *ngFor="let peca of pecas; let i = index" class="carousel-item" [class.active]="i === 0">
             <img [src]="getFotoUrl(peca)" class="d-block w-100" alt="Imagem da Peça">
             <div class="carousel-caption d-none d-md-block">
-              <h1>R$ {{ peca.preco }}</h1>
               <div class="row d-flex justify-content-center">
                 <div class="col-6">
                   <button class="btn btn-roxo w-100 text-uppercase" type="submit">
@@ -66,69 +65,69 @@
       <div class=" container d-flex justify-content-evenly text-center">
         <div class="m-5">
           <i class="bi bi-boxes icons fs-1 px-2 py-1 mb"></i>
-          <h5 class="title-exeperience fs-5 mt-3">Preparação do Pedido</h5>
+          <h5 class="text-armazem fs-5 mt-3">Preparação do Pedido</h5>
         </div>
         <div class="pt-5">
           <i class="bi bi-arrow-right arrow-icon"></i>
         </div>
         <div class="m-5">
           <i class="bi bi-box-seam-fill icons fs-1 px-2 py-1"></i>
-          <h5 class="title-exeperience fs-5 mt-3">Embalagem</h5>
+          <h5 class="text-armazem fs-5 mt-3">Embalagem</h5>
         </div>
         <div class="pt-5">
           <i class="bi bi-arrow-right arrow-icon"></i>
         </div>
         <div class="m-5">
           <i class="bi bi-ticket-perforated-fill icons fs-1 px-2 py-1"></i>
-          <h5 class="title-exeperience fs-5 mt-3">Geração de Etiqueta de Envio</h5>
+          <h5 class="text-armazem fs-5 mt-3">Geração de Etiqueta de Envio</h5>
         </div>
         <div class="pt-5">
           <i class="bi bi-arrow-right arrow-icon"></i>
         </div>
         <div class="m-5">
           <i class="bi bi-truck-flatbed icons fs-1 px-2 py-1"></i>
-          <h5 class="title-exeperience fs-5 mt-3">Escolha do Transportador</h5>
+          <h5 class="text-armazem fs-5 mt-3">Escolha do Transportador</h5>
           <i class="bi bi-arrow-down arrow-icon position-relative down"></i>
         </div>
       </div>
       <div class="d-flex justify-content-evenly text-center">
         <div class="m-5">
           <i class="bi bi-headset icons fs-1 px-2 py-1 mb"></i>
-          <h5 class="title-exeperience fs-5 mt-3">Suporte ao Cliente</h5>
+          <h5 class="text-armazem fs-5 mt-3">Suporte ao Cliente</h5>
         </div>
         <div class="pt-5">
           <i class="bi bi-arrow-left arrow-icon"></i>
         </div>
         <div class="m-5">
           <i class="bi bi-check-circle icons fs-1 px-2 py-1"></i>
-          <h5 class="title-exeperience fs-5 mt-3">Entrega ao Cliente</h5>
+          <h5 class="text-armazem fs-5 mt-3">Entrega ao Cliente</h5>
         </div>
         <div class="pt-5">
           <i class="bi bi-arrow-left arrow-icon"></i>
         </div>
         <div class="m-5">
           <i class="bi bi-geo-alt-fill icons fs-1 px-2 py-1"></i>
-          <h5 class="title-exeperience fs-5 mt-3">Rastreamento e Transporte</h5>
+          <h5 class="text-armazem fs-5 mt-3">Rastreamento e Transporte</h5>
         </div>
         <div class="pt-5">
           <i class="bi bi-arrow-left arrow-icon"></i>
         </div>
         <div class="m-5">
           <i class="bi bi-truck icons fs-1 px-2 py-1"></i>
-          <h5 class="title-exeperience fs-5 mt-3">Coleta pelo Transportador</h5>
+          <h5 class="text-armazem fs-5 mt-3">Coleta pelo Transportador</h5>
         </div>
       </div>
     </div>
   </section>
   <section class="container-fluid bg-grey text-center">
     <div class="p-4">
-      <h1 class="title-experience text-center fs-4">Patrocinadores e colaboradores</h1>
-      <div class="w-100">
-        <img src="./assets/img/Mercedes.svg" class="m-5" alt="">
-        <img src="./assets/img/Aston-Martin.svg" class="m-5" alt="">
-        <img src="./assets/img/Rolls-Royce.svg" class="m-5" alt="">
-        <img src="./assets/img/Audi.svg" class="m-5" alt="">
-        <img src="./assets/img/Maserati.svg" class="m-5" alt="">
+      <h1 class="title-experience text-center fs-2 mb-4">Patrocinadores e colaboradores</h1>
+      <div class="w-100 d-flex justify-content-around align-content-center">
+        <img src="./assets/img/Mercedes.svg" class="img-patrocionio m-5" alt="">
+        <img src="./assets/img/Aston-Martin.svg" class="img-patrocionio m-5" alt="">
+        <img src="./assets/img/Rolls-Royce.svg" class="img-patrocionio m-5" alt="">
+        <img src="./assets/img/Audi.svg" class="img-patrocionio m-5" alt="">
+        <img src="./assets/img/Maserati.svg" class="img-patrocionio m-5" alt="">
       </div>
     </div>
   </section>

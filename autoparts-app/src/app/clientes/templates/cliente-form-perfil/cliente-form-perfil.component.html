@@ -12,18 +12,18 @@
         </div>
       </div>
 
-        <h1 class="title">Dados Pessoais</h1>
+        <h1 class="title fs-2 fw-bolder">Dados Pessoais</h1>
         <div class="row">
           <div class="col">
             <div class="form-floating mb-3" >
               <input type="number" name="cpf" class="form-control" id="floatingInput" placeholder="CPF" disabled [value]="cliente.cpf" [(ngModel)]="cliente.cpf">
-              <label for="floatingInput">CPF</label>
+              <label for="floatingInput" class="form-label">CPF</label>
             </div>
           </div>
           <div class="col">
             <div class="form-floating mb-3">
               <input type="text" name="nome" class="form-control" id="floatingInput" placeholder="Nome" [value]="cliente.nome" [(ngModel)]="cliente.nome">
-              <label for="floatingInput">Nome</label>
+              <label for="floatingInput" class="form-label">Nome</label>
             </div>
           </div>
         </div>
@@ -32,13 +32,13 @@
           <div class="col">
             <div class="form-floating mb-3">
               <input type="email" name="email" class="form-control" id="floatingInput" placeholder="nome@exemplo.com" [value]="cliente.email" [(ngModel)]="cliente.email">
-              <label for="floatingInput">Email</label>
+              <label for="floatingInput" class="form-label">Email</label>
             </div>
           </div>
           <div class="col">
             <div class="form-floating mb-3">
               <input type="password"  name="senha" class="form-control" id="floatingInput" placeholder="Senha" [value]="cliente.senha" [(ngModel)]="cliente.senha">
-              <label for="floatingInput">Senha</label>
+              <label for="floatingInput" class="form-label">Senha</label>
             </div>
           </div>
 
@@ -52,18 +52,18 @@
     </form>
 
     <form style="margin-top: 20px;" *ngIf="endereco" (ngSubmit)="alterarEndereco()" #clienteForm="ngForm">
-        <h1 class="title">Endereço</h1>
+        <h1 class="title fs-2 fw-bolder">Endereço</h1>
         <div class="row">
           <div class="col">
             <div class="form-floating mb-3">
               <input type="number" name="cep" class="form-control" id="floatingInput" placeholder="CEP" [value]="cliente.endereco.cep" [(ngModel)]="endereco.cep">
-              <label for="floatingInput">CEP</label>
+              <label for="floatingInput" class="form-label">CEP</label>
             </div>
           </div>
           <div class="col">
             <div class="form-floating mb-3">
               <input type="text" name="estado" class="form-control" id="floatingInput" placeholder="Estado" [value]="cliente.endereco.estado" [(ngModel)]="endereco.estado">
-              <label for="floatingInput">Estado</label>
+              <label for="floatingInput" class="form-label">Estado</label>
             </div>
           </div>
         </div>
@@ -72,13 +72,13 @@
           <div class="col">
             <div class="form-floating mb-3">
               <input type="text" name="cidade" class="form-control" id="floatingInput" placeholder="Cidade" [value]="cliente.endereco.cidade" [(ngModel)]="endereco.cidade">
-              <label for="floatingInput">Cidade</label>
+              <label for="floatingInput" class="form-label">Cidade</label>
             </div>
           </div>
           <div class="col">
             <div class="form-floating mb-3">
               <input type="text" name="bairro" class="form-control" id="floatingInput" placeholder="Bairro" [value]="cliente.endereco.bairro" [(ngModel)]="endereco.bairro">
-              <label for="floatingInput">Bairro</label>
+              <label for="floatingInput" class="form-label">Bairro</label>
             </div>
           </div>
         </div>
@@ -87,19 +87,19 @@
           <div class="col">
             <div class="form-floating mb-3">
               <input type="text" name="rua" class="form-control" id="floatingInput" placeholder="Rua" [value]="cliente.endereco.rua" [(ngModel)]="endereco.rua">
-              <label for="floatingInput">Rua</label>
+              <label for="floatingInput" class="form-label">Rua</label>
             </div>
           </div>
           <div class="col">
             <div class="form-floating mb-3">
               <input type="number"  name="numero" class="form-control" id="floatingInput" placeholder="Número" [value]="cliente.endereco.numero" [(ngModel)]="endereco.numero">
-              <label for="floatingInput">Número</label>
+              <label for="floatingInput" class="form-label">Número</label>
             </div>
           </div>
           <div class="col">
             <div class="form-floating mb-3">
               <input type="text" name="complemento" class="form-control" id="floatingInput" placeholder="Complemento" [value]="cliente.endereco.complemento" [(ngModel)]="endereco.complemento">
-              <label for="floatingInput">Complemento</label>
+              <label for="floatingInput" class="form-label">Complemento</label>
             </div>
           </div>
         </div>
@@ -111,7 +111,7 @@
         </div>
     </form>
 </div>
-<div class="container" style="margin-top: 20px;">
+<div class="container mb-5" style="margin-top: 20px;">
         <div class="d-grid gap-2 col-6 mx-auto" >
             <button class="btn mx-auto btn-vermelho" type="button" (click)="excluirCliente()">
               <i class="bi bi-trash3-fill"></i>

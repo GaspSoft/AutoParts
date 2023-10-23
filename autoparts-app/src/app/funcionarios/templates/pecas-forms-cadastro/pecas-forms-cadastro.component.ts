@@ -4,6 +4,7 @@ import { Pecas } from 'src/app/model/pecas/pecas';
 import { PecaService } from 'src/app/services/pecas/peca.service';
 import { Fornecedor } from 'src/app/model/fornecedor/fornecedor';
 import { FornecedorService } from 'src/app/services/fornecedor/fornecedor.service';
+import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 
 @Component({
   selector: 'app-pecas-forms-cadastro',
@@ -22,9 +23,16 @@ export class PecasFormsCadastroComponent implements OnInit {
   constructor(
     private service: PecaService,
     private router: Router,
-    private fornecedorService: FornecedorService) {
+    private fornecedorService: FornecedorService, private authService: AuthServiceService) {
     this.peca = new Pecas();
     this.foto = new File([], '');
+
+    const clienteLogado = authService.getAuthUser();
+    const tipoUser = authService.getTipoUser();
+    if (clienteLogado !== null && tipoUser !== undefined && tipoUser != 'CLIENTE') {}
+    else{
+      this.router.navigate(['cliente/login']);
+    }
   }
 
   ngOnInit(): void {
@@ -49,7 +57,6 @@ export class PecasFormsCadastroComponent implements OnInit {
   onFileChange(event: any) {
     this.foto = event.target.files[0];
   }
-
 
   salvarPeca() {
     if(this.id) {

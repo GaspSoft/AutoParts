@@ -1,1 +1,10 @@
 @import '../../../../assets/scss/variaveis.scss';
+
+.search {
+    background: var(--branco) !important;
+    color: var(--preto);
+  }
+  
+  .search::placeholder {
+    color: var(--cinza-escuro);
+  }

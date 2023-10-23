@@ -13,14 +13,7 @@
 }
 
 .title {
-    font-size: 28px;
-    font-weight: 500;
-}
-
-.form-control:not(:placeholder-shown) {
-    transition: 2s;
-    border: 1px solid #460a8f;
-    color: #460a8f !important;
+    color: var(--preto);
 }
 
 .col-2 {
@@ -30,5 +23,13 @@
 
 .btn {
     width: 80%;
+}
+
+.form-control {
+    background: var(--branco);
+}
+  
+.form-label {
+ color: var(--cinza-escuro);
 }
 
