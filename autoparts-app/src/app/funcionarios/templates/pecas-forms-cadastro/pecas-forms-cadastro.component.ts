@@ -29,10 +29,7 @@ export class PecasFormsCadastroComponent implements OnInit {
 
     const clienteLogado = authService.getAuthUser();
     const tipoUser = authService.getTipoUser();
-    if (clienteLogado !== null && tipoUser !== undefined && tipoUser != 'CLIENTE') {}
-    else{
-      this.router.navigate(['cliente/login']);
-    }
+    
   }
 
   ngOnInit(): void {
@@ -56,6 +53,13 @@ export class PecasFormsCadastroComponent implements OnInit {
 
   onFileChange(event: any) {
     this.foto = event.target.files[0];
+  }
+
+  getFotoUrl(peca: Pecas): string {
+    if (peca.base64) {
+      return `data:image/jpeg;base64,${peca.base64}`;
+    }
+    return ''; // Ou uma URL de imagem padrão
   }
 
   salvarPeca() {

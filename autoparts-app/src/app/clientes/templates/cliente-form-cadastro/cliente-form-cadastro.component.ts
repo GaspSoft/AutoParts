@@ -23,11 +23,6 @@ export class ClienteFormCadastroComponent {
     this.cliente.tipoPessoa = TipoPessoa.CLIENTE;
 
     this.estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO']
-
-    const clienteLogado = authService.getAuthUser();
-    if (clienteLogado != null ) {
-      this.router.navigate(['cliente/login']);
-    }
   }
 
   cadastrar(): void {

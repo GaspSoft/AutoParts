@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Cliente } from 'src/app/model/cliente/cliente';
 import { Pecas } from 'src/app/model/pecas/pecas';
-import { TipoPessoa } from 'src/app/model/pessoa/enumPessoa';
 import { Venda } from 'src/app/model/venda/venda';
 import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
+import { CarrinhoService } from 'src/app/services/carrinho/carrinho.service';
 import { ClientesService } from 'src/app/services/cliente/clientes.service';
 import { PecaService } from 'src/app/services/pecas/peca.service';
 import { VendaService } from 'src/app/services/venda/venda.service';
@@ -20,13 +20,21 @@ export class ClienteCompraComponent implements OnInit {
   id?: number;
   itemID: any;
   cliente: Cliente;
+  carrinho: number[] = [];
   sucessoFeedback: string = '';
   errorsFeedback?: string = '';
 
-  constructor(private router: Router, private ActivatedRoute: ActivatedRoute, private pecasService: PecaService, private clienteService: ClientesService, private vendaService: VendaService,   private authService: AuthServiceService) {
+  constructor(private router: Router, 
+    private ActivatedRoute: ActivatedRoute, 
+    private pecasService: PecaService, 
+    private clienteService: ClientesService, 
+    private vendaService: VendaService, 
+    private carrinhoService: CarrinhoService,
+    private authService: AuthServiceService,) {
     this.venda = new Venda();
     this.peca = new Pecas();
     this.cliente = new Cliente;
+    this.carrinho = this.carrinhoService.listaCarrinho;
     const clienteLogado = authService.getAuthUser();
     const tipoUser = authService.getTipoUser();
     if (clienteLogado !== null && tipoUser !== undefined && tipoUser == 'CLIENTE') {
@@ -35,6 +43,7 @@ export class ClienteCompraComponent implements OnInit {
       this.router.navigate(['cliente/login']);
 
     }
+    this.carrinho = this.carrinhoService.listaCarrinho;
   }
   ngOnInit(): void {
     this.ActivatedRoute.paramMap.subscribe(params => {
@@ -49,28 +58,38 @@ export class ClienteCompraComponent implements OnInit {
         }
       }
     )
+    console.log(this.itemID);
   }
 
-  cadastrarVenda(){
+  // cadastrarVenda(){
 
-    this.venda.cliente.cliente_id = this.cliente.cliente_id;
-    this.venda.peca.pecas_id = this.peca.pecas_id;
-    this.venda.peca.fornecedor.fornecedor_id = this.peca.fornecedor.fornecedor_id;
-    this.vendaService.cadastrarVenda(this.venda).subscribe(
-      response => {
-        this.sucessoFeedback = response.mensagem;
-        setTimeout(() => {
-          this.sucessoFeedback = '';
-        }, 7000);
-        this.errorsFeedback = '';
-        this.venda = new Venda();
-        console.log(response)
-      },
-      errorResponse => {
-        this.errorsFeedback = errorResponse.error.mensagem;
-        this.peca = new Pecas();
-      }
-    );
+  //   this.venda.cliente.cliente_id = 1;
+  //   this.venda.peca.pecas_id = this.peca.pecas_id;
+  //   this.venda.peca.fornecedor.fornecedor_id = this.peca.fornecedor.fornecedor_id;
+  //   this.vendaService.cadastrarVenda(this.venda).subscribe(
+  //     response => {
+  //       this.sucessoFeedback = response.mensagem;
+  //       setTimeout(() => {
+  //         this.sucessoFeedback = '';
+  //       }, 7000);
+  //       this.errorsFeedback = '';
+  //       this.venda = new Venda();
+  //       console.log(response)
+  //     },
+  //     errorResponse => {
+  //       this.errorsFeedback = errorResponse.error.mensagem;
+  //       this.peca = new Pecas();
+  //     }
+  //   );
+  // }
+
+  addCarrinho() {
+    if (this.itemID && this.carrinho.indexOf(this.itemID) === -1) {
+      this.carrinho.push(this.itemID);
+      this.sucessoFeedback = 'Peça adicionada ao Carrinho!';
+    } else {
+      this.errorsFeedback = 'Não foi possível adicionadar a Peça ao Carrinho!';
+    }
   }
 
   getFotoUrl(peca: Pecas): string {
@@ -78,5 +97,9 @@ export class ClienteCompraComponent implements OnInit {
       return `data:image/jpeg;base64,${peca.base64}`;
     }
     return ''; // Ou uma URL de imagem padrão
+  }
+
+  voltarCatalogo(): void {
+    this.router.navigate(['cliente/catalogo']);
   }
 }
