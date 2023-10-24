@@ -24,22 +24,22 @@
 .img-peca {
     min-width: 200px;
     max-width: 200px;
-    border-right: 2px solid $cinza-claro;
+    border-right: 2px solid var(--cinza-claro);
 }
 
 .item-carrinho {
-    border: 2px solid $cinza-claro;
+    border: 2px solid var(--cinza-claro);
     border-radius: 1%;
 }
 
 .title-item {
-    color: $preto;
+    color: var(--preto);
 }
 
 .desc-item {
-    color: $cinza-escuro;
+    color: var(--cinza-escuro);
 }
 
 .prec-item {
-    color: $cinza;
+    color: var(--cinza);
 }

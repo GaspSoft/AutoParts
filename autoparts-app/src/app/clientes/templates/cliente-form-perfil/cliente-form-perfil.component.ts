@@ -22,11 +22,11 @@ export class ClienteFormPerfilComponent implements OnInit {
   constructor(private contatosService: ClientesService,  private authService: AuthServiceService, private router: Router) {
     const clienteLogado = authService.getAuthUser();
     const tipoUser = authService.getTipoUser();
+    
     if (clienteLogado !== null && tipoUser !== undefined && tipoUser == 'CLIENTE') {
       this.cliente = clienteLogado;
     } else{
       this.router.navigate(['cliente/login']);
-
     }
   }
 
@@ -83,7 +83,7 @@ export class ClienteFormPerfilComponent implements OnInit {
     this.contatosService.listarCliente(this.cliente.cliente_id).subscribe(
       cliente => {
         this.cliente = cliente;
-        this.endereco = cliente.endereco
+        this.endereco = cliente.endereco   
       },
       error => {
         console.error('Erro ao carregar o cliente:', error);
