@@ -49,30 +49,43 @@
       }
     }
 
-    ngOnInit() {
-      this.pecas = [];
-      this.precoTotal = 0;
-      for (let i = 0; i < localStorage.length; i++){
-        let key = localStorage.key(i);
+    ngOnInit() { // ARRUMA 
+      // this.pecas = [];
+      // this.precoTotal = 0;
+  
 
-        if (key === 'carrinho') {
-          for (let a = 0; a < key.length; a++) {
-            let value = Number(localStorage.getItem(key));
-            console.log(value);
-            
-            if (value == this.carrinho[i]) {
-            this.service.getPecaById(i).subscribe((response) => {
-              this.pecas.push(response);
+      // for (let i = 0; i < localStorage.length; i++){
+      //   let key = localStorage.key(i);
+      //   let value = localStorage.getItem('carrinho');
+      //   console.log(value);
+      //   console.log(value?.length);
+      //   console.log(typeof(value));
+      //   console.log(JSON.parse(JSON.stringify(value)));
+
+      //   let teste = JSON.parse(JSON.stringify(value));
+      //   console.log(typeof(teste)); 
+      //   if (key === 'carrinho') {
+      //     let conValue = Number(value);
+          
+      //     for (let a = 0; a < this.carrinho.length; a++) {
+      //       this.service.getPecaById(conValue).subscribe((response) => {
+      //         this.pecas.push(response);
               
-                if (response.preco !== undefined) {
-                  this.precoTotal += response.preco;
-                }
-              });
-          }
+      //         if (response.preco !== undefined) {
+      //           this.precoTotal += response.preco;
+      //         }
+      //       });
             
-          }
-        }
-      }
+      //     }    
+      //     this.service.getPecaById(conValue).subscribe((response) => {
+      //       this.pecas.push(response);
+            
+      //       if (response.preco !== undefined) {
+      //         this.precoTotal += response.preco;
+      //       }
+      //     });
+      //   }
+      //   }
     }
 
     getFotoUrl(peca: Pecas): string {
