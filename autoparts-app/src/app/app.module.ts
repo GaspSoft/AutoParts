@@ -21,14 +21,13 @@ import { AuthServiceService } from './services/auth/auth-service.service';
 @NgModule({
   declarations: [
     AppComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ComponentsModule,
     HttpClientModule,
-    ClientesModule,
-    FuncionariosModule,
     BrowserAnimationsModule,
     NgxMaskModule.forRoot({
       dropSpecialCharacters: true

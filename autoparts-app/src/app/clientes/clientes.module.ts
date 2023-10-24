@@ -14,6 +14,7 @@ import { ClienteAjudaComponent } from './templates/cliente-ajuda/cliente-ajuda.c
 import { ClienteCatalogoComponent } from './templates/cliente-catalogo/cliente-catalogo.component';
 import { NgxMaskModule } from 'ngx-mask';
 import { ClienteLoginComponent } from './templates/cliente-login/cliente-login.component';
+import { SearchPipe } from '../services/pipes/search.pipe';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ClienteLoginComponent } from './templates/cliente-login/cliente-login.c
     ClienteCompraComponent,
     ClienteCatalogoComponent,
     ClienteAjudaComponent,
+    SearchPipe
   ],
   imports: [
     CommonModule,
