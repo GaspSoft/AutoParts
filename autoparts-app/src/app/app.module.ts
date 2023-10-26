@@ -15,7 +15,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FornecedorService } from './services/fornecedor/fornecedor.service';
 import { PecaService } from './services/pecas/peca.service';
 import { NgxMaskModule } from 'ngx-mask';
-import { SearchPipe } from './services/pipes/search.pipe';
 import { AuthServiceService } from './services/auth/auth-service.service';
 
 @NgModule({

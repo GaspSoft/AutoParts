@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarClienteComponent } from './navbar-cliente/navbar-cliente.component';
 import { NavbarFuncionarioComponent } from './navbar-funcionario/navbar-funcionario.component';
+import { SearchPipe } from './search/search.pipe';
 
 @NgModule({
   declarations: [
     FooterComponent,
     NavbarClienteComponent,
-    NavbarFuncionarioComponent
+    NavbarFuncionarioComponent,
+    SearchPipe
   ],
   imports: [
     CommonModule
@@ -16,7 +18,8 @@ import { NavbarFuncionarioComponent } from './navbar-funcionario/navbar-funciona
   exports: [
     FooterComponent,
     NavbarClienteComponent,
-    NavbarFuncionarioComponent
+    NavbarFuncionarioComponent,
+    SearchPipe
   ]
 })
 export class ComponentsModule { }

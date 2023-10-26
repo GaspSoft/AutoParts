@@ -14,7 +14,6 @@ import { ClienteAjudaComponent } from './templates/cliente-ajuda/cliente-ajuda.c
 import { ClienteCatalogoComponent } from './templates/cliente-catalogo/cliente-catalogo.component';
 import { NgxMaskModule } from 'ngx-mask';
 import { ClienteLoginComponent } from './templates/cliente-login/cliente-login.component';
-import { SearchPipe } from '../services/pipes/search.pipe';
 
 @NgModule({
   declarations: [
@@ -27,8 +26,7 @@ import { SearchPipe } from '../services/pipes/search.pipe';
     ClienteCarrinhoComponent,
     ClienteCompraComponent,
     ClienteCatalogoComponent,
-    ClienteAjudaComponent,
-    SearchPipe // O Search ta dando erro por causa dessa linha
+    ClienteAjudaComponent
   ],
   imports: [
     CommonModule,

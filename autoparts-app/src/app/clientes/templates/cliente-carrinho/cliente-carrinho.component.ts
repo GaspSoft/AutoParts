@@ -37,7 +37,7 @@
       this.venda = new Venda();
       this.peca = new Pecas();
       this.cliente = new Cliente;
-      
+
       const clienteLogado = authService.getAuthUser();
       const tipoUser = authService.getTipoUser();
 
@@ -52,16 +52,16 @@
     ngOnInit() {
       this.pecas = [];
       this.precoTotal = 0;
-  
+
       let carrinho: any = localStorage.getItem('carrinho');
       let convCarrinho = JSON.parse(carrinho);
-      
+
       for (let i = 0; i < convCarrinho.length; i++) {
         let valueCarrinho = convCarrinho[i];
 
         this.service.getPecaById(valueCarrinho).subscribe((response) => {
           this.pecas.push(response);
-          
+
           if (response.preco !== undefined) {
             this.precoTotal += response.preco;
           }
@@ -81,7 +81,7 @@
       let convCarrinho = JSON.parse(carrinho);
 
       const index = convCarrinho.indexOf(i);
-      convCarrinho.splice(index, 1); 
+      convCarrinho.splice(index, 1);
       localStorage.setItem('carrinho', JSON.stringify(convCarrinho));
       this.ngOnInit();
     }
@@ -97,12 +97,14 @@
         console.log(typeof(pecaSelecionada));
         console.log(pecaId);
         console.log(pecaSelecionada);
-        
+        console.log("TAMANHOOOOOOOOOOO",convCarrinho.length);
+
+
         if (pecaId && pecaSelecionada.fornecedor) {
           this.venda.cliente.cliente_id = this.cliente.cliente_id;
           this.venda.peca.pecas_id = pecaId;
           this.venda.peca.fornecedor.fornecedor_id = pecaSelecionada.fornecedor.fornecedor_id;
-          
+
           try {
             const response = await this.vendaService
               .cadastrarVenda(this.venda)
@@ -115,11 +117,11 @@
             this.errorsFeedback = '';
             this.venda = new Venda();
             console.log(response);
-            
+
             const index = convCarrinho.indexOf(i);
-            convCarrinho.splice(index, 1); 
+            convCarrinho.splice(index, 1);
             localStorage.setItem('carrinho', JSON.stringify(convCarrinho));
-            
+
           } catch (errorResponse: any) {
             this.errorsFeedback = errorResponse.error.mensagem;
             this.peca = new Pecas();
