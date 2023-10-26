@@ -20,8 +20,7 @@ import { AuthServiceService } from './services/auth/auth-service.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    SearchPipe
+    AppComponent
   ],
   imports: [
     BrowserModule,

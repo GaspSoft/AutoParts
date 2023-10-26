@@ -49,5 +49,6 @@ export class NavbarFuncionarioComponent {
   logoff(){
     this.authService.clearAuthUser();
     this.router.navigate(['/cliente/login']);
+    localStorage.clear();
   }
 }

@@ -49,43 +49,24 @@
       }
     }
 
-    ngOnInit() { // ARRUMA 
-      // this.pecas = [];
-      // this.precoTotal = 0;
+    ngOnInit() {
+      this.pecas = [];
+      this.precoTotal = 0;
   
+      let carrinho: any = localStorage.getItem('carrinho');
+      let convCarrinho = JSON.parse(carrinho);
+      
+      for (let i = 0; i < convCarrinho.length; i++) {
+        let valueCarrinho = convCarrinho[i];
 
-      // for (let i = 0; i < localStorage.length; i++){
-      //   let key = localStorage.key(i);
-      //   let value = localStorage.getItem('carrinho');
-      //   console.log(value);
-      //   console.log(value?.length);
-      //   console.log(typeof(value));
-      //   console.log(JSON.parse(JSON.stringify(value)));
-
-      //   let teste = JSON.parse(JSON.stringify(value));
-      //   console.log(typeof(teste)); 
-      //   if (key === 'carrinho') {
-      //     let conValue = Number(value);
+        this.service.getPecaById(valueCarrinho).subscribe((response) => {
+          this.pecas.push(response);
           
-      //     for (let a = 0; a < this.carrinho.length; a++) {
-      //       this.service.getPecaById(conValue).subscribe((response) => {
-      //         this.pecas.push(response);
-              
-      //         if (response.preco !== undefined) {
-      //           this.precoTotal += response.preco;
-      //         }
-      //       });
-            
-      //     }    
-      //     this.service.getPecaById(conValue).subscribe((response) => {
-      //       this.pecas.push(response);
-            
-      //       if (response.preco !== undefined) {
-      //         this.precoTotal += response.preco;
-      //       }
-      //     });
-      //   }
-      //   }
+          if (response.preco !== undefined) {
+            this.precoTotal += response.preco;
+          }
+        });
+      }
     }
 
     getFotoUrl(peca: Pecas): string {
@@ -95,20 +76,31 @@
       return ''; // Ou uma URL de imagem padrão
     }
 
-    removeCarrinho(i: number) {
-      if (i >= 0 && i < this.pecas.length) {
-        this.carrinho.splice(i, 1);          
-        this.ngOnInit();
-      }
+    removeCarrinho(i: any) {
+      let carrinho: any = localStorage.getItem('carrinho');
+      let convCarrinho = JSON.parse(carrinho);
+
+      const index = convCarrinho.indexOf(i);
+      convCarrinho.splice(index, 1); 
+      localStorage.setItem('carrinho', JSON.stringify(convCarrinho));
+      this.ngOnInit();
     }
 
-    async comprarItens() {
-      for (const peca of this.carrinho) {
+    async comprarItens() { // ARRUMAR ESTÁ EXCLUIDO UM ÚNICO ITEM
+      let carrinho: any = localStorage.getItem('carrinho');
+      let convCarrinho = JSON.parse(carrinho);
+
+      for (let i = 0; i < convCarrinho.length; i++) {
+        const pecaId = Number(convCarrinho[i]);
         const pecaSelecionada = this.pecas[this.peca.pecas_id];
+        console.log(typeof(pecaId));
+        console.log(typeof(pecaSelecionada));
+        console.log(pecaId);
+        console.log(pecaSelecionada);
         
-        if (pecaSelecionada && pecaSelecionada.fornecedor) {
+        if (pecaId && pecaSelecionada.fornecedor) {
           this.venda.cliente.cliente_id = this.cliente.cliente_id;
-          this.venda.peca.pecas_id = peca;
+          this.venda.peca.pecas_id = pecaId;
           this.venda.peca.fornecedor.fornecedor_id = pecaSelecionada.fornecedor.fornecedor_id;
           
           try {
@@ -124,11 +116,9 @@
             this.venda = new Venda();
             console.log(response);
             
-            const index = this.carrinho.indexOf(peca);
-            if (index !== -1) {
-              this.carrinho.splice(index, 1);
-            }
-            this.ngOnInit();
+            const index = convCarrinho.indexOf(i);
+            convCarrinho.splice(index, 1); 
+            localStorage.setItem('carrinho', JSON.stringify(convCarrinho));
             
           } catch (errorResponse: any) {
             this.errorsFeedback = errorResponse.error.mensagem;
@@ -136,5 +126,6 @@
           }
         }
       }
+      this.ngOnInit();
     }
   }

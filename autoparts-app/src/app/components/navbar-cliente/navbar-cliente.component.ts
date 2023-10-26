@@ -57,5 +57,6 @@ export class NavbarClienteComponent {
   logoff(){
     this.authService.clearAuthUser();
     this.router.navigate(['/cliente/login']);
+    localStorage.clear();
   }
 }

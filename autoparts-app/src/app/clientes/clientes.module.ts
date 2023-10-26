@@ -28,7 +28,7 @@ import { SearchPipe } from '../services/pipes/search.pipe';
     ClienteCompraComponent,
     ClienteCatalogoComponent,
     ClienteAjudaComponent,
-    SearchPipe
+    SearchPipe // O Search ta dando erro por causa dessa linha
   ],
   imports: [
     CommonModule,
