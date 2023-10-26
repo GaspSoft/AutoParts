@@ -86,19 +86,13 @@
       this.ngOnInit();
     }
 
-    async comprarItens() { // ARRUMAR ESTÁ EXCLUIDO UM ÚNICO ITEM
+    async comprarItens() {
       let carrinho: any = localStorage.getItem('carrinho');
       let convCarrinho = JSON.parse(carrinho);
 
       for (let i = 0; i < convCarrinho.length; i++) {
         const pecaId = Number(convCarrinho[i]);
-        const pecaSelecionada = this.pecas[this.peca.pecas_id];
-        console.log(typeof(pecaId));
-        console.log(typeof(pecaSelecionada));
-        console.log(pecaId);
-        console.log(pecaSelecionada);
-        console.log("TAMANHOOOOOOOOOOO",convCarrinho.length);
-
+        const pecaSelecionada = this.pecas[pecaId];
 
         if (pecaId && pecaSelecionada.fornecedor) {
           this.venda.cliente.cliente_id = this.cliente.cliente_id;
@@ -117,17 +111,11 @@
             this.errorsFeedback = '';
             this.venda = new Venda();
             console.log(response);
-
-            const index = convCarrinho.indexOf(i);
-            convCarrinho.splice(index, 1);
-            localStorage.setItem('carrinho', JSON.stringify(convCarrinho));
-
           } catch (errorResponse: any) {
             this.errorsFeedback = errorResponse.error.mensagem;
             this.peca = new Pecas();
           }
         }
       }
-      this.ngOnInit();
     }
   }
