@@ -92,7 +92,7 @@
 
       for (let i = 0; i < convCarrinho.length; i++) {
         const pecaId = Number(convCarrinho[i]);
-        const pecaSelecionada = this.pecas[pecaId];
+        const pecaSelecionada = this.pecas[this.peca.pecas_id];
 
         if (pecaId && pecaSelecionada.fornecedor) {
           this.venda.cliente.cliente_id = this.cliente.cliente_id;
@@ -103,6 +103,7 @@
             const response = await this.vendaService
               .cadastrarVenda(this.venda)
               .toPromise();
+
             this.sucessoFeedback = response.mensagem;
             setTimeout(() => {
               this.sucessoFeedback = '';
@@ -111,11 +112,16 @@
             this.errorsFeedback = '';
             this.venda = new Venda();
             console.log(response);
-          } catch (errorResponse: any) {
+            } catch (errorResponse: any) {
             this.errorsFeedback = errorResponse.error.mensagem;
             this.peca = new Pecas();
           }
         }
       }
+
+      convCarrinho = [];
+      localStorage.setItem('carrinho', JSON.stringify(convCarrinho));
+
+      this.ngOnInit();
     }
   }
