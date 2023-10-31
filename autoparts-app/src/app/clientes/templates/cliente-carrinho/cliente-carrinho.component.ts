@@ -1,4 +1,3 @@
-  import { HttpClient, HttpHeaders } from '@angular/common/http';
   import { Component, OnInit } from '@angular/core';
   import { Router } from '@angular/router';
   import { Cliente } from 'src/app/model/cliente/cliente';
@@ -59,13 +58,13 @@
       for (let i = 0; i < convCarrinho.length; i++) {
         let valueCarrinho = convCarrinho[i];
 
-        this.service.getPecaById(valueCarrinho).subscribe((response) => {
-          this.pecas.push(response);
+        // this.service.getPecaById(valueCarrinho).subscribe((response) => {
+        //   this.pecas.push(response);
 
-          if (response.preco !== undefined) {
-            this.precoTotal += response.preco;
-          }
-        });
+        //   if (response.preco !== undefined) {
+        //     this.precoTotal += response.preco;
+        //   }
+        // });
       }
     }
 
@@ -86,42 +85,46 @@
       this.ngOnInit();
     }
 
-    async comprarItens() {
-      let carrinho: any = localStorage.getItem('carrinho');
-      let convCarrinho = JSON.parse(carrinho);
-
-      for (let i = 0; i < convCarrinho.length; i++) {
-        const pecaId = Number(convCarrinho[i]);
-        const pecaSelecionada = this.pecas[this.peca.pecas_id];
-
-        if (pecaId && pecaSelecionada.fornecedor) {
-          this.venda.cliente.cliente_id = this.cliente.cliente_id;
-          this.venda.peca.pecas_id = pecaId;
-          this.venda.peca.fornecedor.fornecedor_id = pecaSelecionada.fornecedor.fornecedor_id;
-
-          try {
-            const response = await this.vendaService
-              .cadastrarVenda(this.venda)
-              .toPromise();
-
-            this.sucessoFeedback = response.mensagem;
-            setTimeout(() => {
-              this.sucessoFeedback = '';
-            }, 7000);
-
-            this.errorsFeedback = '';
-            this.venda = new Venda();
-            console.log(response);
-            } catch (errorResponse: any) {
-            this.errorsFeedback = errorResponse.error.mensagem;
-            this.peca = new Pecas();
-          }
-        }
-      }
-
-      convCarrinho = [];
-      localStorage.setItem('carrinho', JSON.stringify(convCarrinho));
-
-      this.ngOnInit();
+    pagamento() {
+      this.router.navigate(['cliente/pagamento']);
     }
+
+    // async comprarItens() {
+    //   let carrinho: any = localStorage.getItem('carrinho');
+    //   let convCarrinho = JSON.parse(carrinho);
+
+    //   for (let i = 0; i < convCarrinho.length; i++) {
+    //     const pecaId = Number(convCarrinho[i]);
+    //     const pecaSelecionada = this.pecas[this.peca.pecas_id];
+
+    //     if (pecaId && pecaSelecionada.fornecedor) {
+    //       this.venda.cliente.cliente_id = this.cliente.cliente_id;
+    //       this.venda.peca.pecas_id = pecaId;
+    //       this.venda.peca.fornecedor.fornecedor_id = pecaSelecionada.fornecedor.fornecedor_id;
+
+    //       try {
+    //         const response = await this.vendaService
+    //           .cadastrarVenda(this.venda)
+    //           .toPromise();
+
+    //         this.sucessoFeedback = response.mensagem;
+    //         setTimeout(() => {
+    //           this.sucessoFeedback = '';
+    //         }, 7000);
+
+    //         this.errorsFeedback = '';
+    //         this.venda = new Venda();
+    //         console.log(response);
+    //         } catch (errorResponse: any) {
+    //         this.errorsFeedback = errorResponse.error.mensagem;
+    //         this.peca = new Pecas();
+    //       }
+    //     }
+    //   }
+
+    //   convCarrinho = [];
+    //   localStorage.setItem('carrinho', JSON.stringify(convCarrinho));
+
+    //   this.ngOnInit();
+    // }
   }

@@ -1,0 +1,138 @@
+<div class="container-fluid row mb-5">
+  <div class="col-12 d-flex justify-content-center">
+
+  <form #clienteForm="ngForm">
+    <h1 class="title fs-4 fw-bold text-center mt-5">Informe seu Nome e Endereço:</h1>
+
+    <div class="row d-flex justify-content-center">
+      <div class="col-10">
+        <div class="form-floating mb-3">
+          <input type="text"  name="nome" class="form-control" id="floatingInput"
+            placeholder="Nome">
+          <label for="floatingInput">Nome</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+      <div class="col-10">
+        <div class="form-floating mb-3">
+          <input type="text" name="cep" class="form-control" id="floatingInput"
+            placeholder="CEP" mask="00000-000">
+          <label for="floatingInput">CEP</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+      <div class="col-5">
+        <div class="form-floating mb-3">
+          <input type="text" name="cidade" class="form-control" id="floatingInput"
+            placeholder="Cidade">
+          <label for="floatingInput">Cidade</label>
+        </div>
+      </div>
+      <div class="col-5">
+        <div class="form-floating mb-3">
+          <input type="text" name="bairro" class="form-control" id="floatingInput"
+            placeholder="Bairro">
+          <label for="floatingInput">Bairro</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+      <div class="col-5">
+        <div class="form-floating mb-3">
+          <input type="text" name="rua" class="form-control" id="floatingInput"
+            placeholder="Rua">
+          <label for="floatingInput">Rua</label>
+        </div>
+      </div>
+      <div class="col-5">
+        <div class="form-floating mb-3">
+          <input type="number" name="numero" class="form-control"
+            id="floatingInput" placeholder="Número">
+          <label for="floatingInput">Número</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+      <div class="col-10">
+        <div class="form-floating mb-3">
+          <input type="text" name="complemento" class="form-control"
+            id="floatingInput" placeholder="Complemento">
+          <label for="floatingInput">Complemento</label>
+        </div>
+      </div>
+    </div>
+
+    <h1 class="title fs-4 fw-bold text-center mt-5">Como podemos te contatar?</h1>
+
+    <div class="row d-flex justify-content-center">
+      <div class="col-10">
+        <div class="form-floating">
+          <input type="email" name="email" class="form-control" id="floatingInput"
+            placeholder="nome@exemplo.com">
+          <label for="floatingInput">Email</label>
+        </div>
+        <h5 class="ps-3 info">Um e-mail de confirmação será enviado após o checkout.</h5>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+      <div class="col-10">
+        <div class="form-floating">
+          <input type="text" name="telf" class="form-control" id="floatingInput"
+            placeholder="Senha" mask="(00) 00000-0000">
+          <label for="floatingInput">Número de Telefone</label>
+        </div>
+        <h5 class="ps-3 info">Uma transportadora pode entrar em contato com você para confirmar a entrega.</h5>
+      </div>
+    </div>
+
+    <h1 class="title fs-4 fw-bold text-center mt-5">Forma de Pagamento?</h1>
+
+    <div class="row d-flex justify-content-center">
+      <div class="col-10">
+        <div class="form-floating mb-3">
+          <input type="text"  name="cartao" class="form-control" id="floatingInput"
+            placeholder="Número do Cartão" mask="0000 0000 0000 0000">
+          <label for="floatingInput">Número do Cartão</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+      <div class="col-10">
+        <div class="form-floating mb-3">
+          <input type="text" name="titular" class="form-control" id="floatingInput"
+            placeholder="Titular">
+          <label for="floatingInput">Titular</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+      <div class="col-5">
+        <div class="form-floating mb-3">
+          <input type="text" name="cvv" class="form-control" id="floatingInput"
+            placeholder="CVV" mask="000">
+          <label for="floatingInput">CVV</label>
+        </div>
+      </div>
+      <div class="col-5">
+        <div class="form-floating mb-3">
+          <input type="text" name="validade" class="form-control" id="floatingInput"
+            placeholder="Validade" mask="00/0000">
+          <label for="floatingInput">Validade</label>
+        </div>
+      </div>
+    </div>
+
+  </form>
+  <div class="col-5">
+
+  </div>
+</div>

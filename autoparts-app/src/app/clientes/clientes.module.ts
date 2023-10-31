@@ -14,6 +14,7 @@ import { ClienteAjudaComponent } from './templates/cliente-ajuda/cliente-ajuda.c
 import { ClienteCatalogoComponent } from './templates/cliente-catalogo/cliente-catalogo.component';
 import { NgxMaskModule } from 'ngx-mask';
 import { ClienteLoginComponent } from './templates/cliente-login/cliente-login.component';
+import { ClientePagamentoComponent } from './templates/cliente-pagamento/cliente-pagamento.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ClienteLoginComponent } from './templates/cliente-login/cliente-login.c
     ClienteCarrinhoComponent,
     ClienteCompraComponent,
     ClienteCatalogoComponent,
-    ClienteAjudaComponent
+    ClienteAjudaComponent,
+    ClientePagamentoComponent
   ],
   imports: [
     CommonModule,

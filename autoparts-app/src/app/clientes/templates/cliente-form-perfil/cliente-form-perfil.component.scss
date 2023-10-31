@@ -1,35 +1,35 @@
 @import '../../../../assets/scss/variaveis.scss';
 
 .container {
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    width: 50%;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
 }
 
 .alignment {
-    display: grid;
-    justify-content: center;
+  display: grid;
+  justify-content: center;
 }
 
 .title {
-    color: var(--preto);
+  color: var(--preto);
 }
 
 .col-2 {
-    display: grid;
-    width: 100%;
+  display: grid;
+  width: 100%;
 }
 
 .btn {
-    width: 80%;
+  width: 80%;
 }
 
 .form-control {
-    background: var(--branco);
+  background: var(--branco);
 }
-  
+
 .form-label {
- color: var(--cinza-escuro);
+  color: var(--cinza-escuro);
 }
 
