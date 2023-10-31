@@ -11,3 +11,76 @@
 .info {
   color: var(--cinza);
 }
+
+.payment-methods {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.payment-methods:after {
+  content: "";
+  clear: both;
+}
+
+.payment-method {
+  border: 1px solid var(--cinza-claro);
+  border-radius: 5%;
+  box-sizing: border-box;
+  float: left;
+  height: 70px;
+  position: relative;
+  width: 120px;
+}
+
+.payment-method img {
+  background: var(--branco) no-repeat center center;
+  bottom: 1px;
+  cursor: pointer;
+  display: block;
+  font-size: 0;
+  left: 1px;
+  position: absolute;
+  right: 1px;
+  text-indent: 100%;
+  top: 1px;
+  white-space: nowrap;
+}
+
+.payment-method + .payment-method {
+  margin-left: 25px;
+}
+
+.payment-methods input:focus + img {
+  outline: 1px dotted var(--roxo-claro);
+  border-radius: 5%;
+}
+
+.payment-methods input:checked + img {
+  outline: 2px solid var(--roxo-claro);
+  border-radius: 5%;
+}
+
+.payment-methods input:checked + img:after {
+  bottom: -10px;
+  content: "";
+  display: inline-block;
+  height: 20px;
+  position: absolute;
+  right: -10px;
+  width: 20px;
+}
+
+@-moz-document url-prefix() {
+  .payment-methods input:checked + img:after {
+    bottom: 0;
+    right: 0;
+    background-color: var(--roxo-claro);
+  }
+}
+
+.boleto {
+  height: 100px;
+  border-radius: 10%;
+  top: -5;
+}
