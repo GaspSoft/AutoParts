@@ -8,7 +8,7 @@
     </div>
     <hr class="row-hr m-0">
     <div class="row row-cols-1 row-cols-5 g-3">
-      <div *ngFor="let peca of pecas" class="d-flex my-4 mx-0">
+      <div *ngFor="let peca of pecas | search: searchText" class="d-flex my-4 mx-0">
         <div class="card w-100">
           <img *ngIf="peca.base64" [src]="getFotoUrl(peca)" alt="Foto da Peça" class="card-img-top">
           <div class="card-body">

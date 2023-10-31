@@ -16,16 +16,11 @@
   </section>
   <section class="col">
     <div>
-      <h1 class="title p-3 fs-4">Seu Pedido</h1>
-      <div class="d-inline">
-        <p class="subtitle fs-6 px-4 py-2">Subtotal</p>
-      </div>
-      <div class="d-inline">
-        <p class="subtitle fs-6 px-4 py-2">Entrega</p>
-      </div>
+      <h1 class="title fs-4">Seu Pedido</h1>
       <hr class="row-hr">
-      <div class="d-inline">
-        <p class="subtitle fs-6 px-4 py-2">Total</p>
+      <div class="d-flex justify-content-around">
+        <p class="subtitle fs-6 pt-2">Total</p>
+        <p class="subtitle fs-6 pt-2">{{ precoTotal | currency:'BRL':'symbol':'1.2-2' }}</p>
       </div>
     </div>
     <hr class="row-hr">

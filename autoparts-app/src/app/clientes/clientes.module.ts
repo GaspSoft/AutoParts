@@ -26,7 +26,7 @@ import { ClienteLoginComponent } from './templates/cliente-login/cliente-login.c
     ClienteCarrinhoComponent,
     ClienteCompraComponent,
     ClienteCatalogoComponent,
-    ClienteAjudaComponent,
+    ClienteAjudaComponent
   ],
   imports: [
     CommonModule,

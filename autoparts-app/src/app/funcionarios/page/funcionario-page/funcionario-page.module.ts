@@ -9,8 +9,7 @@ import { FuncionariosModule } from '../../funcionarios.module';
   declarations: [],
   imports: [
     CommonModule,
-    FuncionarioPageRoutingModule,
-    FuncionariosModule
+    FuncionarioPageRoutingModule
   ]
 })
 export class FuncionarioPageModule { }

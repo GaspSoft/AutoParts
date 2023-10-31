@@ -66,7 +66,7 @@
   background-image: var(--linear-corrente-amarelo);
   background-size: 200% auto;
   transition: 500ms ease-in-out;
-  color: var(--branco);
+  color: var(--letras);
 }
 
 .btn-amarelo:hover {
@@ -89,7 +89,7 @@
   background-image: var(--linear-corrente-azul);
   background-size: 200% auto;
   transition: 500ms ease-in-out;
-  color: var(--branco);
+  color: var(--letras);
 }
 
 .btn-azul:hover {
@@ -155,12 +155,12 @@
 }
 
 .columns-list {
-  color: var(--roxo-claro);
+  color: var(--roxo-escuro);
   font-weight: bold;
 }
 
 .line-list {
-  color: var(--roxo-claro);
+  color: var(--roxo-escuro);
 }
 
 .ajust-footer {
@@ -172,14 +172,18 @@
   background: var(--linear);
 }
 
+.bg-roxo-full {
+  background: var(--roxo-claro);
+}
+
 .table-border-roxo {
-  border-right: 1px solid var(--roxo-claro);
-  border-left: 1px solid var(--roxo-claro);
+  border-right: 1px solid var(--roxo-escuro);
+  border-left: 1px solid var(--roxo-escuro);
   border-radius: 100px;
 }
 
 .table-border-roxo td {
-  border-color: var(--roxo-claro); /* Define a cor das bordas das células como vermelho */
+  border-color: var(--roxo-escuro); /* Define a cor das bordas das células como vermelho */
 }
 
 .table-border-roxo tr:nth-child(even) td {
@@ -191,7 +195,7 @@
 }
 
 .table-border-roxo tr:first-child  {
-  border-top: 1px solid var(--roxo-claro); /* Adiciona uma borda sólida cinza no topo das células da primeira linha */
+  border-top: 1px solid var(--roxo-escuro); /* Adiciona uma borda sólida cinza no topo das células da primeira linha */
 }
 
 .bg-roxo-animado {
@@ -202,6 +206,10 @@
 .bg-roxo-animado-top {
   background: var(--roxo-claro) !important;
   background-size: 100% 200%;
+}
+
+.text-roxo {
+  color: var(--roxo-claro);
 }
 
 .text {
