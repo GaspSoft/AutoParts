@@ -31,9 +31,12 @@
   height: 70px;
   position: relative;
   width: 120px;
+  flex-wrap: wrap;
+  display: flex;
+  margin-bottom: 5%;
 }
 
-.payment-method img {
+.payment-method label {
   background: var(--branco) no-repeat center center;
   bottom: 1px;
   cursor: pointer;
@@ -51,17 +54,17 @@
   margin-left: 25px;
 }
 
-.payment-methods input:focus + img {
-  outline: 1px dotted var(--roxo-claro);
+.payment-methods input:focus + label {
+  outline: 1px solid var(--roxo-claro);
   border-radius: 5%;
 }
 
-.payment-methods input:checked + img {
+.payment-methods input:checked + label {
   outline: 2px solid var(--roxo-claro);
   border-radius: 5%;
 }
 
-.payment-methods input:checked + img:after {
+.payment-methods input:checked + label:after {
   bottom: -10px;
   content: "";
   display: inline-block;
@@ -72,7 +75,7 @@
 }
 
 @-moz-document url-prefix() {
-  .payment-methods input:checked + img:after {
+  .payment-methods input:checked + label:after {
     bottom: 0;
     right: 0;
     background-color: var(--roxo-claro);
@@ -80,7 +83,48 @@
 }
 
 .boleto {
-  height: 100px;
+  position: absolute;
+  height: 75px;
+  left: -1px;
+  top: -5px;
   border-radius: 10%;
   top: -5;
 }
+
+.visa {
+  position: absolute;
+  height: 30px;
+  left: 7px;
+  top: 20px;
+  border-radius: 10%;
+  top: -5;
+}
+
+.master {
+  position: absolute;
+  height: 50px;
+  left: 25px;
+  top: 10px;
+  border-radius: 10%;
+  top: -5;
+}
+
+.hiper {
+  position: absolute;
+  height: 45px;
+  left: 8px;
+  top: 10px;
+  border-radius: 10%;
+  top: -5;
+}
+
+.pix {
+  position: absolute;
+  height: 35px;
+  left: 8px;
+  top: 15px;
+  border-radius: 10%;
+  top: -5;
+}
+
+

@@ -1,5 +1,5 @@
 <div class="container pb-5">
-  <div class="col d-flex justify-content-between mx-5">
+  <div class="col d-flex justify-content-center mx-5">
 
     <form #clienteForm="ngForm">
       <h1 class="title fs-4 fw-bold text-center mt-5">Informe seu Nome e
@@ -76,7 +76,7 @@
 
       <h1 class="title fs-4 fw-bold text-center mt-5">Como podemos te contatar?</h1>
 
-      <div class="row d-flex justify-content-center">
+      <div class="row d-flex justify-content-around">
         <div class="col-10">
           <div class="form-floating">
             <input type="email" name="email" class="form-control"
@@ -104,20 +104,40 @@
 
       <h1 class="title fs-4 fw-bold text-center mt-5">Forma de Pagamento?</h1>
 
-      <ul class="row payment-methods">
+      <ul class="row payment-methods justify-content-center mx-5 px-5">
         <li class="payment-method">
-          <input name="payment_methods" type="radio" id="paypal">
-          <label for="paypal">PayPal</label>
+          <input name="payment_methods" type="radio" id="boleto">
+          <label for="boleto">
+            <img src="../../../../assets/img/Boleto.svg" class="boleto">
+          </label>
+        </li>
+
+        <li class="payment-method">
+          <input name="payment_methods" type="radio" id="visa">
+          <label for="visa">
+            <img src="../../../../assets/img/Visa.svg" class="visa">
+          </label>
+        </li>
+
+        <li class="payment-method">
+          <input name="payment_methods" type="radio" id="master">
+          <label for="master">
+            <img src="../../../../assets/img/MasterCard.svg" class="master">
+          </label>
+        </li>
+
+        <li class="payment-method">
+          <input name="payment_methods" type="radio" id="hiper">
+          <label for="hiper">
+            <img src="../../../../assets/img/Hipecard.svg" class="hiper">
+          </label>
         </li>
 
         <li class="payment-method">
           <input name="payment_methods" type="radio" id="pix">
-          <label for="pix">PIX</label>
-        </li>
-
-        <li class="payment-method">
-          <input name="payment_methods" type="radio" id="boleto">
-          <img src="../../../../assets/img/boleto-logo.png" class="boleto" alt="">
+          <label for="pix">
+            <img src="../../../../assets/img/Pix.svg" class="pix">
+          </label>
         </li>
       </ul>
 
