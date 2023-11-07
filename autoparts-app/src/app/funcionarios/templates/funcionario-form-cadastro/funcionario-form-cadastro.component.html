@@ -47,8 +47,9 @@
     <div class="row d-flex justify-content-center">
       <div class="col-6">
         <div class="form-floating mb-3">
-          <input type="password" [(ngModel)]="funcionario.senha" name="senha" class="form-control" id="floatingInput"
+          <input [type]="senhaVisivel ? 'text' : 'password'" [(ngModel)]="funcionario.senha" name="senha" class="form-control" id="floatingInput"
             placeholder="Senha">
+            <i (click)="visualSenha()" [ngClass]="senhaVisivel ? 'bi bi-eye-fill' : 'bi bi-eye-slash-fill'" class="senha fs-5"></i>
           <label for="floatingInput">Senha</label>
         </div>
       </div>

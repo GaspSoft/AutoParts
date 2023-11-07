@@ -14,6 +14,7 @@ export class ClienteFormCadastroComponent {
   estados: any = [];
   sucessoFeedback: boolean = false;
   errorsFeedback?: string = '';
+  senhaVisivel = false;
 
   constructor(private service: ClientesService, private router: Router, private authService: AuthServiceService,) {
     enum TipoPessoa {
@@ -23,6 +24,10 @@ export class ClienteFormCadastroComponent {
     this.cliente.tipoPessoa = TipoPessoa.CLIENTE;
 
     this.estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO']
+  }
+
+  visualSenha() {
+    this.senhaVisivel = !this.senhaVisivel;
   }
 
   cadastrar(): void {
