@@ -210,7 +210,7 @@
         </div>
       </div>
 
-      <div class="row d-flex justify-content-center"> 
+      <div class="row d-flex justify-content-center">
         <div class="col-5">
           <div class="form-floating mb-3">
             <input
@@ -241,17 +241,6 @@
           </div>
         </div>
       </div>
-    </form>
-    <div class="col-5 align-content-around">
-      <div>
-        <h1 class="title fs-4 fw-bold mt-5">Seu Pedido</h1>
-        <hr class="row-hr" />
-        <div class="d-flex justify-content-around">
-          <p class="subtitle fs-6 pt-2">Total</p>
-          <!-- <p class="subtitle fs-6 pt-2">{{ precoTotal | currency:'BRL':'symbol':'1.2-2' }}</p> -->
-        </div>
-        <hr class="row-hr" />
-      </div>
       <div *ngIf="mostrarCartao" class="wrapper">
         <div class="card-form">
           <div class="card-list">
@@ -277,7 +266,7 @@
                     </div>
                   </div>
                     <div class="card-item__type">
-                      <img [src]="'../../../../assets/img/' + tipoCartao + '.svg'" alt="{{ tipoCartao }} Cartão" 
+                      <img [src]="'../../../../assets/img/' + tipoCartao + '.svg'" alt="{{ tipoCartao }} Cartão"
                        class="card-item__typeImg"/>
                     </div>
                   </div>
@@ -307,6 +296,42 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </form>
+    <div class="col-5 align-content-around">
+      <div>
+        <h1 class="title fs-4 fw-bold mt-5">Seu Pedido</h1>
+        <hr class="row-hr" />
+        <div class="d-flex justify-content-around">
+          <p class="subtitle fs-4 pt-2 fw-bold">Total</p>
+          <p class="subtitle fs-4 pt-2">{{ precoTotal | currency:'BRL':'symbol':'1.2-2' }}</p>
+        </div>
+        <hr class="row-hr" />
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="col-8">
+          <div class="alert alert-success " role="alert" *ngIf="sucessoFeedback">
+            Compra Finalizada com Sucesso!!!
+          </div>
+          <div class="alert alert-danger" role="alert" *ngIf="errorsFeedback">
+            {{ errorsFeedback }}
+          </div>
+        </div>
+      </div>
+      <div *ngFor="let peca of pecas; let i = index" class="d-flex item-carrinho my-2">
+        <img class="img-peca" data-options="zoomPosition:inner;hint:off;" *ngIf="peca.base64" [src]="getFotoUrl(peca)" alt="Foto da Peça"/>
+        <div class="mx-4 my-4">
+          <h1 class="title-item">{{ peca.nome }}</h1>
+          <h2 class="desc-item">{{ peca.descricao }}</h2>
+          <h4 class="prec-item">{{ peca.preco | currency:'BRL':'symbol':'1.2-2' }}</h4>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="px-5 my-4">
+          <button class="btn btn-roxo w-100 text-uppercase p-2" type="submit" (click)="comprarItens()">
+            Finalizar Compra
+          </button>
         </div>
       </div>
     </div>
