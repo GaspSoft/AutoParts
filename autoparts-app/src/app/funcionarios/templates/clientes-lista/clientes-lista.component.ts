@@ -12,7 +12,6 @@ import { ClientesService } from 'src/app/services/cliente/clientes.service';
 })
 
 export class ClientesListaComponent implements OnInit {
-
   clientes: Cliente[] = [];
   clientesExiste:boolean = false;
 
@@ -49,16 +48,13 @@ export class ClientesListaComponent implements OnInit {
     this.router.navigate([`funcionario/detalhes-cliente/${cliente_id}`]);
   }
 
-  formatarCpf(numero: number): string {
-    // Verifica se o CPF é válido antes de formatar
+  formatarCpf(numero: any): string {
     if (!numero) {
       return '';
     }
 
-    // Remove caracteres não numéricos
     const cpf = numero.toString().padStart(11, '0');
 
-    // Aplica a formatação
     return `${cpf.substr(0, 3)}.${cpf.substr(3, 3)}.${cpf.substr(6, 3)}-${cpf.substr(9, 2)}`;
   }
 }

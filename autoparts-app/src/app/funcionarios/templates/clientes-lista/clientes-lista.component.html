@@ -18,8 +18,8 @@
             <td class="line-list"> {{ i + 1 }} </td>
             <td class="line-list"> {{ cliente.nome}} </td>
             <td class="line-list"> {{ cliente.email}} </td>
-            <!--  <td class="line-list"> {{ formatarCpf(cliente.cpf) }} </td>-->
-            <td class="d-flex justify-content-end line-list">
+            <td class="line-list"> {{ formatarCpf(cliente.cpf) }} </td>
+            <td class="d-flex justify-content-end line-list lista">
               <button type="button" class="btn btn-azul mx-4 px-4" (click)="detalhesCliente(cliente.cliente_id)">
                 <i class="fa-solid fa-circle-info"></i>
               </button>
