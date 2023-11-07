@@ -58,13 +58,13 @@
       for (let i = 0; i < convCarrinho.length; i++) {
         let valueCarrinho = convCarrinho[i];
 
-        // this.service.getPecaById(valueCarrinho).subscribe((response) => {
-        //   this.pecas.push(response);
+        this.service.getPecaById(valueCarrinho).subscribe((response) => {
+          this.pecas.push(response);
 
-        //   if (response.preco !== undefined) {
-        //     this.precoTotal += response.preco;
-        //   }
-        // });
+          if (response.preco !== undefined) {
+            this.precoTotal += response.preco;
+          }
+        });
       }
     }
 

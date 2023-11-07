@@ -1,138 +1,339 @@
-<div class="container-fluid row mb-5">
-  <div class="col-12 d-flex justify-content-center">
+<div class="container pb-5">
+  <div class="col d-flex justify-content-center mx-5">
+    <form #clienteForm="ngForm">
+      <h1 class="title fs-4 fw-bold text-center mt-5">
+        Informe seu Nome e Endereço:
+      </h1>
 
-  <form #clienteForm="ngForm">
-    <h1 class="title fs-4 fw-bold text-center mt-5">Informe seu Nome e Endereço:</h1>
+      <div class="row d-flex justify-content-center">
+        <div class="col-10">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              name="nome"
+              class="form-control"
+              id="floatingInput"
+              placeholder="Nome"
+            />
+            <label for="floatingInput">Nome</label>
+          </div>
+        </div>
+      </div>
 
-    <div class="row d-flex justify-content-center">
-      <div class="col-10">
-        <div class="form-floating mb-3">
-          <input type="text"  name="nome" class="form-control" id="floatingInput"
-            placeholder="Nome">
-          <label for="floatingInput">Nome</label>
+      <div class="row d-flex justify-content-center">
+        <div class="col-10">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              name="cep"
+              class="form-control"
+              id="floatingInput"
+              placeholder="CEP"
+              mask="00000-000"
+            />
+            <label for="floatingInput">CEP</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row d-flex justify-content-center">
+        <div class="col-5">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              name="cidade"
+              class="form-control"
+              id="floatingInput"
+              placeholder="Cidade"
+            />
+            <label for="floatingInput">Cidade</label>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              name="bairro"
+              class="form-control"
+              id="floatingInput"
+              placeholder="Bairro"
+            />
+            <label for="floatingInput">Bairro</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row d-flex justify-content-center">
+        <div class="col-5">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              name="rua"
+              class="form-control"
+              id="floatingInput"
+              placeholder="Rua"
+            />
+            <label for="floatingInput">Rua</label>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="form-floating mb-3">
+            <input
+              type="number"
+              name="numero"
+              class="form-control"
+              id="floatingInput"
+              placeholder="Número"
+            />
+            <label for="floatingInput">Número</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row d-flex justify-content-center">
+        <div class="col-10">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              name="complemento"
+              class="form-control"
+              id="floatingInput"
+              placeholder="Complemento"
+            />
+            <label for="floatingInput">Complemento</label>
+          </div>
+        </div>
+      </div>
+
+      <h1 class="title fs-4 fw-bold text-center mt-5">
+        Como podemos te contatar?
+      </h1>
+
+      <div class="row d-flex justify-content-around">
+        <div class="col-10">
+          <div class="form-floating">
+            <input
+              type="email"
+              name="email"
+              class="form-control"
+              id="floatingInput"
+              placeholder="nome@exemplo.com"
+            />
+            <label for="floatingInput">Email</label>
+          </div>
+          <h5 class="ps-3 info">
+            Um e-mail de confirmação será enviado após o checkout.
+          </h5>
+        </div>
+      </div>
+
+      <div class="row d-flex justify-content-center">
+        <div class="col-10">
+          <div class="form-floating">
+            <input
+              type="text"
+              name="telf"
+              class="form-control"
+              id="floatingInput"
+              placeholder="Senha"
+              mask="(00) 00000-0000"
+            />
+            <label for="floatingInput">Número de Telefone</label>
+          </div>
+          <h5 class="ps-3 info">
+            Uma transportadora pode entrar em contato com você para confirmar a
+            entrega.
+          </h5>
+        </div>
+      </div>
+
+      <h1 class="title fs-4 fw-bold text-center mt-5">Forma de Pagamento?</h1>
+
+      <ul class="row payment-methods justify-content-center mx-5 px-5">
+
+        <li class="payment-method">
+          <input name="payment_methods" type="radio" id="visa" (click)="mostrarCartao = true" [(ngModel)]="tipoCartao" (change)="onCartao('Visa')" />
+          <label for="visa">
+            <img src="../../../../assets/img/Visa.svg" class="visa"/>
+          </label>
+        </li>
+
+        <li class="payment-method">
+          <input name="payment_methods" type="radio" id="master" (click)="mostrarCartao = true" [(ngModel)]="tipoCartao" (change)="onCartao('MasterCard')"/>
+          <label for="master">
+            <img src="../../../../assets/img/MasterCard.svg" class="master"/>
+          </label>
+        </li>
+
+        <li class="payment-method">
+          <input name="payment_methods" type="radio" id="hiper" (click)="mostrarCartao = true" [(ngModel)]="tipoCartao" (change)="onCartao('Hipercard')"/>
+          <label for="hiper">
+            <img src="../../../../assets/img/Hipercard.svg" class="hiper" />
+          </label>
+        </li>
+      </ul>
+
+      <div class="row d-flex justify-content-center">
+        <div class="col-10">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              name="cartao"
+              class="form-control"
+              id="floatingInput"
+              placeholder="Número do Cartão"
+              mask="0000 0000 0000 0000"
+              [(ngModel)]="inputCartao"
+              (input)="formatCartao()"
+            />
+            <label for="floatingInput">Número do Cartão</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row d-flex justify-content-center">
+        <div class="col-10">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              name="titular"
+              class="form-control"
+              id="floatingInput"
+              placeholder="Titular"
+              [(ngModel)]="inputTitular"
+              (input)="formatTitular()"
+              maxlength="28"
+              (keydown)="noNumbers($event)"
+            />
+            <label for="floatingInput">Titular</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row d-flex justify-content-center">
+        <div class="col-5">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              name="validade"
+              class="form-control"
+              id="floatingInput"
+              placeholder="Validade"
+              mask="00/0000"
+              [(ngModel)]="inputValidade"
+              (input)="formatValidade()"
+            />
+            <label for="floatingInput">Validade</label>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              name="cvv"
+              class="form-control"
+              id="floatingInput"
+              placeholder="CVV"
+              mask="000"
+              [(ngModel)]="inputCVV"
+            />
+            <label for="floatingInput">CVV</label>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="mostrarCartao" class="wrapper">
+        <div class="card-form">
+          <div class="card-list">
+            <div class="card-item">
+              <div class="card-item__side -front">
+                <div class="card-item__focus"></div>
+                <div class="card-item__cover"></div>
+                <div class="card-item__wrapper">
+                  <div class="card-item__top">
+                    <div>
+                      <img
+                      src="../../../../assets/img/Chip.svg"
+                      class="card-item__chip"/>
+                    </div>
+                    <div class="card-item__content">
+                    <div class="card-item__cvv">
+                      <label for="cardCVV" class="card-item__cvvTitle">CVV</label>
+                      <label for="cardCVV" class="card-item__cvvItem">
+                        <span>
+                          {{ inputCVV }}
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                    <div class="card-item__type">
+                      <img [src]="'../../../../assets/img/' + tipoCartao + '.svg'" alt="{{ tipoCartao }} Cartão"
+                       class="card-item__typeImg"/>
+                    </div>
+                  </div>
+                  <label for="cardNumber" class="card-item__number" mask="0000 0000 0000 0000" placeholder="XXXX XXXX XXXX XXXX">
+                    {{ maskCartao }}
+                  </label>
+                  <div class="card-item__content">
+                    <label for="cardName" class="card-item__info">
+                      <div class="card-item__dateTitle">Titular</div>
+
+                      <div class="card-item__name">
+                        <span class="card-item__nameItem">
+                          {{ inputTitular }}
+                        </span>
+                      </div>
+                    </label>
+                    <div class="card-item__date">
+                      <label for="cardMonth" class="card-item__dateTitle">Validade</label>
+                      <label for="cardMonth" class="card-item__dateItem">
+                        <span>
+                          {{ inputValidade }}
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="col-5 align-content-around">
+      <div>
+        <h1 class="title fs-4 fw-bold mt-5">Seu Pedido</h1>
+        <hr class="row-hr" />
+        <div class="d-flex justify-content-around">
+          <p class="subtitle fs-4 pt-2 fw-bold">Total</p>
+          <p class="subtitle fs-4 pt-2">{{ precoTotal | currency:'BRL':'symbol':'1.2-2' }}</p>
+        </div>
+        <hr class="row-hr" />
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="col-8">
+          <div class="alert alert-success " role="alert" *ngIf="sucessoFeedback">
+            Compra Finalizada com Sucesso!!!
+          </div>
+          <div class="alert alert-danger" role="alert" *ngIf="errorsFeedback">
+            {{ errorsFeedback }}
+          </div>
+        </div>
+      </div>
+      <div *ngFor="let peca of pecas; let i = index" class="d-flex item-carrinho my-2">
+        <img class="img-peca" data-options="zoomPosition:inner;hint:off;" *ngIf="peca.base64" [src]="getFotoUrl(peca)" alt="Foto da Peça"/>
+        <div class="mx-4 my-4">
+          <h1 class="title-item">{{ peca.nome }}</h1>
+          <h2 class="desc-item">{{ peca.descricao }}</h2>
+          <h4 class="prec-item">{{ peca.preco | currency:'BRL':'symbol':'1.2-2' }}</h4>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="px-5 my-4">
+          <button class="btn btn-roxo w-100 text-uppercase p-2" type="submit" (click)="comprarItens()">
+            Finalizar Compra
+          </button>
         </div>
       </div>
     </div>
-
-    <div class="row d-flex justify-content-center">
-      <div class="col-10">
-        <div class="form-floating mb-3">
-          <input type="text" name="cep" class="form-control" id="floatingInput"
-            placeholder="CEP" mask="00000-000">
-          <label for="floatingInput">CEP</label>
-        </div>
-      </div>
-    </div>
-
-    <div class="row d-flex justify-content-center">
-      <div class="col-5">
-        <div class="form-floating mb-3">
-          <input type="text" name="cidade" class="form-control" id="floatingInput"
-            placeholder="Cidade">
-          <label for="floatingInput">Cidade</label>
-        </div>
-      </div>
-      <div class="col-5">
-        <div class="form-floating mb-3">
-          <input type="text" name="bairro" class="form-control" id="floatingInput"
-            placeholder="Bairro">
-          <label for="floatingInput">Bairro</label>
-        </div>
-      </div>
-    </div>
-
-    <div class="row d-flex justify-content-center">
-      <div class="col-5">
-        <div class="form-floating mb-3">
-          <input type="text" name="rua" class="form-control" id="floatingInput"
-            placeholder="Rua">
-          <label for="floatingInput">Rua</label>
-        </div>
-      </div>
-      <div class="col-5">
-        <div class="form-floating mb-3">
-          <input type="number" name="numero" class="form-control"
-            id="floatingInput" placeholder="Número">
-          <label for="floatingInput">Número</label>
-        </div>
-      </div>
-    </div>
-
-    <div class="row d-flex justify-content-center">
-      <div class="col-10">
-        <div class="form-floating mb-3">
-          <input type="text" name="complemento" class="form-control"
-            id="floatingInput" placeholder="Complemento">
-          <label for="floatingInput">Complemento</label>
-        </div>
-      </div>
-    </div>
-
-    <h1 class="title fs-4 fw-bold text-center mt-5">Como podemos te contatar?</h1>
-
-    <div class="row d-flex justify-content-center">
-      <div class="col-10">
-        <div class="form-floating">
-          <input type="email" name="email" class="form-control" id="floatingInput"
-            placeholder="nome@exemplo.com">
-          <label for="floatingInput">Email</label>
-        </div>
-        <h5 class="ps-3 info">Um e-mail de confirmação será enviado após o checkout.</h5>
-      </div>
-    </div>
-
-    <div class="row d-flex justify-content-center">
-      <div class="col-10">
-        <div class="form-floating">
-          <input type="text" name="telf" class="form-control" id="floatingInput"
-            placeholder="Senha" mask="(00) 00000-0000">
-          <label for="floatingInput">Número de Telefone</label>
-        </div>
-        <h5 class="ps-3 info">Uma transportadora pode entrar em contato com você para confirmar a entrega.</h5>
-      </div>
-    </div>
-
-    <h1 class="title fs-4 fw-bold text-center mt-5">Forma de Pagamento?</h1>
-
-    <div class="row d-flex justify-content-center">
-      <div class="col-10">
-        <div class="form-floating mb-3">
-          <input type="text"  name="cartao" class="form-control" id="floatingInput"
-            placeholder="Número do Cartão" mask="0000 0000 0000 0000">
-          <label for="floatingInput">Número do Cartão</label>
-        </div>
-      </div>
-    </div>
-
-    <div class="row d-flex justify-content-center">
-      <div class="col-10">
-        <div class="form-floating mb-3">
-          <input type="text" name="titular" class="form-control" id="floatingInput"
-            placeholder="Titular">
-          <label for="floatingInput">Titular</label>
-        </div>
-      </div>
-    </div>
-
-    <div class="row d-flex justify-content-center">
-      <div class="col-5">
-        <div class="form-floating mb-3">
-          <input type="text" name="cvv" class="form-control" id="floatingInput"
-            placeholder="CVV" mask="000">
-          <label for="floatingInput">CVV</label>
-        </div>
-      </div>
-      <div class="col-5">
-        <div class="form-floating mb-3">
-          <input type="text" name="validade" class="form-control" id="floatingInput"
-            placeholder="Validade" mask="00/0000">
-          <label for="floatingInput">Validade</label>
-        </div>
-      </div>
-    </div>
-
-  </form>
-  <div class="col-5">
-
   </div>
 </div>

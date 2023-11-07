@@ -31,7 +31,7 @@ public class VendaController implements IVendaController {
     public ResponseEntity<?> listarVenda(){
        return servico.listarVendas();
     }
-    @GetMapping("/venda/{clienteId}")
+    @GetMapping("/venda/{id}")
 
      public ResponseEntity<?> listarVendaPorId(@PathVariable Integer id){
        return servico.listarClientePorId(id);
