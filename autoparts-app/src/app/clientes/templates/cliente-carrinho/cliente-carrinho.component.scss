@@ -1,45 +1,45 @@
 @import '../../../../assets/scss/variaveis.scss';
 
 .full-page {
-    min-height: 50vh;
+  min-height: 50vh;
 }
 
 .title {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .subtitle {
-    font-weight: 400;
-    color: var(--cinza);
+  font-weight: 400;
+  color: var(--cinza);
 }
 
 .row-hr {
-    border: 1px solid var(--cinza-claro);
+  border: 1px solid var(--cinza);
 }
 
 .btn {
-    border-radius: 20px;
+  border-radius: 20px;
 }
 
 .img-peca {
-    min-width: 200px;
-    max-width: 200px;
-    border-right: 2px solid var(--cinza-claro);
+  min-width: 200px;
+  max-width: 200px;
+  border-right: 2px solid var(--cinza-claro);
 }
 
 .item-carrinho {
-    border: 2px solid var(--cinza-claro);
-    border-radius: 1%;
+  border: 2px solid var(--cinza-claro);
+  border-radius: 1%;
 }
 
 .title-item {
-    color: var(--preto);
+  color: var(--preto);
 }
 
 .desc-item {
-    color: var(--cinza-escuro);
+  color: var(--cinza-escuro);
 }
 
 .prec-item {
-    color: var(--cinza);
+  color: var(--cinza);
 }

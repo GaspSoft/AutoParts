@@ -39,6 +39,7 @@
   color: var(--roxo-claro);
   position: absolute;
   padding-left: 10%;
+  top: -1px;
   left: 2px;
   transform: scale(0);
   border-radius: 4px;
@@ -51,7 +52,8 @@
 }
 
 .form-check-input:checked::before {
-  transform: scale(1);
+  transform: scale(0.9);
+  background: var(--branco);
 }
 
 .form-label {
