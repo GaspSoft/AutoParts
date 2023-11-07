@@ -99,5 +99,13 @@ public class VendaServico implements IVendaServico{
         }
         return new ResponseEntity<>(vendas, HttpStatus.OK);
     }
+@Override
+    public ResponseEntity<?> listarClientePorId(Integer id) {
+        Cliente cliente = clienteRepositorio.findByClienteId(id);
+        List<Vendas> vendas = vendaRepositorio.findByCliente(cliente);
+        return new ResponseEntity<>(vendas, HttpStatus.OK);
+    }
+
 
 }
+
