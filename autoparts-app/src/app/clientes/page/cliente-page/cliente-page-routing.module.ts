@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'ajuda', component: ClienteAjudaComponent },
   { path: 'compra/:id', component: ClienteCompraComponent },
   { path: 'pagamento', component: ClientePagamentoComponent },
-  { path: '', redirectTo: '/cliente/home', pathMatch: 'full'}
+  { path: '', redirectTo: 'login', pathMatch: 'full'}
 ];
 
 @NgModule({

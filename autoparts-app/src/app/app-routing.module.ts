@@ -1,15 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ClienteLoginComponent } from './clientes/templates/cliente-login/cliente-login.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'funcionario',
     loadChildren: () => import('./funcionarios/funcionarios.module').then(m => m.FuncionariosModule)
   },
   {
-    path: '',
+    path: 'cliente',
     loadChildren: () => import('./clientes/clientes.module').then(m => m.ClientesModule)
   },
+  {
+    path: '',
+    component: ClienteLoginComponent
+  }
 ];
 
 @NgModule({
