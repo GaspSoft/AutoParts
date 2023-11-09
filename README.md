@@ -1,4 +1,5 @@
-![Header](https://github.com/pedrogodri/AutoParts/assets/86849487/e7f32022-dd63-4991-a7ea-e06a196341ab)
+![Header](https://github.com/GaspSoft/AutoParts/assets/86849487/003506f3-ec93-48d4-8a8e-65e2409dc299)
+
 
 <h1 align="center">Auto Parts Store</h1>
 Projeto Spring Boot Java, MySql, Angular, HTML5 e SCSS
@@ -34,6 +35,6 @@ O backend é escrito em Java e usa o framework Spring Boot utilizando MySql para
 - Abra a pasta ``` front-end ``` e execute ``` ng s --0 ``` para abrir o projeto angular pela porta ``` http://localhost:4200/ ```
 - Caso ocorra erro de pacotes execute o ``` npm install ``` para instalar depencias do json
 
-## Autores 
-Este projeto foi desenvolvido por [Rafael Ronchi](https://github.com/RafaelRonchi), [Nicolas Maba](https://github.com/NicolasRicardoMaba), [Pedro Godri
-](https://github.com/pedrogodri), [Bárbara](https://github.com/BahNasc) e [Vitor Hugo Schiphorst](https://github.com/VitorSchiphorst)
+# ⌨️ Autores
+| [<img src="https://avatars.githubusercontent.com/u/86849487?v=4" width=115><br><sub>Pedro Henrique Godri</sub>](https://github.com/pedrogodri) | [<img src="https://avatars.githubusercontent.com/u/111302374?v=4" width=115><br><sub>Vitor Hugo Schiphorst</sub>](https://github.com/VitorSchiphorst) |  [<img src="https://avatars.githubusercontent.com/u/114950761?v=4" width=115><br><sub>Bárbara do Nascimento</sub>](https://github.com/BahNasc) | [<img src="https://avatars.githubusercontent.com/u/95860101?v=4" width=115><br><sub>Rafael Eduardo Ronchi Filho</sub>](https://github.com/RafaelRonchi) | [<img src="https://avatars.githubusercontent.com/u/84849511?v=4" width=115><br><sub>Nicolas Ricardo Maba</sub>](https://github.com/NicolasRicardoMaba) |
+| :---: | :---: | :---: | :---: | :---:
