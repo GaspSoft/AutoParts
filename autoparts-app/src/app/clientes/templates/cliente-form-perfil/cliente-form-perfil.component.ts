@@ -19,7 +19,10 @@ export class ClienteFormPerfilComponent implements OnInit {
   sucessoFeedback: boolean = false;
   errorsFeedback?: string = '';
 
-  constructor(private contatosService: ClientesService,  private authService: AuthServiceService, private router: Router) {
+  constructor(
+    private contatosService: ClientesService,  
+    private authService: AuthServiceService, 
+    private router: Router) {
     const clienteLogado = authService.getAuthUser();
     const tipoUser = authService.getTipoUser();
     

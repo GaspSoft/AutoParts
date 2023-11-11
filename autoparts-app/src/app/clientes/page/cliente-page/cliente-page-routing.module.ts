@@ -10,6 +10,7 @@ import { ClienteLoginComponent } from '../../templates/cliente-login/cliente-log
 import { ClienteAjudaComponent } from '../../templates/cliente-ajuda/cliente-ajuda.component';
 import { ClienteCompraComponent } from '../../templates/cliente-compra/cliente-compra.component';
 import { ClientePagamentoComponent } from '../../templates/cliente-pagamento/cliente-pagamento.component';
+import { ClienteHistoricoComponent } from '../../templates/cliente-historico/cliente-historico.component';
 
 const routes: Routes = [
   { path: 'cadastrar', component: ClienteFormCadastroComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'ajuda', component: ClienteAjudaComponent },
   { path: 'compra/:id', component: ClienteCompraComponent },
   { path: 'pagamento', component: ClientePagamentoComponent },
+  { path: 'historico', component: ClienteHistoricoComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full'}
 ];
 

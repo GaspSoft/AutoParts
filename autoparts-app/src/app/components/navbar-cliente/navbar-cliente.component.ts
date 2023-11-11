@@ -40,6 +40,11 @@ export class NavbarClienteComponent {
     this.router.navigate(['/cliente/ajuda']);
   }
 
+  linkClienteHistorico():void {
+    this.router.navigate(['/cliente/historico']);
+  }
+
+
   public toggle() {
     const body = document.body;
 
