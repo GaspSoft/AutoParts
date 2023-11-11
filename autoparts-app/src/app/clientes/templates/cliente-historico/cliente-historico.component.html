@@ -1,34 +1,22 @@
-<div class="container ajust-footer">
+<div class="container my-5 ajust-footer">
   <div class="row">
     <div class="col-md-12">
-      <div class="row justify-content-between">
-        <div class="col-md-1">
-        </div>
-      </div>
-      <div class="row d-flex justify-content-center">
-        <div class="col">
-          <div class="alert alert-success" role="alert" *ngIf="sucessoFeedback">
-            Fornecedor excluído com sucesso
-          </div>
-          <div class="alert alert-danger" role="alert" *ngIf="errorsFeedback">
-            {{errorsFeedback}}
-          </div>
-        </div>
-      </div>
-      <table *ngIf="historicoExiste" class="table table-border-roxo table-font-roxo table-hover align-middle text-start">
+      <app-lista-vazia-historico *ngIf="!historicoExiste"></app-lista-vazia-historico>
+      <table *ngIf="historicoExiste" class="table table-border-roxo table-font-roxo table-hover align-middle text-center">
         <thead>
           <tr>
-            <td class="col columns-list">Id</td>
-            <td class="col columns-list">Nome</td>
-            <td class="col columns-list">CNPJ</td>
-            <td></td>
+            <td class="col columns-list">*</td>
+            <td class="col columns-list">Produto</td>
+            <td class="col columns-list">Preço</td>
+            <td class="col columns-list">Quantidade</td>
           </tr>
         </thead>
         <tbody>
-          <tr scope="row" *ngFor="let venda of venda | search: searchText; let i = index">
+          <tr scope="row" *ngFor="let venda of vendas; let i = index">
             <td class="line-list"> {{ i + 1 }} </td>
-            <td class="line-list"> {{ venda.nome }} </td>
-            <td class="line-list"> {{ venda.cnpj }} </td>
+            <td class="line-list"> {{ venda.peca.nome }} </td>
+            <td class="line-list"> {{ venda.peca.preco }} </td>
+            <td class="line-list"> {{ venda.peca.quantidade }} </td>
           </tr>
         </tbody>
       </table>

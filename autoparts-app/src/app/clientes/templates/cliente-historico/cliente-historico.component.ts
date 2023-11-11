@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cliente } from 'src/app/model/cliente/cliente';
+import { Pecas } from 'src/app/model/pecas/pecas';
 import { Venda } from 'src/app/model/venda/venda';
 import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 import { ClientesService } from 'src/app/services/cliente/clientes.service';
@@ -12,7 +13,7 @@ import { VendaService } from 'src/app/services/venda/venda.service';
   styleUrls: ['./cliente-historico.component.scss']
 })
 export class ClienteHistoricoComponent implements OnInit {
-  venda: Venda[] = [];
+  vendas: Venda[] = [];
   cliente = new Cliente();
   sucessoFeedback: string = '';
   errorsFeedback?: string = '';
@@ -21,8 +22,7 @@ export class ClienteHistoricoComponent implements OnInit {
   constructor(
     private service: VendaService,
     private router: Router, 
-    private authService: AuthServiceService,
-    private contatosService: ClientesService
+    private authService: AuthServiceService
     ) {
       const clienteLogado = authService.getAuthUser();
       const tipoUser = authService.getTipoUser();
@@ -37,16 +37,15 @@ export class ClienteHistoricoComponent implements OnInit {
   ngOnInit(): void {
     this.service.listarHistorico().subscribe(
       response => {
-        this.venda = response;
+        this.vendas = response;
       }
     )
 
     this.service.listarHistorico().subscribe(
       response => {
-        this.venda = response;
-        this.historicoExiste = this.venda.length > 0;
+        this.vendas = response;
+        this.historicoExiste = this.vendas.length > 0;
       }
     )
   }
-
 }

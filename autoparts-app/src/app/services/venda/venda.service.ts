@@ -15,7 +15,7 @@ export class VendaService {
     return this.http.post(`${this.url}`, venda);
   }
 
-  listarHistorico(): Observable<any>{
+  listarHistorico(): Observable<Venda[]>{
     return this.http.get<Venda[]>(this.url);
   }
 }
