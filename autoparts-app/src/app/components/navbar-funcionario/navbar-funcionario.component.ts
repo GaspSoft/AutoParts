@@ -34,6 +34,10 @@ export class NavbarFuncionarioComponent {
     this.router.navigate(['/funcionario/lista-fornecedor']);
   }
 
+  linkClienteHistorico():void {
+    this.router.navigate(['/funcionario/historico']);
+  }
+
   public toggle() {
     const body = document.body;
 

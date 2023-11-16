@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './lista-vazia-historico.component.html',
   styleUrls: ['./lista-vazia-historico.component.scss']
 })
-export class ListaVaziaHistoricoComponent implements OnInit {
+export class ListaVaziaHistoricoComponent {
 
   constructor() { }
 

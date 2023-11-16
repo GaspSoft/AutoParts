@@ -4,11 +4,11 @@ import { Venda } from 'src/app/model/venda/venda';
 import { VendaService } from 'src/app/services/venda/venda.service';
 
 @Component({
-  selector: 'app-cliente-historico',
-  templateUrl: './cliente-historico.component.html',
-  styleUrls: ['./cliente-historico.component.scss']
+  selector: 'app-historico-venda',
+  templateUrl: './historico-venda.component.html',
+  styleUrls: ['./historico-venda.component.scss']
 })
-export class ClienteHistoricoComponent implements OnInit {
+export class HistoricoVendaComponent implements OnInit {
   vendas: Venda[] = [];
   cliente = new Cliente();
   sucessoFeedback: string = '';

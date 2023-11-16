@@ -12,6 +12,7 @@ import { FuncionarioDetalhesComponent } from '../../templates/funcionario-detalh
 import { FornecedorDetalhesComponent } from '../../templates/fornecedor-detalhes/fornecedor-detalhes.component';
 import { PecasDetalhesComponent } from '../../templates/pecas-detalhes/pecas-detalhes.component';
 import { ClienteDetalhesComponent } from '../../templates/cliente-detalhes/cliente-detalhes.component';
+import { HistoricoVendaComponent } from '../../templates/historico-venda/historico-venda.component';
 
 const routes: Routes = [
 
@@ -32,6 +33,8 @@ const routes: Routes = [
   { path: 'lista-pecas', component: PecasListaComponent },
   { path: 'alterar-pecas', component: PecasFormsCadastroComponent },
   { path: 'detalhes-pecas/:id', component: PecasDetalhesComponent },
+
+  { path: 'historico', component: HistoricoVendaComponent },
 
   { path: 'painel', component: PainelComponent },
   { path: '', redirectTo: '/funcionario/painel', pathMatch: 'full'}
