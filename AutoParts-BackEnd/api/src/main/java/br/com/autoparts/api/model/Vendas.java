@@ -1,6 +1,9 @@
 package br.com.autoparts.api.model;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,5 +31,8 @@ public class Vendas {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
+
+    @Column(name = "data")
+    private LocalDateTime dataCompra;
     
 }

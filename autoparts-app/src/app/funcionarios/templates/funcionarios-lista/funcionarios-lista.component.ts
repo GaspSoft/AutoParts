@@ -13,23 +13,23 @@ import { FuncionariosService } from 'src/app/services/funcionario/funcionarios.s
 export class FuncionariosListaComponent implements OnInit {
   funcionarios: Funcionario[] = [];
   funcionarioSelecionado: Funcionario = new Funcionario();
-  funcionarioExiste:boolean = false;
-  feedbackSucesso?:string;
-  feedbackErro?:string;
+  funcionarioExiste: boolean = false;
+  feedbackSucesso?: string;
+  feedbackErro?: string;
   searchText = '';
 
   constructor(
     private service: FuncionariosService,
     private router: Router,
-    private funcionariosService: FuncionariosService,private authService: AuthServiceService
+    private funcionariosService: FuncionariosService,
+    private authService: AuthServiceService
     ) {
       const clienteLogado = authService.getAuthUser();
-    const tipoUser = authService.getTipoUser();
-    if (clienteLogado !== null && tipoUser !== undefined && tipoUser == 'GERENTE') {
-    } else{
-      this.router.navigate(['cliente/login']);
-
-    }
+      const tipoUser = authService.getTipoUser();
+      if (clienteLogado !== null && tipoUser !== undefined && tipoUser == 'GERENTE') {
+      } else{
+        this.router.navigate(['cliente/login']);
+      }
     }
 
   ngOnInit(): void {
@@ -77,15 +77,12 @@ export class FuncionariosListaComponent implements OnInit {
   }
 
   formatarCpf(numero: number): string {
-    // Verifica se o CPF é válido antes de formatar
     if (!numero) {
       return '';
     }
 
-    // Remove caracteres não numéricos
     const cpf = numero.toString().padStart(11, '0');
 
-    // Aplica a formatação
     return `${cpf.substr(0, 3)}.${cpf.substr(3, 3)}.${cpf.substr(6, 3)}-${cpf.substr(9, 2)}`;
   }
 }

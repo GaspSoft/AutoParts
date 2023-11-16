@@ -26,4 +26,8 @@ export class PainelComponent {
   linkListaFornecedor():void {
     this.router.navigate(['/funcionario/lista-fornecedor']);
   }
+
+  linkListaHistorico():void {
+    this.router.navigate(['/funcionario/historico']);
+  }
 }

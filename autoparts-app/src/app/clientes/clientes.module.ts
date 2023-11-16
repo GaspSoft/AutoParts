@@ -15,6 +15,8 @@ import { ClienteCatalogoComponent } from './templates/cliente-catalogo/cliente-c
 import { NgxMaskModule } from 'ngx-mask';
 import { ClienteLoginComponent } from './templates/cliente-login/cliente-login.component';
 import { ClientePagamentoComponent } from './templates/cliente-pagamento/cliente-pagamento.component';
+import { ClienteHistoricoComponent } from './templates/cliente-historico/cliente-historico.component';
+import { ListaVaziaHistoricoComponent } from './templates/lista-vazia/lista-vazia-historico/lista-vazia-historico.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { ClientePagamentoComponent } from './templates/cliente-pagamento/cliente
     ClienteCompraComponent,
     ClienteCatalogoComponent,
     ClienteAjudaComponent,
-    ClientePagamentoComponent
+    ClientePagamentoComponent,
+    ClienteHistoricoComponent,
+    ListaVaziaHistoricoComponent
   ],
   imports: [
     CommonModule,
@@ -47,7 +51,9 @@ import { ClientePagamentoComponent } from './templates/cliente-pagamento/cliente
     ClienteCarrinhoComponent,
     ClienteCompraComponent,
     ClienteCatalogoComponent,
-    ClienteAjudaComponent
+    ClienteAjudaComponent,
+    ClienteHistoricoComponent,
+    ListaVaziaHistoricoComponent
   ]
 })
 export class ClientesModule { }

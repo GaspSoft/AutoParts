@@ -21,6 +21,8 @@ import { FornecedorDetalhesComponent } from './templates/fornecedor-detalhes/for
 import { ClienteDetalhesComponent } from './templates/cliente-detalhes/cliente-detalhes.component';
 import { PecasDetalhesComponent } from './templates/pecas-detalhes/pecas-detalhes.component';
 import { FuncionarioDetalhesComponent } from './templates/funcionario-detalhes/funcionario-detalhes.component';
+import { ListaVaziaHistoricoComponent } from './templates/lista-vazia/lista-vazia-historico/lista-vazia-historico.component';
+import { HistoricoVendaComponent } from './templates/historico-venda/historico-venda.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { FuncionarioDetalhesComponent } from './templates/funcionario-detalhes/f
     FornecedorDetalhesComponent,
     ClienteDetalhesComponent,
     PecasDetalhesComponent,
-    FuncionarioDetalhesComponent
+    FuncionarioDetalhesComponent,
+    ListaVaziaHistoricoComponent,
+    HistoricoVendaComponent
   ],
   imports: [
     CommonModule,
@@ -57,7 +61,9 @@ import { FuncionarioDetalhesComponent } from './templates/funcionario-detalhes/f
     FornecedorFormCadastroComponent,
     FornecedoresListaComponent,
     PecasFormsCadastroComponent,
-    PecasListaComponent
+    PecasListaComponent,
+    ListaVaziaHistoricoComponent,
+    HistoricoVendaComponent
   ]
 })
 export class FuncionariosModule { }
