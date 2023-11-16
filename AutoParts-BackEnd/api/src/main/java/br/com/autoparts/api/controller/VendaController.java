@@ -1,6 +1,10 @@
 package br.com.autoparts.api.controller;
 
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,7 +27,7 @@ public class VendaController implements IVendaController {
 
     @PostMapping("/venda")
     public ResponseEntity<?> cadastrarVenda(@RequestBody Vendas venda){
-        System.out.println(venda.getCliente().getCliente_id());
+        venda.setDataCompra(LocalDateTime.now());
         return servico.cadastrarVenda(venda);
     }
 
