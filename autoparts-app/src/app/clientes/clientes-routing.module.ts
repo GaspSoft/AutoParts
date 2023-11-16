@@ -4,7 +4,7 @@ import { ClientePageComponent } from './page/cliente-page/cliente-page.component
 
 const routes: Routes = [
   {
-    path: 'cliente',
+    path: '',
     component: ClientePageComponent,
     loadChildren: () => import('./page/cliente-page/cliente-page.module').then(m => m.ClientePageModule)
   }

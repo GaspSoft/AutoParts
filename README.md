@@ -1,8 +1,15 @@
-![Header](https://github.com/pedrogodri/AutoParts/assets/86849487/e7f32022-dd63-4991-a7ea-e06a196341ab)
+![Header](https://github.com/GaspSoft/AutoParts/assets/86849487/003506f3-ec93-48d4-8a8e-65e2409dc299)
 
-<h1 align="center">Auto Parts Store</h1>
-Projeto Spring Boot Java, MySql, Angular, HTML5 e SCSS
-Este projeto é um aplicativo web full-stack. Funcionando como um sistema de compra de peças de carros, tendo os seus atores: Gerente, Funcionário e Cliente.
+
+<h1 align="center">🟣 Auto Parts Store 🟣</h1>
+
+<h2 align="center">📝 Objetivo Geral 📝</h2>
+<p align="justify" >
+  O presente trabalho tem como objetivo através deste estudo de caso criar um modelo de E-commerce com a temática venda de peças automotivas, funcional que agilize e simplifique o processo de venda de peças automotivas, com fim de, capacitar os autores e comprovar seus   conhecimentos técnicos desenvolvendo o raciocínio lógico necessário para solucionar problemas reais para que esses conhecimentos possam ser reaproveitados em trabalhos futuros.
+</p>
+<p align="justify" >
+  O projeto em questão é um aplicativo web full-stack desenvolvido utilizando as tecnologias Spring Boot (Java) para o backend, MySQL como banco de dados, Angular para o frontend, e HTML5 com SCSS para a estilização. O sistema atua como uma plataforma de compra de       peças de automóveis, envolvendo três principais atores: Gerente, Funcionário e Cliente.
+</p>
 
 ## Código 📖
 O código do projeto é dividido em duas partes: o backend e o frontend.
@@ -34,6 +41,6 @@ O backend é escrito em Java e usa o framework Spring Boot utilizando MySql para
 - Abra a pasta ``` front-end ``` e execute ``` ng s --0 ``` para abrir o projeto angular pela porta ``` http://localhost:4200/ ```
 - Caso ocorra erro de pacotes execute o ``` npm install ``` para instalar depencias do json
 
-## Autores 
-Este projeto foi desenvolvido por [Rafael Ronchi](https://github.com/RafaelRonchi), [Nicolas Maba](https://github.com/NicolasRicardoMaba), [Pedro Godri
-](https://github.com/pedrogodri), [Bárbara](https://github.com/BahNasc) e [Vitor Hugo Schiphorst](https://github.com/VitorSchiphorst)
+# ⌨️ Autores
+| [<img src="https://avatars.githubusercontent.com/u/86849487?v=4" width=115><br><sub>Pedro Henrique Godri</sub>](https://github.com/pedrogodri) | [<img src="https://avatars.githubusercontent.com/u/111302374?v=4" width=115><br><sub>Vitor Hugo Schiphorst</sub>](https://github.com/VitorSchiphorst) |  [<img src="https://avatars.githubusercontent.com/u/114950761?v=4" width=115><br><sub>Bárbara do Nascimento</sub>](https://github.com/BahNasc) | [<img src="https://avatars.githubusercontent.com/u/95860101?v=4" width=115><br><sub>Rafael Eduardo Ronchi Filho</sub>](https://github.com/RafaelRonchi) | [<img src="https://avatars.githubusercontent.com/u/84849511?v=4" width=115><br><sub>Nicolas Ricardo Maba</sub>](https://github.com/NicolasRicardoMaba) |
+| :---: | :---: | :---: | :---: | :---:
