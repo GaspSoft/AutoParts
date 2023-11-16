@@ -15,8 +15,8 @@
           <tr scope="row" *ngFor="let venda of vendas">
             <td class="line-list"> {{ venda.peca.nome }} </td>
             <td class="line-list"> {{ venda.peca.preco | currency:'BRL':'symbol':'1.2-2'  }} </td>
-            <td class="line-list"> 1 <td>
-            <td class="line-list"> 1 <td>
+            <td class="line-list"> 1 </td>
+            <td class="line-list"> {{ venda.dataCompra | date:'dd/MM/yyyy HH:mm:ss' }} </td>
           </tr>
         </tbody>
       </table>

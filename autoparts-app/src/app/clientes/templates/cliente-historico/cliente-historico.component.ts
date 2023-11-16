@@ -39,7 +39,7 @@ export class ClienteHistoricoComponent implements OnInit {
       response => {
         this.vendas = response;
       }
-    )    
+    )   
     
     this.service.listarVendaPorId(clienteLogado.cliente_id).subscribe(
       response => {
