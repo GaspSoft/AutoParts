@@ -1,9 +1,15 @@
 ![Header](https://github.com/GaspSoft/AutoParts/assets/86849487/003506f3-ec93-48d4-8a8e-65e2409dc299)
 
 
-<h1 align="center">Auto Parts Store</h1>
-Projeto Spring Boot Java, MySql, Angular, HTML5 e SCSS
-Este projeto é um aplicativo web full-stack. Funcionando como um sistema de compra de peças de carros, tendo os seus atores: Gerente, Funcionário e Cliente.
+<h1 align="center">🟣 Auto Parts Store 🟣</h1>
+
+<h2 align="center">📝 Objetivo Geral 📝</h2>
+<p align="justify" >
+  O presente trabalho tem como objetivo através deste estudo de caso criar um modelo de E-commerce com a temática venda de peças automotivas, funcional que agilize e simplifique o processo de venda de peças automotivas, com fim de, capacitar os autores e comprovar seus   conhecimentos técnicos desenvolvendo o raciocínio lógico necessário para solucionar problemas reais para que esses conhecimentos possam ser reaproveitados em trabalhos futuros.
+</p>
+<p align="justify" >
+  O projeto em questão é um aplicativo web full-stack desenvolvido utilizando as tecnologias Spring Boot (Java) para o backend, MySQL como banco de dados, Angular para o frontend, e HTML5 com SCSS para a estilização. O sistema atua como uma plataforma de compra de       peças de automóveis, envolvendo três principais atores: Gerente, Funcionário e Cliente.
+</p>
 
 ## Código 📖
 O código do projeto é dividido em duas partes: o backend e o frontend.
