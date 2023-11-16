@@ -18,4 +18,8 @@ export class VendaService {
   listarHistorico(): Observable<Venda[]>{
     return this.http.get<Venda[]>(this.url);
   }
+
+  listarVendaPorId(id: number): Observable<Venda[]>{
+    return this.http.get<Venda[]>(`${this.url}/${id}`);
+  }
 }

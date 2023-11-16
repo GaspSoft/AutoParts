@@ -8,13 +8,15 @@
             <td class="col columns-list">Produto</td>
             <td class="col columns-list">Preço</td>
             <td class="col columns-list">Quantidade</td>
+            <td class="col columns-list">Data</td>
           </tr>
         </thead>
         <tbody>
-          <tr scope="row" *ngFor="let venda of vendas; let i = index">
+          <tr scope="row" *ngFor="let venda of vendas">
             <td class="line-list"> {{ venda.peca.nome }} </td>
-            <td class="line-list"> {{ venda.peca.preco }} </td>
-            <td class="line-list"> {{ venda.peca.quantidade }} </td>
+            <td class="line-list"> {{ venda.peca.preco | currency:'BRL':'symbol':'1.2-2'  }} </td>
+            <td class="line-list"> 1 <td>
+            <td class="line-list"> 1 <td>
           </tr>
         </tbody>
       </table>
