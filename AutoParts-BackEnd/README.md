@@ -21,6 +21,9 @@ Este projeto é um aplicativo web full-stack. Funcionando como um sistema de com
 - Abra o projeto maven em seu IDE ou editor de texto preferido.
 - Execute o projeto SPRING e acesse ``` http://localhost:8080/ ``` para acessar as rotas da API
 
+## Swagger 
+- http://localhost:8080/swagger-ui/index.html
+
 ## Autores 
 Este projeto foi desenvolvido por [Rafael Ronchi](https://github.com/RafaelRonchi), [Nicolas Maba](https://github.com/NicolasRicardoMaba), [Pedro Godri
 ](https://github.com/pedrogodri).
