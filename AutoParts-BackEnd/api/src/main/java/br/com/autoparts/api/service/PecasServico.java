@@ -28,11 +28,6 @@ public class PecasServico implements IPecasService{
     public ResponseEntity<?> cadastrarPecas(Pecas pecas) {
         List<Fornecedor> fornecedorPorCnpj = fornecedorRepositorio.findByCnpj(pecas.getFornecedor().getCnpj());
 
-        // if (pecas.getBase64() == null || pecas.getBase64().isEmpty()) {
-        //     retorno.setMensagem("Insira uma foto.");
-        //     return ResponseEntity.badRequest().body(retorno);
-        // }
-
         if (pecas.getNome() == null || pecas.getNome().isEmpty()) {
             retorno.setMensagem("Insira um nome.");
             return ResponseEntity.badRequest().body(retorno);

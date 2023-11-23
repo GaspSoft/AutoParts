@@ -73,7 +73,7 @@ export class PecasFormsCadastroComponent implements OnInit {
 
   salvarPeca() {
     if(this.id) {
-      this.service.atualizarPeca(this.peca).subscribe(
+      this.service.atualizarPeca(this.peca, this.foto).subscribe(
         resposne => {
           this.sucessoFeedback = true;
           this.errorsFeedback = '';

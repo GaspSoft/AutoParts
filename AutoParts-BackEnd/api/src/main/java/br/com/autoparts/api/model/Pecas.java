@@ -33,6 +33,7 @@ public class Pecas {
     private Integer ano;
     private Double preco;
     private String modelo;
+    @Column(length = 10000000)
     private String base64;
 
     @ManyToOne
