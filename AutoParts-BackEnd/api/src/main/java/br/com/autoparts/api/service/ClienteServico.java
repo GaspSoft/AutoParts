@@ -26,11 +26,9 @@ public class ClienteServico implements IClienteServico{
     @Autowired
     private EnderecoRepositorio enderecoRepositorio;
 
-    // Cadastra Cliente
+ 
     public ResponseEntity<?> cadastrarCliente(Cliente cliente){
-        // Verifica se o endereço foi fornecido no JSON
         if (cliente.getEndereco() != null) {
-            // Verifica se já existe um cliente com o mesmo e-mail ou CPF
 
             Optional<Cliente> clientesByEmail = clienteRepositorio.findByEmail(cliente.getEmail());
             List<Cliente> clientesBySenha = clienteRepositorio.findByCpf(cliente.getCpf());
@@ -80,13 +78,9 @@ public class ClienteServico implements IClienteServico{
             }
             
         
-            // Salva primeiro o endereço no banco de dados
             enderecoRepositorio.save(cliente.getEndereco());
-        
-            // Associa o endereço ao cliente
             cliente.setEndereco(cliente.getEndereco());
         
-            // Salva o cliente no banco de dados
             clienteRepositorio.save(cliente);
         
             return new ResponseEntity<>(cliente, HttpStatus.CREATED);
@@ -96,7 +90,6 @@ public class ClienteServico implements IClienteServico{
         }
     }
 
-    // Lista todos os clientes
     public List<Cliente> listarTodos() {
         return clienteRepositorio.findAll();
     }
@@ -107,14 +100,11 @@ public class ClienteServico implements IClienteServico{
             return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
         }
 
-        // Verifica se o cliente com o ID informado existe no repositório
         if (clienteRepositorio.existsById(cliente.getCliente_id())) {
 
             Cliente clienteExistente = clienteRepositorio.findByClienteId(cliente.getCliente_id());
 
-            // Verifica se o cliente possui um endereço associado
 
-            // Atualiza os dados do cliente com os novos dados
             clienteExistente.setCpf(cliente.getCpf());
             clienteExistente.setNome(cliente.getNome());
             clienteExistente.setEmail(cliente.getEmail());
@@ -128,7 +118,6 @@ public class ClienteServico implements IClienteServico{
         }
     }
 
-    // Deleta todos os clientes
     public ResponseEntity<?> deletarCliente(Integer cliente_id) {
         if (clienteRepositorio.existsById(cliente_id)) {
 

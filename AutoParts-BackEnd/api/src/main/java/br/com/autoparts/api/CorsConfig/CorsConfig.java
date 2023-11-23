@@ -1,6 +1,5 @@
 package br.com.autoparts.api.CorsConfig;
 
-import org.apache.catalina.filters.CorsFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;

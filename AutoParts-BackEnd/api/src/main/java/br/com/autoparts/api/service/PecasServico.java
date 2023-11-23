@@ -3,7 +3,6 @@ package br.com.autoparts.api.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.apache.tomcat.util.digester.SystemPropertySource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -116,7 +115,6 @@ public class PecasServico implements IPecasService{
     public void diminuirEstoque(Integer pecas_id) {
         Optional<Pecas> peca = pecasRepositorio.findById(pecas_id);
         if (peca.isPresent()) {
-            PecaEstoqueDTO pecaEstoqueDTO = new PecaEstoqueDTO();
             Pecas p = peca.get();
             p.setQuantidade(p.getQuantidade() - 1);
             pecasRepositorio.save(p);

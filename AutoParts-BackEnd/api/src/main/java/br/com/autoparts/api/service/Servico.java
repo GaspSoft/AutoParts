@@ -72,7 +72,6 @@ public class Servico implements IServico {
 
     public ResponseEntity<?> geraToken(Pessoa p) {
         HttpStatus userVerificado = (HttpStatus) verificarUser(p).getStatusCode();
-        System.out.println(userVerificado);
         if (HttpStatus.OK.equals(userVerificado)) {
             try {
 
@@ -107,28 +106,21 @@ public class Servico implements IServico {
                     .parseClaimsJws(token)
                     // decoda o token
                     .getBody();
-            // pega as infos
 
-            // verifica se o time stamp do token é valido
             Date expirationDate = claims.getExpiration();
             if (expirationDate.before(new Date())) {
                 return new ResponseEntity<>("Token expirado", HttpStatus.UNAUTHORIZED);
             }
-            // a variavel recebe o payload do token(email)
+
             String email = claims.getSubject();
 
             Optional<Funcionario> funcionario = funcionarioRepositorio.findByEmail(email);
-            // através do email procura por email um funcionario que corresponda esse dado
-            // se vazio procura um cliente
-            // e em fim retorna uma instancia de cliente/funcionario
 
             if (funcionario.isPresent()) {
-                System.out.println("Funcionario exist: " + funcionario.get());
                 return new ResponseEntity<>(funcionario.get(), HttpStatus.OK);
             } else {
                 Optional<Cliente> cliente = clienteRepositorio.findByEmail(email);
                 if (cliente.isPresent()) {
-                    System.out.println("Cliente exist" + cliente);
                     return new ResponseEntity<>(cliente.get(), HttpStatus.OK);
 
                 }
@@ -138,10 +130,8 @@ public class Servico implements IServico {
         } catch (MalformedJwtException e) {
             return new ResponseEntity<>("Token inválido", HttpStatus.UNAUTHORIZED);
         } catch (Exception e) {
-            System.out.println("Exceção não tratada: " + e.getMessage());
             return new ResponseEntity<>("Erro na validação do token", HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        
 
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 

@@ -41,13 +41,11 @@ public class FuncionarioServico implements IFuncionarioServico{
             return ResponseEntity.badRequest().body(retorno);
         }
         Optional<Funcionario> funcionariosByEmail = repoFunc.findByEmail(funcionario.getEmail());
-        System.out.println(funcionariosByEmail);
         if (!funcionariosByEmail.isEmpty() ){
              retorno.setMensagem("Email já registrado.");
             return ResponseEntity.badRequest().body(retorno);
         }
         Optional<Funcionario> funcionariosByCpf = repoFunc.findByCpf(funcionario.getCpf());
-        System.out.println(funcionariosByCpf);
         if (!funcionariosByCpf.isEmpty() ){
             retorno.setMensagem("CPF já registrado.");
             return ResponseEntity.badRequest().body(retorno);
