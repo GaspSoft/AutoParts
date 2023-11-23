@@ -23,13 +23,22 @@ export class PecasFormsCadastroComponent implements OnInit {
   constructor(
     private service: PecaService,
     private router: Router,
-    private fornecedorService: FornecedorService, private authService: AuthServiceService) {
+    private fornecedorService: FornecedorService, 
+    private authService: AuthServiceService) {
     this.peca = new Pecas();
     this.foto = new File([], '');
 
     const clienteLogado = authService.getAuthUser();
     const tipoUser = authService.getTipoUser();
+    console.log(tipoUser);
+    console.log(clienteLogado);
     
+    
+    if (clienteLogado !== null && tipoUser !== undefined && tipoUser != 'CLIENTE') {
+    } else{
+      this.router.navigate(['cliente/login']);
+
+    }
   }
 
   ngOnInit(): void {
