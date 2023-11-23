@@ -3,6 +3,7 @@ package br.com.autoparts.api.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.tomcat.util.digester.SystemPropertySource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -63,6 +64,15 @@ public class PecasServico implements IPecasService{
         if (fornecedorPorCnpj == null || fornecedorPorCnpj.isEmpty()) {
             retorno.setMensagem("Fornecedor não encontrado.");
             return ResponseEntity.badRequest().body(retorno);
+        }
+
+        Optional<Pecas> pecaExistenteOptional = pecasRepositorio.findById(pecas.getPecas_id());
+        if (pecaExistenteOptional.isPresent()) {
+            Pecas pecaExistente = pecaExistenteOptional.get();
+
+            if (pecas.getFoto() == null || pecas.getFoto().length == 0 ) {
+                pecas.setFoto(pecaExistente.getFoto());
+            }
         }
         pecas.setFornecedor(fornecedorPorCnpj.get(0));
         pecasRepositorio.save(pecas);

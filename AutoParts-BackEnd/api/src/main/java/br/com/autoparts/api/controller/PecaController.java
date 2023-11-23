@@ -39,7 +39,9 @@ public class PecaController implements IPecaController{
         ObjectMapper objectMapper = new ObjectMapper();
         Pecas peca = objectMapper.readValue(pecaJson, Pecas.class);
         // Salvar a imagem como array de bytes no objeto Pecas
-        peca.setFoto(foto.getBytes());
+        if (foto != null) {
+            peca.setFoto(foto.getBytes());
+        }
 
         // Salvar o objeto Pecas no banco de dados usando o serviço
         return servico.cadastrarPecas(peca);
@@ -54,8 +56,10 @@ public class PecaController implements IPecaController{
         ObjectMapper objectMapper = new ObjectMapper();
         Pecas peca = objectMapper.readValue(pecaJson, Pecas.class);
 
-        // Salvar a imagem como array de bytes no objeto Pecas
-        peca.setFoto(foto.getBytes());
+        if (foto != null) {
+            peca.setFoto(foto.getBytes());
+        }
+
 
         // Salvar o objeto Pecas no banco de dados usando o serviço
         return servico.alterarPecas(peca);

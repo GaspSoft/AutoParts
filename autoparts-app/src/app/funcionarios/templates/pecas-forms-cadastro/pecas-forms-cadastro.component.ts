@@ -23,7 +23,7 @@ export class PecasFormsCadastroComponent implements OnInit {
   constructor(
     private service: PecaService,
     private router: Router,
-    private fornecedorService: FornecedorService, 
+    private fornecedorService: FornecedorService,
     private authService: AuthServiceService) {
     this.peca = new Pecas();
     this.foto = new File([], '');
@@ -32,10 +32,10 @@ export class PecasFormsCadastroComponent implements OnInit {
     const tipoUser = authService.getTipoUser();
     console.log(tipoUser);
     console.log(clienteLogado);
-    
-    
+
+
     if (clienteLogado !== null && tipoUser !== undefined && tipoUser != 'CLIENTE') {
-    } else{
+    } else {
       this.router.navigate(['cliente/login']);
 
     }
@@ -72,35 +72,39 @@ export class PecasFormsCadastroComponent implements OnInit {
   }
 
   salvarPeca() {
-    if(this.id) {
+    if (this.id) {
       this.service.atualizarPeca(this.peca, this.foto).subscribe(
-        resposne => {
-          this.errorsFeedback = '';
-          setTimeout(() => {
-            this.sucessoFeedback = false;
-          }, 7000);
-        },
-        errorResponse => {
-          this.errorsFeedback = errorResponse.error.mensagem;
-        }
-      )
-    } else {
-      this.service.cadastrarPeca(this.peca, this.foto)
-      .subscribe(
         response => {
           this.sucessoFeedback = response.mensagem;
           this.errorsFeedback = '';
           setTimeout(() => {
             this.sucessoFeedback = false;
           }, 7000);
-          console.log(response);
         },
         errorResponse => {
+          console.error(errorResponse);
           this.sucessoFeedback = false;
-          this.errorsFeedback = errorResponse.error.mensagem;
-          console.log(errorResponse, "ERRO");
+          this.errorsFeedback = errorResponse;
         }
       );
+    } else {
+      this.service.cadastrarPeca(this.peca, this.foto)
+        .subscribe(
+          response => {
+            this.sucessoFeedback = response.mensagem;
+            this.errorsFeedback = '';
+            setTimeout(() => {
+              this.sucessoFeedback = false;
+            }, 7000);
+          },
+          errorResponse => {
+            console.error(errorResponse);
+            this.sucessoFeedback = false;
+            this.errorsFeedback = errorResponse;
+          }
+        );
+
+
     }
 
   }
