@@ -14,6 +14,8 @@ export class ClienteFormCadastroComponent {
   estados: any = [];
   sucessoFeedback: boolean = false;
   errorsFeedback?: string = '';
+  confirmarSenha: string = '';
+  senhaNaoCoincide: boolean = false;
 
   constructor(private service: ClientesService, private router: Router, private authService: AuthServiceService,) {
     enum TipoPessoa {
@@ -26,6 +28,10 @@ export class ClienteFormCadastroComponent {
   }
 
   cadastrar(): void {
+    if (this.senhaNaoCoincide || !this.cliente.senha || !this.confirmarSenha) {
+      return;
+    }
+
     this.service.cadastrarCliente(this.cliente).subscribe(
       response => {
         this.cliente = response;
@@ -41,6 +47,10 @@ export class ClienteFormCadastroComponent {
         this.errorsFeedback = errorResponse.error.mensagem;
       }
     );
+  }
+
+  verificarSenhas(): void {
+    this.senhaNaoCoincide = this.cliente.senha !== this.confirmarSenha;
   }
 
   linkClienteLogin():void {

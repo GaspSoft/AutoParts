@@ -49,12 +49,23 @@
     <div class="row d-flex justify-content-center">
       <div class="col-6">
         <div class="form-floating mb-3">
-          <input type="text" [(ngModel)]="cliente.senha" name="senha" class="form-control" id="floatingInput"
-            placeholder="Senha">
+          <input type="password" [(ngModel)]="cliente.senha" name="senha" class="form-control" id="floatingInput" placeholder="Senha">
           <label for="floatingInput">Senha</label>
         </div>
       </div>
     </div>
+    
+    <div class="row d-flex justify-content-center">
+      <div class="col-6">
+        <div class="form-floating mb-3">
+          <input type="password" [(ngModel)]="confirmarSenha" (ngModelChange)="verificarSenhas()" name="confirmarSenha" class="form-control" id="floatingInputConfirmarSenha" placeholder="Confirmar Senha">
+          <label for="floatingInputConfirmarSenha">Confirmar Senha</label>
+          <div *ngIf="senhaNaoCoincide && cliente.senha && confirmarSenha" class="text-danger m-2">       
+            As senhas não coincidem...
+          </div>
+        </div>
+      </div>
+    </div>    
 
     <div class="row d-flex justify-content-center">
       <div class="col-3">
