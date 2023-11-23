@@ -98,7 +98,6 @@ public class Servico implements IServico {
     }
 
     public ResponseEntity<?> validarToken(String token) throws SignatureException {
-        System.out.println("Token " + token);
         try {
             Claims claims = Jwts.parserBuilder()
                     .setSigningKey(privateKey)
