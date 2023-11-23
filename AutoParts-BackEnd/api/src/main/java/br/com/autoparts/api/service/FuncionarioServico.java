@@ -82,8 +82,7 @@ public class FuncionarioServico implements IFuncionarioServico{
                 retorno.setMensagem("Insira um cargo.");
                 return ResponseEntity.badRequest().body(retorno);
             }
-            cadastrarFuncionario(funcionario);
-            return new ResponseEntity<>(HttpStatus.OK);
+            return new ResponseEntity<>(repoFunc.save(funcionario),HttpStatus.OK);
         }
         retorno.setMensagem("ID não existente");
         return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
