@@ -101,7 +101,7 @@ public class FuncionarioServico implements IFuncionarioServico{
         } else if (repoFunc.existsById(obj)) {
             Funcionario funcionario = repoFunc.findByFuncionarioId(obj);
             repoFunc.delete(funcionario);
-            return new ResponseEntity<>(HttpStatus.OK);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         retorno.setMensagem("ID não existente");
         return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
