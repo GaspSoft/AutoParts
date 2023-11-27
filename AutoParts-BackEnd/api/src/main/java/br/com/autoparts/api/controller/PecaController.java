@@ -35,13 +35,12 @@ public class PecaController implements IPecaController{
     public ResponseEntity<?> salvar(@RequestPart("peca") String pecaJson,
                                      @RequestPart("foto") MultipartFile foto) throws IOException {
     
-        // Converter o JSON da peça para um objeto Pecas
         ObjectMapper objectMapper = new ObjectMapper();
         Pecas peca = objectMapper.readValue(pecaJson, Pecas.class);
-        // Salvar a imagem como array de bytes no objeto Pecas
-        peca.setFoto(foto.getBytes());
+        if (foto != null) {
+            peca.setFoto(foto.getBytes());
+        }
 
-        // Salvar o objeto Pecas no banco de dados usando o serviço
         return servico.cadastrarPecas(peca);
         
     }
@@ -50,14 +49,14 @@ public class PecaController implements IPecaController{
     public ResponseEntity<?> alterar(@RequestPart("peca") String pecaJson,
                                      @RequestPart("foto") MultipartFile foto) throws IOException {
     
-        // Converter o JSON da peça para um objeto Pecas
         ObjectMapper objectMapper = new ObjectMapper();
         Pecas peca = objectMapper.readValue(pecaJson, Pecas.class);
 
-        // Salvar a imagem como array de bytes no objeto Pecas
-        peca.setFoto(foto.getBytes());
+        if (foto != null) {
+            peca.setFoto(foto.getBytes());
+        }
 
-        // Salvar o objeto Pecas no banco de dados usando o serviço
+
         return servico.alterarPecas(peca);
         
     }
@@ -73,9 +72,6 @@ public class PecaController implements IPecaController{
                 peca.setBase64("\n"+base64Foto);
             }
         }
-        // for (Pecas p : pecasList) {
-        //     System.out.println(p.getBase64());
-        // }
         return pecasList;
     }
 
@@ -93,11 +89,8 @@ public class PecaController implements IPecaController{
 
             }
         }
-        // if(pecaExist == null){
             return new ResponseEntity<>(pecaExist, HttpStatus.OK);  
-        // } else{
-        //     return ResponseEntity.badRequest().body("Note founde");
-        // }
+    
     }
 
     @DeleteMapping("/pecas/{pecas_id}")

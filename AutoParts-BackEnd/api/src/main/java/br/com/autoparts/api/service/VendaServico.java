@@ -51,8 +51,6 @@ public class VendaServico implements IVendaServico{
             return ResponseEntity.badRequest().body(retorno);
         }
 
-        // Verifica se o cliente, funcionário, peça e fornecedor existem e o estoque da
-        // peça
 
         Optional<Cliente> clienteExist = clienteRepositorio.findById(venda.getCliente().getCliente_id());
         Optional<Fornecedor> fornecedorExist = fornecedorRepositorio
@@ -81,11 +79,9 @@ public class VendaServico implements IVendaServico{
             return ResponseEntity.badRequest().body(retorno);
         }
 
-        // Diminui o estoque da peça
 
         pecaServico.diminuirEstoque(venda.getPeca().getPecas_id());
 
-        // Salva a venda no banco de dados
         vendaRepositorio.save(venda);
         retorno.setMensagem("Venda(s) cadastrada(s) com sucesso.");
         return new ResponseEntity<>(retorno, HttpStatus.CREATED);

@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import br.com.autoparts.api.DTO.PecaEstoqueDTO;
 import br.com.autoparts.api.model.Fornecedor;
 import br.com.autoparts.api.model.Pecas;
 import br.com.autoparts.api.model.Retorno;
@@ -27,11 +26,6 @@ public class PecasServico implements IPecasService{
 
     public ResponseEntity<?> cadastrarPecas(Pecas pecas) {
         List<Fornecedor> fornecedorPorCnpj = fornecedorRepositorio.findByCnpj(pecas.getFornecedor().getCnpj());
-
-        // if (pecas.getBase64() == null || pecas.getBase64().isEmpty()) {
-        //     retorno.setMensagem("Insira uma foto.");
-        //     return ResponseEntity.badRequest().body(retorno);
-        // }
 
         if (pecas.getNome() == null || pecas.getNome().isEmpty()) {
             retorno.setMensagem("Insira um nome.");
@@ -68,6 +62,15 @@ public class PecasServico implements IPecasService{
         if (fornecedorPorCnpj == null || fornecedorPorCnpj.isEmpty()) {
             retorno.setMensagem("Fornecedor não encontrado.");
             return ResponseEntity.badRequest().body(retorno);
+        }
+
+        Optional<Pecas> pecaExistenteOptional = pecasRepositorio.findById(pecas.getPecas_id());
+        if (pecaExistenteOptional.isPresent()) {
+            Pecas pecaExistente = pecaExistenteOptional.get();
+
+            if (pecas.getFoto() == null || pecas.getFoto().length == 0 ) {
+                pecas.setFoto(pecaExistente.getFoto());
+            }
         }
         pecas.setFornecedor(fornecedorPorCnpj.get(0));
         pecasRepositorio.save(pecas);
@@ -111,7 +114,6 @@ public class PecasServico implements IPecasService{
     public void diminuirEstoque(Integer pecas_id) {
         Optional<Pecas> peca = pecasRepositorio.findById(pecas_id);
         if (peca.isPresent()) {
-            PecaEstoqueDTO pecaEstoqueDTO = new PecaEstoqueDTO();
             Pecas p = peca.get();
             p.setQuantidade(p.getQuantidade() - 1);
             pecasRepositorio.save(p);

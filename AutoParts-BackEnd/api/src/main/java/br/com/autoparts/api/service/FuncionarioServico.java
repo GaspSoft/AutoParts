@@ -41,13 +41,11 @@ public class FuncionarioServico implements IFuncionarioServico{
             return ResponseEntity.badRequest().body(retorno);
         }
         Optional<Funcionario> funcionariosByEmail = repoFunc.findByEmail(funcionario.getEmail());
-        System.out.println(funcionariosByEmail);
         if (!funcionariosByEmail.isEmpty() ){
              retorno.setMensagem("Email já registrado.");
             return ResponseEntity.badRequest().body(retorno);
         }
         Optional<Funcionario> funcionariosByCpf = repoFunc.findByCpf(funcionario.getCpf());
-        System.out.println(funcionariosByCpf);
         if (!funcionariosByCpf.isEmpty() ){
             retorno.setMensagem("CPF já registrado.");
             return ResponseEntity.badRequest().body(retorno);
@@ -82,8 +80,7 @@ public class FuncionarioServico implements IFuncionarioServico{
                 retorno.setMensagem("Insira um cargo.");
                 return ResponseEntity.badRequest().body(retorno);
             }
-            cadastrarFuncionario(funcionario);
-            return new ResponseEntity<>(HttpStatus.OK);
+            return new ResponseEntity<>(repoFunc.save(funcionario),HttpStatus.OK);
         }
         retorno.setMensagem("ID não existente");
         return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);

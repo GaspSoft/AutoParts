@@ -26,18 +26,19 @@ public class Pecas {
     private String descricao;
     private Integer quantidade;
     
-    @Column(name = "foto", length = 1000485760) // tamanho 1000MB (em bytes)
+    @Column(name = "foto", length = 1000485760) 
     @Lob
-    private byte[] foto; // Campo para armazenar a imagem em formato de array de bytes
+    private byte[] foto; 
     private String marca;
     private Integer ano;
     private Double preco;
     private String modelo;
+    @Column(length = 10000000)
     private String base64;
 
     @ManyToOne
     @JoinColumn(name = "fornecedor_id")
     private Fornecedor fornecedor;
-    // link a forncedor with id
+    
     
 }

@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { Pecas } from 'src/app/model/pecas/pecas';
 
 @Injectable({
@@ -17,9 +17,33 @@ export class PecaService {
     const formData = new FormData();
     formData.append('peca', JSON.stringify(peca));
     formData.append('foto', foto, foto.name);
-
-    return this.http.post(`${this.url}`, formData);
+  
+    return this.http.post(`${this.url}`, formData).pipe(
+      catchError(this.handleError)
+      );
+    }
+    atualizarPeca(peca: Pecas, foto: File): Observable<any> {
+      const formData = new FormData();
+      formData.append('peca', JSON.stringify(peca));
+      formData.append('foto', foto, foto.name);
+  
+      return this.http.put(`${this.url}`, formData).pipe(
+        catchError(this.handleError)
+        );
+    }
+    
+  private handleError(error: any): Observable<any> {
+    if (error instanceof ErrorEvent) {
+    } else {
+      if (error.status === 0) {
+        return throwError('Erro ao enviar a imagem. A conexão foi anulada pelo software no host.');
+      }
+    }
+    return throwError('Erro inesperado. Por favor, tente novamente.');
   }
+  
+  
+  
 
   atualizarFuncionario(peca: Pecas): Observable<any> {
     return this.http.put<Pecas>(this.url, peca);
@@ -33,9 +57,6 @@ export class PecaService {
     return this.http.get<Pecas>(`${this.url}/${id}`);
   }
 
-  atualizarPeca(peca: Pecas): Observable<any> {
-    return this.http.put<any>(this.url, peca);
-  }
 
   deletarPeca(peca: Pecas): Observable<any> {
     return this.http.delete<any>(`${this.url}/${peca.pecas_id}`);

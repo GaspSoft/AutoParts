@@ -22,8 +22,8 @@ public class Cliente extends Pessoa{
     @Column(name = "cliente_id")
     private Integer cliente_id;
 
-    @OneToOne(cascade = CascadeType.ALL) // A opção CascadeType.ALL permite que as operações do cliente também afetem o endereço.
-    @JoinColumn(name = "Enderecos_id") // O nome da coluna que é a chave estrangeira para a tabela de endereço.
+    @OneToOne(cascade = CascadeType.ALL) 
+    @JoinColumn(name = "Enderecos_id") 
     private Endereco endereco;
 
 }
