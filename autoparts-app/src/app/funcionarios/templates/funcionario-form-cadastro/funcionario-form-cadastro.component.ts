@@ -14,7 +14,7 @@ export class FuncionarioFormCadastroComponent implements OnInit {
   sucessoFeedback: boolean = false;
   errorsFeedback?: string = '';
   id?: number;
-
+  senhaVisivel = false;
   constructor(
     private service: FuncionariosService,
     private activatedRoute: ActivatedRoute,
@@ -30,6 +30,10 @@ export class FuncionarioFormCadastroComponent implements OnInit {
     }
 
   }
+  visualSenha() {
+    this.senhaVisivel = !this.senhaVisivel;
+  }
+
   ngOnInit(): void {
     this.id = this.service.getFuncionarioId()
     if (this.id) {
@@ -77,7 +81,7 @@ export class FuncionarioFormCadastroComponent implements OnInit {
       );
     }
   }
-  
+
   voltarListagem(): void {
     this.router.navigate(['funcionario/lista-funcionario']);
   }

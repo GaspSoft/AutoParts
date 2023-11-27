@@ -32,4 +32,9 @@
 .form-label {
   color: var(--cinza-escuro);
 }
-
+.senha {
+  cursor: pointer;
+  position: absolute;
+  top: 18px;
+  right: 20px;
+}

@@ -12,7 +12,6 @@ import { ClientesService } from 'src/app/services/cliente/clientes.service';
 })
 
 export class ClientesListaComponent implements OnInit {
-
   clientes: Cliente[] = [];
   clientesExiste:boolean = false;
 

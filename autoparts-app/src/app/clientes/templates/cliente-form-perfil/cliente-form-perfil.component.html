@@ -37,7 +37,8 @@
           </div>
           <div class="col">
             <div class="form-floating mb-3">
-              <input type="password"  name="senha" class="form-control" id="floatingInput" placeholder="Senha" [value]="cliente.senha" [(ngModel)]="cliente.senha">
+              <input [type]="senhaVisivel ? 'text' : 'password'"  name="senha" class="form-control" id="floatingInput" placeholder="Senha" [value]="cliente.senha" [(ngModel)]="cliente.senha">
+              <i (click)="visualSenha()" [ngClass]="senhaVisivel ? 'bi bi-eye-fill' : 'bi bi-eye-slash-fill'" class="senha fs-5"></i>
               <label for="floatingInput" class="form-label">Senha</label>
             </div>
           </div>

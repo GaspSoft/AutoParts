@@ -14,6 +14,7 @@ import { LoginService } from 'src/app/services/login/login.service';
 })
 export class ClienteLoginComponent implements OnInit{
   pessoa: Pessoa;
+  senhaVisivel = false;
 
   sucessoFeedback: boolean = false;
   errorsFeedback?: string = '';
@@ -24,8 +25,13 @@ export class ClienteLoginComponent implements OnInit{
   ) {
     this.pessoa = new Pessoa();
   }
+
   ngOnInit(): void {
     this.validarToken();
+  }
+  
+  visualSenha() {
+    this.senhaVisivel = !this.senhaVisivel;
   }
 
   login() {
