@@ -37,10 +37,10 @@
       <div class="col card text-center">
         <div class="card-body mx-5 w-100">
           <img src="/assets/img/LogoSemFundo.png" class="img-logo m-5" alt="imagem">
-          <h1 class="card-title mt-3 fs-2 fw-medium">{{peca.nome }}</h1>
-          <h2 class="card-title fs-4">{{peca.descricao }}</h2>
-          <p class="card-text fs-5 mx-2 mb-5"> {{peca.preco | currency:'BRL':'symbol':'1.2-2'}} </p>
-        </div>       
+          <h1 class="card-title mt-3 fs-2 fw-medium text-black">{{peca.nome }}</h1>
+          <h2 class="card-title fs-6 text-gray">{{peca.descricao }}</h2>
+          <p class="card-text fs-1 mx-2 mb-5 underline text-black"> {{peca.preco | currency:'BRL':'symbol':'1.2-2'}} </p>
+        </div>
         <div class="my-4 d-flex justify-content-end flex-wrap">
             <button class="btn btn-roxo text-uppercase w-75 mb-3" type="submit">
               <i class="bi bi-basket-fill svg"></i>
