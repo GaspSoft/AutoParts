@@ -12,11 +12,6 @@
   color: var(--cinza);
 }
 
-.item-carrinho {
-  border: 2px solid var(--cinza-claro);
-  border-radius: 1%;
-}
-
 .payment-methods {
   list-style: none;
   margin: 0;
@@ -140,14 +135,27 @@
 
 .title-item {
   color: var(--preto);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
 }
 
 .desc-item {
   color: var(--cinza-escuro);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
 }
 
 .prec-item {
   color: var(--cinza);
+}
+
+.img-peca {
+  max-height: 200px;
+  max-width: 200px;
 }
 
 .wrapper {

@@ -7,8 +7,8 @@
     <div *ngFor="let peca of pecas; let i = index" class="d-flex item-carrinho my-2 mx-4">
       <img class="img-peca" data-options="zoomPosition:inner;hint:off;" *ngIf="peca.base64" [src]="getFotoUrl(peca)" alt="Foto da Peça"/>
       <div class="mx-4 my-2">
-        <h1 class="title-item">{{ peca.nome }}</h1>
-        <h2 class="desc-item">{{ peca.descricao }}</h2>
+        <h2 class="title-item">{{ peca.nome }}</h2>
+        <h5 class="desc-item">{{ peca.descricao }}</h5>
         <h4 class="prec-item">{{ peca.preco | currency:'BRL':'symbol':'1.2-2' }}</h4>
         <button class="btn btn-roxo" (click)="removeCarrinho(i)"><i class="bi bi-trash3-fill"></i></button>
       </div>
