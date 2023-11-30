@@ -11,8 +11,37 @@
   O projeto em questão é um aplicativo web full-stack desenvolvido utilizando as tecnologias Spring Boot (Java) para o backend, MySQL como banco de dados, Angular para o frontend, e HTML5 com SCSS para a estilização. O sistema atua como uma plataforma de compra de       peças de automóveis, envolvendo três principais atores: Gerente, Funcionário e Cliente.
 </p>
 
+<h2 align="center">📝 Objetivo Específico 📝</h2>
+<p align="justify" >
+  <ul>
+    <li>Escrita do documento do trabalho em formato ABNT com descrição do sistema de forma detalhada;</li>
+    <li>Elaboração da logo do sistema, dos protótipos de telas e diagramas de casos de uso, diagramas de classes e diagramas de atividades;</li>
+    <li>Estudar o framework escolhido (Angular e SpringBoot) e criação do projeto Angular e SpringBoot;</li>
+    <li>Uso de banco relacional com MYSQL;</li>
+    <li>Implementação do front-end e back-end;</li>
+    <li>Criação dos componentes footer, nav-bar e side-bar no front-end;</li>
+    <li>Criação das classes modelo, serviço, repositório e controle no back-end;</li>
+  </ul>
+</p>
+
+<h2 align="center">📈 Diagrama de Arquitetura 📈</h2>
+<p align="center">
+</p>
+
+<h2 align="center">📈 Diagrama de Classes 📈</h2>
+<p align="center">
+</p>
+
+<h2 align="center">📈 Diagrama de Casosm de Uso 📈</h2>
+<p align="center">
+</p>
+
+<h2 align="center">📈 Diagrama de Entidade e Relacionamento 📈</h2>
+<p align="center">
+</p>
+
 ## Código 📖
-O código do projeto é dividido em duas partes: o backend e o frontend.
+O sistema é dividido em duas camadas: o backend e o frontend.
 
 O backend é escrito em Java e usa o framework Spring Boot utilizando MySql para persistir os dados. O frontend é escrito em Angular e usa os frameworks HTML5, SCSS e Bootstrap.
 
