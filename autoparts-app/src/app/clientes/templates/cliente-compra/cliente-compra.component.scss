@@ -1,13 +1,13 @@
 @import '../../../../assets/scss/variaveis.scss';
 
 .subtitle {
-    font-weight: 400;
-    color: var(--cinza);
+  font-weight: 400;
+  color: var(--cinza);
 }
 
 .img-logo {
-    max-width: 200px;
-    max-height: 200px;
+  max-width: 200px;
+  max-height: 200px;
 }
 
 .img-peca {
@@ -15,12 +15,24 @@
   min-width: 900px;
   max-height: 500px;
   max-width: 900px;
-  border: 3px solid var(--cinza-claro);
+  border: 2px solid var(--cinza-escuro);
   border-radius: 5%;
 }
 
 .btn {
-    border-radius: 10px;
+  border-radius: 10px;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.text-gray {
+  color: var(--cinza-escuro);
+}
+
+.text-black {
+  color: var(--preto) !important;
 }
 
 .container {
@@ -28,12 +40,13 @@
 }
 
 .card-body {
-  border: 1px solid var(--cinza-claro);
+  border: 1px solid var(--cinza-escuro);
   border-radius: 5%;
 }
 
 .card{
   border: none;
+  background-color: var(--branco);
 }
 
 .forms-compra {

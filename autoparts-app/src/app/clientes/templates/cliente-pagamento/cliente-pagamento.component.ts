@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Cliente } from "src/app/model/cliente/cliente";
+import { Endereco } from "src/app/model/endereco/endereco";
 import { Pecas } from "src/app/model/pecas/pecas";
 import { Venda } from "src/app/model/venda/venda";
 import { AuthServiceService } from "src/app/services/auth/auth-service.service";
@@ -31,6 +32,7 @@ export class ClientePagamentoComponent implements OnInit {
   sucessoFeedback: string = '';
   errorsFeedback?: string = '';
   precoTotal: number = 0;
+  endereco = new Endereco();
 
   constructor(
     private service: PecaService,
@@ -74,6 +76,16 @@ export class ClientePagamentoComponent implements OnInit {
           }
         });
       }
+
+      this.clienteService.listarCliente(this.cliente.cliente_id).subscribe(
+        cliente => {
+          this.cliente = cliente;
+          this.endereco = cliente.endereco
+        },
+        error => {
+          console.error('Erro ao carregar o cliente:', error);
+        }
+      );
   }
 
   getFotoUrl(peca: Pecas): string {

@@ -18,6 +18,7 @@ export class ClienteFormPerfilComponent implements OnInit {
 
   sucessoFeedback: boolean = false;
   errorsFeedback?: string = '';
+  senhaVisivel = false;
 
   constructor(
     private contatosService: ClientesService,  
@@ -25,14 +26,16 @@ export class ClienteFormPerfilComponent implements OnInit {
     private router: Router) {
     const clienteLogado = authService.getAuthUser();
     const tipoUser = authService.getTipoUser();
-    
+
     if (clienteLogado !== null && tipoUser !== undefined && tipoUser == 'CLIENTE') {
       this.cliente = clienteLogado;
     } else{
       this.router.navigate(['cliente/login']);
     }
   }
-
+  visualSenha() {
+    this.senhaVisivel = !this.senhaVisivel;
+  }
   alterar(): void {
     this.contatosService.alterarCliente(this.cliente).subscribe(
       response => {
@@ -86,7 +89,7 @@ export class ClienteFormPerfilComponent implements OnInit {
     this.contatosService.listarCliente(this.cliente.cliente_id).subscribe(
       cliente => {
         this.cliente = cliente;
-        this.endereco = cliente.endereco   
+        this.endereco = cliente.endereco
       },
       error => {
         console.error('Erro ao carregar o cliente:', error);

@@ -4,6 +4,16 @@
   width: 40%;
 }
 
+.modal::-webkit-scrollbar {
+  display: none;
+}
+
+.modal-content {
+  width: 1000px;
+  justify-content: center;
+  left: -250px;
+}
+
 .p-title {
   font-size: 25px;
   font-weight: 800;
@@ -70,4 +80,11 @@
 
 .pTextoJusti {
   text-align: justify;
+}
+
+.senha {
+  cursor: pointer;
+  position: absolute;
+  top: 18px;
+  right: 20px;
 }

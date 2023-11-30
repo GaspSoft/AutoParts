@@ -21,8 +21,8 @@
       <img src="/assets/img/Balls.svg" class="img-balls" alt="">
     </div>
   </section>
-  <div class="container-fluid  bg-grey m-0 pt-2 pb-5">
-    <section class="container mt-5">
+  <div class="container-fluid bg-grey m-0 pt-2 pb-5">
+    <section class="container mt-5 img-limited bg-none">
       <div id="carouselExampleLight" class="carousel carousel-light slide">
         <div class="carousel-indicators">
           <!-- Indicadores de carrossel -->
@@ -42,7 +42,7 @@
         <div class="carousel-inner">
           <!-- Use *ngFor para criar um slide para cada peça -->
           <div *ngFor="let peca of pecas; let i = index" class="carousel-item" [class.active]="i === 0">
-            <img [src]="getFotoUrl(peca)" class="d-block w-100" alt="Imagem da Peça">
+            <img [src]="getFotoUrl(peca)" class="d-block img-carrousel" alt="Imagem da Peça">
             <div class="carousel-caption d-none d-md-block">
               <div class="row d-flex justify-content-center">
                 <div class="col-6">
