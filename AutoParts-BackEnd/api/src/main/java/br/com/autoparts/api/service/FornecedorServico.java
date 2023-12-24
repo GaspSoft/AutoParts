@@ -44,7 +44,7 @@ public class FornecedorServico implements IFornecedorServico{
                 return ResponseEntity.ok(fornecedor);
             }
         } else {
-            retorno.setMensagem("O CNPJ do fornecedor é nulo.");
+            retorno.setMensagem("O CNPJ do fornecedor é inválido.");
             return ResponseEntity.badRequest().body(retorno);
         }
     }
@@ -57,7 +57,7 @@ public class FornecedorServico implements IFornecedorServico{
         Fornecedor fornecedorById = repository.findById(id).get();
         List<Pecas> pecasListFornecedor = pecasService.listarPorFornecedor(fornecedorById);
         if (!pecasListFornecedor.isEmpty()) {
-            retorno.setMensagem("Não é possível deletar o fornecedor, pois existem peças cadastradas.");
+            retorno.setMensagem("Não é possível deletar o fornecedor, pois existem peças cadastradas em seu nome.");
             return ResponseEntity.badRequest().body(retorno);
         } else {
 
@@ -73,7 +73,7 @@ public class FornecedorServico implements IFornecedorServico{
             Fornecedor fornecedorById = repository.findById(id).get();
             return ResponseEntity.ok(fornecedorById);
         } else {
-            retorno.setMensagem("O ID do fornecedor é nulo.");
+            retorno.setMensagem("O identificador do fornecedor é inválido.");
             return ResponseEntity.badRequest().body(retorno);
         }
     }
@@ -99,7 +99,7 @@ public class FornecedorServico implements IFornecedorServico{
                 return ResponseEntity.ok(fornecedorById);
             }
         } else {
-            retorno.setMensagem("O Id do fornecedor é nulo.");
+            retorno.setMensagem("O identificador do fornecedor é inválido.");
             return ResponseEntity.badRequest().body(retorno);
         }
     }
