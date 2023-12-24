@@ -55,11 +55,11 @@ public class FuncionarioServico implements IFuncionarioServico{
     }
 
     public ResponseEntity<?> alterarFuncionario(Funcionario funcionario) {
-        if (funcionario.getFuncionario_id() == null) {
+        if (funcionario.getId() == null) {
             retorno.setMensagem("ID não informado");
 
             return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
-        } else if (repoFunc.existsById(funcionario.getFuncionario_id())) {
+        } else if (repoFunc.existsById(funcionario.getId())) {
             if (funcionario.getCpf() == null) {
                 retorno.setMensagem("Insira um CPF.");
                 return ResponseEntity.badRequest().body(retorno);

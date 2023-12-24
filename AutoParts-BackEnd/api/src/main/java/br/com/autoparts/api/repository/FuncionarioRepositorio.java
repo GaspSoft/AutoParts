@@ -13,7 +13,7 @@ import br.com.autoparts.api.model.Funcionario;
 public interface FuncionarioRepositorio extends 
 JpaRepository<Funcionario, Integer> {
    
-    @Query("SELECT f FROM Funcionario f WHERE f.funcionario_id = :id")
+    @Query("SELECT f FROM Funcionario f WHERE f.id = :id")
     Funcionario findByFuncionarioId(Integer id);
     
     Optional <Funcionario> findByEmail(String email);

@@ -81,7 +81,7 @@ public class PecaController implements IPecaController{
         Pecas pecaExist = new Pecas();
 
         for (Pecas peca : pecasList) {
-            if(peca.getPecas_id() == pecas_id){
+            if(peca.getId() == pecas_id){
                 pecaExist = peca;
                 byte[] fotoBytes = peca.getFoto();
                 String base64Foto = Base64.getEncoder().encodeToString(fotoBytes);

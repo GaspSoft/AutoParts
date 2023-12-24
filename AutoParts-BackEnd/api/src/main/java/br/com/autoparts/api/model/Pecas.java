@@ -20,7 +20,7 @@ import lombok.Setter;
 public class Pecas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer pecas_id;
+    private Integer id;
     
     private String nome;
     private String descricao;

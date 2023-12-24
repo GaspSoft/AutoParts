@@ -19,11 +19,11 @@ import lombok.Setter;
 public class Cliente extends Pessoa{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "cliente_id")
-    private Integer cliente_id;
+    @Column(name = "id")
+    private Integer id;
 
     @OneToOne(cascade = CascadeType.ALL) 
-    @JoinColumn(name = "Enderecos_id") 
+    @JoinColumn(name = "enderecos_id") 
     private Endereco endereco;
 
 }

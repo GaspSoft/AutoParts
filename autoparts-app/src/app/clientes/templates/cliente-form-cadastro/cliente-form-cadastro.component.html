@@ -56,18 +56,18 @@
         </div>
       </div>
     </div>
-    
+
     <div class="row d-flex justify-content-center">
       <div class="col-6">
         <div class="form-floating mb-3">
           <input type="password" [(ngModel)]="confirmarSenha" (ngModelChange)="verificarSenhas()" name="confirmarSenha" class="form-control" id="floatingInputConfirmarSenha" placeholder="Confirmar Senha">
           <label for="floatingInputConfirmarSenha">Confirmar Senha</label>
-          <div *ngIf="senhaNaoCoincide && cliente.senha && confirmarSenha" class="text-danger m-2">       
+          <div *ngIf="senhaNaoCoincide && cliente.senha && confirmarSenha" class="text-danger m-2">
             As senhas não coincidem...
           </div>
         </div>
       </div>
-    </div>    
+    </div>
 
     <div class="row d-flex justify-content-center">
       <div class="col-3">
@@ -152,5 +152,7 @@
         <a class="terms cursor-pointer" (click)="linkClienteLogin()">Já é um membro? <u><strong>Entre em sua Conta</strong></u></a>
       </div>
     </div>
+
+    {{cliente | json }}
   </form>
 </div>

@@ -15,12 +15,12 @@ import lombok.Setter;
 public class Fornecedor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer fornecedor_id;
+    private Integer id;
     private Long cnpj;
     private String nome;
    
-    public Fornecedor(Integer fornecedor_id) {
-        this.fornecedor_id = fornecedor_id;
+    public Fornecedor(Integer id) {
+        this.id = id;
     }
     public Fornecedor() {
     }

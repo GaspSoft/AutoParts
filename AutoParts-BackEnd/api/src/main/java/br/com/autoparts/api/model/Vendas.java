@@ -22,7 +22,7 @@ public class Vendas {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer vendas_id;
+    private Integer id;
     
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "pecas_id")

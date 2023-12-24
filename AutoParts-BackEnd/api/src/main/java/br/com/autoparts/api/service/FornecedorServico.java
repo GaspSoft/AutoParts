@@ -79,8 +79,8 @@ public class FornecedorServico implements IFornecedorServico{
     }
 
     public ResponseEntity<?> alterarFornecedor(Fornecedor f) {
-        if (f.getFornecedor_id() != null) {
-            Fornecedor fornecedor = fornecedorRepositorio.findById(f.getFornecedor_id()).get();
+        if (f.getId() != null) {
+            Fornecedor fornecedor = fornecedorRepositorio.findById(f.getId()).get();
             if (fornecedor == null) {
                 retorno.setMensagem("Forcedor não encontrado.");
                 return ResponseEntity.badRequest().body(retorno);

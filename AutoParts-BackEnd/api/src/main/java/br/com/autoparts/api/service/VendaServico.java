@@ -42,9 +42,9 @@ public class VendaServico implements IVendaServico{
 
     public ResponseEntity<?> cadastrarVenda(Vendas venda) {
 
-        if (venda.getPeca().getFornecedor().getFornecedor_id() == null
-                || venda.getCliente().getCliente_id() == null
-                || venda.getPeca().getPecas_id() == null
+        if (venda.getPeca().getFornecedor().getId() == null
+                || venda.getCliente().getId() == null
+                || venda.getPeca().getId() == null
 
         ) {
             retorno.setMensagem("Um ou mais campos da venda são nulos.");
@@ -52,10 +52,10 @@ public class VendaServico implements IVendaServico{
         }
 
 
-        Optional<Cliente> clienteExist = clienteRepositorio.findById(venda.getCliente().getCliente_id());
+        Optional<Cliente> clienteExist = clienteRepositorio.findById(venda.getCliente().getId());
         Optional<Fornecedor> fornecedorExist = fornecedorRepositorio
-                .findById(venda.getPeca().getFornecedor().getFornecedor_id());
-        Optional<Pecas> pecaExist = pecaRepositorio.findById(venda.getPeca().getPecas_id());
+                .findById(venda.getPeca().getFornecedor().getId());
+        Optional<Pecas> pecaExist = pecaRepositorio.findById(venda.getPeca().getId());
         if (!clienteExist.isPresent()) {
             retorno.setMensagem("Cliente não encontrado.");
             return ResponseEntity.badRequest().body(retorno);
@@ -80,7 +80,7 @@ public class VendaServico implements IVendaServico{
         }
 
 
-        pecaServico.diminuirEstoque(venda.getPeca().getPecas_id());
+        pecaServico.diminuirEstoque(venda.getPeca().getId());
 
         vendaRepositorio.save(venda);
         retorno.setMensagem("Venda(s) cadastrada(s) com sucesso.");

@@ -64,7 +64,7 @@ public class PecasServico implements IPecasService{
             return ResponseEntity.badRequest().body(retorno);
         }
 
-        Optional<Pecas> pecaExistenteOptional = pecasRepositorio.findById(pecas.getPecas_id());
+        Optional<Pecas> pecaExistenteOptional = pecasRepositorio.findById(pecas.getId());
         if (pecaExistenteOptional.isPresent()) {
             Pecas pecaExistente = pecaExistenteOptional.get();
 
