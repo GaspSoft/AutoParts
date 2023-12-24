@@ -22,26 +22,26 @@ public class FornecedorServico implements IFornecedorServico{
     @Autowired
     private PecasServico pecasService;
 
-    public ResponseEntity<?> cadastrarFornecedor(Fornecedor f){
+    public ResponseEntity<?> cadastrarFornecedor(Fornecedor fornecedor){
 
-        if (f.getCnpj() == null) {
+        if (fornecedor.getCnpj() == null) {
             retorno.setMensagem("Insira o CNPJ da empresa.");
             return ResponseEntity.badRequest().body(retorno);
         }
-        if (f.getNome() == null || f.getNome().isEmpty()) {
+        if (fornecedor.getNome() == null || fornecedor.getNome().isEmpty()) {
             retorno.setMensagem("Insira o nome da empresa.");
             return ResponseEntity.badRequest().body(retorno);
         }
 
-        if (f.getCnpj() != null) {
-            List<Fornecedor> fornecedoresByCnpj = repository.findByCnpj(f.getCnpj());
+        if (fornecedor.getCnpj() != null) {
+            List<Fornecedor> fornecedoresByCnpj = repository.findByCnpj(fornecedor.getCnpj());
             if (!fornecedoresByCnpj.isEmpty()) {
                 retorno.setMensagem("CNPJ já cadastrado.");
                 return ResponseEntity.badRequest().body(retorno);
             } else {
                 retorno.setMensagem("Fornecedor cadastrado com sucesso.");
-                repository.save(f);
-                return ResponseEntity.ok(f);
+                repository.save(fornecedor);
+                return ResponseEntity.ok(fornecedor);
             }
         } else {
             retorno.setMensagem("O CNPJ do fornecedor é nulo.");
@@ -53,50 +53,50 @@ public class FornecedorServico implements IFornecedorServico{
         return ResponseEntity.ok(repository.findAll());
     }
 
-    public ResponseEntity<?> deletarFornecedor(Integer fornecedor_id) {
-        Fornecedor fornecedor = repository.findById(fornecedor_id).get();
-        List<Pecas> pecasListFornecedor = pecasService.listarPorFornecedor(fornecedor);
+    public ResponseEntity<?> deletarFornecedor(Integer id) {
+        Fornecedor fornecedorById = repository.findById(id).get();
+        List<Pecas> pecasListFornecedor = pecasService.listarPorFornecedor(fornecedorById);
         if (!pecasListFornecedor.isEmpty()) {
             retorno.setMensagem("Não é possível deletar o fornecedor, pois existem peças cadastradas.");
             return ResponseEntity.badRequest().body(retorno);
         } else {
 
             retorno.setMensagem("Fornecedor deletado com sucesso.");
-            repository.delete(fornecedor);
-            return ResponseEntity.ok(fornecedor);
+            repository.delete(fornecedorById);
+            return ResponseEntity.ok(fornecedorById);
         }
 
     }
 
-    public ResponseEntity<?> selecionarPorID(Integer fornecedor_id) {
-        if (fornecedor_id != null) {
-            Fornecedor fornecedor = repository.findById(fornecedor_id).get();
-            return ResponseEntity.ok(fornecedor);
+    public ResponseEntity<?> selecionarPorID(Integer id) {
+        if (id != null) {
+            Fornecedor fornecedorById = repository.findById(id).get();
+            return ResponseEntity.ok(fornecedorById);
         } else {
             retorno.setMensagem("O ID do fornecedor é nulo.");
             return ResponseEntity.badRequest().body(retorno);
         }
     }
 
-    public ResponseEntity<?> alterarFornecedor(Fornecedor f) {
-        if (f.getId() != null) {
-            Fornecedor fornecedor = repository.findById(f.getId()).get();
-            if (fornecedor == null) {
+    public ResponseEntity<?> alterarFornecedor(Fornecedor fornecedor) {
+        if (fornecedor.getId() != null) {
+            Fornecedor fornecedorById = repository.findById(fornecedor.getId()).get();
+            if (fornecedorById == null) {
                 retorno.setMensagem("Forcedor não encontrado.");
                 return ResponseEntity.badRequest().body(retorno);
             } else {
-                if (f.getCnpj() == null) {
+                if (fornecedor.getCnpj() == null) {
                     retorno.setMensagem("Insira o CNPJ da empresa.");
                     return ResponseEntity.badRequest().body(retorno);
                 }
-                if (f.getNome() == null || f.getNome().isEmpty()) {
+                if (fornecedor.getNome() == null || fornecedor.getNome().isEmpty()) {
                     retorno.setMensagem("Insira o nome da empresa.");
                     return ResponseEntity.badRequest().body(retorno);
                 }
                 retorno.setMensagem("Fornecedor alterado com sucesso.");
-                fornecedor.setNome(f.getNome());
-                repository.save(fornecedor);
-                return ResponseEntity.ok(fornecedor);
+                fornecedorById.setNome(fornecedor.getNome());
+                repository.save(fornecedorById);
+                return ResponseEntity.ok(fornecedorById);
             }
         } else {
             retorno.setMensagem("O Id do fornecedor é nulo.");
