@@ -9,6 +9,7 @@ import br.com.autoparts.api.model.Funcionario;
 import br.com.autoparts.api.service.FuncionarioServico;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,35 +18,35 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @CrossOrigin(origins = "*")
 @RestController
+@RequestMapping("funcionario")
 public class FuncionarioController  implements IFuncionarioController{
     @Autowired
     FuncionarioServico funcionario;
 
-    @PostMapping("/funcionario")
+    @PostMapping()
     public ResponseEntity<?> cadastrarFuncionario(@RequestBody Funcionario f) {
 
         return funcionario.cadastrarFuncionario(f);
     }
 
-    @PutMapping("/funcionario")
+    @PutMapping()
     public ResponseEntity<?> alterarFuncionario(@RequestBody Funcionario f) {
 
         return funcionario.alterarFuncionario(f);
     }
 
-    @GetMapping("/funcionario")
+    @GetMapping()
     public ResponseEntity<?> listarFuncionarios() {
         return funcionario.listarFuncionarios();
     }
 
-    @GetMapping("/funcionario/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<?> selecionarioPorId(@PathVariable Integer id) {
         return funcionario.ListarPorId(id);
     }
 
-    @DeleteMapping("/funcionario/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deletaPorId(@PathVariable Integer id) {
-
         return funcionario.deletarFuncionario(id);
     }
 }

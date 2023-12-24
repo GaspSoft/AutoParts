@@ -44,21 +44,21 @@ public class ClienteController implements IClienteController {
      }
 
     // Deletar cliente
-    @DeleteMapping("/{cliente_id}")
-    public ResponseEntity<?> deletarCliente(@PathVariable Integer cliente_id){
-        return servico.deletarCliente(cliente_id);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletarCliente(@PathVariable Integer id){
+        return servico.deletarCliente(id);
     }
 
     // Selecionar pelo id
-    @GetMapping("/{cliente_id}")
-    public ResponseEntity<?> selecionarPorId(@PathVariable Integer cliente_id){
-        return servico.selecionarPorID(cliente_id);
+    @GetMapping("/{id}")
+    public ResponseEntity<?> selecionarPorId(@PathVariable Integer id){
+        return servico.selecionarPorID(id);
     }
 
     // Alterar endereço
-    @PutMapping("/{cliente_id}")
-      public ResponseEntity<?> alterarEndereco(@PathVariable Integer cliente_id, @RequestBody Endereco e){
-         return servico.editarEndereco(cliente_id, e);
+    @PutMapping("/{id}")
+      public ResponseEntity<?> alterarEndereco(@PathVariable Integer id, @RequestBody Endereco e){
+         return servico.editarEndereco(id, e);
     }
 
     

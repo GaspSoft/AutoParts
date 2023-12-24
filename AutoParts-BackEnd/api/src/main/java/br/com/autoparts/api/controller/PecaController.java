@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -25,13 +26,13 @@ import br.com.autoparts.api.service.PecasServico;
 
 @CrossOrigin(origins = "*")
 @RestController
-
+@RequestMapping("pecas")
 public class PecaController implements IPecaController{
     
     @Autowired
     private PecasServico servico;
 
-    @PostMapping(value = { "/pecas" }, consumes = { "multipart/form-data" })
+    @PostMapping(consumes = { "multipart/form-data" })
     public ResponseEntity<?> salvar(@RequestPart("peca") String pecaJson,
                                      @RequestPart("foto") MultipartFile foto) throws IOException {
     
@@ -45,7 +46,7 @@ public class PecaController implements IPecaController{
         
     }
 
-    @PutMapping(value = { "/pecas" }, consumes = { "multipart/form-data" })
+    @PutMapping(consumes = { "multipart/form-data" })
     public ResponseEntity<?> alterar(@RequestPart("peca") String pecaJson,
                                      @RequestPart("foto") MultipartFile foto) throws IOException {
     
@@ -61,7 +62,7 @@ public class PecaController implements IPecaController{
         
     }
 
-    @GetMapping("/pecas")
+    @GetMapping()
     public List<Pecas> listarTodos() {
         List<Pecas> pecasList = servico.listarTodos();
 
@@ -75,13 +76,13 @@ public class PecaController implements IPecaController{
         return pecasList;
     }
 
-    @GetMapping("/pecas/{pecas_id}")
-    public ResponseEntity<?> listarPorId(@PathVariable Integer pecas_id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<?> listarPorId(@PathVariable Integer id) {
          List<Pecas> pecasList = servico.listarTodos();
         Pecas pecaExist = new Pecas();
 
         for (Pecas peca : pecasList) {
-            if(peca.getId() == pecas_id){
+            if(peca.getId() == id){
                 pecaExist = peca;
                 byte[] fotoBytes = peca.getFoto();
                 String base64Foto = Base64.getEncoder().encodeToString(fotoBytes);
@@ -93,9 +94,9 @@ public class PecaController implements IPecaController{
     
     }
 
-    @DeleteMapping("/pecas/{pecas_id}")
-    public ResponseEntity<?> deletar(@PathVariable Integer pecas_id) {
-        return servico.deletarPeca(pecas_id);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletar(@PathVariable Integer id) {
+        return servico.deletarPeca(id);
     }
     
 }
