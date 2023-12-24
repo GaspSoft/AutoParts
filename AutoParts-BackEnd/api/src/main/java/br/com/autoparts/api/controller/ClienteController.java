@@ -41,7 +41,7 @@ public class ClienteController implements IClienteController {
 
      // Listar todos os cliente
      @GetMapping()
-     public List<Cliente> todosClientes(){
+     public ResponseEntity<?> todosClientes(){
         return servico.listarTodos();
      }
 

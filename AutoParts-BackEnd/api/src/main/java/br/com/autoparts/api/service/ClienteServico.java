@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.ResponseEntity.BodyBuilder;
 import org.springframework.stereotype.Service;
@@ -82,7 +81,6 @@ public class ClienteServico implements IClienteServico{
         
             clienteRepositorio.save(cliente);
             retorno.setMensagem("Cliente salvo com sucesso");
-            // return new ResponseEntity<>(retorno, HttpStatus.CREATED);
             return ResponseEntity.created(null).body(retorno);
         } else {
             retorno.setMensagem("O endereço do cliente é nulo.");
@@ -90,8 +88,8 @@ public class ClienteServico implements IClienteServico{
         }
     }
 
-    public List<Cliente> listarTodos() {
-        return clienteRepositorio.findAll();
+    public ResponseEntity<?> listarTodos() {
+        return ResponseEntity.ok(clienteRepositorio.findAll());
     }
 
     public ResponseEntity<?> alterarCliente(Cliente cliente) {

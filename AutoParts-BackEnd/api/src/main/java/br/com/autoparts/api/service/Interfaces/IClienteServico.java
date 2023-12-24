@@ -9,7 +9,7 @@ import br.com.autoparts.api.model.Endereco;
 
 public interface IClienteServico {
     ResponseEntity<?> cadastrarCliente (Cliente cliente);
-    List<Cliente> listarTodos();
+    ResponseEntity<?> listarTodos();
     ResponseEntity<?> alterarCliente(Cliente cliente);
     ResponseEntity<?> deletarCliente(Integer cliente_id);
     ResponseEntity<?> selecionarPorID(Integer cliente_id);

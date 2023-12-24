@@ -51,14 +51,15 @@ public class FuncionarioServico implements IFuncionarioServico{
             return ResponseEntity.badRequest().body(retorno);
         }
         
-        return new ResponseEntity<>(repoFunc.save(funcionario), HttpStatus.CREATED);
+        retorno.setMensagem("Funcionário salvo com sucesso");
+        return ResponseEntity.created(null).body(retorno);
     }
 
     public ResponseEntity<?> alterarFuncionario(Funcionario funcionario) {
         if (funcionario.getId() == null) {
             retorno.setMensagem("ID não informado");
 
-            return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().body(retorno);
         } else if (repoFunc.existsById(funcionario.getId())) {
             if (funcionario.getCpf() == null) {
                 retorno.setMensagem("Insira um CPF.");
@@ -83,41 +84,37 @@ public class FuncionarioServico implements IFuncionarioServico{
             return new ResponseEntity<>(repoFunc.save(funcionario),HttpStatus.OK);
         }
         retorno.setMensagem("ID não existente");
-        return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
+        return ResponseEntity.badRequest().body(retorno);
 
     }
 
     public ResponseEntity<?> listarFuncionarios() {
-
-        return new ResponseEntity<>(repoFunc.findAll(), HttpStatus.OK);
-
+        return ResponseEntity.ok(repoFunc.findAll());
     }
 
     public ResponseEntity<?> deletarFuncionario(Integer obj) {
         if (obj == null) {
             retorno.setMensagem("ID não informado");
 
-            return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().body(retorno);
         } else if (repoFunc.existsById(obj)) {
             Funcionario funcionario = repoFunc.findByFuncionarioId(obj);
             repoFunc.delete(funcionario);
-            return new ResponseEntity<>(HttpStatus.OK);
+            return (ResponseEntity<?>) ResponseEntity.ok();
         }
         retorno.setMensagem("ID não existente");
-        return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
+        return ResponseEntity.badRequest().body(retorno);
     }
 
     public ResponseEntity<?> ListarPorId(Integer id) {
         if (id == null) {
             retorno.setMensagem("ID não informado");
 
-            return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
+            return ResponseEntity.badRequest().body(retorno);
         } else if (repoFunc.existsById(id)) {
-
-            return new ResponseEntity<>(repoFunc.findByFuncionarioId(id), HttpStatus.OK);
+            return ResponseEntity.ok(repoFunc.findByFuncionarioId(id));
         }
         retorno.setMensagem("ID não existente");
-        return new ResponseEntity<>(retorno, HttpStatus.BAD_REQUEST);
+        return ResponseEntity.badRequest().body(retorno);
     }
-
 }

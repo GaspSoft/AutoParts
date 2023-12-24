@@ -12,7 +12,7 @@ import br.com.autoparts.api.model.Endereco;
 public interface IClienteController {
     ResponseEntity<?> cadastrarCliente(@RequestBody Cliente c);
     ResponseEntity<?> alterarCliente(@RequestBody Cliente c);
-    List<Cliente> todosClientes();
+    ResponseEntity<?> todosClientes();
     ResponseEntity<?> deletarCliente(@PathVariable Integer cliente_id);
     ResponseEntity<?> selecionarPorId(@PathVariable Integer cliente_id);
     ResponseEntity<?> alterarEndereco(@PathVariable Integer cliente_id, @RequestBody Endereco e);
