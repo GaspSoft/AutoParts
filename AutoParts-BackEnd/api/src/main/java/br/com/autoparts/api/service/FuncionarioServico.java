@@ -57,7 +57,7 @@ public class FuncionarioServico implements IFuncionarioServico{
 
     public ResponseEntity<?> alterarFuncionario(Funcionario funcionario) {
         if (funcionario.getId() == null) {
-            retorno.setMensagem("ID não informado");
+            retorno.setMensagem("O identificador do funcionário não foi informado");
 
             return ResponseEntity.badRequest().body(retorno);
         } else if (repository.existsById(funcionario.getId())) {
@@ -83,7 +83,7 @@ public class FuncionarioServico implements IFuncionarioServico{
             }
             return new ResponseEntity<>(repository.save(funcionario),HttpStatus.OK);
         }
-        retorno.setMensagem("ID não existente");
+        retorno.setMensagem("O identificador do funcionário não foi encontrado");
         return ResponseEntity.badRequest().body(retorno);
 
     }
@@ -94,7 +94,7 @@ public class FuncionarioServico implements IFuncionarioServico{
 
     public ResponseEntity<?> deletarFuncionario(Integer id) {
         if (id == null) {
-            retorno.setMensagem("ID não informado");
+            retorno.setMensagem("O identificador do funcionário não foi informado");
 
             return ResponseEntity.badRequest().body(retorno);
         } else if (repository.existsById(id)) {
@@ -102,19 +102,19 @@ public class FuncionarioServico implements IFuncionarioServico{
             repository.delete(funcionarioById);
             return (ResponseEntity<?>) ResponseEntity.ok();
         }
-        retorno.setMensagem("ID não existente");
+        retorno.setMensagem("O identificador do funcionário não foi encontrado");
         return ResponseEntity.badRequest().body(retorno);
     }
 
     public ResponseEntity<?> ListarPorId(Integer id) {
         if (id == null) {
-            retorno.setMensagem("ID não informado");
+            retorno.setMensagem("O identificador do funcionário não foi informado");
 
             return ResponseEntity.badRequest().body(retorno);
         } else if (repository.existsById(id)) {
             return ResponseEntity.ok(repository.findByFuncionarioId(id));
         }
-        retorno.setMensagem("ID não existente");
+        retorno.setMensagem("O identificador do funcionário não foi encontrado");
         return ResponseEntity.badRequest().body(retorno);
     }
 }
