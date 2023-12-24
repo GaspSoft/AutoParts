@@ -1,7 +1,5 @@
 package br.com.autoparts.api.service.Interfaces;
 
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 
 import br.com.autoparts.api.model.Cliente;

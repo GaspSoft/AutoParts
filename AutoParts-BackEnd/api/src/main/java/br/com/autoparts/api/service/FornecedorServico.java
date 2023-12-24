@@ -49,8 +49,8 @@ public class FornecedorServico implements IFornecedorServico{
         }
     }
 
-    public List<Fornecedor> listarTodos() {
-        return fornecedorRepositorio.findAll();
+    public ResponseEntity<?> listarTodos() {
+        return ResponseEntity.ok(fornecedorRepositorio.findAll());
     }
 
     public ResponseEntity<?> deletarFornecedor(Integer fornecedor_id) {
