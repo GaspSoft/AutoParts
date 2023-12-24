@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.ResponseEntity.BodyBuilder;
 import org.springframework.stereotype.Service;
 import br.com.autoparts.api.model.Cliente;
 import br.com.autoparts.api.model.Endereco;
@@ -80,8 +81,9 @@ public class ClienteServico implements IClienteServico{
             cliente.setEndereco(cliente.getEndereco());
         
             clienteRepositorio.save(cliente);
-        
-            return new ResponseEntity<>(retorno, HttpStatus.CREATED);
+            retorno.setMensagem("Cliente salvo com sucesso");
+            // return new ResponseEntity<>(retorno, HttpStatus.CREATED);
+            return ResponseEntity.created(null).body(retorno);
         } else {
             retorno.setMensagem("O endereço do cliente é nulo.");
             return ResponseEntity.badRequest().body(retorno);
@@ -95,7 +97,7 @@ public class ClienteServico implements IClienteServico{
     public ResponseEntity<?> alterarCliente(Cliente cliente) {
         if (cliente.getId() == null) {
             retorno.setMensagem("ID do cliente não informado!");
-            return ResponseEntity.badRequest().body(retorno);
+            return ((BodyBuilder) ResponseEntity.notFound()).body(retorno);
         }
 
         if (clienteRepositorio.existsById(cliente.getId())) {
@@ -111,8 +113,8 @@ public class ClienteServico implements IClienteServico{
             return ResponseEntity.ok().body(clienteExistente);
         } else {
             retorno.setMensagem("Cliente não encontrado!");
-            //return ResponseEntity.notFound().body(retorno);
-            return new ResponseEntity<>(retorno, HttpStatus.NOT_FOUND);
+            //==return ResponseEntity.notFound().body(retorno);
+            return ((BodyBuilder) ResponseEntity.notFound()).body(retorno);
         }
     }
 
@@ -126,8 +128,7 @@ public class ClienteServico implements IClienteServico{
             return ResponseEntity.badRequest().body(retorno);
         } else {
             retorno.setMensagem("Nenhum cliente encontrado pelo id!");
-            return new ResponseEntity<>(retorno, HttpStatus.NOT_FOUND);
-
+            return ((BodyBuilder) ResponseEntity.notFound()).body(retorno);
         }
 
     }
@@ -138,7 +139,7 @@ public class ClienteServico implements IClienteServico{
             return ResponseEntity.ok().body(clienteExistente);
         } else {
             retorno.setMensagem("Nenhum cliente encontrado pelo id!");
-            return new ResponseEntity<>(retorno, HttpStatus.NOT_FOUND);
+            return ((BodyBuilder) ResponseEntity.notFound()).body(retorno);
         }
 
     }
@@ -154,7 +155,7 @@ public class ClienteServico implements IClienteServico{
             return ResponseEntity.ok().body(clienteExistente);
         } else {
             retorno.setMensagem("Nenhum cliente encontrado pelo id!");
-            return new ResponseEntity<>(retorno, HttpStatus.NOT_FOUND);
+            return ((BodyBuilder) ResponseEntity.notFound()).body(retorno);
         }
     }
 
