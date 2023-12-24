@@ -17,10 +17,10 @@ public class FornecedorServico implements IFornecedorServico{
     private Retorno retorno;
 
     @Autowired
-    private FornecedorRepositorio fornecedorRepositorio;
+    private FornecedorRepositorio repository;
 
     @Autowired
-    private PecasServico pecasServico;
+    private PecasServico pecasService;
 
     public ResponseEntity<?> cadastrarFornecedor(Fornecedor f){
 
@@ -34,13 +34,13 @@ public class FornecedorServico implements IFornecedorServico{
         }
 
         if (f.getCnpj() != null) {
-            List<Fornecedor> fornecedoresByCnpj = fornecedorRepositorio.findByCnpj(f.getCnpj());
+            List<Fornecedor> fornecedoresByCnpj = repository.findByCnpj(f.getCnpj());
             if (!fornecedoresByCnpj.isEmpty()) {
                 retorno.setMensagem("CNPJ já cadastrado.");
                 return ResponseEntity.badRequest().body(retorno);
             } else {
                 retorno.setMensagem("Fornecedor cadastrado com sucesso.");
-                fornecedorRepositorio.save(f);
+                repository.save(f);
                 return ResponseEntity.ok(f);
             }
         } else {
@@ -50,19 +50,19 @@ public class FornecedorServico implements IFornecedorServico{
     }
 
     public ResponseEntity<?> listarTodos() {
-        return ResponseEntity.ok(fornecedorRepositorio.findAll());
+        return ResponseEntity.ok(repository.findAll());
     }
 
     public ResponseEntity<?> deletarFornecedor(Integer fornecedor_id) {
-        Fornecedor fornecedor = fornecedorRepositorio.findById(fornecedor_id).get();
-        List<Pecas> pecasListFornecedor = pecasServico.listarPorFornecedor(fornecedor);
+        Fornecedor fornecedor = repository.findById(fornecedor_id).get();
+        List<Pecas> pecasListFornecedor = pecasService.listarPorFornecedor(fornecedor);
         if (!pecasListFornecedor.isEmpty()) {
             retorno.setMensagem("Não é possível deletar o fornecedor, pois existem peças cadastradas.");
             return ResponseEntity.badRequest().body(retorno);
         } else {
 
             retorno.setMensagem("Fornecedor deletado com sucesso.");
-            fornecedorRepositorio.delete(fornecedor);
+            repository.delete(fornecedor);
             return ResponseEntity.ok(fornecedor);
         }
 
@@ -70,7 +70,7 @@ public class FornecedorServico implements IFornecedorServico{
 
     public ResponseEntity<?> selecionarPorID(Integer fornecedor_id) {
         if (fornecedor_id != null) {
-            Fornecedor fornecedor = fornecedorRepositorio.findById(fornecedor_id).get();
+            Fornecedor fornecedor = repository.findById(fornecedor_id).get();
             return ResponseEntity.ok(fornecedor);
         } else {
             retorno.setMensagem("O ID do fornecedor é nulo.");
@@ -80,7 +80,7 @@ public class FornecedorServico implements IFornecedorServico{
 
     public ResponseEntity<?> alterarFornecedor(Fornecedor f) {
         if (f.getId() != null) {
-            Fornecedor fornecedor = fornecedorRepositorio.findById(f.getId()).get();
+            Fornecedor fornecedor = repository.findById(f.getId()).get();
             if (fornecedor == null) {
                 retorno.setMensagem("Forcedor não encontrado.");
                 return ResponseEntity.badRequest().body(retorno);
@@ -95,7 +95,7 @@ public class FornecedorServico implements IFornecedorServico{
                 }
                 retorno.setMensagem("Fornecedor alterado com sucesso.");
                 fornecedor.setNome(f.getNome());
-                fornecedorRepositorio.save(fornecedor);
+                repository.save(fornecedor);
                 return ResponseEntity.ok(fornecedor);
             }
         } else {

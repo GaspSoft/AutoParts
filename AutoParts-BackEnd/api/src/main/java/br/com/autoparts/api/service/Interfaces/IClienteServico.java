@@ -9,8 +9,8 @@ public interface IClienteServico {
     ResponseEntity<?> cadastrarCliente (Cliente cliente);
     ResponseEntity<?> listarTodos();
     ResponseEntity<?> alterarCliente(Cliente cliente);
-    ResponseEntity<?> deletarCliente(Integer cliente_id);
-    ResponseEntity<?> selecionarPorID(Integer cliente_id);
-    ResponseEntity<?> editarEndereco(Integer cliente_id, Endereco e);
-    Cliente buscarClientePorId(Integer cliente_id) ;
+    ResponseEntity<?> deletarCliente(Integer id);
+    ResponseEntity<?> selecionarPorID(Integer id);
+    ResponseEntity<?> editarEndereco(Integer id, Endereco e);
+    Cliente buscarClientePorId(Integer id) ;
 }

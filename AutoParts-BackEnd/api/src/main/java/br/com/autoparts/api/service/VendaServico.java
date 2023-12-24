@@ -24,16 +24,16 @@ public class VendaServico implements IVendaServico{
     private Retorno retorno;
 
     @Autowired
-    private VendasRepositorio vendaRepositorio;
+    private VendasRepositorio repository;
 
     @Autowired
-    private PecasServico pecaServico;
+    private PecasServico pecaService;
     
     @Autowired
-    private PecasRepositorio pecaRepositorio;
+    private PecasRepositorio pecaRepository;
 
     @Autowired
-    private ClienteRepositorio clienteRepositorio;
+    private ClienteRepositorio clienteRepository;
 
 
     @Autowired
@@ -51,10 +51,10 @@ public class VendaServico implements IVendaServico{
         }
 
 
-        Optional<Cliente> clienteExist = clienteRepositorio.findById(venda.getCliente().getId());
+        Optional<Cliente> clienteExist = clienteRepository.findById(venda.getCliente().getId());
         Optional<Fornecedor> fornecedorExist = fornecedorRepositorio
                 .findById(venda.getPeca().getFornecedor().getId());
-        Optional<Pecas> pecaExist = pecaRepositorio.findById(venda.getPeca().getId());
+        Optional<Pecas> pecaExist = pecaRepository.findById(venda.getPeca().getId());
         if (!clienteExist.isPresent()) {
             retorno.setMensagem("Cliente não encontrado.");
             return ResponseEntity.badRequest().body(retorno);
@@ -79,15 +79,15 @@ public class VendaServico implements IVendaServico{
         }
 
 
-        pecaServico.diminuirEstoque(venda.getPeca().getId());
+        pecaService.diminuirEstoque(venda.getPeca().getId());
 
-        vendaRepositorio.save(venda);
+        repository.save(venda);
         retorno.setMensagem("Venda(s) cadastrada(s) com sucesso.");
         return ResponseEntity.created(null).body(retorno);
     }
 
     public ResponseEntity<?> listarVendas() {
-        List<Vendas> vendas = vendaRepositorio.findAll();
+        List<Vendas> vendas = repository.findAll();
         if (vendas.isEmpty()) {
             retorno.setMensagem("Não há vendas cadastradas.");
             return ResponseEntity.badRequest().body(retorno);
@@ -97,8 +97,8 @@ public class VendaServico implements IVendaServico{
     }
 @Override
     public ResponseEntity<?> listarClientePorId(Integer id) {
-        Cliente cliente = clienteRepositorio.findByClienteId(id);
-        List<Vendas> vendas = vendaRepositorio.findByCliente(cliente);
+        Cliente cliente = clienteRepository.findByClienteId(id);
+        List<Vendas> vendas = repository.findByCliente(cliente);
         return ResponseEntity.ok(vendas);
     }
 

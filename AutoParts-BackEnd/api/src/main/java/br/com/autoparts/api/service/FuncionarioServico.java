@@ -15,7 +15,7 @@ import br.com.autoparts.api.service.Interfaces.IFuncionarioServico;
 @Service
 public class FuncionarioServico implements IFuncionarioServico{
     @Autowired
-    private FuncionarioRepositorio repoFunc;
+    private FuncionarioRepositorio repository;
     @Autowired
     private Retorno retorno;
 
@@ -40,12 +40,12 @@ public class FuncionarioServico implements IFuncionarioServico{
             retorno.setMensagem("Insira um cargo.");
             return ResponseEntity.badRequest().body(retorno);
         }
-        Optional<Funcionario> funcionariosByEmail = repoFunc.findByEmail(funcionario.getEmail());
+        Optional<Funcionario> funcionariosByEmail = repository.findByEmail(funcionario.getEmail());
         if (!funcionariosByEmail.isEmpty() ){
              retorno.setMensagem("Email já registrado.");
             return ResponseEntity.badRequest().body(retorno);
         }
-        Optional<Funcionario> funcionariosByCpf = repoFunc.findByCpf(funcionario.getCpf());
+        Optional<Funcionario> funcionariosByCpf = repository.findByCpf(funcionario.getCpf());
         if (!funcionariosByCpf.isEmpty() ){
             retorno.setMensagem("CPF já registrado.");
             return ResponseEntity.badRequest().body(retorno);
@@ -60,7 +60,7 @@ public class FuncionarioServico implements IFuncionarioServico{
             retorno.setMensagem("ID não informado");
 
             return ResponseEntity.badRequest().body(retorno);
-        } else if (repoFunc.existsById(funcionario.getId())) {
+        } else if (repository.existsById(funcionario.getId())) {
             if (funcionario.getCpf() == null) {
                 retorno.setMensagem("Insira um CPF.");
                 return ResponseEntity.badRequest().body(retorno);
@@ -81,7 +81,7 @@ public class FuncionarioServico implements IFuncionarioServico{
                 retorno.setMensagem("Insira um cargo.");
                 return ResponseEntity.badRequest().body(retorno);
             }
-            return new ResponseEntity<>(repoFunc.save(funcionario),HttpStatus.OK);
+            return new ResponseEntity<>(repository.save(funcionario),HttpStatus.OK);
         }
         retorno.setMensagem("ID não existente");
         return ResponseEntity.badRequest().body(retorno);
@@ -89,7 +89,7 @@ public class FuncionarioServico implements IFuncionarioServico{
     }
 
     public ResponseEntity<?> listarFuncionarios() {
-        return ResponseEntity.ok(repoFunc.findAll());
+        return ResponseEntity.ok(repository.findAll());
     }
 
     public ResponseEntity<?> deletarFuncionario(Integer obj) {
@@ -97,9 +97,9 @@ public class FuncionarioServico implements IFuncionarioServico{
             retorno.setMensagem("ID não informado");
 
             return ResponseEntity.badRequest().body(retorno);
-        } else if (repoFunc.existsById(obj)) {
-            Funcionario funcionario = repoFunc.findByFuncionarioId(obj);
-            repoFunc.delete(funcionario);
+        } else if (repository.existsById(obj)) {
+            Funcionario funcionario = repository.findByFuncionarioId(obj);
+            repository.delete(funcionario);
             return (ResponseEntity<?>) ResponseEntity.ok();
         }
         retorno.setMensagem("ID não existente");
@@ -111,8 +111,8 @@ public class FuncionarioServico implements IFuncionarioServico{
             retorno.setMensagem("ID não informado");
 
             return ResponseEntity.badRequest().body(retorno);
-        } else if (repoFunc.existsById(id)) {
-            return ResponseEntity.ok(repoFunc.findByFuncionarioId(id));
+        } else if (repository.existsById(id)) {
+            return ResponseEntity.ok(repository.findByFuncionarioId(id));
         }
         retorno.setMensagem("ID não existente");
         return ResponseEntity.badRequest().body(retorno);

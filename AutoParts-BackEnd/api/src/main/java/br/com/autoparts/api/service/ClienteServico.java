@@ -21,7 +21,7 @@ public class ClienteServico implements IClienteServico{
     private Retorno retorno;
 
     @Autowired
-    private ClienteRepositorio clienteRepositorio;
+    private ClienteRepositorio repository;
 
     @Autowired
     private EnderecoRepositorio enderecoRepositorio;
@@ -29,8 +29,8 @@ public class ClienteServico implements IClienteServico{
     public ResponseEntity<?> cadastrarCliente(Cliente cliente){
         if (cliente.getEndereco() != null) {
 
-            Optional<Cliente> clientesByEmail = clienteRepositorio.findByEmail(cliente.getEmail());
-            List<Cliente> clientesBySenha = clienteRepositorio.findByCpf(cliente.getCpf());
+            Optional<Cliente> clientesByEmail = repository.findByEmail(cliente.getEmail());
+            List<Cliente> clientesBySenha = repository.findByCpf(cliente.getCpf());
             if(cliente.getCpf() == null) {
                 retorno.setMensagem("Insira um CPF.");
                 return ResponseEntity.badRequest().body(retorno);
@@ -79,7 +79,7 @@ public class ClienteServico implements IClienteServico{
             enderecoRepositorio.save(cliente.getEndereco());
             cliente.setEndereco(cliente.getEndereco());
         
-            clienteRepositorio.save(cliente);
+            repository.save(cliente);
             retorno.setMensagem("Cliente salvo com sucesso");
             return ResponseEntity.created(null).body(retorno);
         } else {
@@ -89,7 +89,7 @@ public class ClienteServico implements IClienteServico{
     }
 
     public ResponseEntity<?> listarTodos() {
-        return ResponseEntity.ok(clienteRepositorio.findAll());
+        return ResponseEntity.ok(repository.findAll());
     }
 
     public ResponseEntity<?> alterarCliente(Cliente cliente) {
@@ -98,16 +98,16 @@ public class ClienteServico implements IClienteServico{
             return ((BodyBuilder) ResponseEntity.notFound()).body(retorno);
         }
 
-        if (clienteRepositorio.existsById(cliente.getId())) {
+        if (repository.existsById(cliente.getId())) {
 
-            Cliente clienteExistente = clienteRepositorio.findByClienteId(cliente.getId());
+            Cliente clienteExistente = repository.findByClienteId(cliente.getId());
 
 
             clienteExistente.setCpf(cliente.getCpf());
             clienteExistente.setNome(cliente.getNome());
             clienteExistente.setEmail(cliente.getEmail());
             clienteExistente.setSenha(cliente.getSenha());
-            clienteRepositorio.save(clienteExistente);
+            repository.save(clienteExistente);
             return ResponseEntity.ok().body(clienteExistente);
         } else {
             retorno.setMensagem("Cliente não encontrado!");
@@ -116,11 +116,11 @@ public class ClienteServico implements IClienteServico{
         }
     }
 
-    public ResponseEntity<?> deletarCliente(Integer cliente_id) {
-        if (clienteRepositorio.existsById(cliente_id)) {
+    public ResponseEntity<?> deletarCliente(Integer id) {
+        if (repository.existsById(id)) {
 
-            Cliente clienteExistente = clienteRepositorio.findByClienteId(cliente_id);
-            clienteRepositorio.delete(clienteExistente);
+            Cliente clienteExistente = repository.findByClienteId(id);
+            repository.delete(clienteExistente);
             retorno.setMensagem("Deletado");
 
             return ResponseEntity.badRequest().body(retorno);
@@ -131,9 +131,9 @@ public class ClienteServico implements IClienteServico{
 
     }
 
-    public ResponseEntity<?> selecionarPorID(Integer cliente_id) {
-        if (clienteRepositorio.existsById(cliente_id)) {
-            Cliente clienteExistente = clienteRepositorio.findByClienteId(cliente_id);
+    public ResponseEntity<?> selecionarPorID(Integer id) {
+        if (repository.existsById(id)) {
+            Cliente clienteExistente = repository.findByClienteId(id);
             return ResponseEntity.ok().body(clienteExistente);
         } else {
             retorno.setMensagem("Nenhum cliente encontrado pelo id!");
@@ -142,13 +142,13 @@ public class ClienteServico implements IClienteServico{
 
     }
 
-    public ResponseEntity<?> editarEndereco(Integer cliente_id, Endereco e) {
+    public ResponseEntity<?> editarEndereco(Integer id, Endereco e) {
 
-        if (clienteRepositorio.existsById(cliente_id)) {
+        if (repository.existsById(id)) {
 
-            Cliente clienteExistente = clienteRepositorio.findByClienteId(cliente_id);
+            Cliente clienteExistente = repository.findByClienteId(id);
             clienteExistente.setEndereco(e);
-            clienteRepositorio.save(clienteExistente);
+            repository.save(clienteExistente);
 
             return ResponseEntity.ok().body(clienteExistente);
         } else {
@@ -157,7 +157,7 @@ public class ClienteServico implements IClienteServico{
         }
     }
 
-    public Cliente buscarClientePorId(Integer cliente_id) {
-        return clienteRepositorio.findByClienteId(cliente_id);
+    public Cliente buscarClientePorId(Integer id) {
+        return repository.findByClienteId(id);
     }
 }
