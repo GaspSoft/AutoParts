@@ -92,14 +92,14 @@ public class FuncionarioServico implements IFuncionarioServico{
         return ResponseEntity.ok(repository.findAll());
     }
 
-    public ResponseEntity<?> deletarFuncionario(Integer obj) {
-        if (obj == null) {
+    public ResponseEntity<?> deletarFuncionario(Integer id) {
+        if (id == null) {
             retorno.setMensagem("ID não informado");
 
             return ResponseEntity.badRequest().body(retorno);
-        } else if (repository.existsById(obj)) {
-            Funcionario funcionario = repository.findByFuncionarioId(obj);
-            repository.delete(funcionario);
+        } else if (repository.existsById(id)) {
+            Funcionario funcionarioById = repository.findByFuncionarioId(id);
+            repository.delete(funcionarioById);
             return (ResponseEntity<?>) ResponseEntity.ok();
         }
         retorno.setMensagem("ID não existente");

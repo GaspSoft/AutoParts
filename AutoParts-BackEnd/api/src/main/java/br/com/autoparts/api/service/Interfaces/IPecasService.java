@@ -12,7 +12,7 @@ public interface IPecasService {
      ResponseEntity<?> alterarPecas(Pecas p);
      List<Pecas> listarTodos();
      List<Pecas> listarPorFornecedor(Fornecedor fornecedor);
-     ResponseEntity<?> buscarPeca(Integer pecas_id);
-     ResponseEntity<?> deletarPeca(Integer pecas_id);
-      void diminuirEstoque(Integer pecas_id);
+     ResponseEntity<?> buscarPeca(Integer id);
+     ResponseEntity<?> deletarPeca(Integer id);
+      void diminuirEstoque(Integer id);
 }

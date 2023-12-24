@@ -8,6 +8,6 @@ public interface IFuncionarioServico {
      ResponseEntity<?> cadastrarFuncionario(Funcionario funcionario);
      ResponseEntity<?> alterarFuncionario(Funcionario funcionario);
      ResponseEntity<?> listarFuncionarios();
-     ResponseEntity<?> deletarFuncionario(Integer obj);
+     ResponseEntity<?> deletarFuncionario(Integer id);
      ResponseEntity<?> ListarPorId(Integer id);
 }

@@ -79,8 +79,8 @@ public class PecasServico implements IPecasService{
 
     }
 
-    public ResponseEntity<?> alterarPecas(Pecas p) {
-        return cadastrarPecas(p);
+    public ResponseEntity<?> alterarPecas(Pecas peca) {
+        return cadastrarPecas(peca);
     }
 
     public List<Pecas> listarTodos() {
@@ -91,9 +91,9 @@ public class PecasServico implements IPecasService{
         return repository.findByFornecedor(fornecedor);
     }
 
-    public ResponseEntity<?> buscarPeca(Integer pecas_id) {
+    public ResponseEntity<?> buscarPeca(Integer id) {
 
-        Optional<Pecas> peca = repository.findById(pecas_id);
+        Optional<Pecas> peca = repository.findById(id);
         if (peca.isPresent()) {
             return ResponseEntity.ok(peca.get());
         } else {
@@ -102,10 +102,10 @@ public class PecasServico implements IPecasService{
         }           
     }
 
-    public ResponseEntity<?> deletarPeca(Integer pecas_id) {
-        Optional<Pecas> peca = repository.findById(pecas_id);
+    public ResponseEntity<?> deletarPeca(Integer id) {
+        Optional<Pecas> peca = repository.findById(id);
         if (peca.isPresent()) {
-            repository.deleteById(pecas_id);
+            repository.deleteById(id);
             retorno.setMensagem("Peça salva com sucesso.");
             return ResponseEntity.ok(retorno);
         } else {
@@ -114,8 +114,8 @@ public class PecasServico implements IPecasService{
         }
     }
 
-    public void diminuirEstoque(Integer pecas_id) {
-        Optional<Pecas> peca = repository.findById(pecas_id);
+    public void diminuirEstoque(Integer id) {
+        Optional<Pecas> peca = repository.findById(id);
         if (peca.isPresent()) {
             Pecas p = peca.get();
             p.setQuantidade(p.getQuantidade() - 1);
