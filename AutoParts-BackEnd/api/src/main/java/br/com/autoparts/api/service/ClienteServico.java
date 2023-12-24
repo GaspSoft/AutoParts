@@ -83,7 +83,7 @@ public class ClienteServico implements IClienteServico{
             retorno.setMensagem("Cliente salvo com sucesso");
             return ResponseEntity.created(null).body(retorno);
         } else {
-            retorno.setMensagem("O endereço do cliente é nulo.");
+            retorno.setMensagem("O endereço do cliente é inválido.");
             return ResponseEntity.badRequest().body(retorno);
         }
     }
@@ -94,7 +94,7 @@ public class ClienteServico implements IClienteServico{
 
     public ResponseEntity<?> alterarCliente(Cliente cliente) {
         if (cliente.getId() == null) {
-            retorno.setMensagem("ID do cliente não informado!");
+            retorno.setMensagem("O identificador do cliente não foi informado corretamente!");
             return ((BodyBuilder) ResponseEntity.notFound()).body(retorno);
         }
 
@@ -110,7 +110,7 @@ public class ClienteServico implements IClienteServico{
             repository.save(clienteExistente);
             return ResponseEntity.ok().body(clienteExistente);
         } else {
-            retorno.setMensagem("Cliente não encontrado!");
+            retorno.setMensagem("Cliente não foi encontrado!");
             //==return ResponseEntity.notFound().body(retorno);
             return ((BodyBuilder) ResponseEntity.notFound()).body(retorno);
         }
@@ -121,11 +121,11 @@ public class ClienteServico implements IClienteServico{
 
             Cliente clienteExistente = repository.findByClienteId(id);
             repository.delete(clienteExistente);
-            retorno.setMensagem("Deletado");
+            retorno.setMensagem("Cliente deletado com sucesso");
 
             return ResponseEntity.badRequest().body(retorno);
         } else {
-            retorno.setMensagem("Nenhum cliente encontrado pelo id!");
+            retorno.setMensagem("Nenhum cliente encontrado pelo seu identificador");
             return ((BodyBuilder) ResponseEntity.notFound()).body(retorno);
         }
 
@@ -136,7 +136,7 @@ public class ClienteServico implements IClienteServico{
             Cliente clienteExistente = repository.findByClienteId(id);
             return ResponseEntity.ok().body(clienteExistente);
         } else {
-            retorno.setMensagem("Nenhum cliente encontrado pelo id!");
+            retorno.setMensagem("Nenhum cliente encontrado pelo seu identificador");
             return ((BodyBuilder) ResponseEntity.notFound()).body(retorno);
         }
 
@@ -152,7 +152,7 @@ public class ClienteServico implements IClienteServico{
 
             return ResponseEntity.ok().body(clienteExistente);
         } else {
-            retorno.setMensagem("Nenhum cliente encontrado pelo id!");
+            retorno.setMensagem("Nenhum cliente encontrado pelo seu identificador");
             return ((BodyBuilder) ResponseEntity.notFound()).body(retorno);
         }
     }
