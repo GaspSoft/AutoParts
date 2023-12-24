@@ -26,18 +26,22 @@
 
 <h2 align="center">📈 Diagrama de Arquitetura 📈</h2>
 <p align="center">
+  <img src="https://github.com/GaspSoft/AutoParts/assets/86849487/5b0461d7-1afe-4f69-b135-a50b836fb35f">
 </p>
 
 <h2 align="center">📈 Diagrama de Classes 📈</h2>
 <p align="center">
+  <img src="https://github.com/GaspSoft/AutoParts/assets/86849487/dbcda1fb-fc16-4eae-bbb6-7cb848263c4f">
 </p>
 
-<h2 align="center">📈 Diagrama de Casosm de Uso 📈</h2>
+<h2 align="center">📈 Diagrama de Casos de Uso 📈</h2>
 <p align="center">
+  <img src="https://github.com/GaspSoft/AutoParts/assets/86849487/bd57a4e3-5e02-495e-9f85-90b7220cd349">
 </p>
 
 <h2 align="center">📈 Diagrama de Entidade e Relacionamento 📈</h2>
 <p align="center">
+    <img src="https://github.com/GaspSoft/AutoParts/assets/86849487/bd301829-b483-46ad-8f67-136d8e47f181">
 </p>
 
 ## Código 📖
