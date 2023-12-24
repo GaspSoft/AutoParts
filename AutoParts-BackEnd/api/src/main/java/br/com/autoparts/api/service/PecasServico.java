@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.ResponseEntity.BodyBuilder;
 import org.springframework.stereotype.Service;
 
 import br.com.autoparts.api.model.Fornecedor;
@@ -75,7 +75,7 @@ public class PecasServico implements IPecasService{
         pecas.setFornecedor(fornecedorPorCnpj.get(0));
         pecasRepositorio.save(pecas);
         retorno.setMensagem("Peça salva com sucesso.");
-        return new ResponseEntity<>(retorno, HttpStatus.CREATED);
+        return ResponseEntity.created(null).body(retorno);
 
     }
 
@@ -94,11 +94,12 @@ public class PecasServico implements IPecasService{
     public ResponseEntity<?> buscarPeca(Integer pecas_id) {
 
         Optional<Pecas> peca = pecasRepositorio.findById(pecas_id);
-        if (peca.isPresent())
-            return new ResponseEntity<>(peca.get(), HttpStatus.OK);
-        else
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Peça não encontrada.");
-
+        if (peca.isPresent()) {
+            return ResponseEntity.ok(peca.get());
+        } else {
+            retorno.setMensagem("Peça não encontrada.");
+            return ((BodyBuilder) ResponseEntity.notFound()).body(retorno);
+        }           
     }
 
     public ResponseEntity<?> deletarPeca(Integer pecas_id) {
@@ -106,9 +107,11 @@ public class PecasServico implements IPecasService{
         if (peca.isPresent()) {
             pecasRepositorio.deleteById(pecas_id);
             retorno.setMensagem("Peça salva com sucesso.");
-            return new ResponseEntity<>(retorno, HttpStatus.OK);
-        } else
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Peça não encontrada.");
+            return ResponseEntity.ok(retorno);
+        } else {
+            retorno.setMensagem("Peça não encontrada.");
+            return ((BodyBuilder) ResponseEntity.notFound()).body(retorno);
+        }
     }
 
     public void diminuirEstoque(Integer pecas_id) {

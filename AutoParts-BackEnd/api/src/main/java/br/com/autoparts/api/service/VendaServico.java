@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -84,7 +83,7 @@ public class VendaServico implements IVendaServico{
 
         vendaRepositorio.save(venda);
         retorno.setMensagem("Venda(s) cadastrada(s) com sucesso.");
-        return new ResponseEntity<>(retorno, HttpStatus.CREATED);
+        return ResponseEntity.created(null).body(retorno);
     }
 
     public ResponseEntity<?> listarVendas() {
@@ -93,13 +92,14 @@ public class VendaServico implements IVendaServico{
             retorno.setMensagem("Não há vendas cadastradas.");
             return ResponseEntity.badRequest().body(retorno);
         }
-        return new ResponseEntity<>(vendas, HttpStatus.OK);
+
+        return ResponseEntity.ok(vendas);
     }
 @Override
     public ResponseEntity<?> listarClientePorId(Integer id) {
         Cliente cliente = clienteRepositorio.findByClienteId(id);
         List<Vendas> vendas = vendaRepositorio.findByCliente(cliente);
-        return new ResponseEntity<>(vendas, HttpStatus.OK);
+        return ResponseEntity.ok(vendas);
     }
 
 
